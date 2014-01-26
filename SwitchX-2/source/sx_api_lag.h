@@ -35,11 +35,11 @@
  */
 sx_status_t
 sx_api_lag_log_verbosity_level_set(
-    const sx_api_handle_t            handle ,
-    const sx_access_cmd_t            cmd ,
-    const sx_log_verbosity_target_t  verbosity_target,
-          sx_verbosity_level_t *     module_verbosity_level_p,
-          sx_verbosity_level_t *     api_verbosity_level_p);
+                                  const sx_api_handle_t            handle ,
+                                  const sx_access_cmd_t            cmd ,
+                                  const sx_log_verbosity_target_t  verbosity_target,
+                                  sx_verbosity_level_t *     module_verbosity_level_p,
+                                  sx_verbosity_level_t *     api_verbosity_level_p);
 
 /**
  *  This function CREATEs/DESTROYs a new/existing LAG ports group in the SDK.
@@ -65,12 +65,12 @@ sx_api_lag_log_verbosity_level_set(
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameter exceeds its range.
  */
 sx_status_t sx_api_lag_port_group_set(
-    const sx_api_handle_t   handle,
-    const sx_access_cmd_t   cmd,
-    const sx_swid_t         swid,
-          sx_port_lag_id_t* lag_port_p,
-    const sx_port_log_id_t* log_port_list_p,
-    const length_t          log_port_num);
+                                     const sx_api_handle_t   handle,
+                                     const sx_access_cmd_t   cmd,
+                                     const sx_swid_t         swid,
+                                     sx_port_lag_id_t* lag_port_p,
+                                     const sx_port_log_id_t* log_port_list_p,
+                                     const length_t          log_port_num);
 
 /**
  *  This function retrieves an existing LAG's ports group from the SDK.
@@ -91,11 +91,11 @@ sx_status_t sx_api_lag_port_group_set(
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameter exceeds its range.
  */
 sx_status_t sx_api_lag_port_group_get(
-    const sx_api_handle_t       handle,
-    const sx_swid_t             swid,
-    const sx_port_lag_id_t      lag_port,
-          sx_port_log_id_t *    log_port_list_p,
-          length_t *            log_port_num_p);
+                                     const sx_api_handle_t       handle,
+                                     const sx_swid_t             swid,
+                                     const sx_port_lag_id_t      lag_port,
+                                     sx_port_log_id_t *    log_port_list_p,
+                                     length_t *            log_port_num_p);
 
 
 /**
@@ -119,10 +119,10 @@ sx_status_t sx_api_lag_port_group_get(
  */
 
 sx_status_t sx_api_lag_port_collector_set(
-	const sx_api_handle_t       handle,
-	const sx_port_log_id_t      lag_log_port,
-	const sx_port_log_id_t      log_port,
-	const sx_collector_mode_t   collector_mode);
+                                         const sx_api_handle_t       handle,
+                                         const sx_port_log_id_t      lag_log_port,
+                                         const sx_port_log_id_t      log_port,
+                                         const sx_collector_mode_t   collector_mode);
 
 /**
  *  This function enables/disables distribution on a specific LAG port.
@@ -146,10 +146,10 @@ sx_status_t sx_api_lag_port_collector_set(
  *  requested
  */
 sx_status_t sx_api_lag_port_distributor_set(
-	const sx_api_handle_t       handle,
-	const sx_port_log_id_t      lag_log_port,
-	const sx_port_log_id_t      log_port,
-	const sx_distributor_mode_t distributor_mode);
+                                           const sx_api_handle_t       handle,
+                                           const sx_port_log_id_t      lag_log_port,
+                                           const sx_port_log_id_t      log_port,
+                                           const sx_distributor_mode_t distributor_mode);
 
 /**
  *  This function configures the flow indicators that impact the
@@ -164,8 +164,8 @@ sx_status_t sx_api_lag_port_distributor_set(
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameter exceeds its range
  */
 sx_status_t sx_api_lag_hash_flow_params_set(
-    const sx_api_handle_t       handle,
-    const sx_lag_hash_param_t * lag_hash_param_p);
+                                           const sx_api_handle_t       handle,
+                                           const sx_lag_hash_param_t * lag_hash_param_p);
 
 
 
@@ -180,7 +180,7 @@ sx_status_t sx_api_lag_hash_flow_params_set(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  */
 sx_status_t sx_api_lag_hash_flow_params_get(
-    const sx_api_handle_t       handle,
-          sx_lag_hash_param_t * lag_hash_param_p);
+                                           const sx_api_handle_t       handle,
+                                           sx_lag_hash_param_t * lag_hash_param_p);
 
 #endif /* __SX_API_LAG_H__ */

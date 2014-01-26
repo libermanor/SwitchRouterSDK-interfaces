@@ -34,11 +34,11 @@
  *         SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_vlan_log_verbosity_level_set(
-    const sx_api_handle_t            handle ,
-    const sx_access_cmd_t            cmd ,
-    const sx_log_verbosity_target_t  verbosity_target,
-          sx_verbosity_level_t      *module_verbosity_level_p,
-          sx_verbosity_level_t      *api_verbosity_level_p);
+                                               const sx_api_handle_t            handle ,
+                                               const sx_access_cmd_t            cmd ,
+                                               const sx_log_verbosity_target_t  verbosity_target,
+                                               sx_verbosity_level_t      *module_verbosity_level_p,
+                                               sx_verbosity_level_t      *api_verbosity_level_p);
 
 /**
  *  This function sets the VLAN member ports.
@@ -63,13 +63,13 @@ sx_status_t sx_api_vlan_log_verbosity_level_set(
  * @return SX_STATUS_NO_RESOURCES if pool cannot provide object
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_ports_set(	
-    const sx_api_handle_t     handle,
-    const sx_access_cmd_t     cmd,
-    const sx_swid_t           swid,
-    const sx_vid_t            vid,
-    const sx_vlan_ports_t *   vlan_port_list_p,
-    const uint16_t            port_cnt);
+sx_status_t sx_api_vlan_ports_set(
+                                 const sx_api_handle_t     handle,
+                                 const sx_access_cmd_t     cmd,
+                                 const sx_swid_t           swid,
+                                 const sx_vid_t            vid,
+                                 const sx_vlan_ports_t *   vlan_port_list_p,
+                                 const uint16_t            port_cnt);
 
 
 /**
@@ -94,11 +94,11 @@ sx_status_t sx_api_vlan_ports_set(
  * @return SX_STATUS_ERROR if unexpected behavior occurs
 */
 sx_status_t sx_api_vlan_port_multi_vlan_set(
-    const sx_api_handle_t   handle,
-    const sx_access_cmd_t   cmd,
-    const sx_port_log_id_t	log_port,
-    const sx_port_vlans_t*	vlan_list_p,
-    const uint16_t			vlan_cnt);
+                                           const sx_api_handle_t   handle,
+                                           const sx_access_cmd_t   cmd,
+                                           const sx_port_log_id_t  log_port,
+                                           const sx_port_vlans_t*  vlan_list_p,
+                                           const uint16_t          vlan_cnt);
 
 /**
  *This function sets the priority tagged attribute per port.
@@ -118,10 +118,10 @@ sx_status_t sx_api_vlan_port_multi_vlan_set(
  * @return SX_STATUS_NO_RESOURCES if pool cannot provide object
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_port_prio_tagged_set(   
-    const sx_api_handle_t           handle,
-    const sx_port_log_id_t	        log_port,
-    const sx_untagged_prio_state_t  untagged_prio_state);
+sx_status_t sx_api_vlan_port_prio_tagged_set(
+                                            const sx_api_handle_t           handle,
+                                            const sx_port_log_id_t          log_port,
+                                            const sx_untagged_prio_state_t  untagged_prio_state);
 
 /**
  *This function gets the priority tagged attribute per port.
@@ -137,10 +137,10 @@ sx_status_t sx_api_vlan_port_prio_tagged_set(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_port_prio_tagged_get(   
-    const sx_api_handle_t       handle,
-    const sx_port_log_id_t      log_port,
-    sx_untagged_prio_state_t *  untagged_prio_state_p);
+sx_status_t sx_api_vlan_port_prio_tagged_get(
+                                            const sx_api_handle_t       handle,
+                                            const sx_port_log_id_t      log_port,
+                                            sx_untagged_prio_state_t *  untagged_prio_state_p);
 
 /**
  *  This function gets the VLAN member ports.
@@ -164,12 +164,12 @@ sx_status_t sx_api_vlan_port_prio_tagged_get(
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
 
-sx_status_t sx_api_vlan_ports_get(	
-    const sx_api_handle_t     handle,
-    const sx_swid_t           swid,
-    const sx_vid_t            vid,
-          uint16_t *          port_num_p,
-          sx_vlan_ports_t *   vlan_port_list_p);
+sx_status_t sx_api_vlan_ports_get(
+                                 const sx_api_handle_t     handle,
+                                 const sx_swid_t           swid,
+                                 const sx_vid_t            vid,
+                                 uint16_t *          port_num_p,
+                                 sx_vlan_ports_t *   vlan_port_list_p);
 
 /**
  *   This function enables/ disables ingress VLAN filtering on a
@@ -188,10 +188,10 @@ sx_status_t sx_api_vlan_ports_get(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_ingr_filter_ports_set(	
-    const sx_api_handle_t         handle,
-    const sx_port_log_id_t        log_port,
-    const sx_ingr_filter_mode_t   ingress_filter_state);
+sx_status_t sx_api_vlan_ingr_filter_ports_set(
+                                             const sx_api_handle_t         handle,
+                                             const sx_port_log_id_t        log_port,
+                                             const sx_ingr_filter_mode_t   ingress_filter_state);
 
 /**
  *   This function retrieves ingress VLAN filtering on a port.
@@ -207,10 +207,10 @@ sx_status_t sx_api_vlan_ingr_filter_ports_set(
  * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_ingr_filter_ports_get(	
-    const sx_api_handle_t         handle,
-    const sx_port_log_id_t        log_port,
-          sx_ingr_filter_mode_t * ingress_filter_state_p);
+sx_status_t sx_api_vlan_ingr_filter_ports_get(
+                                             const sx_api_handle_t         handle,
+                                             const sx_port_log_id_t        log_port,
+                                             sx_ingr_filter_mode_t * ingress_filter_state_p);
 
 /**
  *  This function sets port's default VLAN ID. The PVID is set
@@ -230,11 +230,11 @@ sx_status_t sx_api_vlan_ingr_filter_ports_get(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_port_pvid_set(	
-    const sx_api_handle_t     handle,
-    const sx_access_cmd_t     cmd,
-    const sx_port_log_id_t    log_port,
-    const sx_vid_t            pvid);
+sx_status_t sx_api_vlan_port_pvid_set(
+                                     const sx_api_handle_t     handle,
+                                     const sx_access_cmd_t     cmd,
+                                     const sx_port_log_id_t    log_port,
+                                     const sx_vid_t            pvid);
 
 /**
  *  This function retrieves port's default VLAN ID.
@@ -249,10 +249,10 @@ sx_status_t sx_api_vlan_port_pvid_set(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_port_pvid_get(  
-    const sx_api_handle_t     handle,
-    const sx_port_log_id_t    log_port,
-          sx_vid_t*           pvid_p);
+sx_status_t sx_api_vlan_port_pvid_get(
+                                     const sx_api_handle_t     handle,
+                                     const sx_port_log_id_t    log_port,
+                                     sx_vid_t*           pvid_p);
 
 /**
  *  This function sets port's accepted frame types.
@@ -272,10 +272,10 @@ sx_status_t sx_api_vlan_port_pvid_get(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_port_accptd_frm_types_set(	
-    const sx_api_handle_t             handle,
-    const sx_port_log_id_t            log_port,
-    const sx_vlan_frame_types_t *     accptd_frm_types_p);
+sx_status_t sx_api_vlan_port_accptd_frm_types_set(
+                                                 const sx_api_handle_t             handle,
+                                                 const sx_port_log_id_t            log_port,
+                                                 const sx_vlan_frame_types_t *     accptd_frm_types_p);
 
 /**
  *  This function retrieves port's accepted frame types.
@@ -294,10 +294,10 @@ sx_status_t sx_api_vlan_port_accptd_frm_types_set(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_port_accptd_frm_types_get(  
-    const sx_api_handle_t             handle,
-    const sx_port_log_id_t            log_port,
-          sx_vlan_frame_types_t*      accptd_frm_types_p);
+sx_status_t sx_api_vlan_port_accptd_frm_types_get(
+                                                 const sx_api_handle_t             handle,
+                                                 const sx_port_log_id_t            log_port,
+                                                 sx_vlan_frame_types_t*      accptd_frm_types_p);
 
 /**
  *  This function sets the virtual switch default VLAN ID. This
@@ -316,10 +316,10 @@ sx_status_t sx_api_vlan_port_accptd_frm_types_get(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_default_vid_set(	
-    const sx_api_handle_t   handle,
-    const sx_swid_t         swid,
-    const sx_vid_t          vid);
+sx_status_t sx_api_vlan_default_vid_set(
+                                       const sx_api_handle_t   handle,
+                                       const sx_swid_t         swid,
+                                       const sx_vid_t          vid);
 
 /**
  *  This function set unregister MC flood mode
@@ -331,11 +331,11 @@ sx_status_t sx_api_vlan_default_vid_set(
  *
  * @return SX_STATUS_CMD_UNSUPPORTED command isn't supported yet.
  */
-sx_status_t sx_api_vlan_unreg_mc_flood_mode_set(    
-    const sx_api_handle_t                 handle,
-    const sx_swid_t                       swid,
-    const sx_vid_t                        vid,
-    const sx_vlan_unreg_flood_mode_t      urmc_flood_mode);
+sx_status_t sx_api_vlan_unreg_mc_flood_mode_set(
+                                               const sx_api_handle_t                 handle,
+                                               const sx_swid_t                       swid,
+                                               const sx_vid_t                        vid,
+                                               const sx_vlan_unreg_flood_mode_t      urmc_flood_mode);
 
 /**
  *  This function get unregister MC flood mode
@@ -348,11 +348,11 @@ sx_status_t sx_api_vlan_unreg_mc_flood_mode_set(
  *
  * @return SX_STATUS_CMD_UNSUPPORTED command isn't supported yet.
  */
-sx_status_t sx_api_vlan_unreg_mc_flood_mode_get(    
-    const sx_api_handle_t                 handle,
-    const sx_swid_t                       swid,
-    const sx_vid_t                        vid,
-          sx_vlan_unreg_flood_mode_t *    urmc_flood_mode_p);
+sx_status_t sx_api_vlan_unreg_mc_flood_mode_get(
+                                               const sx_api_handle_t                 handle,
+                                               const sx_swid_t                       swid,
+                                               const sx_vid_t                        vid,
+                                               sx_vlan_unreg_flood_mode_t *    urmc_flood_mode_p);
 
 /**
  *  This function set unregister MC flood ports
@@ -366,11 +366,11 @@ sx_status_t sx_api_vlan_unreg_mc_flood_mode_get(
  * @return SX_STATUS_CMD_UNSUPPORTED command isn't supported yet.
  */
 sx_status_t sx_api_vlan_unreg_mc_flood_ports_set(
-    const sx_api_handle_t       handle,
-    const sx_swid_t             swid,
-    const sx_vid_t              vid,
-    const uint16_t              port_num,
-    const sx_port_log_id_t *    log_port_list_p	);
+                                                const sx_api_handle_t       handle,
+                                                const sx_swid_t             swid,
+                                                const sx_vid_t              vid,
+                                                const uint16_t              port_num,
+                                                const sx_port_log_id_t *    log_port_list_p );
 
 /**
  *  This function get unregister MC flood ports
@@ -389,12 +389,12 @@ sx_status_t sx_api_vlan_unreg_mc_flood_ports_set(
  *         of allowed value range
  * @return SX_STATUS_CMD_UNPERMITTED if flood mode is FLOOD 
  */ 
-sx_status_t sx_api_vlan_unreg_mc_flood_ports_get(   
-    const sx_api_handle_t             handle,
-    const sx_swid_t                   swid,
-    const sx_vid_t                    vid,
-          uint16_t *                  num_ports_p,
-          sx_port_log_id_t *          log_port_list_p);
+sx_status_t sx_api_vlan_unreg_mc_flood_ports_get(
+                                                const sx_api_handle_t             handle,
+                                                const sx_swid_t                   swid,
+                                                const sx_vid_t                    vid,
+                                                uint16_t *                  num_ports_p,
+                                                sx_port_log_id_t *          log_port_list_p);
 
 /**
  * This API controls the profile for uc & broadcast flooding on 
@@ -412,10 +412,10 @@ sx_status_t sx_api_vlan_unreg_mc_flood_ports_get(
  */
 
 sx_status_t sx_api_vlan_profile_set(
-    const sx_api_handle_t                   handle,
-    const sx_swid_t                         swid,
-    const sx_fid_t                          fid,
-    const sx_vlan_profile_broadcast_flood_t vlan_profile);
+                                   const sx_api_handle_t                   handle,
+                                   const sx_swid_t                         swid,
+                                   const sx_fid_t                          fid,
+                                   const sx_vlan_profile_broadcast_flood_t vlan_profile);
 
 /**
  * This API gets the profile for uc & broadcast flooding on VLAN
@@ -432,10 +432,10 @@ sx_status_t sx_api_vlan_profile_set(
  */
 
 sx_status_t sx_api_vlan_profile_get(
-    const sx_api_handle_t          	            handle,
-    const sx_swid_t 			                swid,
-    const sx_fid_t                              fid,
-          sx_vlan_profile_broadcast_flood_t *   vlan_profile);
+                                   const sx_api_handle_t                       handle,
+                                   const sx_swid_t                             swid,
+                                   const sx_fid_t                              fid,
+                                   sx_vlan_profile_broadcast_flood_t *   vlan_profile);
 
 /**
  *  This function set Q-in-Q mode of port
@@ -452,10 +452,10 @@ sx_status_t sx_api_vlan_profile_get(
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_qinq_mode_set(	
-    const sx_api_handle_t   handle,
-    const sx_port_log_id_t  log_port,
-    const sx_qinq_mode_t    qinq_mode);
+sx_status_t sx_api_vlan_qinq_mode_set(
+                                     const sx_api_handle_t   handle,
+                                     const sx_port_log_id_t  log_port,
+                                     const sx_qinq_mode_t    qinq_mode);
 
 /**
  *  This function retrieves Q-in-Q mode of port
@@ -470,10 +470,10 @@ sx_status_t sx_api_vlan_qinq_mode_set(
  * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
-sx_status_t sx_api_vlan_qinq_mode_get(	
-    const sx_api_handle_t 		handle,
-    const sx_port_log_id_t 		log_port,
-          sx_qinq_mode_t *		qinq_mode_p);
+sx_status_t sx_api_vlan_qinq_mode_get(
+                                     const sx_api_handle_t       handle,
+                                     const sx_port_log_id_t      log_port,
+                                     sx_qinq_mode_t *      qinq_mode_p);
 
 /**
  * The function sets which priority should be taken for the outer tag (when Q-in-Q is enabled):
@@ -492,9 +492,9 @@ sx_status_t sx_api_vlan_qinq_mode_get(
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
 sx_status_t sx_api_vlan_qinq_outer_prio_mode_set(
-		const sx_api_handle_t 		  handle,
-		const sx_port_log_id_t 		  log_port,
-		const sx_qinq_outer_prio_mode_t prio_mode);
+                                                const sx_api_handle_t         handle,
+                                                const sx_port_log_id_t        log_port,
+                                                const sx_qinq_outer_prio_mode_t prio_mode);
 
 /**
  * This function retrieves port's Q-in-Q outer tag priority mode
@@ -510,9 +510,9 @@ sx_status_t sx_api_vlan_qinq_outer_prio_mode_set(
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  */
 sx_status_t sx_api_vlan_qinq_outer_prio_mode_get(
-    const sx_api_handle_t 		  handle,
-    const sx_port_log_id_t 		  log_port,
-          sx_qinq_outer_prio_mode_t *prio_mode_p);
+                                                const sx_api_handle_t         handle,
+                                                const sx_port_log_id_t        log_port,
+                                                sx_qinq_outer_prio_mode_t *prio_mode_p);
 
 
 #endif /* __SX_API_VLAN_H__ */

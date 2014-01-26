@@ -37,11 +37,11 @@
  * @return SX_STATUS_PARAM_ERROR - Unsupported verbosity_target
  */
 sx_status_t sx_api_fdb_log_verbosity_level_set(
-     const sx_api_handle_t 	         handle ,
-     const sx_access_cmd_t 	         cmd ,
-     const sx_log_verbosity_target_t  verbosity_target,
-           sx_verbosity_level_t* module_verbosity_level_p,
-           sx_verbosity_level_t* api_verbosity_level_p);
+                                              const sx_api_handle_t           handle ,
+                                              const sx_access_cmd_t           cmd ,
+                                              const sx_log_verbosity_target_t  verbosity_target,
+                                              sx_verbosity_level_t* module_verbosity_level_p,
+                                              sx_verbosity_level_t* api_verbosity_level_p);
 
 /**
  *  This function sets the FDB age time, in seconds. Age time is
@@ -59,9 +59,9 @@ sx_status_t sx_api_fdb_log_verbosity_level_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_age_time_set(
-    const sx_api_handle_t   handle,
-    const sx_swid_t         swid,
-    const sx_fdb_age_time_t age_time);
+                                   const sx_api_handle_t   handle,
+                                   const sx_swid_t         swid,
+                                   const sx_fdb_age_time_t age_time);
 
 /**
  *  This function gets the FDB age time, in seconds. Age time is
@@ -79,9 +79,9 @@ sx_status_t sx_api_fdb_age_time_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_age_time_get(
-    const sx_api_handle_t handle,
-    const sx_swid_t       swid,
-    sx_fdb_age_time_t*    age_time_p);
+                                   const sx_api_handle_t handle,
+                                   const sx_swid_t       swid,
+                                   sx_fdb_age_time_t*    age_time_p);
 
 /**
  *  This function set the FDB poll for mac entries notifications
@@ -97,8 +97,8 @@ sx_status_t sx_api_fdb_age_time_get(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_poll_set(
-	const sx_api_handle_t handle,
-	const sx_swid_t       swid);
+                               const sx_api_handle_t handle,
+                               const sx_swid_t       swid);
 
 /**
  *  This function sets the FDB polling interval from HW in 0.1
@@ -114,9 +114,9 @@ sx_status_t sx_api_fdb_poll_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_polling_interval_set(
-	const sx_api_handle_t           handle,
-	const sx_swid_t                 swid,
-	const sx_fdb_polling_interval_t interval);
+                                           const sx_api_handle_t           handle,
+                                           const sx_swid_t                 swid,
+                                           const sx_fdb_polling_interval_t interval);
 
 /**
  *  This function adds/deletes UC MAC and UC LAG MAC entries to/from the FDB.
@@ -143,11 +143,11 @@ sx_status_t sx_api_fdb_polling_interval_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_uc_mac_addr_set(
-      const   sx_api_handle_t handle,
-      const   sx_access_cmd_t cmd,
-      const   sx_swid_t swid,
-      sx_fdb_uc_mac_addr_params_t *mac_list_p,
-      uint16_t *data_cnt_p);
+                                      const   sx_api_handle_t handle,
+                                      const   sx_access_cmd_t cmd,
+                                      const   sx_swid_t swid,
+                                      sx_fdb_uc_mac_addr_params_t *mac_list_p,
+                                      uint16_t *data_cnt_p);
 
 /**
  * This function reads MAC entries from the SW FDB table, which
@@ -196,20 +196,20 @@ sx_status_t sx_api_fdb_uc_mac_addr_set(
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_NULL if parameter is NULL.
  * @return SX_STATUS_ENTRY_NOT_FOUND if switch wa		const sx_api_handle_t handle,
-		const sx_swid_t swid,
-		uint32_t *max_mc_group_cnt_p
+        const sx_swid_t swid,
+        uint32_t *max_mc_group_cnt_p
 s not added.
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_uc_mac_addr_get(
-	const sx_api_handle_t               handle,
-	const sx_swid_id_t                  swid,
-	const sx_access_cmd_t               cmd,
-	const sx_fdb_uc_mac_entry_type_t    mac_type,
-	const sx_fdb_uc_mac_addr_params_t*  key_p,
-	const sx_fdb_uc_key_filter_t*       key_filter_p,
-	sx_fdb_uc_mac_addr_params_t*        mac_list_p,
-	uint16_t*                           data_cnt_p);
+                                      const sx_api_handle_t               handle,
+                                      const sx_swid_id_t                  swid,
+                                      const sx_access_cmd_t               cmd,
+                                      const sx_fdb_uc_mac_entry_type_t    mac_type,
+                                      const sx_fdb_uc_mac_addr_params_t*  key_p,
+                                      const sx_fdb_uc_key_filter_t*       key_filter_p,
+                                      sx_fdb_uc_mac_addr_params_t*        mac_list_p,
+                                      uint16_t*                           data_cnt_p);
 
 /**
  *  This function counts all MAC entries in SW FDB table (static + dynamic).
@@ -226,9 +226,9 @@ sx_status_t sx_api_fdb_uc_mac_addr_get(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_uc_count_get(
-	const sx_api_handle_t handle,
-	const sx_swid_id_t    swid,
-	uint32_t*             data_cnt_p);
+                                   const sx_api_handle_t handle,
+                                   const sx_swid_id_t    swid,
+                                   uint32_t*             data_cnt_p);
 
 /**
  * This function returns the amount of MACs learned on port (static + dynamic).
@@ -247,9 +247,9 @@ sx_status_t sx_api_fdb_uc_count_get(
  */
 
 sx_status_t sx_api_fdb_uc_port_count_get(
-    const sx_api_handle_t	handle,
-    const sx_port_log_id_t 	log_port,
-    uint32_t*               data_cnt_p);
+                                        const sx_api_handle_t   handle,
+                                        const sx_port_log_id_t  log_port,
+                                        uint32_t*               data_cnt_p);
 
 /**
  * This function returns the amount of MACs learned on fid (static + dynamic).
@@ -270,10 +270,10 @@ sx_status_t sx_api_fdb_uc_port_count_get(
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_fdb_uc_fid_count_get(
-    const sx_api_handle_t	handle,
-    const sx_swid_id_t		swid,
-    const sx_fid_t 			fid,
-    uint32_t*               data_cnt_p);
+                                       const sx_api_handle_t   handle,
+                                       const sx_swid_id_t      swid,
+                                       const sx_fid_t          fid,
+                                       uint32_t*               data_cnt_p);
 
 /**
  * This function sets/removes limit on the amount of dynamic MACs learned on port.
@@ -295,10 +295,10 @@ sx_status_t sx_api_fdb_uc_fid_count_get(
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_fdb_uc_limit_port_set(
-    const sx_api_handle_t	handle,
-    const sx_access_cmd_t 	cmd,
-    const sx_port_log_id_t  log_port,
-    const uint32_t 			limit);
+                                        const sx_api_handle_t   handle,
+                                        const sx_access_cmd_t   cmd,
+                                        const sx_port_log_id_t  log_port,
+                                        const uint32_t          limit);
 
 /**
  * This function sets/removes limit on the amount of dynamic MACs learned on FID.
@@ -321,11 +321,11 @@ sx_status_t sx_api_fdb_uc_limit_port_set(
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_fdb_uc_limit_fid_set(
-    const sx_api_handle_t	handle,
-    const sx_access_cmd_t 	cmd,
-    const sx_swid_id_t		swid,
-    const sx_fid_t 			fid,
-    const uint32_t 			limit);
+                                       const sx_api_handle_t   handle,
+                                       const sx_access_cmd_t   cmd,
+                                       const sx_swid_id_t      swid,
+                                       const sx_fid_t          fid,
+                                       const uint32_t          limit);
 
 /**
  * This function returns the maximum amount of dynamic MACs that can be learned on port.
@@ -345,9 +345,9 @@ sx_status_t sx_api_fdb_uc_limit_fid_set(
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_fdb_uc_limit_port_get(
-    const sx_api_handle_t	handle,
-    const sx_port_log_id_t  log_port,
-    uint32_t*               limit_p);
+                                        const sx_api_handle_t   handle,
+                                        const sx_port_log_id_t  log_port,
+                                        uint32_t*               limit_p);
 
 /**
  * This function returns the maximum amount of dynamic MACs that can be learned on FID.
@@ -369,10 +369,10 @@ sx_status_t sx_api_fdb_uc_limit_port_get(
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_fdb_uc_limit_fid_get(
-    const sx_api_handle_t	handle,
-    const sx_swid_id_t		swid,
-    const sx_fid_t 			fid,
-    uint32_t*               limit_p);
+                                       const sx_api_handle_t   handle,
+                                       const sx_swid_id_t      swid,
+                                       const sx_fid_t          fid,
+                                       uint32_t*               limit_p);
 
 /**
  *      This function adds, deletes MC MAC entries from the FDB.
@@ -436,13 +436,13 @@ sx_status_t sx_api_fdb_uc_limit_fid_get(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_mc_mac_addr_set(
-	const sx_api_handle_t   handle,
-	const sx_access_cmd_t   cmd,
-	const sx_swid_t         swid,
-	const sx_vid_t          vid,
-	const sx_mac_addr_t     group_addr,
-    const sx_port_log_id_t* log_port_list_p,
-    const uint16_t          port_cnt);
+                                      const sx_api_handle_t   handle,
+                                      const sx_access_cmd_t   cmd,
+                                      const sx_swid_t         swid,
+                                      const sx_vid_t          vid,
+                                      const sx_mac_addr_t     group_addr,
+                                      const sx_port_log_id_t* log_port_list_p,
+                                      const uint16_t          port_cnt);
 
 /**
  *  This function returns MC MAC entries data.
@@ -468,12 +468,12 @@ sx_status_t sx_api_fdb_mc_mac_addr_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_mc_mac_addr_get(
-	const sx_api_handle_t   handle,
-	const sx_swid_t         swid,
-	const sx_vid_t          vid,
-	const sx_mac_addr_t     group_addr,
-    sx_port_log_id_t*       log_port_list_p,
-	uint16_t*               port_cnt_p);
+                                      const sx_api_handle_t   handle,
+                                      const sx_swid_t         swid,
+                                      const sx_vid_t          vid,
+                                      const sx_mac_addr_t     group_addr,
+                                      sx_port_log_id_t*       log_port_list_p,
+                                      uint16_t*               port_cnt_p);
 
 /**
  *  This function returns MC max group count.
@@ -490,9 +490,9 @@ sx_status_t sx_api_fdb_mc_mac_addr_get(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_mc_max_group_cnt_get(
-    const sx_api_handle_t   handle,
-    const sx_swid_t         swid,
-    uint32_t*               max_mc_group_cnt_p);
+                                           const sx_api_handle_t   handle,
+                                           const sx_swid_t         swid,
+                                           uint32_t*               max_mc_group_cnt_p);
 
 /**
  *  This function deletes all FDB table on a switch partition.
@@ -507,8 +507,8 @@ sx_status_t sx_api_fdb_mc_max_group_cnt_get(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_uc_flush_all_set(
-	const sx_api_handle_t   handle,
-	const sx_swid_t         swid);
+                                       const sx_api_handle_t   handle,
+                                       const sx_swid_t         swid);
 
 /**
  *  This function deletes the FDB table entries that are related
@@ -525,9 +525,9 @@ sx_status_t sx_api_fdb_uc_flush_all_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_uc_flush_port_set(
-	const sx_api_handle_t   handle,
-	const sx_swid_t         swid,
-	const sx_port_log_id_t  log_port);
+                                        const sx_api_handle_t   handle,
+                                        const sx_swid_t         swid,
+                                        const sx_port_log_id_t  log_port);
 
 /**
  *  This function deletes all FDB table entries that were learned
@@ -544,9 +544,9 @@ sx_status_t sx_api_fdb_uc_flush_port_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_uc_flush_fid_set(
-	const sx_api_handle_t   handle,
-	const sx_swid_t         swid,
-	const sx_fid_t          fid);
+                                       const sx_api_handle_t   handle,
+                                       const sx_swid_t         swid,
+                                       const sx_fid_t          fid);
 
 /**
  *  This function deletes all FDB table entries that were learned
@@ -564,10 +564,10 @@ sx_status_t sx_api_fdb_uc_flush_fid_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_uc_flush_port_fid_set(
-	const sx_api_handle_t   handle,
-	const sx_swid_t         swid,
-	const sx_port_log_id_t  log_port,
-	const sx_fid_t          fid);
+                                            const sx_api_handle_t   handle,
+                                            const sx_swid_t         swid,
+                                            const sx_port_log_id_t  log_port,
+                                            const sx_fid_t          fid);
 
 /**const 
 *  const This function deletes all FDB MC tables on a switch
@@ -583,8 +583,8 @@ sx_status_t sx_api_fdb_uc_flush_port_fid_set(
 * @return SX_STATUS_ERROR general error.
 */
 sx_status_t sx_api_fdb_mc_flush_all_set(
-    const sx_api_handle_t   handle,
-    const sx_swid_t         swid);
+                                       const sx_api_handle_t   handle,
+                                       const sx_swid_t         swid);
 
 /**
 *  This function deletes all FDB MC table entries that were
@@ -601,9 +601,9 @@ sx_status_t sx_api_fdb_mc_flush_all_set(
 * @return SX_STATUS_ERROR general error.
 */
 sx_status_t sx_api_fdb_mc_flush_fid_set(
-    const sx_api_handle_t   handle,
-    const sx_swid_t         swid,
-    const sx_fid_t          fid);
+                                       const sx_api_handle_t   handle,
+                                       const sx_swid_t         swid,
+                                       const sx_fid_t          fid);
 
 /**
  *  This function maps VLANs to filtering databases for shared
@@ -636,11 +636,11 @@ sx_status_t sx_api_fdb_mc_flush_fid_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_fid_vlan_member_set(
-	const sx_api_handle_t   handle,
-	const sx_access_cmd_t   cmd,
-	const sx_swid_t         swid,
-	const sx_fid_t          fid,
-	const sx_vid_t          vid);
+                                          const sx_api_handle_t   handle,
+                                          const sx_access_cmd_t   cmd,
+                                          const sx_swid_t         swid,
+                                          const sx_fid_t          fid,
+                                          const sx_vid_t          vid);
 
 /**
  *  This function sets the FDB learning mode per swid
@@ -659,9 +659,9 @@ sx_status_t sx_api_fdb_fid_vlan_member_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_learn_mode_set(
-	const sx_api_handle_t handle,
-	const sx_swid_t swid,
-	const sx_fdb_learn_mode_t learn_mode);
+                                     const sx_api_handle_t handle,
+                                     const sx_swid_t swid,
+                                     const sx_fdb_learn_mode_t learn_mode);
 
 /**
  *  This function gets the FDB learning mode per swid
@@ -679,9 +679,9 @@ sx_status_t sx_api_fdb_learn_mode_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_learn_mode_get(
-	const sx_api_handle_t handle,
-	const sx_swid_t swid,
-	sx_fdb_learn_mode_t *learn_mode);
+                                     const sx_api_handle_t handle,
+                                     const sx_swid_t swid,
+                                     sx_fdb_learn_mode_t *learn_mode);
 
 /** 
  * This API is not supported at the current release 
@@ -714,12 +714,12 @@ sx_status_t sx_api_fdb_learn_mode_get(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_learn_rate_limit_set(
-	const sx_api_handle_t           handle,
-	const sx_fdb_learn_limit_cmd_t  learn_limit_cmd,
-	const sx_swid_t                 swid,
-	const sx_vid_t                  vid,
-	const sx_port_log_id_t          log_port,
-	const uint16_t                  rate_limit);
+                                           const sx_api_handle_t           handle,
+                                           const sx_fdb_learn_limit_cmd_t  learn_limit_cmd,
+                                           const sx_swid_t                 swid,
+                                           const sx_vid_t                  vid,
+                                           const sx_port_log_id_t          log_port,
+                                           const uint16_t                  rate_limit);
 
 /**
  *  This API Sets the SwID's Learning parameters into the system's Database.
@@ -738,9 +738,9 @@ sx_status_t sx_api_fdb_learn_rate_limit_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_swid_global_learning_mode_set(
-    const sx_api_handle_t       handle,
-    const sx_swid_id_t          swid_id,
-    const sx_fdb_learn_ctrl_t   learn_ctrl);
+                                                    const sx_api_handle_t       handle,
+                                                    const sx_swid_id_t          swid_id,
+                                                    const sx_fdb_learn_ctrl_t   learn_ctrl);
 
 /**
  *  This API Retrieves the SwID's Learning parameters from the system's Database.
@@ -757,9 +757,9 @@ sx_status_t sx_api_fdb_swid_global_learning_mode_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_swid_global_learning_mode_get(
-    const sx_api_handle_t       handle,
-    const sx_swid_id_t          swid_id,
-          sx_fdb_learn_ctrl_t*  learn_ctrl_p);
+                                                    const sx_api_handle_t       handle,
+                                                    const sx_swid_id_t          swid_id,
+                                                    sx_fdb_learn_ctrl_t*  learn_ctrl_p);
 
 /**
 *  This function sets fid's learn mode.
@@ -770,10 +770,10 @@ sx_status_t sx_api_fdb_swid_global_learning_mode_get(
 *
 **/
 sx_status_t sx_api_fdb_fid_learn_mode_set (
-    const sx_api_handle_t handle,
-    const sx_swid_t swid,
-    const sx_fid_t fid,
-    const sx_fdb_learn_mode_t learn_mode);
+                                          const sx_api_handle_t handle,
+                                          const sx_swid_t swid,
+                                          const sx_fid_t fid,
+                                          const sx_fdb_learn_mode_t learn_mode);
 
 /**
 *  This function gets fid's learn mode.
@@ -788,10 +788,10 @@ sx_status_t sx_api_fdb_fid_learn_mode_set (
 * @return SX_STATUS_ERROR if unexpected behavior occurs
 */
 sx_status_t sx_api_fdb_fid_learn_mode_get (
-    const sx_api_handle_t handle,
-    const sx_swid_t swid,
-    const sx_fid_t fid,
-    sx_fdb_learn_mode_t *learn_mode_p);
+                                          const sx_api_handle_t handle,
+                                          const sx_swid_t swid,
+                                          const sx_fid_t fid,
+                                          sx_fdb_learn_mode_t *learn_mode_p);
 
 /**
 *  This function sets port's learn mode.
@@ -805,9 +805,9 @@ sx_status_t sx_api_fdb_fid_learn_mode_get (
 * @return SX_STATUS_ERROR if unexpected behavior occurs
 */
 sx_status_t sx_api_fdb_port_learn_mode_set(
-    const sx_api_handle_t       handle,
-    const sx_port_log_id_t      log_port,
-    const sx_fdb_learn_mode_t   learn_mode);
+                                          const sx_api_handle_t       handle,
+                                          const sx_port_log_id_t      log_port,
+                                          const sx_fdb_learn_mode_t   learn_mode);
 
 /**
 *  This function gets port's learn mode.
@@ -821,9 +821,9 @@ sx_status_t sx_api_fdb_port_learn_mode_set(
 * @return SX_STATUS_ERROR if unexpected behavior occurs
 */
 sx_status_t sx_api_fdb_port_learn_mode_get(
-    const sx_api_handle_t   handle,
-    const sx_port_log_id_t  log_port,
-    sx_fdb_learn_mode_t*    learn_mode_p);
+                                          const sx_api_handle_t   handle,
+                                          const sx_port_log_id_t  log_port,
+                                          sx_fdb_learn_mode_t*    learn_mode_p);
 
 /**
  *  This function sets FDB notify parameters.
@@ -840,9 +840,9 @@ sx_status_t sx_api_fdb_port_learn_mode_get(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_notify_params_set(
-	const sx_api_handle_t handle,
-	const sx_swid_id_t swid,
-	const sx_fdb_notify_params_t *notify_params_p);
+                                        const sx_api_handle_t handle,
+                                        const sx_swid_id_t swid,
+                                        const sx_fdb_notify_params_t *notify_params_p);
 
 /**
  *  This function gets FDB notify parameters.
@@ -858,8 +858,8 @@ sx_status_t sx_api_fdb_notify_params_set(
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_fdb_notify_params_get(
-	const sx_api_handle_t handle,
-	const sx_swid_id_t swid,
-	sx_fdb_notify_params_t *notify_params_p);
+                                        const sx_api_handle_t handle,
+                                        const sx_swid_id_t swid,
+                                        sx_fdb_notify_params_t *notify_params_p);
 
 #endif /* __SX_API_FDB_H__ */

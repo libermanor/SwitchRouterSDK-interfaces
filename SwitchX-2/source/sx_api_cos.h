@@ -35,12 +35,12 @@
  */
 sx_status_t
 sx_api_cos_log_verbosity_level_set(
-		const    sx_api_handle_t            handle,
-		const    sx_access_cmd_t            cmd,
-		const    sx_log_verbosity_target_t  verbosity_target,
-		  sx_verbosity_level_t      *module_verbosity_level_p,
-		  sx_verbosity_level_t      *api_verbosity_level_p
-		);
+                                  const    sx_api_handle_t            handle,
+                                  const    sx_access_cmd_t            cmd,
+                                  const    sx_log_verbosity_target_t  verbosity_target,
+                                  sx_verbosity_level_t      *module_verbosity_level_p,
+                                  sx_verbosity_level_t      *api_verbosity_level_p
+                                  );
 
 /**
  * This function sets the port default priority value.
@@ -58,10 +58,10 @@ sx_api_cos_log_verbosity_level_set(
  */
 sx_status_t
 sx_api_cos_port_default_prio_set(
-		const sx_api_handle_t   handle,
-		const sx_port_log_id_t  port_log_id,
-		const sx_cos_priority_t priority
-		);
+                                const sx_api_handle_t   handle,
+                                const sx_port_log_id_t  port_log_id,
+                                const sx_cos_priority_t priority
+                                );
 
 /**
  * This function get the port default priority value.
@@ -76,10 +76,10 @@ sx_api_cos_port_default_prio_set(
  */
 sx_status_t
 sx_api_cos_port_default_prio_get(
-		const sx_api_handle_t     handle,
-		const sx_port_log_id_t    port_log_id,
-		  sx_cos_priority_t *priority_p
-		);
+                                const sx_api_handle_t     handle,
+                                const sx_port_log_id_t    port_log_id,
+                                sx_cos_priority_t *priority_p
+                                );
 
 /**
  * This function sets the port ingress priority map values.
@@ -98,11 +98,11 @@ sx_api_cos_port_default_prio_get(
  */
 sx_status_t
 sx_api_cos_port_prio_ingress_regen_set(
-		const sx_api_handle_t   handle,
-		const sx_port_log_id_t  port_log_id,
-		const sx_cos_priority_t source_priority,
-		const sx_cos_priority_t regenerated_priority
-		);
+                                      const sx_api_handle_t   handle,
+                                      const sx_port_log_id_t  port_log_id,
+                                      const sx_cos_priority_t source_priority,
+                                      const sx_cos_priority_t regenerated_priority
+                                      );
 
 /**
  * This function retrieves the port ingress priority regen values.
@@ -118,11 +118,11 @@ sx_api_cos_port_prio_ingress_regen_set(
  */
 sx_status_t
 sx_api_cos_port_prio_ingress_regen_get(
-		const  sx_api_handle_t    handle,
-		const  sx_port_log_id_t   port_log_id,
-		const  sx_cos_priority_t  source_priority,
-		  sx_cos_priority_t *regen_priority_p
-		);
+                                      const  sx_api_handle_t    handle,
+                                      const  sx_port_log_id_t   port_log_id,
+                                      const  sx_cos_priority_t  source_priority,
+                                      sx_cos_priority_t *regen_priority_p
+                                      );
 
 /**
  *  This function adds or deletes a priority from a Traffic
@@ -164,12 +164,12 @@ sx_api_cos_port_prio_ingress_regen_get(
  */
 sx_status_t
 sx_api_cos_port_tc_prio_map_set(
-		const sx_api_handle_t        handle,
-		const sx_access_cmd_t               cmd,
-		const sx_port_log_id_t       port_log_id,
-		const sx_cos_priority_t      priority,
-		const sx_cos_traffic_class_t traffic_class
-		);
+                               const sx_api_handle_t        handle,
+                               const sx_access_cmd_t               cmd,
+                               const sx_port_log_id_t       port_log_id,
+                               const sx_cos_priority_t      priority,
+                               const sx_cos_traffic_class_t traffic_class
+                               );
 
 /**
  *  This function retrieves the Traffic class of a specific
@@ -186,11 +186,11 @@ sx_api_cos_port_tc_prio_map_set(
  */
 sx_status_t
 sx_api_cos_port_tc_prio_map_get(
-		const sx_api_handle_t          handle,
-		const sx_port_log_id_t         port_log_id,
-		const sx_cos_priority_t        priority,
-		  sx_cos_traffic_class_t *traffic_class_p
-		);
+                               const sx_api_handle_t          handle,
+                               const sx_port_log_id_t         port_log_id,
+                               const sx_cos_priority_t        priority,
+                               sx_cos_traffic_class_t *traffic_class_p
+                               );
 
 /**
  * This function sets the port trust level value. The Switch X assigns the user priority based on the following modes:
@@ -219,10 +219,10 @@ sx_api_cos_port_tc_prio_map_get(
  */
 sx_status_t
 sx_api_cos_port_trust_set(
-		const sx_api_handle_t      handle,
-		const sx_port_log_id_t     port_log_id,
-		const sx_cos_trust_level_t trust_level
-		);
+                         const sx_api_handle_t      handle,
+                         const sx_port_log_id_t     port_log_id,
+                         const sx_cos_trust_level_t trust_level
+                         );
 
 /**
  * This function get the port trust level value.
@@ -240,10 +240,10 @@ sx_api_cos_port_trust_set(
  */
 sx_status_t
 sx_api_cos_port_trust_get(
-		const sx_api_handle_t        handle,
-		const sx_port_log_id_t       port_log_id,
-		  sx_cos_trust_level_t *trust_level_p
-		);
+                         const sx_api_handle_t        handle,
+                         const sx_port_log_id_t       port_log_id,
+                         sx_cos_trust_level_t *trust_level_p
+                         );
 
 /**
  *
@@ -260,10 +260,10 @@ sx_api_cos_port_trust_get(
  */
 sx_status_t
 sx_api_cos_ip_dscp_to_prio_set(
-		const sx_api_handle_t   handle,
-		const sx_cos_dscp_t     dscp,
-		const sx_cos_priority_t priority
-		);
+                              const sx_api_handle_t   handle,
+                              const sx_cos_dscp_t     dscp,
+                              const sx_cos_priority_t priority
+                              );
 
 /**
  *
@@ -279,10 +279,10 @@ sx_api_cos_ip_dscp_to_prio_set(
  */
 sx_status_t
 sx_api_cos_ip_dscp_to_prio_get(
-		const  sx_api_handle_t    handle,
-		const  sx_cos_dscp_t      dscp,
-		  sx_cos_priority_t *priority_p
-		);
+                              const  sx_api_handle_t    handle,
+                              const  sx_cos_dscp_t      dscp,
+                              sx_cos_priority_t *priority_p
+                              );
 
 /**
  *
@@ -300,9 +300,9 @@ sx_api_cos_ip_dscp_to_prio_get(
  */
 sx_status_t
 sx_api_cos_capabilities_get(
-		const sx_api_handle_t         handle,
-		  sx_cos_capabilities_t *cos_capabilities_p
-		);
+                           const sx_api_handle_t         handle,
+                           sx_cos_capabilities_t *cos_capabilities_p
+                           );
 
 
 /**
@@ -321,11 +321,11 @@ sx_api_cos_capabilities_get(
  */
 sx_status_t
 sx_api_cos_port_ets_set(
-		const sx_api_handle_t            handle,
-		const sx_port_log_id_t           port_log_id,
-		const sx_cos_tc_config_params_t *tc_config_p,
-		const uint8_t                    tc_config_num
-		);
+                       const sx_api_handle_t            handle,
+                       const sx_port_log_id_t           port_log_id,
+                       const sx_cos_tc_config_params_t *tc_config_p,
+                       const uint8_t                    tc_config_num
+                       );
 
 /**
  * This function retrieve the traffic class group for traffic class.
@@ -341,11 +341,11 @@ sx_api_cos_port_ets_set(
  */
 sx_status_t
 sx_api_cos_port_ets_get(
-		const  sx_api_handle_t            handle,
-		const  sx_port_log_id_t           port_log_id,
-		const uint8_t                     tc_config_num,
-		  sx_cos_tc_config_params_t *tc_config_p
-		);
+                       const  sx_api_handle_t            handle,
+                       const  sx_port_log_id_t           port_log_id,
+                       const uint8_t                     tc_config_num,
+                       sx_cos_tc_config_params_t *tc_config_p
+                       );
 
 
 /**
@@ -361,10 +361,10 @@ sx_api_cos_port_ets_get(
 */
 sx_status_t
 sx_api_cos_port_ets_general_configuration_set(
-                const sx_api_handle_t      handle ,
-                const sx_port_log_id_t     port_log_id ,
-				const sx_cos_port_ets_gen_config_params_t  *port_config_p
-                );
+                                             const sx_api_handle_t      handle ,
+                                             const sx_port_log_id_t     port_log_id ,
+                                             const sx_cos_port_ets_gen_config_params_t  *port_config_p
+                                             );
 
 
 /**
@@ -380,10 +380,10 @@ sx_api_cos_port_ets_general_configuration_set(
 */
 sx_status_t
 sx_api_cos_port_ets_general_configuration_get(
-		const sx_api_handle_t      handle,
-		const sx_port_log_id_t     port_log_id,
-		  sx_cos_port_ets_gen_config_params_t  *port_config_p
-		);
+                                             const sx_api_handle_t      handle,
+                                             const sx_port_log_id_t     port_log_id,
+                                             sx_cos_port_ets_gen_config_params_t  *port_config_p
+                                             );
 
 
 /**
@@ -410,13 +410,13 @@ sx_api_cos_port_ets_general_configuration_get(
  */
 sx_status_t
 sx_api_cos_port_buff_set(
-		const sx_api_handle_t handle,
-		const sx_access_cmd_t cmd,
-		const sx_port_log_id_t log_port,
-		const sx_cos_timer_value_t xof_timer_value,
-		const sx_cos_timer_value_t xof_refresh,
-		const sx_cos_port_buff_params_t *buffer_list_p
-		);
+                        const sx_api_handle_t handle,
+                        const sx_access_cmd_t cmd,
+                        const sx_port_log_id_t log_port,
+                        const sx_cos_timer_value_t xof_timer_value,
+                        const sx_cos_timer_value_t xof_refresh,
+                        const sx_cos_port_buff_params_t *buffer_list_p
+                        );
 
 /**
  * This API Retrieves the Port's Buffer Management Control from the SDK.
@@ -434,13 +434,13 @@ sx_api_cos_port_buff_set(
  */
 sx_status_t
 sx_api_cos_port_buff_get(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port,
-		  sx_cos_timer_value_t *xof_timer_value_p,
-		  sx_cos_timer_value_t *xof_refresh_p,
-		  sx_cos_port_buff_size_t *total_buffer_size_p,
-		  sx_cos_port_buff_params_t *buffer_list_p
-		);
+                        const sx_api_handle_t handle,
+                        const sx_port_log_id_t log_port,
+                        sx_cos_timer_value_t *xof_timer_value_p,
+                        sx_cos_timer_value_t *xof_refresh_p,
+                        sx_cos_port_buff_size_t *total_buffer_size_p,
+                        sx_cos_port_buff_params_t *buffer_list_p
+                        );
 
 /**
  * This API Sets the Port's Priority to Buffer Map in the SDK.
@@ -461,11 +461,11 @@ sx_api_cos_port_buff_get(
  */
 sx_status_t
 sx_api_cos_port_buff_map_set(
-		const sx_api_handle_t handle,
-		const sx_access_cmd_t cmd,
-		const sx_port_log_id_t log_port,
-		sx_cos_port_buff_t *prio_to_buff_p
-		);
+                            const sx_api_handle_t handle,
+                            const sx_access_cmd_t cmd,
+                            const sx_port_log_id_t log_port,
+                            sx_cos_port_buff_t *prio_to_buff_p
+                            );
 
 /**
  * This API Retrieves the Port's Priority to Buffer Mapping from the SDK.
@@ -480,9 +480,9 @@ sx_api_cos_port_buff_map_set(
  */
 sx_status_t
 sx_api_cos_port_buff_map_get(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port,
-		  sx_cos_port_buff_t *prio_to_buff_p
-		);
+                            const sx_api_handle_t handle,
+                            const sx_port_log_id_t log_port,
+                            sx_cos_port_buff_t *prio_to_buff_p
+                            );
 
 #endif /* __SX_API_COS_H__ */

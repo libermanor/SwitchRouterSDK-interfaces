@@ -34,11 +34,11 @@
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_port_log_verbosity_level_set(
-    const sx_api_handle_t            handle ,
-    const sx_access_cmd_t            cmd ,
-    const sx_log_verbosity_target_t  verbosity_target,
-          sx_verbosity_level_t      *module_verbosity_level_p,
-          sx_verbosity_level_t      *api_verbosity_level_p);
+                                               const sx_api_handle_t            handle ,
+                                               const sx_access_cmd_t            cmd ,
+                                               const sx_log_verbosity_target_t  verbosity_target,
+                                               sx_verbosity_level_t      *module_verbosity_level_p,
+                                               sx_verbosity_level_t      *api_verbosity_level_p);
 
 /**
  * 	This API Adds/Deletes a device to/from the SDK.
@@ -66,15 +66,15 @@ sx_status_t sx_api_port_log_verbosity_level_set(
  *
  */
 sx_status_t sx_api_port_device_set(
-		const sx_api_handle_t       handle,
-		const sx_access_cmd_t	    cmd,
-		const uint8_t	            config_hw,
-		const sx_device_id_t		device_id,
-		const sx_mac_addr_t *       base_mac_addr_p,
-		const sx_port_mode_t *      port_mode_list_p,
-		const sx_port_mapping_t *   port_mapping_list_p,
-		      sx_port_log_id_t *	log_port_list_p,
-        const length_t              port_cnt);
+                                  const sx_api_handle_t       handle,
+                                  const sx_access_cmd_t       cmd,
+                                  const uint8_t               config_hw,
+                                  const sx_device_id_t        device_id,
+                                  const sx_mac_addr_t *       base_mac_addr_p,
+                                  const sx_port_mode_t *      port_mode_list_p,
+                                  const sx_port_mapping_t *   port_mapping_list_p,
+                                  sx_port_log_id_t *    log_port_list_p,
+                                  const length_t              port_cnt);
 
 /** 
  ******  *  This API Retrieves a device information (port lists) from the SDK.
@@ -96,13 +96,13 @@ sx_status_t sx_api_port_device_set(
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE: Parameters exceeds range.
  */
 sx_status_t sx_api_port_device_get(
-		const sx_api_handle_t		handle,
-		const sx_device_id_t		device_id,
-		const sx_swid_id_t			swid_id,
-		      sx_port_mode_t *      port_mode_list_p,
-		      sx_port_mapping_t *   port_mapping_list_p,
-		      sx_port_log_id_t *	log_port_list_p,
-        	  length_t*				port_cnt_p);
+                                  const sx_api_handle_t       handle,
+                                  const sx_device_id_t        device_id,
+                                  const sx_swid_id_t          swid_id,
+                                  sx_port_mode_t *      port_mode_list_p,
+                                  sx_port_mapping_t *   port_mapping_list_p,
+                                  sx_port_log_id_t *    log_port_list_p,
+                                  length_t*             port_cnt_p);
 
 /**
  *  	This API sets a ports Mapping .
@@ -120,11 +120,11 @@ sx_status_t sx_api_port_device_get(
 
 sx_status_t
 sx_api_port_mapping_set(
-        const sx_api_handle_t       handle,
-          sx_port_log_id_t     *log_port_list_p,
-        const sx_port_mapping_t    *port_mapping_list_p,
-        const length_t              port_cnt
-        );
+                       const sx_api_handle_t       handle,
+                       sx_port_log_id_t     *log_port_list_p,
+                       const sx_port_mapping_t    *port_mapping_list_p,
+                       const length_t              port_cnt
+                       );
 
 /**
  *  	This API Retrieves a Logical Port ID Mapping from the SDK.
@@ -142,11 +142,11 @@ sx_api_port_mapping_set(
  */
 sx_status_t
 sx_api_port_mapping_get(
-		const sx_api_handle_t		handle,
-        sx_port_log_id_t           *log_port_list_p,
-        sx_port_mapping_t          *port_mapping_list_p,
-        const length_t              port_cnt
-		);
+                       const sx_api_handle_t       handle,
+                       sx_port_log_id_t           *log_port_list_p,
+                       sx_port_mapping_t          *port_mapping_list_p,
+                       const length_t              port_cnt
+                       );
 
 
 /**
@@ -166,10 +166,10 @@ sx_api_port_mapping_get(
  */
 sx_status_t
 sx_api_port_device_list_get(
-		const sx_api_handle_t       handle,
-		      sx_device_info_t      *device_info_list_p,
-		      length_t              *device_info_cnt_p
-		);
+                           const sx_api_handle_t       handle,
+                           sx_device_info_t      *device_info_list_p,
+                           length_t              *device_info_cnt_p
+                           );
 
 /**
  *  This API retrieves the Port lib init Params from the SDK.
@@ -187,10 +187,10 @@ sx_api_port_device_list_get(
  */
 sx_status_t
 sx_api_port_params_get(
-		const sx_api_handle_t       handle,
-              uint8_t               *pth_bits_num_p,
-              uint8_t               *sub_bits_num_p
-                );
+                      const sx_api_handle_t       handle,
+                      uint8_t               *pth_bits_num_p,
+                      uint8_t               *sub_bits_num_p
+                      );
 
 /**
  *  	This API retrieves a UC-Route given a Logical Port ID from the SDK.
@@ -208,10 +208,10 @@ sx_api_port_params_get(
  */
 sx_status_t
 sx_api_port_base_ucroute_get(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		      sx_port_ucroute_id_t  *ucroute_id_p
-		);
+                            const sx_api_handle_t       handle,
+                            const sx_port_log_id_t      log_port,
+                            sx_port_ucroute_id_t  *ucroute_id_p
+                            );
 
 /**
  *  	This API retrieves a Logical Port ID given a UC-Route ID from the SDK.
@@ -229,10 +229,10 @@ sx_api_port_base_ucroute_get(
  */
 sx_status_t
 sx_api_port_logical_get(
-		const sx_api_handle_t       handle,
-		const sx_port_ucroute_id_t  uc_route,
-		      sx_port_log_id_t      *log_port_p
-		);
+                       const sx_api_handle_t       handle,
+                       const sx_port_ucroute_id_t  uc_route,
+                       sx_port_log_id_t      *log_port_p
+                       );
 
 
 /**
@@ -254,10 +254,10 @@ sx_api_port_logical_get(
  */
 sx_status_t
 sx_api_port_swid_set(
-		const sx_api_handle_t       handle,
-		const sx_access_cmd_t       cmd,
-		const sx_swid_t             swid_id
-		);
+                    const sx_api_handle_t       handle,
+                    const sx_access_cmd_t       cmd,
+                    const sx_swid_t             swid_id
+                    );
 
 /**
  *  	This API retrieves all SwIDs list from the SDK.
@@ -278,10 +278,10 @@ sx_api_port_swid_set(
  */
 sx_status_t
 sx_api_port_swid_list_get(
-		const sx_api_handle_t       handle,
-		      sx_swid_id_t          *swid_list_p,
-              length_t              *swid_cnt_p
-		);
+                         const sx_api_handle_t       handle,
+                         sx_swid_id_t          *swid_list_p,
+                         length_t              *swid_cnt_p
+                         );
 
 /**
  *  	This API retrieves the SwID's ports list.
@@ -303,11 +303,11 @@ sx_api_port_swid_list_get(
  */
 sx_status_t
 sx_api_port_swid_port_list_get(
-		const sx_api_handle_t       handle,
-		const sx_swid_t             swid_id,
-		      sx_port_log_id_t      *log_port_list_p,
-		      length_t              *port_cnt_p
-		);
+                              const sx_api_handle_t       handle,
+                              const sx_swid_t             swid_id,
+                              sx_port_log_id_t      *log_port_list_p,
+                              length_t              *port_cnt_p
+                              );
 
 /**
  *  	This API Binds/UN-binds a logical port to / from a SWID in the SDK.
@@ -326,10 +326,10 @@ sx_api_port_swid_port_list_get(
  */
 sx_status_t
 sx_api_port_swid_bind_set(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		const sx_swid_id_t          swid_id
-		);
+                         const sx_api_handle_t       handle,
+                         const sx_port_log_id_t      log_port,
+                         const sx_swid_id_t          swid_id
+                         );
 
 /**
  *  	This API Retrieves a Logical Port's binded SwID.
@@ -348,10 +348,10 @@ sx_api_port_swid_bind_set(
  */
 sx_status_t
 sx_api_port_swid_bind_get(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		      sx_swid_t             *swid_id_p
-		);
+                         const sx_api_handle_t       handle,
+                         const sx_port_log_id_t      log_port,
+                         sx_swid_t             *swid_id_p
+                         );
 
 
 /**
@@ -372,10 +372,10 @@ sx_api_port_swid_bind_get(
  */
 sx_status_t
 sx_api_port_mode_set(
-		const sx_api_handle_t    handle,
-		const sx_port_log_id_t   log_port,
-		const sx_port_mode_t   	 mode
-		);
+                    const sx_api_handle_t    handle,
+                    const sx_port_log_id_t   log_port,
+                    const sx_port_mode_t     mode
+                    );
 
 
 /**
@@ -396,10 +396,10 @@ sx_api_port_mode_set(
  */
 sx_status_t
 sx_api_port_mode_get(
-			const sx_api_handle_t	handle,
-			const sx_port_log_id_t	log_port,
-		    sx_port_mode_t	*mode_p
-		);
+                    const sx_api_handle_t   handle,
+                    const sx_port_log_id_t  log_port,
+                    sx_port_mode_t  *mode_p
+                    );
 
 
 /**
@@ -417,10 +417,10 @@ sx_api_port_mode_get(
  */
 sx_status_t
 sx_api_port_mtu_set(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		const sx_port_mtu_t         mtu_size
-		);
+                   const sx_api_handle_t       handle,
+                   const sx_port_log_id_t      log_port,
+                   const sx_port_mtu_t         mtu_size
+                   );
 
 
 /**
@@ -441,11 +441,11 @@ sx_api_port_mtu_set(
  */
 sx_status_t
 sx_api_port_mtu_get(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		      sx_port_mtu_t         *max_mtu_size_p,
-		      sx_port_mtu_t         *oper_mtu_size_p
-		);
+                   const sx_api_handle_t       handle,
+                   const sx_port_log_id_t      log_port,
+                   sx_port_mtu_t         *max_mtu_size_p,
+                   sx_port_mtu_t         *oper_mtu_size_p
+                   );
 
 /**
  *  This API Sets the Port Type & Speed.
@@ -469,9 +469,9 @@ sx_api_port_mtu_get(
  */
 sx_status_t
 sx_api_port_speed_admin_set(
-		const sx_api_handle_t   handle,
-		const sx_port_log_id_t  log_port,
-		const sx_port_speed_capability_t* admin_speed_p);
+                           const sx_api_handle_t   handle,
+                           const sx_port_log_id_t  log_port,
+                           const sx_port_speed_capability_t* admin_speed_p);
 
 /**
  * This API Retrieves the Port's Admin Speed from the SDK.
@@ -491,9 +491,9 @@ sx_api_port_speed_admin_set(
  */
 sx_status_t
 sx_api_port_speed_admin_get(
-		const sx_api_handle_t	 	handle,
-		const sx_port_log_id_t 		log_port,
-		sx_port_speed_capability_t* admin_speed_p);
+                           const sx_api_handle_t       handle,
+                           const sx_port_log_id_t      log_port,
+                           sx_port_speed_capability_t* admin_speed_p);
 
 /**
  * This API Retrieves the Port's Operational Speed from the SDK.
@@ -513,9 +513,9 @@ sx_api_port_speed_admin_get(
  */
 sx_status_t
 sx_api_port_speed_oper_get(
-		const sx_api_handle_t	handle,
-		const sx_port_log_id_t 	log_port,
-		sx_port_oper_speed_t* 	oper_speed_p);
+                          const sx_api_handle_t   handle,
+                          const sx_port_log_id_t  log_port,
+                          sx_port_oper_speed_t*   oper_speed_p);
 
 
 /**
@@ -536,9 +536,9 @@ sx_api_port_speed_oper_get(
  */
 sx_status_t
 sx_api_port_speed_capability_get(
-		const sx_api_handle_t 		handle,
-		const sx_port_log_id_t 		log_port,
-		sx_port_speed_capability_t*	speed_capability_p);
+                                const sx_api_handle_t       handle,
+                                const sx_port_log_id_t      log_port,
+                                sx_port_speed_capability_t* speed_capability_p);
 
 
 /**
@@ -558,10 +558,10 @@ sx_api_port_speed_capability_get(
  */
 sx_status_t
 sx_api_port_phys_addr_get(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		      sx_mac_addr_t         *base_mac_addr_p
-		);
+                         const sx_api_handle_t       handle,
+                         const sx_port_log_id_t      log_port,
+                         sx_mac_addr_t         *base_mac_addr_p
+                         );
 
 /**
  * This API is not supported at the current release
@@ -582,9 +582,9 @@ sx_api_port_phys_addr_get(
  */
 sx_status_t
 sx_api_port_phys_loopback_set(
-        const sx_api_handle_t           handle,
-        const sx_port_log_id_t          log_port,
-        const sx_port_phys_loopback_t   *phys_loopback_p);
+                             const sx_api_handle_t           handle,
+                             const sx_port_log_id_t          log_port,
+                             const sx_port_phys_loopback_t   *phys_loopback_p);
 
 /**
  * This API is not supported at the current release
@@ -605,9 +605,9 @@ sx_api_port_phys_loopback_set(
  */
 sx_status_t
 sx_api_port_phys_loopback_get(
-        const sx_api_handle_t           handle,
-        const sx_port_log_id_t          log_port,
-              sx_port_phys_loopback_t   *phys_loopback_p);
+                             const sx_api_handle_t           handle,
+                             const sx_port_log_id_t          log_port,
+                             sx_port_phys_loopback_t   *phys_loopback_p);
 
 
 /**
@@ -627,10 +627,10 @@ sx_api_port_phys_loopback_get(
  */
 sx_status_t
 sx_api_port_state_set(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		const sx_port_admin_state_t admin_state
-		);
+                     const sx_api_handle_t       handle,
+                     const sx_port_log_id_t      log_port,
+                     const sx_port_admin_state_t admin_state
+                     );
 
 /**
  *  	This API Retrieves the Port's Administrative, Operational & Module State from the SDK.
@@ -652,12 +652,12 @@ sx_api_port_state_set(
  */
 sx_status_t
 sx_api_port_state_get(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		      sx_port_oper_state_t  *oper_state_p,
-		      sx_port_admin_state_t *admin_state_p,
-	          sx_port_module_state_t *module_state_p
-	        );
+                     const sx_api_handle_t       handle,
+                     const sx_port_log_id_t      log_port,
+                     sx_port_oper_state_t  *oper_state_p,
+                     sx_port_admin_state_t *admin_state_p,
+                     sx_port_module_state_t *module_state_p
+                     );
 
 /**
  * This API is not supported at the current release.
@@ -677,10 +677,10 @@ sx_api_port_state_get(
  */
 sx_status_t
 sx_api_port_module_state_event_set(
-		const sx_api_handle_t           handle,
-		const sx_port_log_id_t          log_port,
-		const sx_event_generate_mode_t  module_state_change_event_gen_mode
-		);
+                                  const sx_api_handle_t           handle,
+                                  const sx_port_log_id_t          log_port,
+                                  const sx_event_generate_mode_t  module_state_change_event_gen_mode
+                                  );
 
 /**
  * This API is not supported at the current release.
@@ -700,10 +700,10 @@ sx_api_port_module_state_event_set(
  */
 sx_status_t
 sx_api_port_module_state_event_get(
-		const sx_api_handle_t           handle,
-		const sx_port_log_id_t          log_port,
-		      sx_event_generate_mode_t  *module_state_change_event_gen_mode_p
-		);
+                                  const sx_api_handle_t           handle,
+                                  const sx_port_log_id_t          log_port,
+                                  sx_event_generate_mode_t  *module_state_change_event_gen_mode_p
+                                  );
 
 /**
  *  	This API Sets the Port Flow Control Pause Configuration
@@ -723,10 +723,10 @@ sx_api_port_module_state_event_get(
  */
 sx_status_t
 sx_api_port_flow_ctrl_pause_set(
-        const sx_api_handle_t       handle,
-        const sx_port_log_id_t      log_port,
-        const sx_port_flow_ctrl_mode_t fc_mode
-                );
+                               const sx_api_handle_t       handle,
+                               const sx_port_log_id_t      log_port,
+                               const sx_port_flow_ctrl_mode_t fc_mode
+                               );
 
 /**
  *  	This API Retrieves the Port Flow Control Pause Configuration from the SDK.
@@ -746,10 +746,10 @@ sx_api_port_flow_ctrl_pause_set(
  */
 sx_status_t
 sx_api_port_flow_ctrl_pause_get(
-        const sx_api_handle_t           handle,
-        const sx_port_log_id_t          log_port,
-              sx_port_flow_ctrl_mode_t  *fc_mode_p
-                );
+                               const sx_api_handle_t           handle,
+                               const sx_port_log_id_t          log_port,
+                               sx_port_flow_ctrl_mode_t  *fc_mode_p
+                               );
 
 /**
  *  	This API Sets the Port Priority Flow Control Configuration.
@@ -770,11 +770,11 @@ sx_api_port_flow_ctrl_pause_get(
  */
 sx_status_t
 sx_api_port_flow_ctrl_priority_set(
-        const sx_api_handle_t           handle,
-        const sx_port_log_id_t          log_port,
-        const sx_port_flow_ctrl_prio_t  pfc_prio,
-        const sx_port_flow_ctrl_mode_t  fc_mode
-                );
+                                  const sx_api_handle_t           handle,
+                                  const sx_port_log_id_t          log_port,
+                                  const sx_port_flow_ctrl_prio_t  pfc_prio,
+                                  const sx_port_flow_ctrl_mode_t  fc_mode
+                                  );
 
 /**
  *  	This API Retrieves the Port Priority Flow Control Configuration from the SDK.
@@ -795,11 +795,11 @@ sx_api_port_flow_ctrl_priority_set(
  */
 sx_status_t
 sx_api_port_flow_ctrl_priority_get(
-        const sx_api_handle_t           handle,
-        const sx_port_log_id_t          log_port,
-        const sx_port_flow_ctrl_prio_t	pfc_prio,
-              sx_port_flow_ctrl_mode_t  *fc_mode_p
-                );
+                                  const sx_api_handle_t           handle,
+                                  const sx_port_log_id_t          log_port,
+                                  const sx_port_flow_ctrl_prio_t  pfc_prio,
+                                  sx_port_flow_ctrl_mode_t  *fc_mode_p
+                                  );
 
 /**
  *  	This API Sets the Port Credit Based Flow Control Configuration .
@@ -820,11 +820,11 @@ sx_api_port_flow_ctrl_priority_get(
  */
 sx_status_t
 sx_api_port_flow_ctrl_credit_set(
-        const sx_api_handle_t           handle,
-        const sx_port_log_id_t          log_port,
-        const sx_port_flow_ctrl_prio_t  cbfc_prio,
-        const sx_port_flow_ctrl_mode_t  fc_mode
-        );
+                                const sx_api_handle_t           handle,
+                                const sx_port_log_id_t          log_port,
+                                const sx_port_flow_ctrl_prio_t  cbfc_prio,
+                                const sx_port_flow_ctrl_mode_t  fc_mode
+                                );
 
 /**
  *  	This API Retrieves the Port Credit Based Flow Control Configuration from the SDK.
@@ -846,11 +846,11 @@ sx_api_port_flow_ctrl_credit_set(
  */
 sx_status_t
 sx_api_port_flow_ctrl_credit_get(
-        const sx_api_handle_t           handle,
-        const sx_port_log_id_t          log_port,
-        const sx_port_flow_ctrl_prio_t	cbfc_prio,
-              sx_port_flow_ctrl_mode_t* fc_mode_p
-                );
+                                const sx_api_handle_t           handle,
+                                const sx_port_log_id_t          log_port,
+                                const sx_port_flow_ctrl_prio_t  cbfc_prio,
+                                sx_port_flow_ctrl_mode_t* fc_mode_p
+                                );
 
 /**
  *  	This API Retrieves the Port IEEE 802.3 Counters from the SDK.
@@ -868,10 +868,10 @@ sx_api_port_flow_ctrl_credit_get(
  */
 sx_status_t
 sx_api_port_cntr_ieee_802_dot_3_get(
-		const sx_api_handle_t               handle,
-		const sx_port_log_id_t              log_port,
-		      sx_port_cntr_ieee_802_dot_3_t *cntr_ieee_802_dot_3_p
-		);
+                                   const sx_api_handle_t               handle,
+                                   const sx_port_log_id_t              log_port,
+                                   sx_port_cntr_ieee_802_dot_3_t *cntr_ieee_802_dot_3_p
+                                   );
 
 /**
  *  	This API Retrieves the Port RFC 2863 Counters from the SDK.
@@ -890,10 +890,10 @@ sx_api_port_cntr_ieee_802_dot_3_get(
  */
 sx_status_t
 sx_api_port_cntr_rfc_2863_get(
-		const sx_api_handle_t       handle,
-		const sx_port_log_id_t      log_port,
-		      sx_port_cntr_rfc_2863_t *cntr_rfc_2863_p
-		);
+                             const sx_api_handle_t       handle,
+                             const sx_port_log_id_t      log_port,
+                             sx_port_cntr_rfc_2863_t *cntr_rfc_2863_p
+                             );
 
 /**
  *  	This API Retrieves the Port RFC 2819 Counters from the SDK.
@@ -912,10 +912,10 @@ sx_api_port_cntr_rfc_2863_get(
  */
 sx_status_t
 sx_api_port_cntr_rfc_2819_get(
-		const sx_api_handle_t           handle,
-		const sx_port_log_id_t          log_port,
-		      sx_port_cntr_rfc_2819_t   *cntr_rfc_2819_p
-		);
+                             const sx_api_handle_t           handle,
+                             const sx_port_log_id_t          log_port,
+                             sx_port_cntr_rfc_2819_t   *cntr_rfc_2819_p
+                             );
 
 /**
  *  	This API Retrieves the Port RFC 3635 Counters from the SDK.
@@ -934,10 +934,10 @@ sx_api_port_cntr_rfc_2819_get(
  */
 sx_status_t
 sx_api_port_cntr_rfc_3635_get(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port,
-		      sx_port_cntr_rfc_3635_t *cntr_rfc_3635_p
-		);
+                             const sx_api_handle_t handle,
+                             const sx_port_log_id_t log_port,
+                             sx_port_cntr_rfc_3635_t *cntr_rfc_3635_p
+                             );
 
 /**
  *  	This API Retrieves the Port CLI Counters from the SDK.
@@ -956,10 +956,10 @@ sx_api_port_cntr_rfc_3635_get(
  */
 sx_status_t
 sx_api_port_cntr_cli_get(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port,
-		      sx_port_cntr_cli_t *cntr_cli_p
-		);
+                        const sx_api_handle_t handle,
+                        const sx_port_log_id_t log_port,
+                        sx_port_cntr_cli_t *cntr_cli_p
+                        );
 
 /**
  ****** This API Retrieves the Port Priority Counters from the SDK.
@@ -982,11 +982,11 @@ sx_api_port_cntr_cli_get(
  */
 sx_status_t
 sx_api_port_cntr_prio_get(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port,
-		const sx_port_cntr_prio_id_t cntr_prio_id,
-		      sx_port_cntr_prio_t *cntr_prio_p
-		);
+                         const sx_api_handle_t handle,
+                         const sx_port_log_id_t log_port,
+                         const sx_port_cntr_prio_id_t cntr_prio_id,
+                         sx_port_cntr_prio_t *cntr_prio_p
+                         );
 
 
 /**
@@ -1006,12 +1006,12 @@ sx_api_port_cntr_prio_get(
  */
 sx_status_t
 sx_api_port_cntr_tc_get(
-		const sx_api_handle_t 		     handle,
-		const sx_port_log_id_t 		     log_port,
-		const sx_port_tc_id_t         	     tc_id,
-		sx_port_traffic_cntr_t 		     *cntr_tc_p
+                       const sx_api_handle_t            handle,
+                       const sx_port_log_id_t           log_port,
+                       const sx_port_tc_id_t                tc_id,
+                       sx_port_traffic_cntr_t           *cntr_tc_p
 
-		);
+                       );
 
 
 /**
@@ -1036,11 +1036,11 @@ sx_api_port_cntr_tc_get(
  */
 sx_status_t
 sx_api_port_cntr_ext_get(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port,
-		const sx_port_cntr_prio_id_t cntr_prio_id,
-			sx_port_cntr_ext_t *cntr_ext_p
-		);
+                        const sx_api_handle_t handle,
+                        const sx_port_log_id_t log_port,
+                        const sx_port_cntr_prio_id_t cntr_prio_id,
+                        sx_port_cntr_ext_t *cntr_ext_p
+                        );
 
 /**
  *  This API clear Port Counters.
@@ -1069,11 +1069,11 @@ sx_api_port_cntr_ext_get(
  */
 sx_status_t
 sx_api_port_cntr_clear_set(
-        const sx_api_handle_t    handle,
-        const sx_port_log_id_t   log_port,
-        const boolean_t          all_ports,
-        const sx_port_cntr_grp_t cntr_grp
-    );
+                          const sx_api_handle_t    handle,
+                          const sx_port_log_id_t   log_port,
+                          const boolean_t          all_ports,
+                          const sx_port_cntr_grp_t cntr_grp
+                          );
 
 /**
  *  	This API Initializes the Port in the SDK.
@@ -1090,9 +1090,9 @@ sx_api_port_cntr_clear_set(
  */
 sx_status_t
 sx_api_port_init(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port
-		);
+                const sx_api_handle_t handle,
+                const sx_port_log_id_t log_port
+                );
 
 /**
  *  	This API De-Initializes the Port in the SDK.
@@ -1109,9 +1109,9 @@ sx_api_port_init(
  */
 sx_status_t
 sx_api_port_deinit(
-		const sx_api_handle_t handle,
-		const sx_port_log_id_t log_port
-		);
+                  const sx_api_handle_t handle,
+                  const sx_port_log_id_t log_port
+                  );
 
 /**
  * This API Binds / Un-binds a policer to / from a port
@@ -1134,11 +1134,11 @@ sx_api_port_deinit(
  */
 sx_status_t
 sx_api_port_policer_bind_set(
-    const sx_api_handle_t       handle,
-    const sx_access_cmd_t       cmd,
-    const sx_port_log_id_t      log_port,
-    const sx_policer_id_t       policer_id,
-    const sx_port_policer_flow_metering_type_t *flow_metering_p);
+                            const sx_api_handle_t       handle,
+                            const sx_access_cmd_t       cmd,
+                            const sx_port_log_id_t      log_port,
+                            const sx_policer_id_t       policer_id,
+                            const sx_port_policer_flow_metering_type_t *flow_metering_p);
 
 /**
  * This API retrieves Bound policer flow types.
@@ -1156,10 +1156,10 @@ sx_api_port_policer_bind_set(
  */
 sx_status_t
 sx_api_port_policer_bind_get(
-    const sx_api_handle_t       handle,
-    const sx_port_log_id_t      log_port,
-    const sx_policer_id_t       policer_id,
-    sx_port_policer_flow_metering_type_t    *flow_metering_p);
+                            const sx_api_handle_t       handle,
+                            const sx_port_log_id_t      log_port,
+                            const sx_policer_id_t       policer_id,
+                            sx_port_policer_flow_metering_type_t    *flow_metering_p);
 
 /**
  * This API controls sFlow state of the port. Using access cmd 
@@ -1191,11 +1191,11 @@ sx_api_port_policer_bind_get(
  */
 sx_status_t
 sx_api_port_sflow_set(
-		const sx_api_handle_t           	handle,
-        const sx_access_cmd_t           	cmd,
-		const sx_port_log_id_t          	log_port,
-		sx_port_sflow_params_t*   sflow_params_p
-		);
+                     const sx_api_handle_t               handle,
+                     const sx_access_cmd_t               cmd,
+                     const sx_port_log_id_t              log_port,
+                     sx_port_sflow_params_t*   sflow_params_p
+                     );
 
 
 /**
@@ -1217,10 +1217,10 @@ sx_api_port_sflow_set(
  */
 sx_status_t
 sx_api_port_sflow_get(
-		const sx_api_handle_t           handle,
-		const sx_port_log_id_t          log_port,
-		sx_port_sflow_params_t*     sflow_params_p
-		);
+                     const sx_api_handle_t           handle,
+                     const sx_port_log_id_t          log_port,
+                     sx_port_sflow_params_t*     sflow_params_p
+                     );
 
 /**
  * This API controls loopback filter state of the port  
@@ -1236,10 +1236,10 @@ sx_api_port_sflow_get(
  */
 sx_status_t
 sx_api_port_loopback_filter_set(
-		const sx_api_handle_t           	handle,
-        	const sx_port_log_id_t          	log_port,
-		const sx_port_loopback_filter_mode_t    lbf_mode
-		);
+                               const sx_api_handle_t               handle,
+                               const sx_port_log_id_t              log_port,
+                               const sx_port_loopback_filter_mode_t    lbf_mode
+                               );
 
 
 /**
@@ -1256,10 +1256,10 @@ sx_api_port_loopback_filter_set(
  */
 sx_status_t
 sx_api_port_loopback_filter_get(
-		const sx_api_handle_t           	handle,
-		const sx_port_log_id_t          	log_port,
-		sx_port_loopback_filter_mode_t          *lbf_mode_p
-		);
+                               const sx_api_handle_t               handle,
+                               const sx_port_log_id_t              log_port,
+                               sx_port_loopback_filter_mode_t          *lbf_mode_p
+                               );
 
 /**
  * This function sets the isolation group of the port (a list of ports from which
@@ -1283,12 +1283,12 @@ sx_api_port_loopback_filter_get(
  */
 sx_status_t
 sx_api_port_isolate_set(
-		const sx_api_handle_t   handle,
-		const sx_access_cmd_t	access_cmd,
-		const sx_port_log_id_t  log_port,
-		const sx_port_log_id_t *log_port_list_p,
-		const length_t 			log_port_cnt
-		);
+                       const sx_api_handle_t   handle,
+                       const sx_access_cmd_t   access_cmd,
+                       const sx_port_log_id_t  log_port,
+                       const sx_port_log_id_t *log_port_list_p,
+                       const length_t          log_port_cnt
+                       );
 
 /**
  * This function retrieves the isolation group of the port (a list of ports from which
@@ -1308,11 +1308,11 @@ sx_api_port_isolate_set(
  */
 sx_status_t
 sx_api_port_isolate_get(
-		const sx_api_handle_t   handle,
-		const sx_port_log_id_t  log_port,
-	    sx_port_log_id_t 	   *log_port_list_p,
-	    length_t 			   *log_port_cnt_p
-		);
+                       const sx_api_handle_t   handle,
+                       const sx_port_log_id_t  log_port,
+                       sx_port_log_id_t       *log_port_list_p,
+                       length_t               *log_port_cnt_p
+                       );
 
 /**
  * This API returns the swid type as it was configured in the 
@@ -1327,9 +1327,9 @@ sx_api_port_isolate_get(
  */
 sx_status_t
 sx_api_port_swid_type_get(
-		const sx_api_handle_t   handle,
-		const sx_swid_id_t      swid,
-	    sx_swid_type_t          *swid_type_p
-		);
+                         const sx_api_handle_t   handle,
+                         const sx_swid_id_t      swid,
+                         sx_swid_type_t          *swid_type_p
+                         );
 
 #endif /* __SX_API_PORT_H__ */

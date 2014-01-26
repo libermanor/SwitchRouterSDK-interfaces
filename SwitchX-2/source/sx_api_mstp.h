@@ -38,12 +38,12 @@
  */
 sx_status_t
 sx_api_mstp_log_verbosity_level_set(
-                sx_api_handle_t            handle ,
-                sx_access_cmd_t            cmd ,
-                sx_log_verbosity_target_t  verbosity_target,
-                sx_verbosity_level_t      *module_verbosity_level_p,
-                sx_verbosity_level_t      *api_verbosity_level_p
-                );
+                                   sx_api_handle_t            handle ,
+                                   sx_access_cmd_t            cmd ,
+                                   sx_log_verbosity_target_t  verbosity_target,
+                                   sx_verbosity_level_t      *module_verbosity_level_p,
+                                   sx_verbosity_level_t      *api_verbosity_level_p
+                                   );
 
 /**
  *  	This API Sets the Switch STP Activation mode (RSTP/MSTP) in the SDK.
@@ -67,10 +67,10 @@ sx_api_mstp_log_verbosity_level_set(
  */
 sx_status_t
 sx_api_mstp_mode_set(
-		const sx_api_handle_t handle,
-		const sx_swid_id_t swid_id,
-		const sx_mstp_mode_t mode
-		);
+                    const sx_api_handle_t handle,
+                    const sx_swid_id_t swid_id,
+                    const sx_mstp_mode_t mode
+                    );
 
 /**
  *  	This API Retrieves the Switch STP Activation state (RSTP/MSTP) from the SDK.
@@ -91,10 +91,10 @@ sx_api_mstp_mode_set(
  */
 sx_status_t
 sx_api_mstp_mode_get(
-		const sx_api_handle_t handle,
-		const sx_swid_id_t swid_id,
-		      sx_mstp_mode_t *mode_p
-		);
+                    const sx_api_handle_t handle,
+                    const sx_swid_id_t swid_id,
+                    sx_mstp_mode_t *mode_p
+                    );
 
 /**
  *  	This API Adds/Deletes an MSTP Instance to/from the Switch in the SDK.
@@ -115,11 +115,11 @@ sx_api_mstp_mode_get(
  */
 sx_status_t
 sx_api_mstp_inst_set(
-		const sx_api_handle_t handle,
-		const sx_access_cmd_t cmd,
-		const sx_swid_id_t swid_id,
-		const sx_mstp_inst_id_t inst_id
-		);
+                    const sx_api_handle_t handle,
+                    const sx_access_cmd_t cmd,
+                    const sx_swid_id_t swid_id,
+                    const sx_mstp_inst_id_t inst_id
+                    );
 
 /**
  *  	This API Adds/Deletes a mapping between a list of VLANs to the MSTP Instance in the SDK.
@@ -144,13 +144,13 @@ sx_api_mstp_inst_set(
  */
 sx_status_t
 sx_api_mstp_inst_vlan_list_set(
-		const sx_api_handle_t handle,
-		const sx_access_cmd_t cmd,
-    		const sx_swid_id_t swid_id,
-		const sx_mstp_inst_id_t inst_id,
-		const sx_vlan_id_t *vlan_list_p,
-		const length_t vlan_num
-		);
+                              const sx_api_handle_t handle,
+                              const sx_access_cmd_t cmd,
+                              const sx_swid_id_t swid_id,
+                              const sx_mstp_inst_id_t inst_id,
+                              const sx_vlan_id_t *vlan_list_p,
+                              const length_t vlan_num
+                              );
 
 /**
  *  	This API Retrieves a list of VLANs in the MSTP Instance from the SDK.
@@ -176,12 +176,12 @@ sx_api_mstp_inst_vlan_list_set(
  */
 sx_status_t
 sx_api_mstp_inst_vlan_list_get(
-		const sx_api_handle_t handle,
-    	const sx_swid_id_t swid_id,
-		const sx_mstp_inst_id_t inst_id,
-		      sx_vlan_id_t *vlan_list_p,
-		      length_t *vlan_num_p
-		);
+                              const sx_api_handle_t handle,
+                              const sx_swid_id_t swid_id,
+                              const sx_mstp_inst_id_t inst_id,
+                              sx_vlan_id_t *vlan_list_p,
+                              length_t *vlan_num_p
+                              );
 
 /**
  *  	This API Sets the MSTP Port State for a given Instance in the SDK.
@@ -207,12 +207,12 @@ sx_api_mstp_inst_vlan_list_get(
  */
 sx_status_t
 sx_api_mstp_inst_port_state_set(
-		const sx_api_handle_t handle,
-		const sx_swid_id_t swid_id,
-		const sx_mstp_inst_id_t inst_id,
-		const sx_port_id_t port_id,
-		const sx_mstp_inst_port_state_t port_state
-		);
+                               const sx_api_handle_t handle,
+                               const sx_swid_id_t swid_id,
+                               const sx_mstp_inst_id_t inst_id,
+                               const sx_port_id_t port_id,
+                               const sx_mstp_inst_port_state_t port_state
+                               );
 
 /**
  *  	This API Retrieves the MSTP Port State for a given Instance from the SDK.
@@ -235,12 +235,12 @@ sx_api_mstp_inst_port_state_set(
  */
 sx_status_t
 sx_api_mstp_inst_port_state_get(
-		const sx_api_handle_t handle,
-		const sx_swid_id_t swid_id,
-		const sx_mstp_inst_id_t inst_id,
-		const sx_port_id_t port_id,
-		      sx_mstp_inst_port_state_t* port_state_p
-		);
+                               const sx_api_handle_t handle,
+                               const sx_swid_id_t swid_id,
+                               const sx_mstp_inst_id_t inst_id,
+                               const sx_port_id_t port_id,
+                               sx_mstp_inst_port_state_t* port_state_p
+                               );
 
 /**
  *  	This API Sets the RSTP Port State in the SDK.
@@ -265,11 +265,11 @@ sx_api_mstp_inst_port_state_get(
  */
 sx_status_t
 sx_api_rstp_port_state_set(
-		const sx_api_handle_t handle,
-		const sx_swid_id_t swid_id,
-		const sx_port_id_t port_id,
-		const sx_mstp_inst_port_state_t port_state
-		);
+                          const sx_api_handle_t handle,
+                          const sx_swid_id_t swid_id,
+                          const sx_port_id_t port_id,
+                          const sx_mstp_inst_port_state_t port_state
+                          );
 
 /**
  *  	This API Retrieves the RSTP Port State from the SDK.
@@ -291,10 +291,10 @@ sx_api_rstp_port_state_set(
  */
 sx_status_t
 sx_api_rstp_port_state_get(
-		const sx_api_handle_t handle,
-		const sx_swid_id_t swid_id,
-		const sx_port_id_t port_id,
-		      sx_mstp_inst_port_state_t *port_state_p
-		);
+                          const sx_api_handle_t handle,
+                          const sx_swid_id_t swid_id,
+                          const sx_port_id_t port_id,
+                          sx_mstp_inst_port_state_t *port_state_p
+                          );
 
 #endif /* __SX_API_MSTP_H__ */
