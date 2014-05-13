@@ -22,165 +22,249 @@
  ***********************************************/
 
 /**
- * This function sets the log verbosity level of LAG MODULE
- * @param[in]     handle                   - SX-API handle
- * @param[in]     cmd                      - SET / GET
- * @param[in]     verbosity_target         - set get verbosity of : API / MODULE / BOTH
- * @param[in,out] module_verbosity_level_p - FDB module verbosity level
- * @param[in,out] api_verbosity_level_p    - fdb API verbosity level
+ * This function sets the log verbosity level of LAG MODULE.
+ *
+ * @param[in] handle                   - SX-API handle
+ * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
+ * @param[in] module_verbosity_level   - LAG module verbosity level
+ * @param[in] api_verbosity_level      - LAG API verbosity level
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
- * @return SX_STATUS_ERROR general error
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
  */
-sx_status_t
-sx_api_lag_log_verbosity_level_set(
-                                  const sx_api_handle_t            handle ,
-                                  const sx_access_cmd_t            cmd ,
-                                  const sx_log_verbosity_target_t  verbosity_target,
-                                  sx_verbosity_level_t *     module_verbosity_level_p,
-                                  sx_verbosity_level_t *     api_verbosity_level_p);
+sx_status_t sx_api_lag_log_verbosity_level_set(
+        const sx_api_handle_t             handle,
+        const sx_log_verbosity_target_t   verbosity_target,
+        const sx_verbosity_level_t      module_verbosity_level,
+        const sx_verbosity_level_t      api_verbosity_level);
 
 /**
- *  This function CREATEs/DESTROYs a new/existing LAG ports group in the SDK.
- *  Plus, it ADDs/DELETEs ports to/from an existing LAG ports group in the SDK.
+ * This function sets the log verbosity level of LAG MODULE.
+ *
+ * @param[in]  handle                   - SX-API handle
+ * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
+ * @param[out] module_verbosity_level_p - LAG module verbosity level
+ * @param[out] api_verbosity_level_p    - LAG API verbosity level
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_lag_log_verbosity_level_get(
+        const sx_api_handle_t             handle,
+        const sx_log_verbosity_target_t   verbosity_target,
+              sx_verbosity_level_t        *module_verbosity_level_p,
+              sx_verbosity_level_t        *api_verbosity_level_p);
+
+/**
+ *  This function creates/destroys a new/existing LAG port group in the SDK.
+ *  This function also adds/deletes ports to/from an existing LAG port group in the SDK.
  *
  *  Note:
- *  - All ports must be DELETEd from LAG ports group before the group is DESTROYed.
- *  - Cannot create a lag group and add ports to it in the same api call.
+ *  - All ports must be deleted from a LAG port groups before the group is destroyed.
+ *  - Creating a LAG group and adding ports to it in the same api call is not supported.
  *
- * @param[in] handle - SX-API handle.
- * @param[in] cmd - CREATE/DESTROY/ADD/DELETE.
- * @param[in] swid - SWitch (virtual partition) ID.
- * @param[in,out] lag_port_p -	In: Already created LAG ports 
- *              group ID. Out: Newly created LAG ports group ID.
- * @param[in] log_port_num - Number of Logical Ports to ADD/DELETE to/from a LAG ports group.
- * @param[in] log_port_list_p - List of Logical Ports to 
- *       ADD/DELETE to/from a LAG ports group.
+ * @param[in] handle             - SX-API handle
+ * @param[in] cmd                - CREATE/DESTROY/ADD/DELETE
+ * @param[in] swid               - switch (virtual partition) ID
+ * @param[in,out] lag_log_port_p - In: Already created LAG ports group ID
+ *                                 Out: Newly created LAG ports group ID
+ * @param[in] log_port_list_p    - List of logical ports to ADD/DELETE to/from a LAG ports group
+ * @param[in] log_port_cnt       - Number of logical ports to ADD/DELETE to/from a LAG ports group
  *
- * @return SX_STATUS_SUCCESS - Operation completes successfully.
- * @return SX_STATUS_PARAM_NULL - Parameter is unexpectedly NULL.
- * @return SX_STATUS_PARAM_ERROR - Parameter is invalid.
- * @return SX_STATUS_ENTRY_NOT_FOUND - Requested element is not found in DB.
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameter exceeds its range.
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in the DB
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
  */
 sx_status_t sx_api_lag_port_group_set(
-                                     const sx_api_handle_t   handle,
-                                     const sx_access_cmd_t   cmd,
-                                     const sx_swid_t         swid,
-                                     sx_port_lag_id_t* lag_port_p,
-                                     const sx_port_log_id_t* log_port_list_p,
-                                     const length_t          log_port_num);
+        const sx_api_handle_t   handle,
+        const sx_access_cmd_t   cmd,
+        const sx_swid_t         swid,
+              sx_port_log_id_t  *lag_log_port_p,
+        const sx_port_log_id_t  *log_port_list_p,
+        const uint32_t          log_port_cnt);
 
 /**
- *  This function retrieves an existing LAG's ports group from the SDK.
+ *  This function retrieves an existing LAG ports group from the SDK.
  *
- *  Note:
- *  If the output ports list is NULL, only the number of ports in the LAG's retrieved.
+ *  Note: If the output ports list is NULL, only the number of ports in the LAG is retrieved.
  *
- * @param[in] handle - SX-API handle.
- * @param[in] swid - SWitch (virtual partition) ID.
- * @param[in] lag_port - LAG ports group ID.
- * @param[in,out] log_port_list_p - List of Logical Ports.
- * @param[in,out] log_port_num_p - In: Number of Logical Ports in list, Out: Number of Logical Ports in LAG.
+ * @param[in] handle                - SX-API handle
+ * @param[in] swid                  - switch (virtual partition) ID
+ * @param[in] lag_log_port          - LAG ports group ID
+ * @param[in,out] log_port_list_p   - list of logical ports
+ * @param[in,out] log_port_cnt_p    - In: Number of logical ports in list
+ *                                    Out: Number of logical ports in LAG
  *
- * @return SX_STATUS_SUCCESS - Operation completes successfully.
- * @return SX_STATUS_PARAM_NULL - Parameter is unexpectedly NULL.
- * @return SX_STATUS_PARAM_ERROR - Parameter is invalid.
- * @return SX_STATUS_ENTRY_NOT_FOUND - Requested element is not found in DB.
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameter exceeds its range.
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in the DB
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
  */
 sx_status_t sx_api_lag_port_group_get(
-                                     const sx_api_handle_t       handle,
-                                     const sx_swid_t             swid,
-                                     const sx_port_lag_id_t      lag_port,
-                                     sx_port_log_id_t *    log_port_list_p,
-                                     length_t *            log_port_num_p);
+        const sx_api_handle_t   handle,
+        const sx_swid_t         swid,
+        const sx_port_log_id_t  lag_log_port,
+              sx_port_log_id_t  *log_port_list_p,
+              uint32_t          *log_port_cnt_p);
 
 
 /**
  *  This function enables/disables collection on a specific LAG port.
  *
- * @param[in] handle - SX-API handle.
- * @param[in] lag_log_port - A logical port number representing
- *       the LAG ports group
- * @param[in] log_port - logical port number
- * @param[in] collector_mode collector mode
+ * @param[in] handle         - SX-API handle
+ * @param[in] lag_log_port   - a logical port number representing
+ *                             the LAG ports group
+ * @param[in] log_port       - logical port number
+ * @param[in] collector_mode - collector mode
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameter is
- *         invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested
- *  element is not found in DB
- * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver
- *  function returns fail
- * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  */
 
 sx_status_t sx_api_lag_port_collector_set(
-                                         const sx_api_handle_t       handle,
-                                         const sx_port_log_id_t      lag_log_port,
-                                         const sx_port_log_id_t      log_port,
-                                         const sx_collector_mode_t   collector_mode);
+        const sx_api_handle_t       handle,
+        const sx_port_log_id_t      lag_log_port,
+        const sx_port_log_id_t      log_port,
+        const sx_collector_mode_t   collector_mode);
 
 /**
  *  This function enables/disables distribution on a specific LAG port.
  *
- * @param[in] handle - SX-API handle.
- * @param[in] lag_log_port - A logical port number representing
- *       the LAG ports group
- * @param[in] log_port - logical port number
- * @param[in] distributor_mode distributor mode
+ * @param[in] handle           - SX-API handle
+ * @param[in] lag_log_port     - a logical port number representing
+ *                               the LAG ports group
+ * @param[in] log_port         - logical port number
+ * @param[in] distributor_mode - distributor mode
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return 	SX_STATUS_PARAM_ERROR if any input parameter is
- *  invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
- *  not found in DB
- *  @return SX_STATUS_ENTRY_ALREADY_EXISTS if requested element
- *  is found in DB
- *  @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver
- *  function returns fail
- *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if requested element is already exists
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  */
 sx_status_t sx_api_lag_port_distributor_set(
-                                           const sx_api_handle_t       handle,
-                                           const sx_port_log_id_t      lag_log_port,
-                                           const sx_port_log_id_t      log_port,
-                                           const sx_distributor_mode_t distributor_mode);
+        const sx_api_handle_t       handle,
+        const sx_port_log_id_t      lag_log_port,
+        const sx_port_log_id_t      log_port,
+        const sx_distributor_mode_t distributor_mode);
 
 /**
  *  This function configures the flow indicators that impact the
  *  LAG hash distribution function.
- *  @param[in] handle - SX-API handle.
- *  @param[in] sx_lag_hash_param - Hash parameters
+ *
+ *  @param[in] handle               - SX-API handle
+ *  @param[in] lag_hash_param_p     - hash parameters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
- * @return SX_STATUS_NO_MEMORY if problems with memory allocation occurs
- * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameter exceeds its range
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
  */
 sx_status_t sx_api_lag_hash_flow_params_set(
-                                           const sx_api_handle_t       handle,
-                                           const sx_lag_hash_param_t * lag_hash_param_p);
+        const sx_api_handle_t        handle,
+        const sx_lag_hash_param_t    *lag_hash_param_p);
 
 
 
 /**
  *  This function retrieves the flow indicators that impact the
  *  LAG hash distribution function.
- *  @param[in] handle - SX-API handle.
- *  @param[out] sx_lag_hash_param - Hash parameters to be
- *        retrieved
+ *
+ *  @param[in] handle               - SX-API handle
+ *  @param[out] lag_hash_param_p    - hash parameters to be retrieved
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function returns fail
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails
  */
 sx_status_t sx_api_lag_hash_flow_params_get(
-                                           const sx_api_handle_t       handle,
-                                           sx_lag_hash_param_t * lag_hash_param_p);
+        const sx_api_handle_t       handle,
+              sx_lag_hash_param_t   *lag_hash_param_p);
+
+/**
+ *  This function CREATEs/DESTROYs a redirection between a LAG and a
+ *  destination LAG.
+ *  Redirection doesn't align LAG configuration, only TX traffic.
+ *
+ *  Note:
+ *  - Redirect operation is valid only between 2 LAGs. Cannot create chain of
+ *    redirected LAGs.
+ *  - Redirect is L2 action, and not valid for Router Port.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] cmd                   - CREATE/DESTROY
+ * @param[in] lag_log_port          - LAG logical ID
+ * @param[in] redirect_lag_log_port - LAG logical ID which lag_log_port now
+ *                                    points to. Ignored in DESTROY command.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ */
+sx_status_t
+sx_api_lag_redirect_set(
+        const sx_api_handle_t   handle,
+        const sx_access_cmd_t   cmd,
+        const sx_port_log_id_t  lag_log_port,
+        const sx_port_log_id_t  redirect_lag_log_port);
+
+/**
+ *  This function returns information whether a given LAG is redirected.
+ *  If so, the redirected LAG logical ID is return.
+ *
+ * @param[in] handle                     - SX-API handle.
+ * @param[in] lag_log_port               - LAG logical ID.
+ * @param[out] is_redirected_p           - is lag_port redirected.
+ * @param[out] redirected_lag_log_port_p - the LAG logical ID which lag_log_port
+ *                                         point to.
+ *                                         Valid when the LAG is redirected.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ */
+sx_status_t
+sx_api_lag_redirect_get(
+        const sx_api_handle_t   handle,
+        const sx_port_log_id_t  lag_log_port,
+              boolean_t         *is_redirected_p,
+              sx_port_log_id_t  *redirected_lag_log_port_p);
+
+/**
+ *  This function returns all LAGs redirected to the given LAG.
+ *  Call this API with lag_log_port_list_p=NULL will set to lag_log_port_cnt_p
+ *  the number of LAG redirected to lag_port.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] lag_log_port              - LAG logical ID
+ * @param[in,out] lag_log_port_list_p   - pointer to array of LAG port list
+ * @param[in,out] lag_log_port_cnt_p    - number of LAG ports in a list retrieve
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ */
+sx_status_t
+sx_api_lag_redirected_lags_get(
+        const sx_api_handle_t   handle,
+        const sx_port_log_id_t  lag_log_port,
+              sx_port_log_id_t  *lag_log_port_list_p,
+              uint32_t          *lag_log_port_cnt_p);
 
 #endif /* __SX_API_LAG_H__ */

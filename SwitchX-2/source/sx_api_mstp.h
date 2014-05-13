@@ -22,279 +22,253 @@
  ***********************************************/
 
 /**
- * This function sets the log verbosity level of MSTP MODULE
- * @param[in]     handle                   - SX-API handle
- * @param[in]     cmd                      - SET / GET
- * @param[in]     verbosity_target         - set get verbosity of : API / MODULE / BOTH
- * @param[in,out] module_verbosity_level_p - MSTP module verbosity level
- * @param[in,out] api_verbosity_level_p    - MSTP API verbosity level
+ *  This function sets the log verbosity level of MSTP MODULE.
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_CMD_UNSUPPORTED - Unsupported access command
- * @return SX_STATUS_INVALID_HANDLE - NULL handle received
- * @return SX_STATUS_COMM_ERROR - Client communication channel open failed
- * @return SX_STATUS_PARAM_ERROR - Unsupported verbosity_target
+ * @param[in] handle                   - SX-API handle
+ * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
+ * @param[in] module_verbosity_level   - MSTP module verbosity level
+ * @param[in] api_verbosity_level      - MSTP API verbosity level
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
  */
-sx_status_t
-sx_api_mstp_log_verbosity_level_set(
-                                   sx_api_handle_t            handle ,
-                                   sx_access_cmd_t            cmd ,
-                                   sx_log_verbosity_target_t  verbosity_target,
-                                   sx_verbosity_level_t      *module_verbosity_level_p,
-                                   sx_verbosity_level_t      *api_verbosity_level_p
-                                   );
+sx_status_t sx_api_mstp_log_verbosity_level_set(
+        const sx_api_handle_t           handle,
+        const sx_log_verbosity_target_t verbosity_target,
+        const sx_verbosity_level_t      module_verbosity_level,
+        const sx_verbosity_level_t      api_verbosity_level);
 
 /**
- *  	This API Sets the Switch STP Activation mode (RSTP/MSTP) in the SDK.
+ *  This function gets the log verbosity level of MSTP MODULE.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] verbosity_target          - get verbosity of : API / MODULE / BOTH
+ * @param[out] module_verbosity_level_p - MSTP module verbosity level
+ * @param[out] api_verbosity_level_p    - MSTP API verbosity level
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_mstp_log_verbosity_level_get(
+        const sx_api_handle_t           handle,
+        const sx_log_verbosity_target_t verbosity_target,
+              sx_verbosity_level_t      *module_verbosity_level_p,
+              sx_verbosity_level_t      *api_verbosity_level_p);
+
+/**
+ *  This function sets the switch STP activation mode (RSTP/MSTP) on the SDK.
  *  As a result, the mapping between Instance(s) to VLAN(s) is deleted.
- ************************************************************************************************************
  *
- * @param[in] handle - SX-API handle
- * @param[in] swid_id - Switch ID.
- * @param[in] mode - STP Activation mode.
- * 			Can take any of the following:
- * 			SX_MSTP_MODE_MSTP,	(default)
- * 			SX_MSTP_MODE_RSTP
+ * @param[in] handle  - SX-API handle
+ * @param[in] swid    - switch ID.
+ * @param[in] mode    - STP activation mode.
+ *                      Can take any of the following values:
+ *                      SX_MSTP_MODE_MSTP (default)
+ *                      SX_MSTP_MODE_RSTP
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
  */
-sx_status_t
-sx_api_mstp_mode_set(
-                    const sx_api_handle_t handle,
-                    const sx_swid_id_t swid_id,
-                    const sx_mstp_mode_t mode
-                    );
+sx_status_t sx_api_mstp_mode_set(
+        const sx_api_handle_t   handle,
+        const sx_swid_t         swid,
+        const sx_mstp_mode_t    mode);
 
 /**
- *  	This API Retrieves the Switch STP Activation state (RSTP/MSTP) from the SDK.
- ************************************************************************************************************
+ *  This function retrieves the switch STP activation state (RSTP/MSTP)
+ *  from the SDK.
  *
- * @param[in] handle - SX-API handle
- * @param[in] swid_id - Switch ID.
- * @param[out] mode_p - MSTP Activation state.
+ * @param[in] handle  - SX-API handle
+ * @param[in] swid    - switch ID
+ * @param[out] mode_p - MSTP activation state
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
- * @return SX_STATUS_PARAM_NULL - state_p pointer in NULL
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  */
-sx_status_t
-sx_api_mstp_mode_get(
-                    const sx_api_handle_t handle,
-                    const sx_swid_id_t swid_id,
-                    sx_mstp_mode_t *mode_p
-                    );
+sx_status_t sx_api_mstp_mode_get(
+        const sx_api_handle_t   handle,
+        const sx_swid_t         swid,
+              sx_mstp_mode_t    *mode_p);
 
 /**
- *  	This API Adds/Deletes an MSTP Instance to/from the Switch in the SDK.
- ************************************************************************************************************
+ *  This function adds/deletes an MSTP instance to/from the switch in the SDK.
  *
- * @param[in] handle - SX-API handle
- * @param[in] cmd - ADD/DELETE
- * @param[in] swid_id - Switch ID.
- * @param[in] inst_id - MSTP Instance ID to add/delete. Ranges <1-64>.
+ * @param[in] handle  - SX-API handle
+ * @param[in] cmd     - ADD/DELETE
+ * @param[in] swid    - switch ID
+ * @param[in] inst_id - MSTP instance ID to add/delete. Range is <1-64>
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
  */
-sx_status_t
-sx_api_mstp_inst_set(
-                    const sx_api_handle_t handle,
-                    const sx_access_cmd_t cmd,
-                    const sx_swid_id_t swid_id,
-                    const sx_mstp_inst_id_t inst_id
-                    );
+sx_status_t sx_api_mstp_inst_set(
+        const sx_api_handle_t   handle,
+        const sx_access_cmd_t   cmd,
+        const sx_swid_t         swid,
+        const sx_mstp_inst_id_t inst_id);
 
 /**
- *  	This API Adds/Deletes a mapping between a list of VLANs to the MSTP Instance in the SDK.
- ************************************************************************************************************
+ *  This function adds/deletes a mapping between a list of VLANs to/from the
+ *  MSTP instance in the SDK.
  *
- * @param[in] handle - SX-API handle
- * @param[in] cmd - ADD/DELTE
- * @param[in] swid_id - Switch ID.
- * @param[in] inst_id - MSTP Instance ID. Ranges <1-64>.
- * @param[in] vlan_list - List of VLANs to Map/Unmap.
- * @param[in] vlan_num - Number of VLANs to Map/Unmap. Ranges <1-4094>.
+ * @param[in] handle      - SX-API handle
+ * @param[in] cmd         - ADD/DELTE
+ * @param[in] swid        - switch ID
+ * @param[in] inst_id     - MSTP instance ID. Range is <1-64>
+ * @param[in] vlan_list_p - list of VLANs to map/unmap
+ * @param[in] vlan_cnt    - number of VLANs to map/unmap. Range is <1-4094>
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
- * @return SX_STATUS_PARAM_NULL - Parameter vlan_list is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED - Unsupported command
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  */
-sx_status_t
-sx_api_mstp_inst_vlan_list_set(
-                              const sx_api_handle_t handle,
-                              const sx_access_cmd_t cmd,
-                              const sx_swid_id_t swid_id,
-                              const sx_mstp_inst_id_t inst_id,
-                              const sx_vlan_id_t *vlan_list_p,
-                              const length_t vlan_num
-                              );
+sx_status_t sx_api_mstp_inst_vlan_list_set(
+        const sx_api_handle_t     handle,
+        const sx_access_cmd_t     cmd,
+        const sx_swid_t           swid,
+        const sx_mstp_inst_id_t   inst_id,
+        const sx_vlan_id_t        *vlan_list_p,
+        const uint32_t            vlan_cnt);
 
 /**
- *  	This API Retrieves a list of VLANs in the MSTP Instance from the SDK.
+ *  This function retrieves a list of VLANs in the MSTP instance from the SDK.
  *  If the output list (array) is NULL, only the number of VLANs is retrieved.
- ************************************************************************************************************
  *
- * @param[in] handle - SX-API handle
- * @param[in] swid_id - Switch ID.
- * @param[in] inst_id - MSTP Instance ID. Ranges <1-64>.
- * @param[out] vlan_list - VLANs array.
- * @param[in,out] vlan_num_p - In: Size of VLANs array. Ranges <1-4094>.
- * 			  Out: Number of VLANs retrieved successfully.
+ * @param[in] handle         - SX-API handle
+ * @param[in] swid           - switch ID
+ * @param[in] inst_id        - MSTP instance ID. Range is <1-64>
+ * @param[out] vlan_list_p   - VLANs array
+ * @param[in,out] vlan_cnt_p - In: Size of VLANs array. Range is <1-4094>
+ *                             Out: Number of VLANs retrieved successfully
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
- * @return SX_STATUS_PARAM_NULL - Parameter vlan_list is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED - Unsupported command
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  */
-sx_status_t
-sx_api_mstp_inst_vlan_list_get(
-                              const sx_api_handle_t handle,
-                              const sx_swid_id_t swid_id,
-                              const sx_mstp_inst_id_t inst_id,
-                              sx_vlan_id_t *vlan_list_p,
-                              length_t *vlan_num_p
-                              );
+sx_status_t sx_api_mstp_inst_vlan_list_get(
+        const sx_api_handle_t   handle,
+        const sx_swid_t         swid,
+        const sx_mstp_inst_id_t inst_id,
+              sx_vlan_id_t      *vlan_list_p,
+              uint32_t          *vlan_cnt_p);
 
 /**
- *  	This API Sets the MSTP Port State for a given Instance in the SDK.
- ************************************************************************************************************
+ *  This function sets the MSTP port state for a given instance in the SDK.
  *
- * @param[in] handle - SX-API handle
- * @param[in] swid_id - Switch ID.
- * @param[in] inst_id - MSTP Instance ID. Ranges <1-64>.
- * @param[in] port_id - Port ID (whose STP state to set).
+ * @param[in] handle     - SX-API handle
+ * @param[in] swid       - switch ID
+ * @param[in] inst_id    - MSTP Instance ID. Ranges <1-64>
+ * @param[in] log_port   - Logical Port ID (whose STP state to set)
  * @param[in] port_state - MSTP Port State.
- * 			   Can take any of the following:
- * 			   SX_MSTP_INST_PORT_STATE_DISCARDING,
- * 			   SX_MSTP_INST_PORT_STATE_LEARNING,
- *			   SX_MSTP_INST_PORT_STATE_FORWARDING,
+ *                         Can take any of the following values:
+ *                         SX_MSTP_INST_PORT_STATE_DISCARDING
+ *                         SX_MSTP_INST_PORT_STATE_LEARNING
+ *                         SX_MSTP_INST_PORT_STATE_FORWARDING
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
  */
-sx_status_t
-sx_api_mstp_inst_port_state_set(
-                               const sx_api_handle_t handle,
-                               const sx_swid_id_t swid_id,
-                               const sx_mstp_inst_id_t inst_id,
-                               const sx_port_id_t port_id,
-                               const sx_mstp_inst_port_state_t port_state
-                               );
+sx_status_t sx_api_mstp_inst_port_state_set(
+        const sx_api_handle_t            handle,
+        const sx_swid_t                  swid,
+        const sx_mstp_inst_id_t          inst_id,
+        const sx_port_log_id_t           log_port,
+        const sx_mstp_inst_port_state_t  port_state);
 
 /**
- *  	This API Retrieves the MSTP Port State for a given Instance from the SDK.
- ************************************************************************************************************
+ *  This function retrieves the MSTP port state for a given instance from the SDK.
  *
- * @param[in] handle - SX-API handle
- * @param[in] swid_id - Switch ID.
- * @param[in] inst_id - MSTP Instance ID. Ranges <1-64>.
- * @param[in] port_id - Port ID (whose STP state to retrieve).
- * @param[out] port_state_p - MSTP Port State.
+ * @param[in] handle        - SX-API handle
+ * @param[in] swid          - switch ID
+ * @param[in] inst_id       - MSTP instance ID. Range is <1-64>
+ * @param[in] log_port      - Logical port ID (whose STP state to retrieve)
+ * @param[out] port_state_p - MSTP port state
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
- * @return SX_STATUS_PARAM_NULL - Parameter port_state_p is NULL
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  */
-sx_status_t
-sx_api_mstp_inst_port_state_get(
-                               const sx_api_handle_t handle,
-                               const sx_swid_id_t swid_id,
-                               const sx_mstp_inst_id_t inst_id,
-                               const sx_port_id_t port_id,
-                               sx_mstp_inst_port_state_t* port_state_p
-                               );
+sx_status_t sx_api_mstp_inst_port_state_get(
+        const sx_api_handle_t           handle,
+        const sx_swid_t                 swid,
+        const sx_mstp_inst_id_t         inst_id,
+        const sx_port_log_id_t          log_port,
+              sx_mstp_inst_port_state_t *port_state_p);
 
 /**
- *  	This API Sets the RSTP Port State in the SDK.
- ************************************************************************************************************
+ *  This function sets the RSTP port state in the SDK.
  *
- * @param[in] handle - SX-API handle
- * @param[in] swid_id - Switch ID.
- * @param[in] port_id - Port ID.
- * @param[in] port_state - MSTP Port state.
- * 				Can take any of the following:
- * 				SX_MSTP_INST_PORT_STATE_DISCARDING,
- * 				SX_MSTP_INST_PORT_STATE_LEARNING,
- *				SX_MSTP_INST_PORT_STATE_FORWARDING,
+ * @param[in] handle     - SX-API handle
+ * @param[in] log_port   - Logical port ID
+ * @param[in] port_state - MSTP Port state
+ *                         Can take any of the following values:
+ *                         SX_MSTP_INST_PORT_STATE_DISCARDING
+ *                         SX_MSTP_INST_PORT_STATE_LEARNING,
+ *                         SX_MSTP_INST_PORT_STATE_FORWARDING
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
  */
-sx_status_t
-sx_api_rstp_port_state_set(
-                          const sx_api_handle_t handle,
-                          const sx_swid_id_t swid_id,
-                          const sx_port_id_t port_id,
-                          const sx_mstp_inst_port_state_t port_state
-                          );
+sx_status_t sx_api_rstp_port_state_set(
+        const sx_api_handle_t             handle,
+        const sx_port_log_id_t            log_port,
+        const sx_mstp_inst_port_state_t   port_state);
 
 /**
- *  	This API Retrieves the RSTP Port State from the SDK.
- ************************************************************************************************************
+ *  This function retrieves the RSTP port state from the SDK.
  *
- * @param[in] handle - SX-API handle
- * @param[in] swid_id - Switch ID.
- * @param[in] port_id - Port ID.
- * @param[out] port_state_p - MSTP Port State.
+ * @param[in] handle        - SX-API handle
+ * @param[in] log_port      - Logical Port ID
+ * @param[out] port_state_p - MSTP Port State
  *
- * @return sx_status_t:
- * @return SX_STATUS_SUCCESS - Operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE - Parameters out of range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO - Message size is Zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT - Message size out of range
- * @return SX_STATUS_INVALID_HANDLE - Invalid handle
- * @return SX_STATUS_COMM_ERROR - Message send fail
- * @return SX_STATUS_PARAM_NULL - Parameter port_state_p is NULL
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  */
-sx_status_t
-sx_api_rstp_port_state_get(
-                          const sx_api_handle_t handle,
-                          const sx_swid_id_t swid_id,
-                          const sx_port_id_t port_id,
-                          sx_mstp_inst_port_state_t *port_state_p
-                          );
+sx_status_t sx_api_rstp_port_state_get(
+        const sx_api_handle_t           handle,
+        const sx_port_log_id_t          log_port,
+              sx_mstp_inst_port_state_t *port_state_p);
 
 #endif /* __SX_API_MSTP_H__ */
