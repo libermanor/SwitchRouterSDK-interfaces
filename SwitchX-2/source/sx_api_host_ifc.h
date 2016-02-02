@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -23,6 +23,8 @@
 
 /**
  * This function sets the log verbosity level of HOST INTERFACE MODULE
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
  * @param[in] module_verbosity_level   - HOST INTERFACE module verbosity level
@@ -39,6 +41,7 @@ sx_status_t sx_api_host_ifc_log_verbosity_level_set(const sx_api_handle_t       
 
 /**
  * This function gets the log verbosity level of HOST INTERFACE MODULE
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -57,6 +60,7 @@ sx_status_t sx_api_host_ifc_log_verbosity_level_get(const sx_api_handle_t       
 /**
  * This function retrieves the file descriptor of the current open channel
  * used for receiving a packet
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle        - SX-API handle.
  * @param[out]    fd_p            - file descriptor
@@ -74,6 +78,7 @@ sx_status_t sx_api_host_ifc_open(const sx_api_handle_t handle,
 /**
  * This function closes the file descriptor of the current open channel
  * used for receiving a packet
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle        - SX-API handle.
  * @param[in]    fd_p           - file descriptor
@@ -90,6 +95,7 @@ sx_status_t sx_api_host_ifc_close(const sx_api_handle_t handle,
  * Create / Edit a trap group
  *   Allows creating a new trap group with certain attributes,
  *   and editing an existing trap group with new attributes.
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle             - SX-API handle.
  * @param[in]     swid           - Switch ID.
@@ -111,6 +117,7 @@ sx_status_t sx_api_host_ifc_trap_group_set(const sx_api_handle_t             han
 
 /**
  * Get Trap group attributes:
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle         - SX-API handle.
  * @param[in]     swid           - Switch ID.
@@ -134,6 +141,7 @@ sx_status_t sx_api_host_ifc_trap_group_get(const sx_api_handle_t        handle,
  * Configure traps / event properties for each device in the system:
  *       Map Trap ID / Event ID to 1 of the 3 Priority groups: HIGH, MEDIUM, LOW.
  *       Configure trap action (for traps only)
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle        - SX-API handle.
  * @param[in]     swid          - Switch ID.
@@ -162,6 +170,7 @@ sx_status_t sx_api_host_ifc_trap_id_set(const sx_api_handle_t  handle,
  * down , Temperature event) in the driver. Configure the driver
  * to pass packets matching this trap ID / Event ID, criteria &
  * SWID to the client (according to hw_p).
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle        - SX-API handle.
  * @param[in]     cmd           - REGISTER    - register to trap trap_id
@@ -190,6 +199,7 @@ sx_status_t sx_api_host_ifc_trap_id_register_set(const sx_api_handle_t    handle
  * If the cmd is DELETE the given ports are removed from the trap filter list.
  * If the cmd is DELETE_ALL all ports and LAGs which were previously added to the filter
  * are removed. In this case log_port_num and log_port_list parameters are ignored.
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle        - SX-API handle.
  * @param[in] cmd           - ADD / DELETE /DELETE_ALL
@@ -218,6 +228,7 @@ sx_status_t sx_api_host_ifc_trap_filter_set(const sx_api_handle_t handle,
 /**
  *  This function binds/unbinds a policer to a trap priority.
  *  The policer type must be a global slow policer.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle           - SX-API handle.
  * @param[in] cmd              - BIND/UNBIND.
@@ -237,5 +248,25 @@ sx_status_t sx_api_host_ifc_policer_bind_set(const sx_api_handle_t handle,
                                              const sx_swid_t       swid,
                                              const sx_trap_group_t trap_group,
                                              const sx_policer_id_t policer_id);
+
+/**
+ * Get policer ID per trap group:
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in]     handle         - SX-API handle.
+ * @param[in]     swid           - Switch ID.
+ * @param[in]     trap_group     - The trap group, must be between 0-63.
+ * @param[out]    policer_id     - Policer ID
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if any input parameters is null
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if no policer is bound to trap_group
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_host_ifc_policer_bind_get(const sx_api_handle_t handle,
+                                             const sx_swid_t       swid,
+                                             const sx_trap_group_t trap_group,
+                                             sx_policer_id_t      *policer_id);
 
 #endif /* __SX_API_HOST_IFC_H__ */

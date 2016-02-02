@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -126,6 +126,8 @@ sx_status_t sx_lib_host_ifc_loopback_ctrl_send(const sx_fd_t         *fd,
  * @return SX_STATUS_ERROR general error
  * @return SX_STATUS_MEMORY_ERROR error handling memory
  * @return SX_STATUS_NO_RESOURCES device was not opened
+ * @return SX_STATUS_NO_MEMORY insufficient packet size, needed size filled in
+ * packet_size
  */
 sx_status_t sx_lib_host_ifc_recv(const sx_fd_t     *fd,
                                  void              *packet,

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -27,6 +27,7 @@
 
 /**
  * This API generates debug dump of all SDK modules, SX-core and driver.
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] dump_file_path      - full path file name

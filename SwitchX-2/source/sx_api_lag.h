@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -27,6 +27,7 @@
 
 /**
  * This function sets the log verbosity level of LAG MODULE.
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -44,6 +45,7 @@ sx_status_t sx_api_lag_log_verbosity_level_set(const sx_api_handle_t           h
 
 /**
  * This function sets the log verbosity level of LAG MODULE.
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -66,6 +68,8 @@ sx_status_t sx_api_lag_log_verbosity_level_get(const sx_api_handle_t           h
  *  Note:
  *  - All ports must be deleted from a LAG port groups before the group is destroyed.
  *  - Creating a LAG group and adding ports to it in the same api call is not supported.
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] cmd                - CREATE/DESTROY/ADD/DELETE
@@ -92,6 +96,7 @@ sx_status_t sx_api_lag_port_group_set(const sx_api_handle_t   handle,
  *  This function retrieves an existing LAG ports group from the SDK.
  *
  *  Note: If the output ports list is NULL, only the number of ports in the LAG is retrieved.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] swid                  - switch (virtual partition) ID
@@ -115,6 +120,7 @@ sx_status_t sx_api_lag_port_group_get(const sx_api_handle_t  handle,
 
 /**
  *  This function enables/disables collection on a specific LAG port.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] lag_log_port   - a logical port number representing
@@ -138,6 +144,7 @@ sx_status_t sx_api_lag_port_collector_set(const sx_api_handle_t     handle,
 /**
  *  This function returns information whether collection is enabled
  *  or disabled on a specific port in a LAG port.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] lag_log_port      - a logical port number representing
@@ -159,6 +166,7 @@ sx_status_t sx_api_lag_port_collector_get(const sx_api_handle_t  handle,
 
 /**
  *  This function enables/disables distribution on a specific LAG port.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] lag_log_port     - a logical port number representing
@@ -182,6 +190,7 @@ sx_status_t sx_api_lag_port_distributor_set(const sx_api_handle_t       handle,
 /**
  *  This function returns information whether distribution is enabled
  *  or disabled on a specific port in a LAG port.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle              - SX-API handle.
  * @param[in] lag_log_port        - a logical port number representing
@@ -204,6 +213,7 @@ sx_status_t sx_api_lag_port_distributor_get(const sx_api_handle_t  handle,
 /**
  *  This function configures the flow indicators that impact the
  *  LAG hash distribution function.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  *  @param[in] handle               - SX-API handle
  *  @param[in] lag_hash_param_p     - hash parameters
@@ -221,6 +231,7 @@ sx_status_t sx_api_lag_hash_flow_params_set(const sx_api_handle_t      handle,
 /**
  *  This function retrieves the flow indicators that impact the
  *  LAG hash distribution function.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  *  @param[in] handle               - SX-API handle
  *  @param[out] lag_hash_param_p    - hash parameters to be retrieved
@@ -240,6 +251,7 @@ sx_status_t sx_api_lag_hash_flow_params_get(const sx_api_handle_t handle,
  *  - Redirect operation is valid only between 2 LAGs. Cannot create chain of
  *    redirected LAGs.
  *  - Redirect is L2 action, and not valid for Router Port.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - CREATE/DESTROY
@@ -262,6 +274,7 @@ sx_status_t sx_api_lag_redirect_set(const sx_api_handle_t  handle,
 /**
  *  This function returns information whether a given LAG is redirected.
  *  If so, the redirected LAG logical ID is return.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle                     - SX-API handle.
  * @param[in] lag_log_port               - LAG logical ID.
@@ -285,6 +298,7 @@ sx_status_t sx_api_lag_redirect_get(const sx_api_handle_t  handle,
  *  This function returns all LAGs redirected to the given LAG.
  *  Call this API with lag_log_port_list_p=NULL will set to lag_log_port_cnt_p
  *  the number of LAG redirected to lag_port.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] lag_log_port              - LAG logical ID

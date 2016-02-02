@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -26,6 +26,8 @@
 
 /**
  * This function sets the log verbosity level of SPAN MODULE
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
  * @param[in] module_verbosity_level   - SPAN module verbosity level
@@ -42,6 +44,7 @@ sx_status_t sx_api_span_log_verbosity_level_set(const sx_api_handle_t           
 
 /**
  * This function gets the log verbosity level of SPAN MODULE
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -63,6 +66,8 @@ sx_status_t sx_api_span_log_verbosity_level_get(const sx_api_handle_t           
  *  be called with cmd= EDIT, the session's ID and the new
  *  session's attributes. To delete a SPAN session the API
  *  should be called we cmd = DESTROY.
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle                            - SX-API handle.
  * @param[in] access_cmd                        - CREATE / EDIT / DESTROY
@@ -87,6 +92,7 @@ sx_status_t sx_api_span_session_set(const sx_api_handle_t           handle,
 
 /**
  *  This function gets the SPAN session information.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] span_session_id - SPAN session ID
@@ -105,6 +111,7 @@ sx_status_t sx_api_span_session_get(const sx_api_handle_t      handle,
 
 /**
  *  This function set SPAN session Admin State.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] span_session_id - SPAN session ID
@@ -122,6 +129,7 @@ sx_status_t sx_api_span_session_state_set(const sx_api_handle_t      handle,
 
 /**
  *  This function gets the SPAN session Admin State.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] span_session_id - SPAN session ID
@@ -141,6 +149,7 @@ sx_status_t sx_api_span_session_state_get(const sx_api_handle_t      handle,
 /**
  *  This function gets the analyzer port assigned to the SPAN
  *  session.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] span_session_id - SPAN session ID
@@ -160,6 +169,7 @@ sx_status_t sx_api_span_session_analyzer_get(const sx_api_handle_t      handle,
 /**
  *  This function gets the mirror ports assigned to the SPAN
  *  session.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] span_session_id - SPAN session ID
@@ -180,6 +190,7 @@ sx_status_t sx_api_span_session_mirror_get(const sx_api_handle_t      handle,
 
 /**
  *  This function sets the SPAN mirror ports.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD / DELETE
@@ -205,6 +216,7 @@ sx_status_t sx_api_span_mirror_set(const sx_api_handle_t       handle,
 /**
  *  This function get the SPAN session id and direction by
  *  mirror port .
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] mirror_port - mirror port
@@ -225,6 +237,7 @@ sx_status_t sx_api_span_mirror_get(const sx_api_handle_t       handle,
 
 /**
  *  This function sets the SPAN mirror port Admin state.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] mirror_port - mirror port
@@ -248,6 +261,7 @@ sx_status_t sx_api_span_mirror_state_set(const sx_api_handle_t       handle,
 /**
  *  This function get the SPAN session id and direction by
  *  mirror port .
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] mirror_port - mirror port
@@ -268,6 +282,7 @@ sx_status_t sx_api_span_mirror_state_get(const sx_api_handle_t       handle,
 
 /**
  *  This function sets the SPAN analyzer ports.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD / DELETE
@@ -289,6 +304,7 @@ sx_status_t sx_api_span_analyzer_set(const sx_api_handle_t                 handl
 
 /**
  *  This function gets the SPAN by analyzer ports.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] log_port - analyzer port which added to SPAN
@@ -307,5 +323,129 @@ sx_status_t sx_api_span_analyzer_get(const sx_api_handle_t           handle,
                                      sx_span_analyzer_port_params_t *port_params_p,
                                      sx_span_session_id_t           *span_session_id_list_p,
                                      uint32_t                       *span_sessions_cnt_p);
+
+/**
+ *  This function initializes certain aspects of SPAN module behaviour.
+ *  Currently the only data item controlled by this API is the version of
+ *  headers attached to mirrored packets.  The following rules apply:
+ *  - Calling it is optional in Spectrum. If not called, default module
+ *    configuration is used.
+ *  - Mirroring resources may be allocated without calling this function, using
+ *    default settings.
+ *  - The function may be called repeatedly, to change configuration, but only
+ *    if a call to sx_api_span_deinit_set intervenes.
+ *  - The function fails if any mirroring sessions are already allocated when it
+ *    is called.
+ *  - The function may be called in SwitchX.  If the data passed is supported in
+ *    SwitchX, it does nothing and returns success.
+ *  - Calling the function in SwitchX with data not supported by SwitchX does
+ *    nothing and returns an error.
+ *
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle            SX-API handle.
+ * @param[in] init_params_p     module configuration parameters
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ * @return SX_STATUS_ALREADY_INITIALIZED if any mirroring resources are already
+ *         allocated
+ * @return SX_STATUS_ALREADY_INITIALIZED if called twice without intervening
+ *         call to sx_api_span_deinit_set
+ */
+sx_status_t sx_api_span_init_set(sx_api_handle_t        handle,
+                                 sx_span_init_params_t *init_params_p);
+
+/**
+ *  This function undoes sx_api_span_init_set by returning configured parameters
+ *  to default.  The following rules apply:
+ *  - Calls to this function require a prior call to sx_api_span_init_set.
+ *  - The function fails if any mirroring sessions are already allocated when it
+ *    is called.
+ *  - Calling the function in SwitchX does nothing and returns success.
+ *
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ * @return SX_STATUS_RESOURCE_IN_USE if any mirroring resources are already
+ *         allocated
+ * @return SX_STATUS_DB_NOT_INITIALIZED if called without prior call to
+ *         sx_api_span_init_set
+ */
+sx_status_t sx_api_span_deinit_set(sx_api_handle_t handle);
+
+/**
+ *  This function retrieves or clears dropped packet counters for a mirroring session.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - READ / READ_CLEAR
+ * @param[in] span_session_id - SPAN session ID
+ * @param[out] counter_set_p - set of counter values
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_UNSUPPORTED if not supported on this device
+ * @return SX_STATUS_CMD_UNSUPPORTED if cmd parameter is invalid
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_session_counter_get(const sx_api_handle_t      handle,
+                                            const sx_access_cmd_t      cmd,
+                                            const sx_span_session_id_t span_session_id,
+                                            sx_span_counter_set_t     *counter_set_p);
+
+
+/**
+ *  This function enables or disables mirroring via the MIRROR trap id, for
+ *  modules whose own API does not refer to an explicit mirroring session.  When
+ *  enabling, it associates the trap group to which the MIRROR trap id is mapped
+ *  with the given mirroring session.  Disabling breaks that association.  It is
+ *  permitted to call the function repeatedly to replace one mirroring session
+ *  with another.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - ADD / DELETE
+ * @param[in] span_session_id - SPAN session ID
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED if not supported on this device
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_mirror_tables_set(const sx_api_handle_t      handle,
+                                          const sx_access_cmd_t      cmd,
+                                          const sx_span_session_id_t span_session_id);
+
+/**
+ *  This function retrieves the mirroring session configured for mirroring via
+ *  the MIRROR trap id, for modules whose own API does not refer to an explicit
+ *  mirroring session.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[out] span_session_id_p - SPAN session ID
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED if not supported on this device
+ * @return SX_STATUS_ENTRY_NOT_FOUND if no mirroring session exists
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_mirror_tables_get(const sx_api_handle_t handle,
+                                          sx_span_session_id_t *span_session_id_p);
 
 #endif /* __SX_API_SPAN_H__ */

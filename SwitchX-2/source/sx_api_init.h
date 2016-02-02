@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -27,6 +27,8 @@
 
 /**
  * This function sets the log verbosity level of all modules in SwitchX SDK
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
  * @param[in] module_verbosity_level   - SwitchX SDK modules verbosity level
@@ -43,6 +45,7 @@ sx_status_t sx_api_system_log_verbosity_level_set(const sx_api_handle_t         
 
 /**
  * This function gets the log verbosity level of all modules in SwitchX SDK
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -60,6 +63,7 @@ sx_status_t sx_api_system_log_verbosity_level_get(const sx_api_handle_t         
 
 /**
  *  This function opens channel to SX-API operations.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] logging_cb - optional log messages callback
  * @param[out] handle - handle that should be used in all
@@ -78,6 +82,7 @@ sx_status_t sx_api_open(sx_log_cb_t      logging_cb,
 
 /**
  *  This function closes channel to SX-API operations.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  *
@@ -92,6 +97,7 @@ sx_status_t sx_api_close(sx_api_handle_t *handle);
 
 /**
  * This function initializes SwitchX SDK.
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle
  * @param[in] sdk_init_params_p - SwitchX SDK init parameters.
@@ -108,6 +114,7 @@ sx_status_t sx_api_sdk_init_set(const sx_api_handle_t       handle,
 /**
  *  This function returns the versions of the various
  *  components of SwitchX SDK package.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[out] versions_p - SwitchX SDK versions.

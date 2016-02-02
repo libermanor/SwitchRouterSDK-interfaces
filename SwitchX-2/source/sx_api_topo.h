@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,6 +28,8 @@
 
 /**
  * This function sets the log verbosity level of TOPOLOGY MODULE
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
  * @param[in] module_verbosity_level   - TOPOLOGY module verbosity level
@@ -44,6 +46,7 @@ sx_status_t sx_api_topo_log_verbosity_level_set(const sx_api_handle_t           
 
 /**
  * This function gets the log verbosity level of TOPOLOGY MODULE
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -64,6 +67,8 @@ sx_status_t sx_api_topo_log_verbosity_level_get(const sx_api_handle_t           
  *  introduced to the system must be configured to the topology
  *  library. This API maintains a database that is used by other
  *  libraries to receive a device lrrelevant for configuration
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd -
@@ -88,6 +93,7 @@ sx_status_t sx_api_topo_device_set(IN sx_api_handle_t         handle,
 /**
  *  This function prints device topology information into the
  *  debug output
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd - GET_ALL - dump the topo tree
@@ -104,6 +110,7 @@ sx_status_t sx_api_topo_device_dump(sx_api_handle_t              handle,
 
 /**
  *  This function prints topology tree to the debug output
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd - GET_ALL - dump the topo tree
@@ -120,6 +127,7 @@ sx_status_t sx_api_topo_tree_dump(sx_api_handle_t             handle,
 
 /**
  *  This function sets forwording tree .
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd -
@@ -142,6 +150,7 @@ sx_status_t sx_api_topo_tree_set(IN sx_api_handle_t         handle,
 
 /**
  *  This function reload balance unicasts trafic
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle
  *  [in] tree- all ports that forward traffic via "tree" should
@@ -166,6 +175,8 @@ sx_status_t sx_api_topo_unicast_reload_balance(IN sx_api_handle_t  handle,
  *  This function sets multicast tree group
  * tree group is a group  of devices that tag ingress packet
  * with the  same MID (multicast ID)
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd -
  * CREATE-create a new multicast tree group
@@ -190,6 +201,8 @@ sx_status_t sx_api_topo_mc_tree_group_set(IN sx_api_handle_t            handle,
  *  This function  add/remove devices form  tree group
  *  tree group is a group of devices that tag ingress packet
  * with the same MID (multicast ID)
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd -
  * ADD/REMOVE
@@ -212,6 +225,7 @@ sx_status_t sx_api_topo_mc_tree_group_dev_set(IN sx_api_handle_t         handle,
 
 /**
  * This function add/remove forwarding tree form mc tree group
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd -ADD/REMOVE
@@ -231,6 +245,7 @@ sx_status_t sx_api_topo_mc_tree_group_tree_set(IN sx_api_handle_t         handle
 
 /**
  *  This function reload balance multicast  traffic
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle
  *  [in] tree- reload balance all multicast that  forward

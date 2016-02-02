@@ -1,6 +1,6 @@
-SwitchX-interfaces
+Switch Interfaces
 ==================
 
 This repository contains API and documentation for
-SwitchX ASIC family developed by Mellanox Technologies.
+Switch ASIC family developed by Mellanox Technologies.
 
