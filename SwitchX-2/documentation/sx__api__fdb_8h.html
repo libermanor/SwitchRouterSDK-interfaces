@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.1002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -72,6 +72,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a760a24322ae990cad9789b7a579053db">sx_api_fdb_uc_limit_fid_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_fid_t fid, uint32_t *limit_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ab5444b9e90b307936d49fe0c70232cc9">sx_api_fdb_mc_mac_addr_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_vid_t vid, const sx_mac_addr_t group_addr, const sx_port_log_id_t *log_port_list_p, const uint32_t port_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a3640c0c7f4b5fb0112a6342872835131">sx_api_fdb_mc_mac_addr_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_mac_addr_t group_addr, sx_port_log_id_t *log_port_list_p, uint32_t *port_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a9efbb7fc69d64edd9762d6e47dc99bd3">sx_api_fdb_mc_mac_addr_group_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fid_t fid, const sx_mac_addr_t group_addr, const sx_mc_container_id_t destinantion)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a297760be979e3e1c5efb6107b2bdf897">sx_api_fdb_mc_mac_addr_group_get</a> (const sx_api_handle_t handle, const sx_fid_t fid, const sx_mac_addr_t group_addr, sx_mc_container_id_t *destinantion_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#af975d298e288b3700edb6bfa46ffe9e6">sx_api_fdb_uc_flush_all_set</a> (const sx_api_handle_t handle, const sx_swid_t swid)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a607d3e59f86ea3030361a4d3ab11ca77">sx_api_fdb_uc_flush_port_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#af9bda072a8e6c293b7ee18e106a0818f">sx_api_fdb_uc_flush_fid_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_fid_t fid)</td></tr>
@@ -91,6 +93,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ab2b8c246f21456f227318b5626ca7740">sx_api_fdb_notify_params_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, sx_fdb_notify_params_t *notify_params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a65caac4b1e478dbce337541fdfc046f2">sx_api_fdb_flood_control_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_fid_t fid, sx_flood_control_type_t type, const uint16_t ports_count, const sx_port_log_id_t *const ports_list)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a5a311aebd885a87ff66de06c452130dd">sx_api_fdb_flood_control_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_fid_t fid, sx_flood_control_type_t type, uint16_t *const ports_count, sx_port_log_id_t *const ports_list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a8da695d5cace309ac0e60610813439eb">sx_api_fdb_flood_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fid_t fid, const sx_mc_container_id_t flood_vector)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a1e981ca9364245537dc47b36eaf1ad91">sx_api_fdb_flood_get</a> (const sx_api_handle_t handle, const sx_fid_t fid, sx_mc_container_id_t *flood_vector)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a2e4a16b9c750215270a1ffceb7d6e150">sx_api_fdb_flood_counter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, sx_flood_counters_t *const counters)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a61db615ac875ccce214e8600b86102c8">sx_api_fdb_flood_counter_clear</a> (const sx_api_handle_t handle, const sx_swid_t swid)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a0ea4fb90301561b60d52be1e6d3d8199">sx_api_fdb_src_miss_protect_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const boolean_t enable)</td></tr>
@@ -1261,6 +1265,154 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a9efbb7fc69d64edd9762d6e47dc99bd3"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_mc_mac_addr_group_set" ref="a9efbb7fc69d64edd9762d6e47dc99bd3" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fid_t fid, const sx_mac_addr_t group_addr, const sx_mc_container_id_t destinantion)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sx_status_t sx_api_fdb_mc_mac_addr_group_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fid_t&#160;</td>
+          <td class="paramname"><em>fid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mac_addr_t&#160;</td>
+          <td class="paramname"><em>group_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mc_container_id_t&#160;</td>
+          <td class="paramname"><em>destinantion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function adds/deletes MC MAC entries from the FDB. using multicast container as destination.</p>
+<p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- add/delete </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fid</td><td>- filtering DB ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group_addr</td><td>- MAC group address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">destination</td><td>- a pointer to a mc container presenting the dest</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_NO_MEMORY if memory allocation fails </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a297760be979e3e1c5efb6107b2bdf897"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_mc_mac_addr_group_get" ref="a297760be979e3e1c5efb6107b2bdf897" args="(const sx_api_handle_t handle, const sx_fid_t fid, const sx_mac_addr_t group_addr, sx_mc_container_id_t *destinantion_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sx_status_t sx_api_fdb_mc_mac_addr_group_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fid_t&#160;</td>
+          <td class="paramname"><em>fid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mac_addr_t&#160;</td>
+          <td class="paramname"><em>group_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_mc_container_id_t *&#160;</td>
+          <td class="paramname"><em>destinantion_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function get MC MAC entries from the FDB. using multicast container as destination.</p>
+<p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- add/delete </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fid</td><td>- filtering DB ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group_addr</td><td>- MAC group address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">destinantion_p</td><td>- a pointer to a mc container presenting the dest</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_NO_MEMORY if memory allocation fails </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="af975d298e288b3700edb6bfa46ffe9e6"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_uc_flush_all_set" ref="af975d298e288b3700edb6bfa46ffe9e6" args="(const sx_api_handle_t handle, const sx_swid_t swid)" -->
 <div class="memitem">
 <div class="memproto">
@@ -2302,6 +2454,114 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a8da695d5cace309ac0e60610813439eb"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_flood_set" ref="a8da695d5cace309ac0e60610813439eb" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fid_t fid, const sx_mc_container_id_t flood_vector)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sx_status_t sx_api_fdb_flood_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fid_t&#160;</td>
+          <td class="paramname"><em>fid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mc_container_id_t&#160;</td>
+          <td class="paramname"><em>flood_vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to manage flood control for tunnels. for each tunnel, you can add or remove flooding for specificed bridges.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD / DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fid</td><td>- FID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flood_vector</td><td>- MC Container contains Flooding vector as ecmp object for head replication.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel or fid doesn't exists. </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_BOUND if fid already have flooding vector. </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1e981ca9364245537dc47b36eaf1ad91"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_flood_get" ref="a1e981ca9364245537dc47b36eaf1ad91" args="(const sx_api_handle_t handle, const sx_fid_t fid, sx_mc_container_id_t *flood_vector)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sx_status_t sx_api_fdb_flood_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fid_t&#160;</td>
+          <td class="paramname"><em>fid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_mc_container_id_t *&#160;</td>
+          <td class="paramname"><em>flood_vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to get flood control settings for a tunnel Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fid</td><td>- FID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flood_vector</td><td>- MC Container contains Flooding vector as ecmp object for head replication.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if flooding vector not set </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a2e4a16b9c750215270a1ffceb7d6e150"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_flood_counter_get" ref="a2e4a16b9c750215270a1ffceb7d6e150" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, sx_flood_counters_t *const counters)" -->
 <div class="memitem">
 <div class="memproto">
@@ -2612,6 +2872,6 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Mon Feb 1 2016 14:11:34 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

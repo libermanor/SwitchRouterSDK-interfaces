@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.1002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -62,6 +62,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__acl_8h.html#a82890bcca35387bcad58a4cc8be18c4d">sx_api_acl_rif_bind_get</a> (const sx_api_handle_t handle, const sx_rif_id_t rif_id, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__acl_8h.html#a8d75e017d9af517108026cd99b68ece9">sx_api_acl_group_bind_set</a> (sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_id_t group_id, sx_acl_id_t next_group_id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__acl_8h.html#aece9f1a820e5fe724e91b5ae46eac747">sx_api_acl_group_bind_get</a> (sx_api_handle_t handle, sx_acl_id_t group_id, sx_acl_id_t *group_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__acl_8h.html#ab8f2477244a41031b345572131287a04">sx_api_acl_port_list_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_port_list_entry_t *port_list_p, const uint32_t port_list_cnt, sx_acl_port_list_id_t *port_list_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__acl_8h.html#a1f73a62d89a23869e37faf3fa8933a60">sx_api_acl_port_list_get</a> (const sx_api_handle_t handle, const sx_acl_port_list_id_t port_list_id, sx_acl_port_list_entry_t *port_list_p, uint32_t *port_list_cnt_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a77d6ceeb4c13e21075e9e25eb631976b"></a><!-- doxytag: member="sx_api_flex_acl.h::sx_api_acl_flex_key_set" ref="a77d6ceeb4c13e21075e9e25eb631976b" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_key_t *key_list_p, const uint32_t key_count, sx_acl_key_type_t *key_handle_p)" -->
@@ -298,7 +300,7 @@ SX_STATUS_NO_RESOURCES No more space for rules. Cannot allocate space for all ac
       </table>
 </div>
 <div class="memdoc">
-<p>This function returns list of rules associated with particular region. The user is responsible for memory management - it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API and de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API. If the function is called with rules_list_p parameter set to NULL, it will return the actual number of rules set to the region. If the function is called with key_desc_list_p and action_list_p parameter of rules_list_p set to NULL it will return the actual number of keys and/or action for the specific rule - in this case all key_desc_list_p and action_list_p pointers must be NULL.</p>
+<p>This function returns list of rules associated with particular region. The user is responsible for memory management - it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API and de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API. If the function is called with rules_list_p parameter set to NULL, it will return the actual number of rules set to the region. If the function is called with key_desc_list_p and action_list_p parameter of rules_list_p set to NULL it will return the actual number of keys and/or action for the specific rule - in this case all key_desc_list_p and action_list_p pointers must be NULL. On APi call the key_desc_count and action_count of each sx_flex_acl_flex_rule_t should contain number of allocated items, on API return these parameters will contain actual number of items.</p>
 <p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -535,6 +537,129 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="ab8f2477244a41031b345572131287a04"></a><!-- doxytag: member="sx_api_flex_acl.h::sx_api_acl_port_list_set" ref="ab8f2477244a41031b345572131287a04" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_port_list_entry_t *port_list_p, const uint32_t port_list_cnt, sx_acl_port_list_id_t *port_list_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_port_list_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_list_entry_t *&#160;</td>
+          <td class="paramname"><em>port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_list_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_list_id_t *&#160;</td>
+          <td class="paramname"><em>port_list_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Manipulate a port list container Command CREATE creates a new container with the specified list of logical ports and returns its new container ID in port_list_id_p. Command SET replaces the contents of an existing container specified by port_list_id_p, with the specified list of logical ports in port_list_p. Command DESTROY deletes an existing container specified by port_list_id_p. Notes: An port list in use (e.g. by an acl key) cannot be destroyed or modified A container may contain at most RM_API_ACL_PORT_LIST_MAX logical ports A container may contain only Ethernet logical ports and not LAG ports</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/SET/DESTROY. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_list_p</td><td>- Specifies or returns the container ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_list_cnt</td><td>- Specifies the list of logical ports for the container </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>port_list_id_p - specifies the id of the port list created/to change</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1f73a62d89a23869e37faf3fa8933a60"></a><!-- doxytag: member="sx_api_flex_acl.h::sx_api_acl_port_list_get" ref="a1f73a62d89a23869e37faf3fa8933a60" args="(const sx_api_handle_t handle, const sx_acl_port_list_id_t port_list_id, sx_acl_port_list_entry_t *port_list_p, uint32_t *port_list_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_port_list_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_port_list_id_t&#160;</td>
+          <td class="paramname"><em>port_list_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_list_entry_t *&#160;</td>
+          <td class="paramname"><em>port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>port_list_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Retrieve information about a port list container specified by port_list_id. Notes: *port_list_cnt should contain the maximum amount of logical ports to retrieve. If port_list_p is NULL, then port_list_p are not retrieved at all. In this case port_list_cnt will contain the actual number if ports in the port list</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_list_id</td><td>- specifies the id of the port list to retrieve </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">port_list_p</td><td>- array of ports to copy into </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_list_cnt_p</td><td>- Specifies the maximum amount of logical ports to retrieve, and returns the amount logical ports retrieved</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers. </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -554,6 +679,6 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Mon Feb 1 2016 14:11:34 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -797,7 +797,7 @@ sx_status_t sx_api_router_counter_clear_set(const sx_api_handle_t        handle,
                                             const boolean_t              all);
 
 /**
- * This function adds/modifies/deletes a multicast route into the MC routing table.
+ * This function adds/modifies/deletes a multicast route from the MC routing table.
  *
  * In case action is not SX_ROUTER_ACTION_FORWARD/SX_ROUTER_ACTION_DROP,
  * Trap ID will be set to SX_TRAP_ID_L3_MC_IP_BASE + trap priority.
@@ -805,52 +805,67 @@ sx_status_t sx_api_router_counter_clear_set(const sx_api_handle_t        handle,
  * In case mc_router_attr_p->rpf_action is SX_ROUTER_RPF_ACTION_TRAP,
  * the caller should configure SX_TRAP_ID_ETH_L3_RPF trap first.
  *
+ * In case the RPF action is SX_ROUTER_RPF_ACTION_TRAP or SX_ROUTER_RPF_ACTION_DROP,
+ * the ingress RIF in the key should be the RPF RIF.
+ * In case the RPF action is SX_ROUTER_RPF_ACTION_DIRECTIONAL, a valid ingress RIF
+ * must be given.
+ * Multicast containers are valid on Spectrum only.
+ * egress_rif_cnt and egress_container_id are mutually exclusive and may not be both specified.
+ * e.g. if egress_rif_cnt is nonzero then egress_container_id must be SX_MC_CONTAINER_ID_INVALID.
+ * The DELETE_ALL command will delete all MC routes that match a given VRID and
+ * IP version specified by source_addr.version. If the given IP version is SX_IP_VERSION_NONE,
+ * then all MC routes on the given VRID will be deleted, regardless of the IP version.
+ * Assert is supported on SwitchX and SwitchX2 only. It is not applicable on Spectrum.
+ * On SwitchX, SwitchX2, and Spectrum, the valid manual priority range is 1 - 32.
+ * Router action SX_ROUTER_ACTION_SPAN is not supported on any device.
+ * RPF actions SX_ROUTER_RPF_ACTION_TRAP_LIST and SX_ROUTER_RPF_ACTION_DROP_LIST
+ * are not supported on any device.
+ *
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
- * @param[in] cmd - ADD/MODIFY/DELETE/DELETE_ALL
- *                 DELETE_ALL command deletes all multicast routes associated
- *                 with vrid and source_addr.version.
+ * @param[in] cmd - ADD/EDIT/DELETE/DELETE_ALL
  * @param[in] vrid - Virtual Router ID.
- * @param[in] mc_route_key_p - mc route enntry key {Source IP
- *       Address,group address, ingress rif}
- * @param[in] mc_router_attr_p -multicast route attribute
- *       (e.g. rpf mode,ttl ... )
- * @param[in] mc_route_data_p - Route data {action , egrees rif
- *       list}.
+ * @param[in] mc_route_key_p - mc route entry key
+ *                                                         {source IP prefix, group mask, ingress RIF}
+ * @param[in] mc_router_attr_p - multicast route attributes
+ *                                                   (e.g. RPF mode, ttl, etc.)
+ * @param[in] mc_route_data_p - route data (e.g. action, egress RIF list, etc.)
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
- * @return SX_STATUS_NO_RESOURCES if no routes is available to create.
+ * @return SX_STATUS_NO_RESOURCES if no routes are available to create.
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_router_mc_route_set(const sx_api_handle_t            handle,
                                        const sx_access_cmd_t            cmd,
                                        const sx_router_id_t             vrid,
                                        const sx_mc_route_key_t        * mc_route_key_p,
-                                       const sx_mc_route_attributes_t * mc_router_attr_p,
+                                       const sx_mc_route_attributes_t * mc_route_attr_p,
                                        const sx_mc_route_data_t       * mc_route_data_p);
 
 /**
- *  This function gets a multicast route from the MC routing table.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ * This function gets a multicast route or routes from the MC routing table,
+ * based on a given key or criteria.
+ * The ingress RIF is only considered part of the key for routes that have RPF
+ * action SX_ROUTER_RPF_ACTION_DIRECTIONAL. Therefore, routes that were configured
+ * with any other RPF action, and with an ingress RIF other than the "don't care"
+ * RIF, will still be returned when filtering by the "don't care" ingress RIF. In
+ * these cases, the configured ingress RIF can be found in the MC route data.
+ *
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
- * @param[in] cmd - GET
- *                 GET - Get multicast route entry from DB.
+ * @param[in] cmd - GET - Get multicast route entry from DB.
  * @param[in] vrid - Virtual Router ID.
- * @param[in] mc_route_key_p - mc route enntry key {Source IP
- *       Address,group address, ingress rif}
- *  @param[in] filter_p - MC route key_filter - Currently NULL.
- * @param[out]uc_route_get_entries_list_p- found mc route entries arr .
- * @param[out]uc_route_get_entries_cnt_p- found mc route entries num .
- *
- * @param[out] mc_router_attr_p -multicast route route attribute
- *       (e.g. rpf mode,ttl ... )
- * @param[out] mc_route_data_p - Route data {action , egrees rif
- *       list} .
+ * @param[in] mc_route_key_p - mc route entry key
+ *                             {Source IP Address, group address, ingress rif}
+ * @param[in] filter_p - not supported yet
+ * @param[out] mc_route_get_entries_list_p - list of returned MC routes
+ * @param[in,out] mc_route_get_entries_cnt_p - as input: number of entries in mc_route_get_entries_list_p
+ *                                             as output: number of entries returned in mc_route_get_entries_list_p
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
@@ -872,8 +887,8 @@ sx_status_t sx_api_router_mc_route_get(const sx_api_handle_t     handle,
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - READ\READ_CLEAR
  * @param[in] vrid - Virtual Router ID.
- * @param[in] mc_route_key_p - mc route enntry key {Source IP
- *       Address,group address, ingress rif}
+ * @param[in] mc_route_key_p - mc route entry key
+ *                             {Source IP Address, group address, ingress rif}
  * @param[out] activity_p - Route activity.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
@@ -889,25 +904,30 @@ sx_status_t sx_api_router_mc_route_activity_get(const sx_api_handle_t     handle
                                                 boolean_t                *activity_p);
 
 /**
- *  This function adds/modifies/deletes an egress VLAN/PORT interfaces to multicast route.
+ *  This function adds/sets/deletes/deletes-all egress RIFs to/from a previously
+ *  configured MC route.
+ *  Only routes configured with egress_rif_cnt and egress_rif_list_p are supported by this
+ *  function. Routes configured with egress_container_id are not.
+ *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
- * @param[in] cmd - ADD/DELETE/DELETE_ALL
+ * @param[in] cmd - ADD/DELETE/DELETE_ALL/SET
+ *                 SET command replaces the entire list of existing egress RIFs
+ *                 with the given list.
  *                 DELETE_ALL command deletes all egress router interfaces
  *                 associated with multicast group.
  * @param[in] vrid - Virtual Router ID.
- * @param[in] mc_route_key_p - mc route enntry key {Source IP
- *       Address,group address, ingress rif}
+ * @param[in] mc_route_key_p - mc route entry key
+ *                             {Source IP Address, group address, ingress rif}
  * @param[in] egress_rif_list_p - Egress Router Interface array.
- * @param[in,out] egress_rif_cnt - Egress Router Interface array
- *       num.
+ * @param[in] egress_rif_cnt - Egress Router Interface array num.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
- * @return SX_STATUS_NO_RESOURCES if no routes is available to create.
+ * @return SX_STATUS_NO_RESOURCES if no more RIFs can be set.
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_router_mc_egress_rif_set(const sx_api_handle_t        handle,
@@ -918,27 +938,26 @@ sx_status_t sx_api_router_mc_egress_rif_set(const sx_api_handle_t        handle,
                                             const uint32_t               egress_rif_cnt);
 
 /**
- *  This function get an egress VLAN/PORT interfaces from
- *  multicast route. When egress_rif_num is 0 , will return a
- *  counter of the number of egress rifs, and egress_rif_arr will
- *  remain empty. When egress_rif_arr = NULL, will return counter
- *  in egress_rif_num.
+ *  This function gets the list of egress RIFs associated with the given multicast
+ *  route. When egress_rif_num is 0 or egress_rif_arr == NULL, the function will
+ *  return the number of egress RIFs, and egress_rif_arr will remain empty.
+ *  Only routes configured with egress_rif_cnt and egress_rif_list_p are supported by this
+ *  function. Routes configured with egress_container_id are not.
  *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] vrid - Virtual Router ID.
- * @param[in] mc_route_key_p - mc route enntry key {Source IP
- *       Address,group address, ingress rif }
+ * @param[in] mc_route_key_p - mc route entry key
+ *                             {Source IP Address, group address, ingress rif}
  * @param[out] egress_rif_list_p - Egress Router Interface array.
- * @param[in,out] egress_rif_cnt_p - Egress Router Interface
- *       array num.
+ * @param[in,out] egress_rif_cnt_p - as input: number of entries in egress_rif_list_p
+ *                                                                       as output: number of egress RIFs returned in egress_rif_list_p
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
- * @return SX_STATUS_NO_RESOURCES if no routes is available to create.
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_router_mc_egress_rif_get(const sx_api_handle_t    handle,
@@ -1106,7 +1125,7 @@ sx_status_t sx_api_router_ecmp_set(const sx_api_handle_t handle,
  * @param[in] handle             - SX-API handle
  * @param[in] ecmp_id            - id of an ECMP container
  * @param[out] next_hop_list_p   - a given list of next hops
- * @param[out] next_hop_cut      - amount of next hops
+ * @param[out] next_hop_cnt_p    - amount of next hops
  *
  * @return SX_STATUS_SUCCESS             if operation completes successfully.
  * @return SX_STATUS_PARAM_ERROR         if parameter is NULL or exceeds range.
@@ -1126,7 +1145,7 @@ sx_status_t sx_api_router_ecmp_get(const sx_api_handle_t handle,
  * @param[in] handle             - SX-API handle
  * @param[in] ecmp_id            - id of an ECMP container
  * @param[out] next_hop_list_p   - a given list of next hops
- * @param[out] next_hop_cut      - amount of next hops
+ * @param[out] next_hop_cnt_p    - amount of next hops
  *
  * @return SX_STATUS_SUCCESS             if operation completes successfully.
  * @return SX_STATUS_PARAM_ERROR         if parameter is NULL or exceeds range.
@@ -1169,6 +1188,35 @@ sx_status_t sx_api_router_ecmp_counter_bind_set(const sx_api_handle_t       hand
                                                 const uint32_t              elements_cnt);
 
 /**
+ *  This function binds/unbinds a router counter to a list of indices in a
+ *  container active set.
+ *  This API should be used for containers that are not static containers.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle            - SX-API handle.
+ * @param[in] cmd               - BIND/UNBIND.
+ * @param[in] ecmp_id           - ID of a non static ECMP container
+ * @param[in] counter_id        - ID of a counter to bind to the given offsets.
+ * @param[in] offset_list_p     - list of entry offsets in configured ECMP container.
+ * @param[in] elements_cnt      - amount of entry offsets.
+ *
+ *
+ * @return SX_STATUS_SUCCESS            if operation completes successfully.
+ * @return SX_STATUS_CMD_UNSUPPORTED    if access command isn't supported.
+ * @return SX_STATUS_PARAM_ERROR        if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND    if counter was not added.
+ * @return SX_STATUS_RESOURCE_IN_USE    if interface is already bound.
+ * @return SX_STATUS_ERROR              general error.
+ */
+sx_status_t sx_api_router_ecmp_fine_grain_counter_bind_set(const sx_api_handle_t      handle,
+                                                           const sx_access_cmd_t      cmd,
+                                                           const sx_ecmp_id_t         ecmp_id,
+                                                           const sx_flow_counter_id_t counter_id,
+                                                           const uint32_t            *offset_list_p,
+                                                           const uint32_t             elements_cnt);
+
+
+/**
  * This function initiates a notification regarding active neighbours in the system.
  *  Supported devices: Spectrum.
  *
@@ -1184,5 +1232,78 @@ sx_status_t sx_api_router_ecmp_counter_bind_set(const sx_api_handle_t       hand
 sx_status_t sx_api_router_neigh_activity_notify(const sx_api_handle_t                    handle,
                                                 const sx_access_cmd_t                    cmd,
                                                 const sx_router_neigh_activity_filter_t *filter_p);
+
+/**
+ *
+ * This function sets an ECMP container's attributes.
+ * Using this API is not mandatory for ECMP hashing (default value is SX_ECMP_TYPE_STATIC_E)
+ * To use this API one should create an empty ECMP container, set the container
+ * attributes and add next hops.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle      - SX-API handle
+ * @param[in] ecmp_id     - an ID of an ECMP container
+ * @param[in] attr_p      - ECMP container attributes
+ *
+ * @return SX_STATUS_SUCCESS              if operation completes successfully.
+ * @return SX_STATUS_ERROR                general error
+ * @return SX_STATUS_PARAM_ERROR          if parameter is NULL or exceeds range.
+ * @return SX_STATUS_ENTRY_NOT_FOUND      if ecmp_id not found.
+ */
+sx_status_t sx_api_router_ecmp_attributes_set(const sx_api_handle_t       handle,
+                                              const sx_ecmp_id_t          ecmp_id,
+                                              const sx_ecmp_attributes_t *attr_p);
+
+/**
+ * This function retrieves an ECMP container's attributes.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle      - SX-API handle.
+ * @param[in] ecmp_id     - id of ECMP container.
+ * @param[out] attr_p     - ECMP container attributes
+ *
+ * @return SX_STATUS_SUCCESS           if operation completes successfully.
+ * @return SX_STATUS_ERROR             general error
+ * @return SX_STATUS_PARAM_ERROR       if parameter is NULL or exceeds range.
+ * @return SX_STATUS_ENTRY_NOT_FOUND   if ecmp_id not found.
+ */
+sx_status_t sx_api_router_ecmp_attributes_get(const sx_api_handle_t handle,
+                                              const sx_ecmp_id_t    ecmp_id,
+                                              sx_ecmp_attributes_t *attr_p);
+
+/**
+ * This API is not supported.
+ */
+sx_status_t sx_api_router_mc_rpf_group_set(const sx_api_handle_t   handle,
+                                           const sx_access_cmd_t   cmd,
+                                           sx_rpf_group_id_t      *rpf_group_id_p,
+                                           sx_router_vinterface_t *rpf_vif_list_p,
+                                           uint32_t                rpf_vif_cnt);
+
+/**
+ * This API is not supported.
+ */
+sx_status_t sx_api_router_mc_rpf_group_get(const sx_api_handle_t   handle,
+                                           const sx_access_cmd_t   cmd,
+                                           sx_rpf_group_id_t      *rpf_group_id_p,
+                                           sx_router_vinterface_t *rpf_vif_list_p,
+                                           uint32_t               *rpf_vif_cnt_p);
+
+/**
+ * This API is not supported.
+ */
+sx_status_t sx_api_router_mc_route_counter_bind_set(const sx_api_handle_t      handle,
+                                                    const sx_access_cmd_t      cmd,
+                                                    const sx_router_id_t       vrid,
+                                                    const sx_mc_route_key_t   *mc_route_key_p,
+                                                    const sx_flow_counter_id_t counter_id);
+
+/**
+ * This API is not supported.
+ */
+sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    handle,
+                                                    const sx_router_id_t     vrid,
+                                                    const sx_mc_route_key_t *mc_route_key_p,
+                                                    sx_flow_counter_id_t    *counter_id_p);
 
 #endif /* __SX_API_ROUTER_H__ */

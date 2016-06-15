@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.1002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="sx__api__host__ifc_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
+<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
 <a name="l00005"></a>00005 <span class="comment"> *    not use this file except in compliance with the License. You may obtain</span>
@@ -101,31 +101,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00165"></a>00165                                         <span class="keyword">const</span> sx_trap_group_t  trap_group,
 <a name="l00166"></a>00166                                         <span class="keyword">const</span> sx_trap_action_t trap_action);
 <a name="l00167"></a>00167 
-<a name="l00190"></a>00190 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#a41ba1d6d892efdba33bd88b786846a1c">sx_api_host_ifc_trap_id_register_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00191"></a>00191                                                  <span class="keyword">const</span> sx_access_cmd_t    cmd,
-<a name="l00192"></a>00192                                                  <span class="keyword">const</span> sx_swid_t          swid,
-<a name="l00193"></a>00193                                                  <span class="keyword">const</span> sx_trap_id_t       trap_id,
-<a name="l00194"></a>00194                                                  <span class="keyword">const</span> sx_user_channel_t *user_channel_p);
-<a name="l00195"></a>00195 
-<a name="l00221"></a>00221 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#a37821970ee589f06824d4bd6fe43f876">sx_api_host_ifc_trap_filter_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00222"></a>00222                                             <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00223"></a>00223                                             <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00224"></a>00224                                             <span class="keyword">const</span> sx_trap_id_t    trap_id,
-<a name="l00225"></a>00225                                             sx_port_log_id_t     *log_port_list_p,
-<a name="l00226"></a>00226                                             uint32_t             *log_port_cnt_p);
-<a name="l00227"></a>00227 
-<a name="l00246"></a>00246 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#ad7da4f1d811ab525751470302e4e96ea">sx_api_host_ifc_policer_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00247"></a>00247                                              <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00248"></a>00248                                              <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00249"></a>00249                                              <span class="keyword">const</span> sx_trap_group_t trap_group,
-<a name="l00250"></a>00250                                              <span class="keyword">const</span> sx_policer_id_t policer_id);
-<a name="l00251"></a>00251 
-<a name="l00267"></a>00267 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#ac40d153892ede32db36bc79f0ce80c14">sx_api_host_ifc_policer_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00268"></a>00268                                              <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00269"></a>00269                                              <span class="keyword">const</span> sx_trap_group_t trap_group,
-<a name="l00270"></a>00270                                              sx_policer_id_t      *policer_id);
-<a name="l00271"></a>00271 
-<a name="l00272"></a>00272 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_HOST_IFC_H__ */</span>
+<a name="l00189"></a>00189 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#a617dd77f8834dce0d5adf40b9dd7ff1b">sx_api_host_ifc_user_defined_trap_id_set</a>(<span class="keyword">const</span> sx_api_handle_t                 handle,
+<a name="l00190"></a>00190                                                      <span class="keyword">const</span> sx_access_cmd_t                 cmd,
+<a name="l00191"></a>00191                                                      <span class="keyword">const</span> sx_swid_t                       swid,
+<a name="l00192"></a>00192                                                      <span class="keyword">const</span> sx_trap_id_t                    trap_id,
+<a name="l00193"></a>00193                                                      sx_trap_id_user_defined_attributes_t *trap_attributes_p);
+<a name="l00194"></a>00194 
+<a name="l00219"></a>00219 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#a41ba1d6d892efdba33bd88b786846a1c">sx_api_host_ifc_trap_id_register_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00220"></a>00220                                                  <span class="keyword">const</span> sx_access_cmd_t    cmd,
+<a name="l00221"></a>00221                                                  <span class="keyword">const</span> sx_swid_t          swid,
+<a name="l00222"></a>00222                                                  <span class="keyword">const</span> sx_trap_id_t       trap_id,
+<a name="l00223"></a>00223                                                  <span class="keyword">const</span> sx_user_channel_t *user_channel_p);
+<a name="l00224"></a>00224 
+<a name="l00250"></a>00250 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#a37821970ee589f06824d4bd6fe43f876">sx_api_host_ifc_trap_filter_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00251"></a>00251                                             <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00252"></a>00252                                             <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00253"></a>00253                                             <span class="keyword">const</span> sx_trap_id_t    trap_id,
+<a name="l00254"></a>00254                                             sx_port_log_id_t     *log_port_list_p,
+<a name="l00255"></a>00255                                             uint32_t             *log_port_cnt_p);
+<a name="l00256"></a>00256 
+<a name="l00275"></a>00275 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#ad7da4f1d811ab525751470302e4e96ea">sx_api_host_ifc_policer_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00276"></a>00276                                              <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00277"></a>00277                                              <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00278"></a>00278                                              <span class="keyword">const</span> sx_trap_group_t trap_group,
+<a name="l00279"></a>00279                                              <span class="keyword">const</span> sx_policer_id_t policer_id);
+<a name="l00280"></a>00280 
+<a name="l00296"></a>00296 sx_status_t <a class="code" href="sx__api__host__ifc_8h.html#ac40d153892ede32db36bc79f0ce80c14">sx_api_host_ifc_policer_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00297"></a>00297                                              <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00298"></a>00298                                              <span class="keyword">const</span> sx_trap_group_t trap_group,
+<a name="l00299"></a>00299                                              sx_policer_id_t      *policer_id);
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_HOST_IFC_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -146,6 +152,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Mon Feb 1 2016 14:11:34 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

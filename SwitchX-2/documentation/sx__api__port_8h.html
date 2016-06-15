@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.1002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -92,10 +92,13 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#aa5328e02b80e20924b025b3142ca546e">sx_api_port_counter_perf_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_prio_id_t prio_id, sx_port_cntr_perf_t *cntr_perf_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a5ea8fac313cd4a57dae8547c4fe676d7">sx_api_port_counter_discard_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_discard_t *cntr_discard_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a4b793ce2927cd10dee9fd39d0acf1e71">sx_api_port_counter_clear_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const boolean_t all_ports, const sx_port_cntr_grp_t cntr_grp)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a64f3ed15b0f87c0f5791f4b777aa61e8">sx_api_port_counter_phy_layer_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_phy_layer_t *cntr_phy_layer_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a239e0e4d8fcc7da1525bd29dfc7dda48">sx_api_port_init_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af4dbc06a2e2f50266cf07b01dae622a8">sx_api_port_deinit_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a78b976296aff6d5caec1ca9ec085d632">sx_api_port_storm_control_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_storm_control_id_t storm_control_id, const sx_port_storm_control_params_t *storm_control_params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af0fd4ac374492bba4dce7fd46ae1d5fd">sx_api_port_storm_control_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_storm_control_id_t storm_control_id, sx_port_storm_control_params_t *storm_control_params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ab910ad0aeebae07d21c5e686febec8cb">sx_api_port_storm_control_counters_clear_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_storm_control_id_t storm_control_id, const sx_policer_counters_clear_t *clear_counters_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a50faf7675404b7b50880be9e94b0c638">sx_api_port_storm_control_counters_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_storm_control_id_t storm_control_id, sx_policer_counters_t *policer_counters_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#abfca95b7b61f32a766a334b72477890e">sx_api_port_sflow_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_sflow_params_t *sflow_params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a00b0a4e788461ae6bb1f20487adeadb6">sx_api_port_sflow_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_sflow_params_t *sflow_params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a258fa9e727c49b6bd37475942929ed0f">sx_api_port_sflow_statistics_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_sflow_statistics_t *sflow_stat_p)</td></tr>
@@ -2263,6 +2266,66 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a64f3ed15b0f87c0f5791f4b777aa61e8"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_counter_phy_layer_get" ref="a64f3ed15b0f87c0f5791f4b777aa61e8" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_phy_layer_t *cntr_phy_layer_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_counter_phy_layer_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_cntr_phy_layer_t *&#160;</td>
+          <td class="paramname"><em>cntr_phy_layer_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves the port Physical Layer counters from the SDK. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cntr_phy_layer_p</td><td>- Physical Layer counters entry</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a239e0e4d8fcc7da1525bd29dfc7dda48"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_init_set" ref="a239e0e4d8fcc7da1525bd29dfc7dda48" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port)" -->
 <div class="memitem">
 <div class="memproto">
@@ -2469,6 +2532,118 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab910ad0aeebae07d21c5e686febec8cb"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_storm_control_counters_clear_set" ref="ab910ad0aeebae07d21c5e686febec8cb" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_storm_control_id_t storm_control_id, const sx_policer_counters_clear_t *clear_counters_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_storm_control_counters_clear_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_storm_control_id_t&#160;</td>
+          <td class="paramname"><em>storm_control_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_policer_counters_clear_t *&#160;</td>
+          <td class="paramname"><em>clear_counters_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function clears storm control counters values. Supported devices: Spectrum. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">storm_control_id</td><td>- Storm Control ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">clear_counters</td><td>- which counters to clear</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any other input error </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a50faf7675404b7b50880be9e94b0c638"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_storm_control_counters_get" ref="a50faf7675404b7b50880be9e94b0c638" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_storm_control_id_t storm_control_id, sx_policer_counters_t *policer_counters_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_storm_control_counters_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_storm_control_id_t&#160;</td>
+          <td class="paramname"><em>storm_control_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_policer_counters_t *&#160;</td>
+          <td class="paramname"><em>policer_counters_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves storm control counters values. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">storm_control_id</td><td>- Storm Control ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">policer_counters_p</td><td>- pointer to a policer counter struct.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any other input error </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -3453,6 +3628,6 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Mon Feb 1 2016 14:11:34 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -20,6 +20,7 @@
 
 
 #include <sx/sdk/sx_flex_acl.h>
+
 /************************************************
  *  API functions
  ***********************************************/
@@ -113,7 +114,8 @@ sx_status_t sx_api_acl_flex_rules_set(const sx_api_handle_t          handle,
  * If the function is called with rules_list_p parameter set to NULL, it will return the actual number of rules set to the region.
  * If the function is called with key_desc_list_p and action_list_p parameter of rules_list_p set to NULL it will return the
  * actual number of keys and/or action for the specific rule - in this case all key_desc_list_p and action_list_p pointers
- * must be NULL.
+ * must be NULL. On APi call the key_desc_count and action_count of each sx_flex_acl_flex_rule_t should contain number of allocated
+ * items, on API return these parameters will contain actual number of items.
  *
  *  Supported devices: Spectrum.
  *
@@ -215,5 +217,59 @@ sx_status_t sx_api_acl_group_bind_get(sx_api_handle_t handle,
                                       sx_acl_id_t     group_id,
                                       sx_acl_id_t   * group_id_p);
 
+/**
+ * Manipulate a port list container
+ * Command CREATE creates a new container with the specified list of logical ports
+ * and returns its new container ID in port_list_id_p.
+ * Command SET replaces the contents of an existing container specified by
+ * port_list_id_p, with the specified list of logical ports in port_list_p.
+ * Command DESTROY deletes an existing container specified by port_list_id_p.
+ * Notes: An port list  in use (e.g. by an acl key) cannot be destroyed or modified
+ *        A container may contain at most RM_API_ACL_PORT_LIST_MAX logical ports
+ *        A container may contain only Ethernet logical ports and not LAG ports
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - CREATE/SET/DESTROY.
+ * @param[in] port_list_p - Specifies or returns the container ID
+ * @param[in] port_list_cnt - Specifies the list of logical ports for the container
+ * @param[in/out] port_list_id_p - specifies the id of the port list created/to change
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist.
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
+ * @return SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed.
+ */
+sx_status_t sx_api_acl_port_list_set(const sx_api_handle_t     handle,
+                                     const sx_access_cmd_t     cmd,
+                                     sx_acl_port_list_entry_t *port_list_p,
+                                     const uint32_t            port_list_cnt,
+                                     sx_acl_port_list_id_t    *port_list_id_p);
+
+/**
+ * Retrieve information about a port list container specified by port_list_id.
+ * Notes: *port_list_cnt should contain the maximum amount of logical ports to retrieve.
+ *        If port_list_p is NULL, then port_list_p are not retrieved at all. In this case port_list_cnt
+ *        will contain the actual number if ports in the port list
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] port_list_id - specifies the id of the port list to retrieve
+ * @param[out] port_list_p -	array of ports to copy into
+ * @param[in,out] port_list_cnt_p - Specifies the maximum amount of logical ports to retrieve,
+ *                               and returns the amount logical ports retrieved
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers.
+ */
+sx_status_t sx_api_acl_port_list_get(const sx_api_handle_t       handle,
+                                     const sx_acl_port_list_id_t port_list_id,
+                                     sx_acl_port_list_entry_t   *port_list_p,
+                                     uint32_t                   *port_list_cnt_p);
 
 #endif /* SX_API_FLEX_ACL_H_ */

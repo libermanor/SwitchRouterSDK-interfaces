@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.1002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -61,6 +61,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#aa47a742e8238beb3d92fa584bbc5d90d">sx_api_host_ifc_trap_group_set</a> (const sx_api_handle_t handle, const sx_swid_id_t swid, const sx_trap_group_t trap_group, const sx_trap_group_attributes_t *trap_group_attributes_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#aa9f1f7b2a2e99c7a8042321f3914fa25">sx_api_host_ifc_trap_group_get</a> (const sx_api_handle_t handle, const sx_swid_id_t swid, const sx_trap_group_t trap_group, sx_trap_group_attributes_t *trap_group_attributes_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a3b99edc2800fa0eb9f5da2084f34673f">sx_api_host_ifc_trap_id_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_trap_group_t trap_group, const sx_trap_action_t trap_action)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a617dd77f8834dce0d5adf40b9dd7ff1b">sx_api_host_ifc_user_defined_trap_id_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, sx_trap_id_user_defined_attributes_t *trap_attributes_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a41ba1d6d892efdba33bd88b786846a1c">sx_api_host_ifc_trap_id_register_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_user_channel_t *user_channel_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a37821970ee589f06824d4bd6fe43f876">sx_api_host_ifc_trap_filter_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, sx_port_log_id_t *log_port_list_p, uint32_t *log_port_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#ad7da4f1d811ab525751470302e4e96ea">sx_api_host_ifc_policer_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_group_t trap_group, const sx_policer_id_t policer_id)</td></tr>
@@ -441,6 +442,71 @@ SX_STATUS_NO_RESOURCES device was not opened</dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a617dd77f8834dce0d5adf40b9dd7ff1b"></a><!-- doxytag: member="sx_api_host_ifc.h::sx_api_host_ifc_user_defined_trap_id_set" ref="a617dd77f8834dce0d5adf40b9dd7ff1b" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, sx_trap_id_user_defined_attributes_t *trap_attributes_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_host_ifc_user_defined_trap_id_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_trap_id_t&#160;</td>
+          <td class="paramname"><em>trap_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_trap_id_user_defined_attributes_t *&#160;</td>
+          <td class="paramname"><em>trap_attributes_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API adds/deletes user defined trap ID's. The trap ID created should be in the [SX_TRAP_ID_USER_BASE,SX_TRAP_ID_USER_MAX] range. For cmd == SX_ACCESS_CMD_DELETE, trap_attributes_p can be NULL. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap_id. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_attributes_p</td><td>- Traps attributes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd>
+<dd>
+SX_STATUS_MEMORY_ERROR error handling memory. </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS If trap ID is already configured. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a41ba1d6d892efdba33bd88b786846a1c"></a><!-- doxytag: member="sx_api_host_ifc.h::sx_api_host_ifc_trap_id_register_set" ref="a41ba1d6d892efdba33bd88b786846a1c" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_user_channel_t *user_channel_p)" -->
 <div class="memitem">
 <div class="memproto">
@@ -483,7 +549,7 @@ SX_STATUS_NO_RESOURCES device was not opened</dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>Register / DeRegister Traps (STP , LACP) or Events (Port up / down , Temperature event) in the driver. Configure the driver to pass packets matching this trap ID / Event ID, criteria &amp; SWID to the client (according to hw_p). Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>Register / DeRegister Traps (STP , LACP) or Events (Port up / down , Temperature event) in the driver. Configure the driver to pass packets matching this trap ID / Event ID, criteria &amp; SWID to the client (according to hw_p). The source_log_port parameter of the received L2 trap always relates to the relevant physical port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -723,6 +789,6 @@ SX_STATUS_ERROR general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Mon Feb 1 2016 14:11:34 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

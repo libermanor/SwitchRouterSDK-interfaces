@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.1002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -226,91 +226,130 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00796"></a>00796                                             <span class="keyword">const</span> sx_router_counter_id_t counter,
 <a name="l00797"></a>00797                                             <span class="keyword">const</span> boolean_t              all);
 <a name="l00798"></a>00798 
-<a name="l00829"></a>00829 sx_status_t <a class="code" href="sx__api__router_8h.html#a05d61bfefa542ba2654a66e3abedba58">sx_api_router_mc_route_set</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
-<a name="l00830"></a>00830                                        <span class="keyword">const</span> sx_access_cmd_t            cmd,
-<a name="l00831"></a>00831                                        <span class="keyword">const</span> sx_router_id_t             vrid,
-<a name="l00832"></a>00832                                        <span class="keyword">const</span> sx_mc_route_key_t        * mc_route_key_p,
-<a name="l00833"></a>00833                                        <span class="keyword">const</span> sx_mc_route_attributes_t * mc_router_attr_p,
-<a name="l00834"></a>00834                                        <span class="keyword">const</span> sx_mc_route_data_t       * mc_route_data_p);
-<a name="l00835"></a>00835 
-<a name="l00860"></a>00860 sx_status_t <a class="code" href="sx__api__router_8h.html#a24a37e74c648d6bd3de469df8cbd5b8c">sx_api_router_mc_route_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00861"></a>00861                                        <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l00862"></a>00862                                        <span class="keyword">const</span> sx_router_id_t      vrid,
-<a name="l00863"></a>00863                                        <span class="keyword">const</span> sx_mc_route_key_t * mc_route_key_p,
-<a name="l00864"></a>00864                                        sx_mc_route_key_filter_t *filter_p,
-<a name="l00865"></a>00865                                        sx_mc_route_get_entry_t  *mc_route_get_entries_list_p,
-<a name="l00866"></a>00866                                        uint32_t                 *mc_route_get_entries_cnt_p);
-<a name="l00867"></a>00867 
-<a name="l00885"></a>00885 sx_status_t <a class="code" href="sx__api__router_8h.html#ab70bf9ca856f55a88e7dd5a4fe5f77fa">sx_api_router_mc_route_activity_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00886"></a>00886                                                 <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l00887"></a>00887                                                 <span class="keyword">const</span> sx_router_id_t      vrid,
-<a name="l00888"></a>00888                                                 <span class="keyword">const</span> sx_mc_route_key_t * mc_route_key_p,
-<a name="l00889"></a>00889                                                 boolean_t                *activity_p);
-<a name="l00890"></a>00890 
-<a name="l00913"></a>00913 sx_status_t <a class="code" href="sx__api__router_8h.html#a49d704b1d7e401edc59dde5aff4bf376">sx_api_router_mc_egress_rif_set</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
-<a name="l00914"></a>00914                                             <span class="keyword">const</span> sx_access_cmd_t        cmd,
-<a name="l00915"></a>00915                                             <span class="keyword">const</span> sx_router_id_t         vrid,
-<a name="l00916"></a>00916                                             <span class="keyword">const</span> sx_mc_route_key_t     *mc_route_key_p,
-<a name="l00917"></a>00917                                             <span class="keyword">const</span> sx_router_interface_t *egress_rif_list_p,
-<a name="l00918"></a>00918                                             <span class="keyword">const</span> uint32_t               egress_rif_cnt);
-<a name="l00919"></a>00919 
-<a name="l00944"></a>00944 sx_status_t <a class="code" href="sx__api__router_8h.html#a530c3fdb5083d5c3a8f8e74ee348da69">sx_api_router_mc_egress_rif_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00945"></a>00945                                             <span class="keyword">const</span> sx_router_id_t     vrid,
-<a name="l00946"></a>00946                                             <span class="keyword">const</span> sx_mc_route_key_t *mc_route_key_p,
-<a name="l00947"></a>00947                                             sx_router_interface_t   *egress_rif_list_p,
-<a name="l00948"></a>00948                                             uint32_t                *egress_rif_cnt);
-<a name="l00949"></a>00949 
-<a name="l00964"></a>00964 sx_status_t <a class="code" href="sx__api__router_8h.html#ad8dbefb60e445f59551a682a9177faa4">sx_api_router_cos_rewrite_pcpdei_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00965"></a>00965                                                         <span class="keyword">const</span> sx_cos_pcp_dei_rewrite_e rewrite_pcp_dei);
-<a name="l00966"></a>00966 
-<a name="l00981"></a>00981 sx_status_t <a class="code" href="sx__api__router_8h.html#a263b0c24b5930c791a6691a473934ee8">sx_api_router_cos_rewrite_pcpdei_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00982"></a>00982                                                         sx_cos_pcp_dei_rewrite_e *rewrite_pcp_dei_p);
-<a name="l00983"></a>00983 
-<a name="l00998"></a>00998 sx_status_t <a class="code" href="sx__api__router_8h.html#a8d98abb2561504116bda54e5e7a1647c">sx_api_router_cos_prio_update_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00999"></a>00999                                                      <span class="keyword">const</span> boolean_t       update_priority_color);
-<a name="l01000"></a>01000 
-<a name="l01016"></a>01016 sx_status_t <a class="code" href="sx__api__router_8h.html#aa1bd7e45636b6128e1add0ad579b2f86">sx_api_router_cos_prio_update_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01017"></a>01017                                                      boolean_t            *update_priority_color_p);
-<a name="l01018"></a>01018 
-<a name="l01035"></a>01035 sx_status_t <a class="code" href="sx__api__router_8h.html#a3601a683f22a7e13bc89b3f80a4a3c0e">sx_api_router_cos_dscp_to_prio_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l01036"></a>01036                                                <span class="keyword">const</span> sx_cos_dscp_t           *dscp_p,
-<a name="l01037"></a>01037                                                <span class="keyword">const</span> sx_cos_priority_color_t *priority_color_p,
-<a name="l01038"></a>01038                                                <span class="keyword">const</span> uint32_t                 element_cnt);
-<a name="l01039"></a>01039 
-<a name="l01055"></a>01055 sx_status_t <a class="code" href="sx__api__router_8h.html#a3dffe9f627debece49b7ed508c12bf0b">sx_api_router_cos_dscp_to_prio_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l01056"></a>01056                                                sx_cos_dscp_t           *dscp_p,
-<a name="l01057"></a>01057                                                sx_cos_priority_color_t *priority_color_p,
-<a name="l01058"></a>01058                                                uint32_t                *element_cnt_p);
-<a name="l01059"></a>01059 
-<a name="l01096"></a>01096 sx_status_t <a class="code" href="sx__api__router_8h.html#abd1c22691400cdcd80424831ff6bc942">sx_api_router_ecmp_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01097"></a>01097                                    <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l01098"></a>01098                                    sx_ecmp_id_t         *ecmp_id_p,
-<a name="l01099"></a>01099                                    sx_next_hop_t        *next_hop_list_p,
-<a name="l01100"></a>01100                                    uint32_t             *next_hop_cnt_p);
-<a name="l01101"></a>01101 
-<a name="l01116"></a>01116 sx_status_t <a class="code" href="sx__api__router_8h.html#a7c569920c238a3289dc3877a5c10783e">sx_api_router_ecmp_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01117"></a>01117                                    <span class="keyword">const</span> sx_ecmp_id_t    ecmp_id,
+<a name="l00842"></a>00842 sx_status_t <a class="code" href="sx__api__router_8h.html#a88d28b1cf1ea8606acaecf5c01c31051">sx_api_router_mc_route_set</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
+<a name="l00843"></a>00843                                        <span class="keyword">const</span> sx_access_cmd_t            cmd,
+<a name="l00844"></a>00844                                        <span class="keyword">const</span> sx_router_id_t             vrid,
+<a name="l00845"></a>00845                                        <span class="keyword">const</span> sx_mc_route_key_t        * mc_route_key_p,
+<a name="l00846"></a>00846                                        <span class="keyword">const</span> sx_mc_route_attributes_t * mc_route_attr_p,
+<a name="l00847"></a>00847                                        <span class="keyword">const</span> sx_mc_route_data_t       * mc_route_data_p);
+<a name="l00848"></a>00848 
+<a name="l00875"></a>00875 sx_status_t <a class="code" href="sx__api__router_8h.html#a24a37e74c648d6bd3de469df8cbd5b8c">sx_api_router_mc_route_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00876"></a>00876                                        <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l00877"></a>00877                                        <span class="keyword">const</span> sx_router_id_t      vrid,
+<a name="l00878"></a>00878                                        <span class="keyword">const</span> sx_mc_route_key_t * mc_route_key_p,
+<a name="l00879"></a>00879                                        sx_mc_route_key_filter_t *filter_p,
+<a name="l00880"></a>00880                                        sx_mc_route_get_entry_t  *mc_route_get_entries_list_p,
+<a name="l00881"></a>00881                                        uint32_t                 *mc_route_get_entries_cnt_p);
+<a name="l00882"></a>00882 
+<a name="l00900"></a>00900 sx_status_t <a class="code" href="sx__api__router_8h.html#ab70bf9ca856f55a88e7dd5a4fe5f77fa">sx_api_router_mc_route_activity_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00901"></a>00901                                                 <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l00902"></a>00902                                                 <span class="keyword">const</span> sx_router_id_t      vrid,
+<a name="l00903"></a>00903                                                 <span class="keyword">const</span> sx_mc_route_key_t * mc_route_key_p,
+<a name="l00904"></a>00904                                                 boolean_t                *activity_p);
+<a name="l00905"></a>00905 
+<a name="l00933"></a>00933 sx_status_t <a class="code" href="sx__api__router_8h.html#a49d704b1d7e401edc59dde5aff4bf376">sx_api_router_mc_egress_rif_set</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
+<a name="l00934"></a>00934                                             <span class="keyword">const</span> sx_access_cmd_t        cmd,
+<a name="l00935"></a>00935                                             <span class="keyword">const</span> sx_router_id_t         vrid,
+<a name="l00936"></a>00936                                             <span class="keyword">const</span> sx_mc_route_key_t     *mc_route_key_p,
+<a name="l00937"></a>00937                                             <span class="keyword">const</span> sx_router_interface_t *egress_rif_list_p,
+<a name="l00938"></a>00938                                             <span class="keyword">const</span> uint32_t               egress_rif_cnt);
+<a name="l00939"></a>00939 
+<a name="l00963"></a>00963 sx_status_t <a class="code" href="sx__api__router_8h.html#a530c3fdb5083d5c3a8f8e74ee348da69">sx_api_router_mc_egress_rif_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00964"></a>00964                                             <span class="keyword">const</span> sx_router_id_t     vrid,
+<a name="l00965"></a>00965                                             <span class="keyword">const</span> sx_mc_route_key_t *mc_route_key_p,
+<a name="l00966"></a>00966                                             sx_router_interface_t   *egress_rif_list_p,
+<a name="l00967"></a>00967                                             uint32_t                *egress_rif_cnt);
+<a name="l00968"></a>00968 
+<a name="l00983"></a>00983 sx_status_t <a class="code" href="sx__api__router_8h.html#ad8dbefb60e445f59551a682a9177faa4">sx_api_router_cos_rewrite_pcpdei_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00984"></a>00984                                                         <span class="keyword">const</span> sx_cos_pcp_dei_rewrite_e rewrite_pcp_dei);
+<a name="l00985"></a>00985 
+<a name="l01000"></a>01000 sx_status_t <a class="code" href="sx__api__router_8h.html#a263b0c24b5930c791a6691a473934ee8">sx_api_router_cos_rewrite_pcpdei_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l01001"></a>01001                                                         sx_cos_pcp_dei_rewrite_e *rewrite_pcp_dei_p);
+<a name="l01002"></a>01002 
+<a name="l01017"></a>01017 sx_status_t <a class="code" href="sx__api__router_8h.html#a8d98abb2561504116bda54e5e7a1647c">sx_api_router_cos_prio_update_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01018"></a>01018                                                      <span class="keyword">const</span> boolean_t       update_priority_color);
+<a name="l01019"></a>01019 
+<a name="l01035"></a>01035 sx_status_t <a class="code" href="sx__api__router_8h.html#aa1bd7e45636b6128e1add0ad579b2f86">sx_api_router_cos_prio_update_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01036"></a>01036                                                      boolean_t            *update_priority_color_p);
+<a name="l01037"></a>01037 
+<a name="l01054"></a>01054 sx_status_t <a class="code" href="sx__api__router_8h.html#a3601a683f22a7e13bc89b3f80a4a3c0e">sx_api_router_cos_dscp_to_prio_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l01055"></a>01055                                                <span class="keyword">const</span> sx_cos_dscp_t           *dscp_p,
+<a name="l01056"></a>01056                                                <span class="keyword">const</span> sx_cos_priority_color_t *priority_color_p,
+<a name="l01057"></a>01057                                                <span class="keyword">const</span> uint32_t                 element_cnt);
+<a name="l01058"></a>01058 
+<a name="l01074"></a>01074 sx_status_t <a class="code" href="sx__api__router_8h.html#a3dffe9f627debece49b7ed508c12bf0b">sx_api_router_cos_dscp_to_prio_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l01075"></a>01075                                                sx_cos_dscp_t           *dscp_p,
+<a name="l01076"></a>01076                                                sx_cos_priority_color_t *priority_color_p,
+<a name="l01077"></a>01077                                                uint32_t                *element_cnt_p);
+<a name="l01078"></a>01078 
+<a name="l01115"></a>01115 sx_status_t <a class="code" href="sx__api__router_8h.html#abd1c22691400cdcd80424831ff6bc942">sx_api_router_ecmp_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01116"></a>01116                                    <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l01117"></a>01117                                    sx_ecmp_id_t         *ecmp_id_p,
 <a name="l01118"></a>01118                                    sx_next_hop_t        *next_hop_list_p,
 <a name="l01119"></a>01119                                    uint32_t             *next_hop_cnt_p);
 <a name="l01120"></a>01120 
-<a name="l01136"></a>01136 sx_status_t <a class="code" href="sx__api__router_8h.html#a44c2973c659f035cbde4f0a519b1082b">sx_api_router_operational_ecmp_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01137"></a>01137                                                <span class="keyword">const</span> sx_ecmp_id_t    ecmp_id,
-<a name="l01138"></a>01138                                                sx_next_hop_t        *next_hop_list_p,
-<a name="l01139"></a>01139                                                uint32_t             *next_hop_cnt_p);
-<a name="l01140"></a>01140 
-<a name="l01141"></a>01141 
-<a name="l01164"></a>01164 sx_status_t <a class="code" href="sx__api__router_8h.html#a2aa9c0bda0299d13e275a267c1249fb8">sx_api_router_ecmp_counter_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l01165"></a>01165                                                 <span class="keyword">const</span> sx_access_cmd_t       cmd,
-<a name="l01166"></a>01166                                                 <span class="keyword">const</span> sx_ecmp_id_t          ecmp_id,
-<a name="l01167"></a>01167                                                 <span class="keyword">const</span> sx_flow_counter_id_t *counter_id_list_p,
-<a name="l01168"></a>01168                                                 <span class="keyword">const</span> uint32_t             *offset_list_p,
-<a name="l01169"></a>01169                                                 <span class="keyword">const</span> uint32_t              elements_cnt);
-<a name="l01170"></a>01170 
-<a name="l01184"></a>01184 sx_status_t <a class="code" href="sx__api__router_8h.html#a823465cf10115d18b458c33a678cfccf">sx_api_router_neigh_activity_notify</a>(<span class="keyword">const</span> sx_api_handle_t                    handle,
-<a name="l01185"></a>01185                                                 <span class="keyword">const</span> sx_access_cmd_t                    cmd,
-<a name="l01186"></a>01186                                                 <span class="keyword">const</span> sx_router_neigh_activity_filter_t *filter_p);
-<a name="l01187"></a>01187 
-<a name="l01188"></a>01188 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_ROUTER_H__ */</span>
+<a name="l01135"></a>01135 sx_status_t <a class="code" href="sx__api__router_8h.html#a7c569920c238a3289dc3877a5c10783e">sx_api_router_ecmp_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01136"></a>01136                                    <span class="keyword">const</span> sx_ecmp_id_t    ecmp_id,
+<a name="l01137"></a>01137                                    sx_next_hop_t        *next_hop_list_p,
+<a name="l01138"></a>01138                                    uint32_t             *next_hop_cnt_p);
+<a name="l01139"></a>01139 
+<a name="l01155"></a>01155 sx_status_t <a class="code" href="sx__api__router_8h.html#a44c2973c659f035cbde4f0a519b1082b">sx_api_router_operational_ecmp_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01156"></a>01156                                                <span class="keyword">const</span> sx_ecmp_id_t    ecmp_id,
+<a name="l01157"></a>01157                                                sx_next_hop_t        *next_hop_list_p,
+<a name="l01158"></a>01158                                                uint32_t             *next_hop_cnt_p);
+<a name="l01159"></a>01159 
+<a name="l01160"></a>01160 
+<a name="l01183"></a>01183 sx_status_t <a class="code" href="sx__api__router_8h.html#a2aa9c0bda0299d13e275a267c1249fb8">sx_api_router_ecmp_counter_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01184"></a>01184                                                 <span class="keyword">const</span> sx_access_cmd_t       cmd,
+<a name="l01185"></a>01185                                                 <span class="keyword">const</span> sx_ecmp_id_t          ecmp_id,
+<a name="l01186"></a>01186                                                 <span class="keyword">const</span> sx_flow_counter_id_t *counter_id_list_p,
+<a name="l01187"></a>01187                                                 <span class="keyword">const</span> uint32_t             *offset_list_p,
+<a name="l01188"></a>01188                                                 <span class="keyword">const</span> uint32_t              elements_cnt);
+<a name="l01189"></a>01189 
+<a name="l01211"></a>01211 sx_status_t <a class="code" href="sx__api__router_8h.html#a2fa0de25ef37a9cef1652e920c5fc019">sx_api_router_ecmp_fine_grain_counter_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l01212"></a>01212                                                            <span class="keyword">const</span> sx_access_cmd_t      cmd,
+<a name="l01213"></a>01213                                                            <span class="keyword">const</span> sx_ecmp_id_t         ecmp_id,
+<a name="l01214"></a>01214                                                            <span class="keyword">const</span> sx_flow_counter_id_t counter_id,
+<a name="l01215"></a>01215                                                            <span class="keyword">const</span> uint32_t            *offset_list_p,
+<a name="l01216"></a>01216                                                            <span class="keyword">const</span> uint32_t             elements_cnt);
+<a name="l01217"></a>01217 
+<a name="l01218"></a>01218 
+<a name="l01232"></a>01232 sx_status_t <a class="code" href="sx__api__router_8h.html#a823465cf10115d18b458c33a678cfccf">sx_api_router_neigh_activity_notify</a>(<span class="keyword">const</span> sx_api_handle_t                    handle,
+<a name="l01233"></a>01233                                                 <span class="keyword">const</span> sx_access_cmd_t                    cmd,
+<a name="l01234"></a>01234                                                 <span class="keyword">const</span> sx_router_neigh_activity_filter_t *filter_p);
+<a name="l01235"></a>01235 
+<a name="l01253"></a>01253 sx_status_t <a class="code" href="sx__api__router_8h.html#a242f69b150debcf00867d67f8515e8a6">sx_api_router_ecmp_attributes_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01254"></a>01254                                               <span class="keyword">const</span> sx_ecmp_id_t          ecmp_id,
+<a name="l01255"></a>01255                                               <span class="keyword">const</span> sx_ecmp_attributes_t *attr_p);
+<a name="l01256"></a>01256 
+<a name="l01270"></a>01270 sx_status_t <a class="code" href="sx__api__router_8h.html#afa58f3a820da481643de557c94a401ea">sx_api_router_ecmp_attributes_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01271"></a>01271                                               <span class="keyword">const</span> sx_ecmp_id_t    ecmp_id,
+<a name="l01272"></a>01272                                               sx_ecmp_attributes_t *attr_p);
+<a name="l01273"></a>01273 
+<a name="l01277"></a>01277 sx_status_t <a class="code" href="sx__api__router_8h.html#aa529787aa5b258a80c567f751dbfe2ee">sx_api_router_mc_rpf_group_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l01278"></a>01278                                            <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l01279"></a>01279                                            sx_rpf_group_id_t      *rpf_group_id_p,
+<a name="l01280"></a>01280                                            sx_router_vinterface_t *rpf_vif_list_p,
+<a name="l01281"></a>01281                                            uint32_t                rpf_vif_cnt);
+<a name="l01282"></a>01282 
+<a name="l01286"></a>01286 sx_status_t <a class="code" href="sx__api__router_8h.html#ae922af870268cc2ccf178169027ac093">sx_api_router_mc_rpf_group_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l01287"></a>01287                                            <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l01288"></a>01288                                            sx_rpf_group_id_t      *rpf_group_id_p,
+<a name="l01289"></a>01289                                            sx_router_vinterface_t *rpf_vif_list_p,
+<a name="l01290"></a>01290                                            uint32_t               *rpf_vif_cnt_p);
+<a name="l01291"></a>01291 
+<a name="l01295"></a>01295 sx_status_t <a class="code" href="sx__api__router_8h.html#a6a4327a03b23e683f531b359fa569ecf">sx_api_router_mc_route_counter_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l01296"></a>01296                                                     <span class="keyword">const</span> sx_access_cmd_t      cmd,
+<a name="l01297"></a>01297                                                     <span class="keyword">const</span> sx_router_id_t       vrid,
+<a name="l01298"></a>01298                                                     <span class="keyword">const</span> sx_mc_route_key_t   *mc_route_key_p,
+<a name="l01299"></a>01299                                                     <span class="keyword">const</span> sx_flow_counter_id_t counter_id);
+<a name="l01300"></a>01300 
+<a name="l01304"></a>01304 sx_status_t <a class="code" href="sx__api__router_8h.html#a450a42c80363d8802247f85c77fae63d">sx_api_router_mc_route_counter_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l01305"></a>01305                                                     <span class="keyword">const</span> sx_router_id_t     vrid,
+<a name="l01306"></a>01306                                                     <span class="keyword">const</span> sx_mc_route_key_t *mc_route_key_p,
+<a name="l01307"></a>01307                                                     sx_flow_counter_id_t    *counter_id_p);
+<a name="l01308"></a>01308 
+<a name="l01309"></a>01309 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_ROUTER_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -331,6 +370,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Mon Feb 1 2016 14:11:34 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

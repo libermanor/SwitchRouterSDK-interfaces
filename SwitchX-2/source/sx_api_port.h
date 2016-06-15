@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -824,6 +824,27 @@ sx_status_t sx_api_port_counter_clear_set(const sx_api_handle_t    handle,
                                           const sx_port_cntr_grp_t cntr_grp);
 
 /**
+ *  This API retrieves the port Physical Layer counters from the SDK.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] cmd              - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
+ * @param[in] log_port         - logical port ID
+ * @param[out] cntr_phy_layer_p - Physical Layer counters entry
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ */
+sx_status_t sx_api_port_counter_phy_layer_get(const sx_api_handle_t     handle,
+                                              const sx_access_cmd_t     cmd,
+                                              const sx_port_log_id_t    log_port,
+                                              sx_port_cntr_phy_layer_t *cntr_phy_layer_p);
+
+/**
  *  This API initializes the port in the SDK.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -895,6 +916,43 @@ sx_status_t sx_api_port_storm_control_get(const sx_api_handle_t            handl
                                           const sx_port_log_id_t           log_port,
                                           const sx_port_storm_control_id_t storm_control_id,
                                           sx_port_storm_control_params_t  *storm_control_params_p);
+
+/**
+ * This function clears storm control counters values.
+ * Supported devices: Spectrum.
+ * @param[in] handle            - SX-API handle
+ * @param[in] log_port          - logical port ID
+ * @param[in] storm_control_id  - Storm Control ID
+ * @param[in] clear_counters    - which counters to clear
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any other input error
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_port_storm_control_counters_clear_set(const sx_api_handle_t              handle,
+                                                         const sx_port_log_id_t             log_port,
+                                                         const sx_port_storm_control_id_t   storm_control_id,
+                                                         const sx_policer_counters_clear_t *clear_counters_p);
+
+/**
+ * This function retrieves storm control counters values.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle              - SX-API handle
+ * @param[in] log_port            - logical port ID
+ * @param[in] storm_control_id    - Storm Control ID
+ * @param[out] policer_counters_p - pointer to a policer counter struct.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any other input error
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_port_storm_control_counters_get(const sx_api_handle_t            handle,
+                                                   const sx_port_log_id_t           log_port,
+                                                   const sx_port_storm_control_id_t storm_control_id,
+                                                   sx_policer_counters_t           *policer_counters_p);
 
 /**
  *  This API controls sFlow configuration. Using the access command

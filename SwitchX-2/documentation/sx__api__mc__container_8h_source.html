@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_rm.h Source File</title>
+<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_mc_container.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,11 +43,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="headertitle">
-<h1>sdk/sx_api_rm.h</h1>  </div>
+<h1>sdk/sx_api_mc_container.h</h1>  </div>
 </div>
 <div class="contents">
-<a href="sx__api__rm_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
+<a href="sx__api__mc__container_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
 <a name="l00005"></a>00005 <span class="comment"> *    not use this file except in compliance with the License. You may obtain</span>
@@ -63,39 +63,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> *</span>
 <a name="l00016"></a>00016 <span class="comment"> */</span>
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="preprocessor">#ifndef __SX_API_RM_H__</span>
-<a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_RM_H__</span>
-<a name="l00020"></a>00020 <span class="preprocessor"></span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
-<a name="l00022"></a>00022 
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="preprocessor">#ifndef __SX_API_MC_CONTAINER_H__</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_MC_CONTAINER_H__</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">/***********************************************</span>
-<a name="l00025"></a>00025 <span class="comment">*  API functions</span>
-<a name="l00026"></a>00026 <span class="comment">***********************************************/</span>
+<a name="l00024"></a>00024 <span class="comment">/************************************************</span>
+<a name="l00025"></a>00025 <span class="comment"> *  API functions</span>
+<a name="l00026"></a>00026 <span class="comment"> ***********************************************/</span>
 <a name="l00027"></a>00027 
-<a name="l00044"></a>00044 sx_status_t <a class="code" href="sx__api__rm_8h.html#a27d7249b270364c6690993f60621641b">sx_api_rm_sdk_table_thresholds_set</a>(<span class="keyword">const</span> sx_api_handle_t             handle,
-<a name="l00045"></a>00045                                                <span class="keyword">const</span> sx_access_cmd_t             access_cmd,
-<a name="l00046"></a>00046                                                <span class="keyword">const</span> rm_sdk_table_type_e         resource,
-<a name="l00047"></a>00047                                                <span class="keyword">const</span> sx_notification_threshold_t threshold_full,
-<a name="l00048"></a>00048                                                <span class="keyword">const</span> sx_notification_threshold_t threshold_empty);
-<a name="l00049"></a>00049 
-<a name="l00065"></a>00065 sx_status_t <a class="code" href="sx__api__rm_8h.html#acf9fe889bc8f745acb2100f20a569e57">sx_api_rm_sdk_table_thresholds_get</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
-<a name="l00066"></a>00066                                                <span class="keyword">const</span> rm_sdk_table_type_e    resource,
-<a name="l00067"></a>00067                                                sx_notification_threshold_t *threshold_full,
-<a name="l00068"></a>00068                                                sx_notification_threshold_t *threshold_empty);
-<a name="l00069"></a>00069 
-<a name="l00087"></a>00087 sx_status_t <a class="code" href="sx__api__rm_8h.html#a85f5b90d97590fd51a73d5fa097ece1b">sx_api_rm_hw_table_thresholds_set</a>(<span class="keyword">const</span> sx_api_handle_t             handle,
-<a name="l00088"></a>00088                                               <span class="keyword">const</span> sx_access_cmd_t             access_cmd,
-<a name="l00089"></a>00089                                               <span class="keyword">const</span> rm_hw_table_type_e          resource,
-<a name="l00090"></a>00090                                               <span class="keyword">const</span> sx_notification_threshold_t threshold_full,
-<a name="l00091"></a>00091                                               <span class="keyword">const</span> sx_notification_threshold_t threshold_empty);
-<a name="l00092"></a>00092 
-<a name="l00108"></a>00108 sx_status_t <a class="code" href="sx__api__rm_8h.html#a1bbfcc767404c7722960500730ebd21c">sx_api_rm_hw_table_thresholds_get</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
-<a name="l00109"></a>00109                                               <span class="keyword">const</span> rm_hw_table_type_e     resource,
-<a name="l00110"></a>00110                                               sx_notification_threshold_t *threshold_full,
-<a name="l00111"></a>00111                                               sx_notification_threshold_t *threshold_empty);
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_RM_H__ */</span>
+<a name="l00041"></a>00041 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#a415b496a5e7588f947fdf60705efefe4">sx_api_mc_container_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00042"></a>00042                                                         <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00043"></a>00043                                                         <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
+<a name="l00044"></a>00044                                                         <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
+<a name="l00045"></a>00045 
+<a name="l00059"></a>00059 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#a01907867c8296060f798d1506982a357">sx_api_mc_container_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00060"></a>00060                                                         <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00061"></a>00061                                                         sx_verbosity_level_t           *module_verbosity_level_p,
+<a name="l00062"></a>00062                                                         sx_verbosity_level_t           *api_verbosity_level_p);
+<a name="l00063"></a>00063 
+<a name="l00092"></a>00092 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#a7a38f4671618cb2928244d1bb0e0064e">sx_api_mc_container_set</a>(<span class="keyword">const</span> sx_api_handle_t               handle,
+<a name="l00093"></a>00093                                     <span class="keyword">const</span> sx_access_cmd_t               cmd,
+<a name="l00094"></a>00094                                     sx_mc_container_id_t               *container_id_p,
+<a name="l00095"></a>00095                                     <span class="keyword">const</span> sx_mc_next_hop_t             *next_hop_list_p,
+<a name="l00096"></a>00096                                     <span class="keyword">const</span> uint32_t                      next_hop_cnt,
+<a name="l00097"></a>00097                                     <span class="keyword">const</span> sx_mc_container_attributes_t* container_attr);
+<a name="l00098"></a>00098 
+<a name="l00126"></a>00126 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#a58bee9dd78fc1dcc2c4ac89576065d7c">sx_api_mc_container_get</a>(<span class="keyword">const</span> sx_api_handle_t               handle,
+<a name="l00127"></a>00127                                     <span class="keyword">const</span> sx_access_cmd_t               cmd,
+<a name="l00128"></a>00128                                     sx_mc_container_id_t               *container_id_p,
+<a name="l00129"></a>00129                                     <span class="keyword">const</span> uint32_t                     *next_hop_cnt,
+<a name="l00130"></a>00130                                     <span class="keyword">const</span> sx_mc_next_hop_t             *next_hop_list_p,
+<a name="l00131"></a>00131                                     <span class="keyword">const</span> sx_mc_container_attributes_t* container_attr);
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_MC_CONTAINER_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->

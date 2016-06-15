@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.1002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -83,7 +83,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#aa81e1f46c5501aee769e56e4fa4ebf23">sx_api_router_interface_counter_bind_get</a> (const sx_api_handle_t handle, const sx_router_counter_id_t counter, sx_router_interface_t *rif_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ab4c18223f082f72efeb16ef6ab4545c6">sx_api_router_counter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_counter_id_t counter, sx_router_counter_set_t *counter_set_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a1c3d7ede0cc2b4a383aacf414c9d84a3">sx_api_router_counter_clear_set</a> (const sx_api_handle_t handle, const sx_router_counter_id_t counter, const boolean_t all)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a05d61bfefa542ba2654a66e3abedba58">sx_api_router_mc_route_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_mc_route_attributes_t *mc_router_attr_p, const sx_mc_route_data_t *mc_route_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a88d28b1cf1ea8606acaecf5c01c31051">sx_api_router_mc_route_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_mc_route_attributes_t *mc_route_attr_p, const sx_mc_route_data_t *mc_route_data_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a24a37e74c648d6bd3de469df8cbd5b8c">sx_api_router_mc_route_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, sx_mc_route_key_filter_t *filter_p, sx_mc_route_get_entry_t *mc_route_get_entries_list_p, uint32_t *mc_route_get_entries_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ab70bf9ca856f55a88e7dd5a4fe5f77fa">sx_api_router_mc_route_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, boolean_t *activity_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a49d704b1d7e401edc59dde5aff4bf376">sx_api_router_mc_egress_rif_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_router_interface_t *egress_rif_list_p, const uint32_t egress_rif_cnt)</td></tr>
@@ -98,7 +98,14 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a7c569920c238a3289dc3877a5c10783e">sx_api_router_ecmp_get</a> (const sx_api_handle_t handle, const sx_ecmp_id_t ecmp_id, sx_next_hop_t *next_hop_list_p, uint32_t *next_hop_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a44c2973c659f035cbde4f0a519b1082b">sx_api_router_operational_ecmp_get</a> (const sx_api_handle_t handle, const sx_ecmp_id_t ecmp_id, sx_next_hop_t *next_hop_list_p, uint32_t *next_hop_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a2aa9c0bda0299d13e275a267c1249fb8">sx_api_router_ecmp_counter_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_ecmp_id_t ecmp_id, const sx_flow_counter_id_t *counter_id_list_p, const uint32_t *offset_list_p, const uint32_t elements_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a2fa0de25ef37a9cef1652e920c5fc019">sx_api_router_ecmp_fine_grain_counter_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_ecmp_id_t ecmp_id, const sx_flow_counter_id_t counter_id, const uint32_t *offset_list_p, const uint32_t elements_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a823465cf10115d18b458c33a678cfccf">sx_api_router_neigh_activity_notify</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_neigh_activity_filter_t *filter_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a242f69b150debcf00867d67f8515e8a6">sx_api_router_ecmp_attributes_set</a> (const sx_api_handle_t handle, const sx_ecmp_id_t ecmp_id, const sx_ecmp_attributes_t *attr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#afa58f3a820da481643de557c94a401ea">sx_api_router_ecmp_attributes_get</a> (const sx_api_handle_t handle, const sx_ecmp_id_t ecmp_id, sx_ecmp_attributes_t *attr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#aa529787aa5b258a80c567f751dbfe2ee">sx_api_router_mc_rpf_group_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_rpf_group_id_t *rpf_group_id_p, sx_router_vinterface_t *rpf_vif_list_p, uint32_t rpf_vif_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ae922af870268cc2ccf178169027ac093">sx_api_router_mc_rpf_group_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_rpf_group_id_t *rpf_group_id_p, sx_router_vinterface_t *rpf_vif_list_p, uint32_t *rpf_vif_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a6a4327a03b23e683f531b359fa569ecf">sx_api_router_mc_route_counter_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_flow_counter_id_t counter_id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a450a42c80363d8802247f85c77fae63d">sx_api_router_mc_route_counter_bind_get</a> (const sx_api_handle_t handle, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, sx_flow_counter_id_t *counter_id_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a34f17bf4bcc4feeac94a3dad937ac9ef"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_log_verbosity_level_set" ref="a34f17bf4bcc4feeac94a3dad937ac9ef" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -1883,7 +1890,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a05d61bfefa542ba2654a66e3abedba58"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_route_set" ref="a05d61bfefa542ba2654a66e3abedba58" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_mc_route_attributes_t *mc_router_attr_p, const sx_mc_route_data_t *mc_route_data_p)" -->
+<a class="anchor" id="a88d28b1cf1ea8606acaecf5c01c31051"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_route_set" ref="a88d28b1cf1ea8606acaecf5c01c31051" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_mc_route_attributes_t *mc_route_attr_p, const sx_mc_route_data_t *mc_route_data_p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1915,7 +1922,7 @@ SX_STATUS_ERROR general error. </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const sx_mc_route_attributes_t *&#160;</td>
-          <td class="paramname"><em>mc_router_attr_p</em>, </td>
+          <td class="paramname"><em>mc_route_attr_p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1931,18 +1938,19 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function adds/modifies/deletes a multicast route into the MC routing table.</p>
+<p>This function adds/modifies/deletes a multicast route from the MC routing table.</p>
 <p>In case action is not SX_ROUTER_ACTION_FORWARD/SX_ROUTER_ACTION_DROP, Trap ID will be set to SX_TRAP_ID_L3_MC_IP_BASE + trap priority.</p>
 <p>In case mc_router_attr_p-&gt;rpf_action is SX_ROUTER_RPF_ACTION_TRAP, the caller should configure SX_TRAP_ID_ETH_L3_RPF trap first.</p>
+<p>In case the RPF action is SX_ROUTER_RPF_ACTION_TRAP or SX_ROUTER_RPF_ACTION_DROP, the ingress RIF in the key should be the RPF RIF. In case the RPF action is SX_ROUTER_RPF_ACTION_DIRECTIONAL, a valid ingress RIF must be given. Multicast containers are valid on Spectrum only. egress_rif_cnt and egress_container_id are mutually exclusive and may not be both specified. e.g. if egress_rif_cnt is nonzero then egress_container_id must be SX_MC_CONTAINER_ID_INVALID. The DELETE_ALL command will delete all MC routes that match a given VRID and IP version specified by source_addr.version. If the given IP version is SX_IP_VERSION_NONE, then all MC routes on the given VRID will be deleted, regardless of the IP version. Assert is supported on SwitchX and SwitchX2 only. It is not applicable on Spectrum. On SwitchX, SwitchX2, and Spectrum, the valid manual priority range is 1 - 32. Router action SX_ROUTER_ACTION_SPAN is not supported on any device. RPF actions SX_ROUTER_RPF_ACTION_TRAP_LIST and SX_ROUTER_RPF_ACTION_DROP_LIST are not supported on any device.</p>
 <p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/MODIFY/DELETE/DELETE_ALL DELETE_ALL command deletes all multicast routes associated with vrid and source_addr.version. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/EDIT/DELETE/DELETE_ALL </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vrid</td><td>- Virtual Router ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route enntry key {Source IP Address,group address, ingress rif} </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_router_attr_p</td><td>-multicast route attribute (e.g. rpf mode,ttl ... ) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_data_p</td><td>- Route data {action , egrees rif list}.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route entry key {source IP prefix, group mask, ingress RIF} </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_router_attr_p</td><td>- multicast route attributes (e.g. RPF mode, ttl, etc.) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_data_p</td><td>- route data (e.g. action, egress RIF list, etc.)</td></tr>
   </table>
   </dd>
 </dl>
@@ -1954,7 +1962,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if no routes is available to create. </dd>
+SX_STATUS_NO_RESOURCES if no routes are available to create. </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
 
@@ -2014,18 +2022,17 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets a multicast route from the MC routing table. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function gets a multicast route or routes from the MC routing table, based on a given key or criteria. The ingress RIF is only considered part of the key for routes that have RPF action SX_ROUTER_RPF_ACTION_DIRECTIONAL. Therefore, routes that were configured with any other RPF action, and with an ingress RIF other than the "don't care" RIF, will still be returned when filtering by the "don't care" ingress RIF. In these cases, the configured ingress RIF can be found in the MC route data.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET GET - Get multicast route entry from DB. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET - Get multicast route entry from DB. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vrid</td><td>- Virtual Router ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route enntry key {Source IP Address,group address, ingress rif} </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- MC route key_filter - Currently NULL. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname"></td><td>found mc route entries arr . </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname"></td><td>found mc route entries num .</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mc_router_attr_p</td><td>-multicast route route attribute (e.g. rpf mode,ttl ... ) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mc_route_data_p</td><td>- Route data {action , egrees rif list} .</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route entry key {Source IP Address, group address, ingress rif} </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- not supported yet </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">mc_route_get_entries_list_p</td><td>- list of returned MC routes </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">mc_route_get_entries_cnt_p</td><td>- as input: number of entries in mc_route_get_entries_list_p as output: number of entries returned in mc_route_get_entries_list_p</td></tr>
   </table>
   </dd>
 </dl>
@@ -2087,7 +2094,7 @@ SX_STATUS_ERROR general error. </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vrid</td><td>- Virtual Router ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route enntry key {Source IP Address,group address, ingress rif} </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route entry key {Source IP Address, group address, ingress rif} </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">activity_p</td><td>- Route activity.</td></tr>
   </table>
   </dd>
@@ -2150,15 +2157,16 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function adds/modifies/deletes an egress VLAN/PORT interfaces to multicast route. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function adds/sets/deletes/deletes-all egress RIFs to/from a previously configured MC route. Only routes configured with egress_rif_cnt and egress_rif_list_p are supported by this function. Routes configured with egress_container_id are not.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL DELETE_ALL command deletes all egress router interfaces associated with multicast group. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL/SET SET command replaces the entire list of existing egress RIFs with the given list. DELETE_ALL command deletes all egress router interfaces associated with multicast group. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vrid</td><td>- Virtual Router ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route enntry key {Source IP Address,group address, ingress rif} </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route entry key {Source IP Address, group address, ingress rif} </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">egress_rif_list_p</td><td>- Egress Router Interface array. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">egress_rif_cnt</td><td>- Egress Router Interface array num.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">egress_rif_cnt</td><td>- Egress Router Interface array num.</td></tr>
   </table>
   </dd>
 </dl>
@@ -2170,7 +2178,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if no routes is available to create. </dd>
+SX_STATUS_NO_RESOURCES if no more RIFs can be set. </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
 
@@ -2218,15 +2226,15 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function get an egress VLAN/PORT interfaces from multicast route. When egress_rif_num is 0 , will return a counter of the number of egress rifs, and egress_rif_arr will remain empty. When egress_rif_arr = NULL, will return counter in egress_rif_num.</p>
+<p>This function gets the list of egress RIFs associated with the given multicast route. When egress_rif_num is 0 or egress_rif_arr == NULL, the function will return the number of egress RIFs, and egress_rif_arr will remain empty. Only routes configured with egress_rif_cnt and egress_rif_list_p are supported by this function. Routes configured with egress_container_id are not.</p>
 <p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vrid</td><td>- Virtual Router ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route enntry key {Source IP Address,group address, ingress rif } </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_route_key_p</td><td>- mc route entry key {Source IP Address, group address, ingress rif} </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">egress_rif_list_p</td><td>- Egress Router Interface array. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">egress_rif_cnt_p</td><td>- Egress Router Interface array num.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">egress_rif_cnt_p</td><td>- as input: number of entries in egress_rif_list_p as output: number of egress RIFs returned in egress_rif_list_p</td></tr>
   </table>
   </dd>
 </dl>
@@ -2237,8 +2245,6 @@ SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
-<dd>
-SX_STATUS_NO_RESOURCES if no routes is available to create. </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
 
@@ -2626,7 +2632,7 @@ SX_STATUS_ERROR general error. </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- id of an ECMP container </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_list_p</td><td>- a given list of next hops </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_cut</td><td>- amount of next hops</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_cnt_p</td><td>- amount of next hops</td></tr>
   </table>
   </dd>
 </dl>
@@ -2682,7 +2688,7 @@ SX_STATUS_ERROR general error. </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- id of an ECMP container </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_list_p</td><td>- a given list of next hops </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_cut</td><td>- amount of next hops</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_cnt_p</td><td>- amount of next hops</td></tr>
   </table>
   </dd>
 </dl>
@@ -2770,6 +2776,80 @@ SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a2fa0de25ef37a9cef1652e920c5fc019"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_ecmp_fine_grain_counter_bind_set" ref="a2fa0de25ef37a9cef1652e920c5fc019" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_ecmp_id_t ecmp_id, const sx_flow_counter_id_t counter_id, const uint32_t *offset_list_p, const uint32_t elements_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_ecmp_fine_grain_counter_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_ecmp_id_t&#160;</td>
+          <td class="paramname"><em>ecmp_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flow_counter_id_t&#160;</td>
+          <td class="paramname"><em>counter_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t *&#160;</td>
+          <td class="paramname"><em>offset_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>elements_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function binds/unbinds a router counter to a list of indices in a container active set. This API should be used for containers that are not static containers. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- ID of a non static ECMP container </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id</td><td>- ID of a counter to bind to the given offsets. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset_list_p</td><td>- list of entry offsets in configured ECMP container. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">elements_cnt</td><td>- amount of entry offsets.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if counter was not added. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if interface is already bound. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a823465cf10115d18b458c33a678cfccf"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_neigh_activity_notify" ref="a823465cf10115d18b458c33a678cfccf" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_neigh_activity_filter_t *filter_p)" -->
 <div class="memitem">
 <div class="memproto">
@@ -2819,6 +2899,282 @@ SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a242f69b150debcf00867d67f8515e8a6"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_ecmp_attributes_set" ref="a242f69b150debcf00867d67f8515e8a6" args="(const sx_api_handle_t handle, const sx_ecmp_id_t ecmp_id, const sx_ecmp_attributes_t *attr_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_ecmp_attributes_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_ecmp_id_t&#160;</td>
+          <td class="paramname"><em>ecmp_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_ecmp_attributes_t *&#160;</td>
+          <td class="paramname"><em>attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets an ECMP container's attributes. Using this API is not mandatory for ECMP hashing (default value is SX_ECMP_TYPE_STATIC_E) To use this API one should create an empty ECMP container, set the container attributes and add next hops. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- an ID of an ECMP container </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- ECMP container attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if parameter is NULL or exceeds range. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if ecmp_id not found. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afa58f3a820da481643de557c94a401ea"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_ecmp_attributes_get" ref="afa58f3a820da481643de557c94a401ea" args="(const sx_api_handle_t handle, const sx_ecmp_id_t ecmp_id, sx_ecmp_attributes_t *attr_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_ecmp_attributes_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_ecmp_id_t&#160;</td>
+          <td class="paramname"><em>ecmp_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_ecmp_attributes_t *&#160;</td>
+          <td class="paramname"><em>attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves an ECMP container's attributes. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- id of ECMP container. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">attr_p</td><td>- ECMP container attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if parameter is NULL or exceeds range. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if ecmp_id not found. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa529787aa5b258a80c567f751dbfe2ee"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_rpf_group_set" ref="aa529787aa5b258a80c567f751dbfe2ee" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_rpf_group_id_t *rpf_group_id_p, sx_router_vinterface_t *rpf_vif_list_p, uint32_t rpf_vif_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_mc_rpf_group_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_rpf_group_id_t *&#160;</td>
+          <td class="paramname"><em>rpf_group_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_router_vinterface_t *&#160;</td>
+          <td class="paramname"><em>rpf_vif_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>rpf_vif_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is not supported. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae922af870268cc2ccf178169027ac093"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_rpf_group_get" ref="ae922af870268cc2ccf178169027ac093" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_rpf_group_id_t *rpf_group_id_p, sx_router_vinterface_t *rpf_vif_list_p, uint32_t *rpf_vif_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_mc_rpf_group_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_rpf_group_id_t *&#160;</td>
+          <td class="paramname"><em>rpf_group_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_router_vinterface_t *&#160;</td>
+          <td class="paramname"><em>rpf_vif_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>rpf_vif_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is not supported. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6a4327a03b23e683f531b359fa569ecf"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_route_counter_bind_set" ref="a6a4327a03b23e683f531b359fa569ecf" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_flow_counter_id_t counter_id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_mc_route_counter_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_router_id_t&#160;</td>
+          <td class="paramname"><em>vrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mc_route_key_t *&#160;</td>
+          <td class="paramname"><em>mc_route_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flow_counter_id_t&#160;</td>
+          <td class="paramname"><em>counter_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is not supported. </p>
+
+</div>
+</div>
+<a class="anchor" id="a450a42c80363d8802247f85c77fae63d"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_route_counter_bind_get" ref="a450a42c80363d8802247f85c77fae63d" args="(const sx_api_handle_t handle, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, sx_flow_counter_id_t *counter_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_mc_route_counter_bind_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_router_id_t&#160;</td>
+          <td class="paramname"><em>vrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mc_route_key_t *&#160;</td>
+          <td class="paramname"><em>mc_route_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flow_counter_id_t *&#160;</td>
+          <td class="paramname"><em>counter_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is not supported. </p>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -2838,6 +3194,6 @@ SX_STATUS_ERROR general error. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Mon Feb 1 2016 14:11:34 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

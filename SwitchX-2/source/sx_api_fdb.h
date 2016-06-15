@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -518,6 +518,84 @@ sx_status_t sx_api_fdb_mc_mac_addr_get(const sx_api_handle_t handle,
                                        uint32_t             *port_cnt_p);
 
 /**
+ * This function adds/deletes MC MAC entries from the FDB.
+ * using multicast container as destination.
+ *
+ * When in 802.1D mode, instead of providing a vid (Vlan ID),
+ * you should provide a bridge_id.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] cmd              - add/delete
+ * @param[in] fid              - filtering DB ID
+ * @param[in] group_addr       - MAC group address
+ * @param[in] destination      - a pointer to a mc container presenting the dest
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+static inline sx_status_t sx_api_fdb_mc_mac_addr_group_set(const sx_api_handle_t      handle,
+                                                           const sx_access_cmd_t      cmd,
+                                                           const sx_fid_t             fid,
+                                                           const sx_mac_addr_t        group_addr,
+                                                           const sx_mc_container_id_t destinantion)
+{
+    UNUSED_PARAM(handle);
+    UNUSED_PARAM(cmd);
+    UNUSED_PARAM(fid);
+    UNUSED_PARAM(group_addr);
+    UNUSED_PARAM(destinantion);
+    return SX_STATUS_UNSUPPORTED;
+}
+
+/**
+ * This function get MC MAC entries from the FDB.
+ * using multicast container as destination.
+ *
+ * When in 802.1D mode, instead of providing a vid (Vlan ID),
+ * you should provide a bridge_id.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] cmd              - add/delete
+ * @param[in] fid              - filtering DB ID
+ * @param[in] group_addr       - MAC group address
+ * @param[out] destinantion_p  - a pointer to a mc container presenting the dest
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+static inline sx_status_t sx_api_fdb_mc_mac_addr_group_get(const sx_api_handle_t  handle,
+                                                           const sx_fid_t         fid,
+                                                           const sx_mac_addr_t    group_addr,
+                                                           sx_mc_container_id_t * destinantion_p)
+{
+    UNUSED_PARAM(handle);
+    UNUSED_PARAM(fid);
+    UNUSED_PARAM(group_addr);
+    UNUSED_PARAM(destinantion_p);
+    return SX_STATUS_UNSUPPORTED;
+}
+
+/**
  *  This function deletes all FDB table entries on a switch partition.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -916,6 +994,58 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
                                          sx_flood_control_type_t  type,
                                          uint16_t * const         ports_count,
                                          sx_port_log_id_t * const ports_list);
+
+/**
+ * This API is used to manage flood control for tunnels.
+ * for each tunnel, you can add or remove flooding for specificed bridges.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle         - SX-API handle
+ * @param[in] cmd			 - ADD / DELETE
+ * @param[in] fid            - FID
+ * @param[in] flood_vector   - MC Container contains Flooding vector as ecmp object for head replication.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel or fid doesn't exists.
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND if fid already have flooding vector.
+ * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_ERROR general error
+ * */
+static inline sx_status_t sx_api_fdb_flood_set(const sx_api_handle_t      handle,
+                                               const sx_access_cmd_t      cmd,
+                                               const sx_fid_t             fid,
+                                               const sx_mc_container_id_t flood_vector)
+{
+    UNUSED_PARAM(handle);
+    UNUSED_PARAM(cmd);
+    UNUSED_PARAM(fid);
+    UNUSED_PARAM(flood_vector);
+    return SX_STATUS_UNSUPPORTED;
+}
+
+/**
+ * This API is used to get flood control settings for a tunnel
+ * Supported devices: Spectrum.
+ *
+ * @param[in]  handle         - SX-API handle
+ * @param[in]  fid            - FID
+ * @param[out] flood_vector   - MC Container contains Flooding vector as ecmp object for head replication.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_ENTRY_NOT_FOUND if flooding vector not set
+ * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_ERROR general error
+ * */
+static inline sx_status_t sx_api_fdb_flood_get(const sx_api_handle_t  handle,
+                                               const sx_fid_t         fid,
+                                               sx_mc_container_id_t * flood_vector)
+{
+    UNUSED_PARAM(handle);
+    UNUSED_PARAM(fid);
+    UNUSED_PARAM(flood_vector);
+    return SX_STATUS_UNSUPPORTED;
+}
 
 /**
  * This function is used to retrieve flooding counters of the switch

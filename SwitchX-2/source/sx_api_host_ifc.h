@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -166,10 +166,39 @@ sx_status_t sx_api_host_ifc_trap_id_set(const sx_api_handle_t  handle,
                                         const sx_trap_action_t trap_action);
 
 /**
+ *
+ * This API adds/deletes user defined trap ID's.
+ * The trap ID created should be in the [SX_TRAP_ID_USER_BASE,SX_TRAP_ID_USER_MAX]
+ * range.
+ * For cmd == SX_ACCESS_CMD_DELETE, trap_attributes_p can be NULL.
+ * Supported devices: Spectrum.
+ *
+ * @param[in]     handle            - SX-API handle.
+ * @param[in]     cmd               - ADD/DELETE.
+ * @param[in]     swid              - Switch ID.
+ * @param[in]     trap_id           - Trap_id.
+ * @param[in]     trap_attributes_p - Traps attributes.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid.
+ * @return SX_STATUS_ERROR general error.
+ * @return SX_STATUS_MEMORY_ERROR error handling memory.
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS If trap ID is already configured.
+ *
+ */
+sx_status_t sx_api_host_ifc_user_defined_trap_id_set(const sx_api_handle_t                 handle,
+                                                     const sx_access_cmd_t                 cmd,
+                                                     const sx_swid_t                       swid,
+                                                     const sx_trap_id_t                    trap_id,
+                                                     sx_trap_id_user_defined_attributes_t *trap_attributes_p);
+
+/**
  * Register / DeRegister Traps (STP , LACP)  or Events (Port up /
  * down , Temperature event) in the driver. Configure the driver
  * to pass packets matching this trap ID / Event ID, criteria &
  * SWID to the client (according to hw_p).
+ * The source_log_port parameter of the received L2 trap always relates
+ * to the relevant physical port.
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle        - SX-API handle.
