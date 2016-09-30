@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mc__container_8h.html#a415b496a5e7588f947fdf60705efefe4">sx_api_mc_container_log_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mc__container_8h.html#a01907867c8296060f798d1506982a357">sx_api_mc_container_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mc__container_8h.html#a7a38f4671618cb2928244d1bb0e0064e">sx_api_mc_container_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t *container_id_p, const sx_mc_next_hop_t *next_hop_list_p, const uint32_t next_hop_cnt, const sx_mc_container_attributes_t *container_attr)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mc__container_8h.html#a58bee9dd78fc1dcc2c4ac89576065d7c">sx_api_mc_container_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t *container_id_p, const uint32_t *next_hop_cnt, const sx_mc_next_hop_t *next_hop_list_p, const sx_mc_container_attributes_t *container_attr)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mc__container_8h.html#ab8112eeec14fd0fa0fce404c2639a14a">sx_api_mc_container_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t *container_id_p, const sx_mc_next_hop_t *next_hop_list_p, const uint32_t next_hop_cnt, const sx_mc_container_attributes_t *container_attr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mc__container_8h.html#a9326cdec1f4de0b40b239c8abdf2f1a3">sx_api_mc_container_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t container_id, sx_mc_next_hop_t *next_hop_list_p, uint32_t *next_hop_cnt_p, sx_mc_container_attributes_t *container_attr_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a415b496a5e7588f947fdf60705efefe4"></a><!-- doxytag: member="sx_api_mc_container.h::sx_api_mc_container_log_verbosity_level_set" ref="a415b496a5e7588f947fdf60705efefe4" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -168,7 +168,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a7a38f4671618cb2928244d1bb0e0064e"></a><!-- doxytag: member="sx_api_mc_container.h::sx_api_mc_container_set" ref="a7a38f4671618cb2928244d1bb0e0064e" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t *container_id_p, const sx_mc_next_hop_t *next_hop_list_p, const uint32_t next_hop_cnt, const sx_mc_container_attributes_t *container_attr)" -->
+<a class="anchor" id="ab8112eeec14fd0fa0fce404c2639a14a"></a><!-- doxytag: member="sx_api_mc_container.h::sx_api_mc_container_set" ref="ab8112eeec14fd0fa0fce404c2639a14a" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t *container_id_p, const sx_mc_next_hop_t *next_hop_list_p, const uint32_t next_hop_cnt, const sx_mc_container_attributes_t *container_attr_p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -206,7 +206,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const sx_mc_container_attributes_t *&#160;</td>
-          <td class="paramname"><em>container_attr</em>&#160;</td>
+          <td class="paramname"><em>container_attr_p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -225,7 +225,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">container_id_p</td><td>- Specifies or returns the container ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_list_p</td><td>- Specifies the list of next hops for the container </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_cnt</td><td>- Specifies the amount of next hops in next_hop_list_p </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">container_attr</td><td>- Specifies the container attributes</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">container_attr_p</td><td>- Specifies the container attributes</td></tr>
   </table>
   </dd>
 </dl>
@@ -241,7 +241,7 @@ SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a58bee9dd78fc1dcc2c4ac89576065d7c"></a><!-- doxytag: member="sx_api_mc_container.h::sx_api_mc_container_get" ref="a58bee9dd78fc1dcc2c4ac89576065d7c" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t *container_id_p, const uint32_t *next_hop_cnt, const sx_mc_next_hop_t *next_hop_list_p, const sx_mc_container_attributes_t *container_attr)" -->
+<a class="anchor" id="a9326cdec1f4de0b40b239c8abdf2f1a3"></a><!-- doxytag: member="sx_api_mc_container.h::sx_api_mc_container_get" ref="a9326cdec1f4de0b40b239c8abdf2f1a3" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_mc_container_id_t container_id, sx_mc_next_hop_t *next_hop_list_p, uint32_t *next_hop_cnt_p, sx_mc_container_attributes_t *container_attr_p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -260,26 +260,26 @@ SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sx_mc_container_id_t *&#160;</td>
-          <td class="paramname"><em>container_id_p</em>, </td>
+          <td class="paramtype">sx_mc_container_id_t&#160;</td>
+          <td class="paramname"><em>container_id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint32_t *&#160;</td>
-          <td class="paramname"><em>next_hop_cnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_mc_next_hop_t *&#160;</td>
+          <td class="paramtype">sx_mc_next_hop_t *&#160;</td>
           <td class="paramname"><em>next_hop_list_p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_mc_container_attributes_t *&#160;</td>
-          <td class="paramname"><em>container_attr</em>&#160;</td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>next_hop_cnt_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_mc_container_attributes_t *&#160;</td>
+          <td class="paramname"><em>container_attr_p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -295,10 +295,10 @@ SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GETFIRST/GETNEXT/COUNT </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">container_id_p</td><td>- Specifies a container ID or returns a container ID </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">next_hop_cnt</td><td>- Specifies the maximum amount of next hops to retrieve, and returns the amount of next hops retrieved </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">container_id</td><td>- Specifies a container ID or returns a container ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_list_p</td><td>- Returns the list of next hops in the container </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">container_attr</td><td>- Returns the container attributes</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">next_hop_cnt_p</td><td>- Specifies the maximum amount of next hops to retrieve, and returns the amount of next hops retrieved </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">container_attr_p</td><td>- Returns the container attributes</td></tr>
   </table>
   </dd>
 </dl>
@@ -331,6 +331,6 @@ SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more cont
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

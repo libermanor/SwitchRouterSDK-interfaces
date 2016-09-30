@@ -528,9 +528,8 @@ sx_status_t sx_api_fdb_mc_mac_addr_get(const sx_api_handle_t handle,
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - add/delete
- * @param[in] fid              - filtering DB ID
- * @param[in] group_addr       - MAC group address
- * @param[in] destination      - a pointer to a mc container presenting the dest
+ * @param[in] group_key        - {fid, mac} key for multicast
+ * @param[in] data             - fdb data including action and mc container id
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
@@ -543,19 +542,11 @@ sx_status_t sx_api_fdb_mc_mac_addr_get(const sx_api_handle_t handle,
  * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
  * @return SX_STATUS_ERROR for a general error
  */
-static inline sx_status_t sx_api_fdb_mc_mac_addr_group_set(const sx_api_handle_t      handle,
-                                                           const sx_access_cmd_t      cmd,
-                                                           const sx_fid_t             fid,
-                                                           const sx_mac_addr_t        group_addr,
-                                                           const sx_mc_container_id_t destinantion)
-{
-    UNUSED_PARAM(handle);
-    UNUSED_PARAM(cmd);
-    UNUSED_PARAM(fid);
-    UNUSED_PARAM(group_addr);
-    UNUSED_PARAM(destinantion);
-    return SX_STATUS_UNSUPPORTED;
-}
+sx_status_t sx_api_fdb_mc_mac_addr_group_set(const sx_api_handle_t     handle,
+                                             const sx_access_cmd_t     cmd,
+                                             const sx_fdb_mac_key_t  * group_key,
+                                             const sx_fdb_mac_data_t * data);
+
 
 /**
  * This function get MC MAC entries from the FDB.
@@ -566,11 +557,9 @@ static inline sx_status_t sx_api_fdb_mc_mac_addr_group_set(const sx_api_handle_t
  *
  * Supported devices: Spectrum.
  *
- * @param[in] handle           - SX-API handle
- * @param[in] cmd              - add/delete
- * @param[in] fid              - filtering DB ID
- * @param[in] group_addr       - MAC group address
- * @param[out] destinantion_p  - a pointer to a mc container presenting the dest
+ * @param[in]  handle             - SX-API handle
+ * @param[in]  group_key          - {fid, mac} key for multicast
+ * @param[out] data               - fdb data including action and mc container id
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
@@ -583,17 +572,9 @@ static inline sx_status_t sx_api_fdb_mc_mac_addr_group_set(const sx_api_handle_t
  * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
  * @return SX_STATUS_ERROR for a general error
  */
-static inline sx_status_t sx_api_fdb_mc_mac_addr_group_get(const sx_api_handle_t  handle,
-                                                           const sx_fid_t         fid,
-                                                           const sx_mac_addr_t    group_addr,
-                                                           sx_mc_container_id_t * destinantion_p)
-{
-    UNUSED_PARAM(handle);
-    UNUSED_PARAM(fid);
-    UNUSED_PARAM(group_addr);
-    UNUSED_PARAM(destinantion_p);
-    return SX_STATUS_UNSUPPORTED;
-}
+sx_status_t sx_api_fdb_mc_mac_addr_group_get(const sx_api_handle_t    handle,
+                                             const sx_fdb_mac_key_t * group_key,
+                                             sx_fdb_mac_data_t      * data_p);
 
 /**
  *  This function deletes all FDB table entries on a switch partition.
@@ -1003,6 +984,7 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd			 - ADD / DELETE
+ * @param[in] swid           - virtual switch partition id
  * @param[in] fid            - FID
  * @param[in] flood_vector   - MC Container contains Flooding vector as ecmp object for head replication.
  *
@@ -1012,23 +994,17 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
  * @return SX_STATUS_ERROR general error
  * */
-static inline sx_status_t sx_api_fdb_flood_set(const sx_api_handle_t      handle,
-                                               const sx_access_cmd_t      cmd,
-                                               const sx_fid_t             fid,
-                                               const sx_mc_container_id_t flood_vector)
-{
-    UNUSED_PARAM(handle);
-    UNUSED_PARAM(cmd);
-    UNUSED_PARAM(fid);
-    UNUSED_PARAM(flood_vector);
-    return SX_STATUS_UNSUPPORTED;
-}
-
+sx_status_t sx_api_fdb_flood_set(const sx_api_handle_t      handle,
+                                 const sx_access_cmd_t      cmd,
+                                 const sx_swid_t            swid,
+                                 const sx_fid_t             fid,
+                                 const sx_mc_container_id_t flood_vector);
 /**
  * This API is used to get flood control settings for a tunnel
  * Supported devices: Spectrum.
  *
  * @param[in]  handle         - SX-API handle
+ * @param[in]  swid           - virtual switch partition id
  * @param[in]  fid            - FID
  * @param[out] flood_vector   - MC Container contains Flooding vector as ecmp object for head replication.
  *
@@ -1037,15 +1013,10 @@ static inline sx_status_t sx_api_fdb_flood_set(const sx_api_handle_t      handle
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
  * @return SX_STATUS_ERROR general error
  * */
-static inline sx_status_t sx_api_fdb_flood_get(const sx_api_handle_t  handle,
-                                               const sx_fid_t         fid,
-                                               sx_mc_container_id_t * flood_vector)
-{
-    UNUSED_PARAM(handle);
-    UNUSED_PARAM(fid);
-    UNUSED_PARAM(flood_vector);
-    return SX_STATUS_UNSUPPORTED;
-}
+sx_status_t sx_api_fdb_flood_get(const sx_api_handle_t  handle,
+                                 const sx_swid_t        swid,
+                                 const sx_fid_t         fid,
+                                 sx_mc_container_id_t * flood_vector);
 
 /**
  * This function is used to retrieve flooding counters of the switch
@@ -1150,5 +1121,159 @@ sx_status_t sx_api_fdb_src_miss_protect_drop_cntr_set(const sx_api_handle_t hand
 sx_status_t sx_api_fdb_src_miss_protect_drop_cntr_get(const sx_api_handle_t handle,
                                                       const sx_access_cmd_t cmd,
                                                       uint64_t             *dropped_pkts_cntr);
+
+/**
+ * This function set the IGMP v3 state.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] cmd                       - Command: Set
+ * @param[in] fid                       - FID
+ * @param[in] fdb_igmpv3_snooping_state - Enable/ Disable
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_igmpv3_state_set(const sx_api_handle_t       handle,
+                                        const sx_access_cmd_t       cmd,
+                                        const sx_fid_t              fid,
+                                        const sx_fdb_igmpv3_state_t fdb_igmpv3_snooping_state);
+
+/**
+ * This function get the IGMP v3 state.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] cmd                       - Command: Get
+ * @param[in] fid                       - FID
+ * @param[out] fdb_igmpv3_snooping_state- Pointer to the IGMP v3 state
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_igmpv3_state_get(const sx_api_handle_t  handle,
+                                        const sx_access_cmd_t  cmd,
+                                        const sx_fid_t         fid,
+                                        sx_fdb_igmpv3_state_t* fdb_igmpv3_snooping_state);
+
+/**
+ * This function set MC IP entries.
+ * using multicast container as destination.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] cmd              - add/delete/delete_all
+ * @param[in] mc_fdb_mc_ip_key - Structure contained the FID/SIP/DIP of the MC group
+ * @param[in] fdb_mc_ip_action - Structure contained Action/Container ID/ Trap
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_mc_ip_addr_group_set(const sx_api_handle_t        handle,
+                                            const sx_access_cmd_t        cmd,
+                                            const sx_fdb_mc_ip_key_t   * mc_fdb_mc_ip_key,
+                                            const sx_fdb_mc_ip_action_t* fdb_mc_ip_action);
+
+/**
+ * This function get MC IP entries.
+ * using multicast container as destination.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] mc_fdb_mc_ip_key - Structure contained the FID/SIP/DIP of the MC group
+ * @param[out] fdb_mc_ip_action - Pointer to a Structure contained Action/Container ID/ Trap
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_mc_ip_addr_group_get(const sx_api_handle_t     handle,
+                                            const sx_fdb_mc_ip_key_t* mc_fdb_mc_ip_key,
+                                            sx_fdb_mc_ip_action_t   * fdb_mc_ip_action_p);
+
+/**
+ * This function set bind counter to MC IP entry.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] key_p            - Structure contained the FID/SIP/DIP of the MC group
+ * @param[in] cmd              -  Command: SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE
+ * @param[in] counter_id       - counter id for adding/deleting from rule
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_mc_ip_addr_group_counter_bind_set(const sx_api_handle_t      handle,
+                                                         const sx_access_cmd_t      cmd,
+                                                         const sx_fdb_mc_ip_key_t  *key_p,
+                                                         const sx_flow_counter_id_t counter_id);
+
+/**
+ * This function get binded counter to MC IP entry.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] key_p            - Structure contained the FID/SIP/DIP of the MC group
+ * @param[out] counter_id      - Pinter to counter
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_mc_ip_addr_group_counter_bind_get(const sx_api_handle_t     handle,
+                                                         const sx_fdb_mc_ip_key_t *key_p,
+                                                         sx_flow_counter_id_t     *counter_id_p);
 
 #endif /* __SX_API_FDB_H__ */

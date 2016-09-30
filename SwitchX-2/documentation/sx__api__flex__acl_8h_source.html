@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,70 +67,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#define SX_API_FLEX_ACL_H_</span>
 <a name="l00020"></a>00020 <span class="preprocessor"></span>
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_flex_acl.h&gt;</span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">/************************************************</span>
-<a name="l00025"></a>00025 <span class="comment"> *  API functions</span>
-<a name="l00026"></a>00026 <span class="comment"> ***********************************************/</span>
-<a name="l00027"></a>00027 
-<a name="l00046"></a>00046 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#a77d6ceeb4c13e21075e9e25eb631976b">sx_api_acl_flex_key_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00047"></a>00047                                     <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00048"></a>00048                                     <span class="keyword">const</span> sx_acl_key_t  * key_list_p,
-<a name="l00049"></a>00049                                     <span class="keyword">const</span> uint32_t        key_count,
-<a name="l00050"></a>00050                                     sx_acl_key_type_t   * key_handle_p);
-<a name="l00051"></a>00051 
-<a name="l00069"></a>00069 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#af92b255d5ce7a24c8527cd55f61d8da1">sx_api_acl_flex_key_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00070"></a>00070                                     <span class="keyword">const</span> sx_acl_key_type_t key_handle,
-<a name="l00071"></a>00071                                     sx_acl_key_t           *key_list_p,
-<a name="l00072"></a>00072                                     uint32_t              * key_count_p);
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 
-<a name="l00101"></a>00101 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#acbf34d5037f1494d0c146ada9f407840">sx_api_acl_flex_rules_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00102"></a>00102                                       <span class="keyword">const</span> sx_access_cmd_t          cmd,
-<a name="l00103"></a>00103                                       <span class="keyword">const</span> sx_acl_region_id_t       region_id,
-<a name="l00104"></a>00104                                       sx_acl_rule_offset_t          *offsets_list_p,
-<a name="l00105"></a>00105                                       <span class="keyword">const</span> sx_flex_acl_flex_rule_t *rules_list_p,
-<a name="l00106"></a>00106                                       <span class="keyword">const</span> uint32_t                 rules_cnt);
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108 
-<a name="l00133"></a>00133 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#a7820db61cf02508199106ad6b52562af">sx_api_acl_flex_rules_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00134"></a>00134                                       <span class="keyword">const</span> sx_acl_region_id_t region_id,
-<a name="l00135"></a>00135                                       sx_acl_rule_offset_t    *offsets_list_p,
-<a name="l00136"></a>00136                                       sx_flex_acl_flex_rule_t *rules_list_p,
-<a name="l00137"></a>00137                                       uint32_t               * rules_cnt_p);
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139 
-<a name="l00156"></a>00156 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#a5affcc85683c3ceca56d5b2bfdc81a95">sx_api_acl_rif_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00157"></a>00157                                     <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00158"></a>00158                                     <span class="keyword">const</span> sx_rif_id_t     rif_id,
-<a name="l00159"></a>00159                                     <span class="keyword">const</span> sx_acl_id_t     acl_id);
-<a name="l00160"></a>00160 
-<a name="l00175"></a>00175 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#a82890bcca35387bcad58a4cc8be18c4d">sx_api_acl_rif_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00176"></a>00176                                     <span class="keyword">const</span> sx_rif_id_t        rif_id,
-<a name="l00177"></a>00177                                     <span class="keyword">const</span> sx_acl_direction_t acl_direction,
-<a name="l00178"></a>00178                                     sx_acl_id_t             *acl_id_p);
-<a name="l00179"></a>00179 
-<a name="l00197"></a>00197 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#a8d75e017d9af517108026cd99b68ece9">sx_api_acl_group_bind_set</a>(sx_api_handle_t       handle,
-<a name="l00198"></a>00198                                       <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00199"></a>00199                                       sx_acl_id_t           group_id,
-<a name="l00200"></a>00200                                       sx_acl_id_t           next_group_id);
-<a name="l00201"></a>00201 
-<a name="l00216"></a>00216 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#aece9f1a820e5fe724e91b5ae46eac747">sx_api_acl_group_bind_get</a>(sx_api_handle_t handle,
-<a name="l00217"></a>00217                                       sx_acl_id_t     group_id,
-<a name="l00218"></a>00218                                       sx_acl_id_t   * group_id_p);
-<a name="l00219"></a>00219 
-<a name="l00245"></a>00245 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#ab8f2477244a41031b345572131287a04">sx_api_acl_port_list_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00246"></a>00246                                      <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l00247"></a>00247                                      sx_acl_port_list_entry_t *port_list_p,
-<a name="l00248"></a>00248                                      <span class="keyword">const</span> uint32_t            port_list_cnt,
-<a name="l00249"></a>00249                                      sx_acl_port_list_id_t    *port_list_id_p);
-<a name="l00250"></a>00250 
-<a name="l00270"></a>00270 sx_status_t <a class="code" href="sx__api__flex__acl_8h.html#a1f73a62d89a23869e37faf3fa8933a60">sx_api_acl_port_list_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00271"></a>00271                                      <span class="keyword">const</span> sx_acl_port_list_id_t port_list_id,
-<a name="l00272"></a>00272                                      sx_acl_port_list_entry_t   *port_list_p,
-<a name="l00273"></a>00273                                      uint32_t                   *port_list_cnt_p);
-<a name="l00274"></a>00274 
-<a name="l00275"></a>00275 <span class="preprocessor">#endif </span><span class="comment">/* SX_API_FLEX_ACL_H_ */</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_acl.h&gt;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;sx/sdk/sx_api_acl.h&gt;</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#endif </span><span class="comment">/* SX_API_FLEX_ACL_H_ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -151,6 +91,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Sep 28 2016 16:15:59 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

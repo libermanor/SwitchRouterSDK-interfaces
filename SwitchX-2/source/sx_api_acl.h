@@ -19,6 +19,7 @@
 #define __SX_API_ACL_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_acl.h>
 
 
 /************************************************
@@ -35,7 +36,7 @@
  * @param[in] api_verbosity_level      - ACL API verbosity level
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *         SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
  *         SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_acl_log_verbosity_level_set(const sx_api_handle_t           handle,
@@ -53,8 +54,8 @@ sx_status_t sx_api_acl_log_verbosity_level_set(const sx_api_handle_t           h
  * @param[out] api_verbosity_level_p    - ACL API verbosity level
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *         SX_STATUS_PARAM_ERROR if any input parameters is invalid
- *         SX_STATUS_ERROR general error
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_acl_log_verbosity_level_get(const sx_api_handle_t           handle,
                                                const sx_log_verbosity_target_t verbosity_target,
@@ -80,14 +81,10 @@ sx_status_t sx_api_acl_log_verbosity_level_get(const sx_api_handle_t           h
  * @param[in,out] region_id_p - ACL region ID as described above
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
- *  not found in DB
- *  @return SX_STATUS_NO_RESOURCES if no ACL is available to
- *  create
- *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if no ACL is available to create
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  */
 sx_status_t sx_api_acl_region_set(const sx_api_handle_t      handle,
                                   const sx_access_cmd_t      cmd,
@@ -110,9 +107,8 @@ sx_status_t sx_api_acl_region_set(const sx_api_handle_t      handle,
  *
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE
- *  if any input parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
  *                             not found in DB
  */
 sx_status_t sx_api_acl_region_get(const sx_api_handle_t    handle,
@@ -139,14 +135,10 @@ sx_status_t sx_api_acl_region_get(const sx_api_handle_t    handle,
  * @param[in,out] acl_id_p - ACL ID as described above
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
- *  not found in DB
- *  @return SX_STATUS_NO_RESOURCES if no ACL is available to
- *  create
- *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if no ACL is available to create
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  */
 sx_status_t sx_api_acl_set(const sx_api_handle_t        handle,
                            const sx_access_cmd_t        cmd,
@@ -204,9 +196,7 @@ sx_status_t sx_api_acl_get(const sx_api_handle_t  handle,
  * @param[in,out] group_id - ACL group ID
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL if any input parameter is NULL
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter exceeds its range
- * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
  * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
  * @return SX_STATUS_NO_RESOURCES if no group is available to create
  * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
@@ -235,10 +225,8 @@ sx_status_t sx_api_acl_group_set(const sx_api_handle_t    handle,
  *
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE
- *  if any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
- *  not found in DB
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
  *
  */
 sx_status_t sx_api_acl_group_get(const sx_api_handle_t handle,
@@ -269,13 +257,9 @@ sx_status_t sx_api_acl_group_get(const sx_api_handle_t handle,
  *
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL if any inpu parameter is NULL
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter
- * exceeds its allowed range
- * @return SX_STATUS_ENTRY_NOT_FOUND if element is not found in
- *         DB
- * @return  SX_STATUS_NO_RESOURCES if there are no HW resources
- *          for PBS creation
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if element is not found in DB
+ * @return  SX_STATUS_NO_RESOURCES if there are no HW resources for PBS creation
  * @return SX_STATUS_RESOURCE_IN_USE if the PBS record is in use
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
@@ -305,10 +289,7 @@ sx_status_t sx_api_acl_policy_based_switching_set(const sx_api_handle_t     hand
  *
  * @return SX_STATUS_SUCCESS if operation completes
  *          successfully
- * @return SX_STATUS_PARAM_NULL if any of the input parameters
- *         are NULL
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter
- *         exceeds its allowed range
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
  * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
  * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
@@ -338,10 +319,9 @@ sx_status_t sx_api_acl_policy_based_switching_get(const sx_api_handle_t handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_MESSAGE_SIZE_ZERO: Message size error
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
  * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
- * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
  */
@@ -362,7 +342,7 @@ sx_status_t sx_api_acl_l4_port_range_set(const sx_api_handle_t            handle
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_MESSAGE_SIZE_ZERO: Message size error
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
  * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
  * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
@@ -395,16 +375,11 @@ sx_status_t sx_api_acl_l4_port_range_get(const sx_api_handle_t        handle,
  *       (number of elements in the array)
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not
- *  found in DB
- *  @return SX_STATUS_NO_RESOURCES if there is no more space for
- *  rules
- *  @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW
- *  failure
- *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if there is no more space for rules
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  */
 sx_status_t sx_api_acl_rules_set(const sx_api_handle_t    handle,
                                  const sx_access_cmd_t    cmd,
@@ -431,12 +406,9 @@ sx_status_t sx_api_acl_rules_set(const sx_api_handle_t    handle,
  *       rules that were actually read from ACL table
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not
- *  found in DB
- * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW
- *  failure requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure requested
  */
 sx_status_t sx_api_acl_rules_get(const sx_api_handle_t      handle,
                                  const sx_acl_region_id_t   region_id,
@@ -456,12 +428,9 @@ sx_status_t sx_api_acl_rules_get(const sx_api_handle_t      handle,
  * @param[out] activity_p - ACL Rule activity
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not
- *  found in DB
- * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW
- *  failure requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure requested
  */
 sx_status_t sx_api_acl_rule_activity_get(const sx_api_handle_t      handle,
                                          const sx_access_cmd_t      cmd,
@@ -488,12 +457,9 @@ sx_status_t sx_api_acl_rule_activity_get(const sx_api_handle_t      handle,
  *
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter
- *  is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not
- *  found in DB
- *  @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW
- *          failure
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
  */
 sx_status_t sx_api_acl_rule_block_move_set(const sx_api_handle_t      handle,
                                            const sx_acl_region_id_t   region_id,
@@ -514,16 +480,11 @@ sx_status_t sx_api_acl_rule_block_move_set(const sx_api_handle_t      handle,
  * @param[in] acl_id - ACL ID given for ACL or ACL group
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not
- *  found in DB
- *  @return SX_STATUS_NO_RESOURCES if no ACL is available to
- *  create
- *  @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW
- *  failure
- *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if no ACL is available to create
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  */
 sx_status_t sx_api_acl_port_bind_set(const sx_api_handle_t  handle,
                                      const sx_access_cmd_t  cmd,
@@ -541,9 +502,8 @@ sx_status_t sx_api_acl_port_bind_set(const sx_api_handle_t  handle,
  * @param[out] acl_id_p - ACL ID of an ACL or ACL group
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if port is not bound
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if port is not bound
  */
 sx_status_t sx_api_acl_port_bind_get(const sx_api_handle_t    handle,
                                      const sx_port_log_id_t   log_port,
@@ -572,14 +532,10 @@ sx_status_t sx_api_acl_port_bind_get(const sx_api_handle_t    handle,
  *
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
- *  not found in DB
- *  @return SX_STATUS_NO_RESOURCES if no group is available to
- *  create
- *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if no group is available to create
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  */
 sx_status_t sx_api_acl_vlan_group_map_set(const sx_api_handle_t handle,
                                           const sx_access_cmd_t cmd,
@@ -609,10 +565,8 @@ sx_status_t sx_api_acl_vlan_group_map_set(const sx_api_handle_t handle,
  *
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
- *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if requested element is
- *  not found in DB
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
  * @return SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled
  */
 sx_status_t sx_api_acl_vlan_group_map_get(const sx_api_handle_t     handle,
@@ -636,16 +590,11 @@ sx_status_t sx_api_acl_vlan_group_map_get(const sx_api_handle_t     handle,
  * @param[in] acl_id - ACL ID of an ACL or ACL Group
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter
- *  is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not
- *  found in DB
- *  @return SX_STATUS_NO_RESOURCES if no ACL is available to
- *  create
- *  @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW
- *  failure
- *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is
- *  requested
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if no ACL is available to create
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  */
 sx_status_t sx_api_acl_vlan_group_bind_set(const sx_api_handle_t     handle,
                                            const sx_access_cmd_t     cmd,
@@ -674,5 +623,303 @@ sx_status_t sx_api_acl_vlan_group_bind_get(const sx_api_handle_t     handle,
                                            const sx_acl_vlan_group_t vlan_group,
                                            const sx_acl_direction_t  acl_direction,
                                            sx_acl_id_t              *acl_id_p);
+
+/**
+ *  This function returns attributes of the flexible key.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] key_handle            - The handle to flexible key
+ * @param[out] key_width_p          - Key width
+ *
+ * @return SX_STATUS_SUCCESS            operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR        any input parameters is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND    the key handle is wrong
+ */
+sx_status_t sx_api_acl_flex_key_attr_get(const sx_api_handle_t    handle,
+                                         const sx_acl_key_type_t  key_handle,
+                                         sx_acl_flex_key_attr_t * key_attr_p);
+
+/**
+ *  The key will be composed from predefined filter blocks of 9B keys by SCP algorithm and it maximum size is bounded to 54B.
+ *   Key creation is pure DB operation. The maximum number of keys is equal to the maximum number of regions.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] cmd                       - The access cmd CREATE/DELETE
+ * @param[in] key_list_p                - Array of basic key ID's
+ * @param[in] key_cnt                   - Number of elements in basic key array
+ * @param[out] key_handle_p             - The handle to created flexible key
+ *
+ * @return  SX_STATUS_SUCCESS       operation completes successfully
+ * @return  SX_STATUS_PARAM_ERROR   any input parameters is invalid
+ * @return  SX_STATUS_UNSUPPORTED   the wanted key cannot be created
+ * @return  SX_STATUS_ERROR         general error
+ */
+sx_status_t sx_api_acl_flex_key_set(const sx_api_handle_t handle,
+                                    const sx_access_cmd_t cmd,
+                                    const sx_acl_key_t  * key_list_p,
+                                    const uint32_t        key_count,
+                                    sx_acl_key_type_t   * key_handle_p);
+
+/**
+ *  This function returns list of filters included in the flexible key.
+ *  The user is responsible for a memory management of the filters list.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] key_handle            - The handle to flexible key
+ * @param[out] key_list_p           - Array of basic key ID's
+ * @param[in, out] key_count_p      - Number of elements in basic key array
+ *                                    on return will contain the actual number
+ *                                    of elements copied to the array.
+ *
+ * @return SX_STATUS_SUCCESS            operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR        any input parameters is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND    the key handle is wrong
+ */
+sx_status_t sx_api_acl_flex_key_get(const sx_api_handle_t   handle,
+                                    const sx_acl_key_type_t key_handle,
+                                    sx_acl_key_t           *key_list_p,
+                                    uint32_t              * key_count_p);
+
+
+/**
+ * ACL rule is added or removed from a certain ACL region. The user is responsible for memory management -
+ * it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API
+ * and de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API.
+ * This operation configures HW if the ACL is bound to a device.
+ * The configured rule is overrides the given offset with the new rule.
+ * The flexible ACL allows to the user to define set of filters that are subset of the key assigned to the region.
+ * Also the user can define a custom set of actions for each rule. The function should be called after bind ACL to region.
+ * If an offset in offsets array crosses the boundaries of the region allocation the function will fail.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] cmd                   - The access command SET/DELETE
+ * @param[in] region_id             - ACL region ID received on a region creation
+ * @param[in] offsets_list_p        - array of rule offset into region directly associated with the appropriate item on in array of rules
+ * @param[in] rules_list_p          - Array of structures describing the flexible rule content (see the next table)
+ * @param[in] rules_cnt             - Number of elements in array of flexible rule descriptors
+ *
+ *  @return SX_STATUS_SUCCESS           The operation completed successfully
+ *  @return SX_STATUS_CMD_UNSUPPORTED   The sent command is unsupported
+ *  @return SX_STATUS_PARAM_ERROR       Invalid parameter
+ *  @return SX_STATUS_ENTRY_NOT_FOUND   Wrong region ID
+ *  @return SX_STATUS_NO_RESOURCES      No more space for rules. Cannot allocate space for all actions
+ *
+ */
+sx_status_t sx_api_acl_flex_rules_set(const sx_api_handle_t          handle,
+                                      const sx_access_cmd_t          cmd,
+                                      const sx_acl_region_id_t       region_id,
+                                      sx_acl_rule_offset_t          *offsets_list_p,
+                                      const sx_flex_acl_flex_rule_t *rules_list_p,
+                                      const uint32_t                 rules_cnt);
+
+
+/**
+ *
+ * This function returns list of rules associated with particular region. The user is responsible for memory management -
+ * it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API and
+ * de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API.
+ *
+ *  If the function is called with rules_list_p parameter set to NULL or *rules_cnt_p set to 0, it
+ * will return the actual number of rules set to the region.
+ *
+ *  If the function is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set
+ * to NULL and offset_list_p array filled with zeroes - it will return the actual number of keys and actions for each valid rule
+ * starting from offset 0, as well as the rule's offset in offset list for this rule.
+ *
+ *  If the function is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set
+ * to NULL, but offset_list_p array is filled with non-zero values - it will return the actual number of keys and actions for each valid rule
+ * according to the offset, which is defined in the offset list. In this case the offset list should be filled with offsets of the rules,
+ * which are valid.
+ *
+ *  If the function is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set
+ * to non-NULL, it is assumed that rule structures are allocated for all rules in the list. It also assumed that the offset list
+ * is filled with real offsets of the rules in the same order as in the rules list.
+ *
+ * On Api call the key_desc_count and action_count of each sx_flex_acl_flex_rule_t should contain number of allocated
+ * items, on API return these parameters will contain actual number of items. The offset list should contain offsets of valid rules only.
+ *
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] region_id             - ACL region ID received on a region creation
+ * @param[in, out] offsets_list_p       - array of rule offset into region directly associated with the appropriate item on in array of rules
+ * @param[out] rules_list_p         - Array of structures describing the flexible rule content (see the next table)
+ * @param[in, out] rules_cnt        - Desirable number of elements in array of flexible rule descriptors. Function return
+ *
+ *  @return SX_STATUS_SUCCESS           The operation completed successfully
+ *  @return SX_STATUS_ENTRY_NOT_FOUND   Wrong region ID
+ *  @return SX_STATUS_PARAM_ERROR       Invalid parameter
+ *
+ */
+sx_status_t sx_api_acl_flex_rules_get(const sx_api_handle_t    handle,
+                                      const sx_acl_region_id_t region_id,
+                                      sx_acl_rule_offset_t    *offsets_list_p,
+                                      sx_flex_acl_flex_rule_t *rules_list_p,
+                                      uint32_t               * rules_cnt_p);
+
+
+/**
+ *  This function is used to bind/unbind ACL or ACL group to RIF
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] cmd                   - The command BIND/UNBIND
+ * @param[in] rif_id                - RIF ID to bind/unbind
+ * @param[in] acl_id                - ACL or ACL group ID that is going to be bound to RIF
+ *
+ *  @return SX_STATUS_SUCCESS           The operation completed successfully
+ *  @return SX_STATUS_ENTRY_NOT_FOUND   ACL ID or RIF ID not found in DB
+ *  @return SX_STATUS_PARAM_ERROR       Invalid parameter
+ *  @return SX_STATUS_CMD_UNSUPPORTED   the given comand is unsupported
+ *  @return SX_STATUS_ERROR             The operation cannot be complited
+ */
+sx_status_t sx_api_acl_rif_bind_set(const sx_api_handle_t handle,
+                                    const sx_access_cmd_t cmd,
+                                    const sx_rif_id_t     rif_id,
+                                    const sx_acl_id_t     acl_id);
+
+/**
+ *  This function is used to  get ACL or ACL group ID that bound to RIF
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                  - SX-API handle
+ * @param[in] rif_id                  - RIF ID
+ * @param[in] acl_direction           - The direction of ACL(ingress/egress)
+ * @param[out] acl_id_p               - ACL or ACL group ID that is bound to RIF
+ *
+ *  @return SX_STATUS_SUCCESS   The operation completed successfully
+ *  @return SX_STATUS_ENTRY_NOT_FOUND   ACL ID or RIF ID not found in DB
+ *  @return SX_STATUS_PARAM_ERROR   Invalid parameter
+ */
+sx_status_t sx_api_acl_rif_bind_get(const sx_api_handle_t    handle,
+                                    const sx_rif_id_t        rif_id,
+                                    const sx_acl_direction_t acl_direction,
+                                    sx_acl_id_t             *acl_id_p);
+
+/**
+ * On ACL module initialization the user can choose the parallel ACL search type. This function is used to support this feature.
+ *  It links one ACL group to another. Their relation could be described as "one directional linked list" where the second group is
+ *  next to the first one. Only the head of the list of groups is allowed to be bound to port/VLAN/RIF.
+ *  The other linked groups will be bound automatically. An attempt to bind explicitly the other but the head will cause to an error.
+ *
+ *	Supported devices: Spectrum.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] cmd                       - The command BIND/UNBIND
+ * @param[in] parent_group_id           - The first, parent ACL or ACL group ID that second one will be bound to
+ * @param[in] group_id                  - The second ACL or ACL group ID that will be bound to the first one
+ *
+ *  @return SX_STATUS_SUCCESS           The operation completed successfully
+ *  @return SX_STATUS_ENTRY_NOT_FOUND   ACL ID not found in DB
+ *  @return SX_STATUS_PARAM_ERROR       Invalid parameter
+ */
+sx_status_t sx_api_acl_group_bind_set(sx_api_handle_t       handle,
+                                      const sx_access_cmd_t cmd,
+                                      sx_acl_id_t           group_id,
+                                      sx_acl_id_t           next_group_id);
+
+/**
+ *  This function returns the next ACL group bound to the given one.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                 - SX-API handle
+ * @param[in] group_id               - The first, parent ACL or ACL group ID that second one will be bound to
+ * @param[out] group_id_p            - The ACL or ACL group ID that bound to the parent. In case of no one is bound
+ *                                      to the parent invalid ACL ID will be returned
+ *
+ *  @return SX_STATUS_SUCCESS           The operation completed successfully
+ *  @return SX_STATUS_ENTRY_NOT_FOUND   ACL ID not found in DB
+ *  @return SX_STATUS_PARAM_ERROR       Invalid parameter
+ */
+sx_status_t sx_api_acl_group_bind_get(sx_api_handle_t handle,
+                                      sx_acl_id_t     group_id,
+                                      sx_acl_id_t   * group_id_p);
+
+/**
+ * Manipulate a port list container
+ * Command CREATE creates a new container with the specified list of logical ports
+ * and returns its new container ID in port_list_id_p.
+ * Command SET replaces the contents of an existing container specified by
+ * port_list_id_p, with the specified list of logical ports in port_list_p.
+ * Command DESTROY deletes an existing container specified by port_list_id_p.
+ * Notes: An port list  in use (e.g. by an acl key) cannot be destroyed or modified
+ *        A container may contain at most RM_API_ACL_PORT_LIST_MAX logical ports
+ *        A container may contain only Ethernet logical ports and not LAG ports
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - CREATE/SET/DESTROY.
+ * @param[in] port_list_p - Specifies or returns the container ID
+ * @param[in] port_list_cnt - Specifies the list of logical ports for the container
+ * @param[in/out] port_list_id_p - specifies the id of the port list created/to change
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist.
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
+ * @return SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed.
+ */
+sx_status_t sx_api_acl_port_list_set(const sx_api_handle_t     handle,
+                                     const sx_access_cmd_t     cmd,
+                                     sx_acl_port_list_entry_t *port_list_p,
+                                     const uint32_t            port_list_cnt,
+                                     sx_acl_port_list_id_t    *port_list_id_p);
+
+/**
+ * Retrieve information about a port list container specified by port_list_id.
+ * Notes: *port_list_cnt should contain the maximum amount of logical ports to retrieve.
+ *        If port_list_p is NULL, then port_list_p are not retrieved at all. In this case port_list_cnt
+ *        will contain the actual number if ports in the port list
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] port_list_id - specifies the id of the port list to retrieve
+ * @param[out] port_list_p -	array of ports to copy into
+ * @param[in,out] port_list_cnt_p - Specifies the maximum amount of logical ports to retrieve,
+ *                               and returns the amount logical ports retrieved
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers.
+ */
+sx_status_t sx_api_acl_port_list_get(const sx_api_handle_t       handle,
+                                     const sx_acl_port_list_id_t port_list_id,
+                                     sx_acl_port_list_entry_t   *port_list_p,
+                                     uint32_t                   *port_list_cnt_p);
+
+
+/**
+ *  This function is used to get ACL region HW size .
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] region_id - ACL region ID
+ * @param[out] region_size_p - The region actual hw size
+ *
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ *  @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ *
+ */
+sx_status_t sx_api_acl_region_hw_size_get(const sx_api_handle_t    handle,
+                                          const sx_acl_region_id_t region_id,
+                                          sx_acl_size_t           *region_size_p);
+
 
 #endif /* ifndef __SX_API_ACL_H__ */

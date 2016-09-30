@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,6 +67,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#a47ec7deec7726fd79ca552e4dc9a400f">sx_api_lag_redirect_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t lag_log_port, const sx_port_log_id_t redirect_lag_log_port)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#afdd675ec7b2b4ed4b1eb19dd22c1df11">sx_api_lag_redirect_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, boolean_t *is_redirected_p, sx_port_log_id_t *redirected_lag_log_port_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#adcce195ba79880d44aa65dcfb29127c1">sx_api_lag_redirected_lags_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, sx_port_log_id_t *lag_log_port_list_p, uint32_t *lag_log_port_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#afd66e5dd0b3c542bad19d96553b6de78">sx_api_lag_distributer_list_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t access_cmd, const sx_port_log_id_t lag_log_port, const sx_lag_fine_grain_params_t *params_p, const sx_lag_fine_grain_member_t *port_list_p, const uint32_t port_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#a09557dd2dc877715b27398cd9f34c638">sx_api_lag_distributer_list_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, sx_lag_fine_grain_params_t *params_p, sx_lag_fine_grain_member_t *port_list_p, uint32_t *port_cnt_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a5f56ec3b98ff9d92d2ef8b711494b387"></a><!-- doxytag: member="sx_api_lag.h::sx_api_lag_log_verbosity_level_set" ref="a5f56ec3b98ff9d92d2ef8b711494b387" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -818,6 +820,147 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="afd66e5dd0b3c542bad19d96553b6de78"></a><!-- doxytag: member="sx_api_lag.h::sx_api_lag_distributer_list_set" ref="afd66e5dd0b3c542bad19d96553b6de78" args="(const sx_api_handle_t handle, const sx_access_cmd_t access_cmd, const sx_port_log_id_t lag_log_port, const sx_lag_fine_grain_params_t *params_p, const sx_lag_fine_grain_member_t *port_list_p, const uint32_t port_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_lag_distributer_list_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>access_cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>lag_log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_lag_fine_grain_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_lag_fine_grain_member_t *&#160;</td>
+          <td class="paramname"><em>port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets a fine grained LAG distribution list. Lag distribution will be according to the given port list with relative weight.</p>
+<p>Note:</p>
+<ul>
+<li>Setting the distribution list is optional and only affects unicast traffic.</li>
+<li>In case the distribution list is not set the hash will be done according to the LAG member ports.</li>
+<li>Port may be not a LAG member.</li>
+</ul>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">access_cmd</td><td>- SET/ADD/DELETE/DELETE_ALL. SET - LAG distribution list according to port list with relative weight. ADD - Add ports to the existing LAG distribution list. DELETE - Delete ports from distribution list. DELETE ALL - return to the default distribution function. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lag_log_port</td><td>- logical port number representing the LAG. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- the fine grain lag parameters. Controls the resolution of the distribution list. valid for SET command only. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_list_p</td><td>- list of ports to SET/ADD/DELETE distribution list with weights. On add the members should not exist in the LAG distribution list. On delete the members should exist in the LAG distribution list. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- number of elements on port_list_p</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS - Operation completes successfully. </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE - Invalid handle. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR - Parameter is invalid. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no more resources. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED - Access Command isn't supported. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a09557dd2dc877715b27398cd9f34c638"></a><!-- doxytag: member="sx_api_lag.h::sx_api_lag_distributer_list_get" ref="a09557dd2dc877715b27398cd9f34c638" args="(const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, sx_lag_fine_grain_params_t *params_p, sx_lag_fine_grain_member_t *port_list_p, uint32_t *port_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_lag_distributer_list_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>lag_log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_lag_fine_grain_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_lag_fine_grain_member_t *&#160;</td>
+          <td class="paramname"><em>port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>port_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves a fine grained LAG distribution list and the fine grain lag parameters.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lag_log_port</td><td>- logical port number representing the LAG. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- the fine grained lag parameters. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">port_list_p</td><td>- list of ports and weights in the advance distribution port list. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>port_cnt_p - number of ports in the distribution list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS - Operation completes successfully. </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE - Invalid handle. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR - Parameter is invalid. </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -837,6 +980,6 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

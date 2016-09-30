@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -170,8 +170,10 @@ sx_status_t sx_api_cos_port_prio_ingress_regen_get(const sx_api_handle_t   handl
  *  Priority 6 -> Traffic Class 3;
  *  Priority 7 -> Traffic Class 3;
  *
- *  Spectrum default settings: i = 0,...,14
- *  Priority i -> Traffic Class i;
+ *  Spectrum default settings:
+ *  for i = [0,7]: switch priority i -> traffic class i.
+ *  for i = [8,14]: switch priority i -> traffic class 7.
+ *
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - Add/Delete

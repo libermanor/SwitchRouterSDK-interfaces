@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -315,5 +315,65 @@ sx_status_t sx_api_lag_redirected_lags_get(const sx_api_handle_t  handle,
                                            const sx_port_log_id_t lag_log_port,
                                            sx_port_log_id_t      *lag_log_port_list_p,
                                            uint32_t              *lag_log_port_cnt_p);
+
+/**
+ *  This function sets a fine grained LAG distribution list.
+ *  Lag distribution will be according to the given port list with relative weight.
+ *
+ *  Note:
+ *  - Setting the distribution list is optional and only affects unicast traffic.
+ *  - In case the distribution list is not set the hash will be done according to the LAG member ports.
+ *  - Port may be not a LAG member.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle       - SX-API handle.
+ * @param[in] access_cmd   - SET/ADD/DELETE/DELETE_ALL.
+ *       SET - LAG distribution list according to port list with relative weight.
+ *       ADD - Add ports to the existing LAG distribution list.
+ *       DELETE - Delete ports from distribution list.
+ *       DELETE ALL - return to the default distribution function.
+ * @param[in] lag_log_port - logical port number representing the LAG.
+ * @param[in] params_p     - the fine grain lag parameters. Controls the resolution of the distribution list.
+ *                           valid for SET command only.
+ * @param[in] port_list_p  - list of ports to SET/ADD/DELETE distribution list with weights.
+ *                           On add the members should not exist in the LAG distribution list.
+ *                           On delete the members should exist in the LAG distribution list.
+ * @param[in] port_cnt     - number of elements on port_list_p
+ *
+ * @return SX_STATUS_SUCCESS - Operation completes successfully.
+ * @return SX_STATUS_INVALID_HANDLE - Invalid handle.
+ * @return SX_STATUS_PARAM_ERROR - Parameter is invalid.
+ * @return SX_STATUS_NO_RESOURCES if there are no more resources.
+ * @return SX_STATUS_CMD_UNSUPPORTED - Access Command isn't supported.
+ */
+sx_status_t sx_api_lag_distributer_list_set(const sx_api_handle_t             handle,
+                                            const sx_access_cmd_t             access_cmd,
+                                            const sx_port_log_id_t            lag_log_port,
+                                            const sx_lag_fine_grain_params_t *params_p,
+                                            const sx_lag_fine_grain_member_t *port_list_p,
+                                            const uint32_t                    port_cnt);
+
+/**
+ *  This function retrieves a fine grained LAG distribution list and the fine grain lag parameters.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle             - SX-API handle.
+ * @param[in] lag_log_port       - logical port number representing the LAG.
+ * @param[out] params_p          - the fine grained lag parameters.
+ * @param[out] port_list_p       - list of ports and weights in the advance distribution port list.
+ * @param[in/out] port_cnt_p     - number of ports in the distribution list
+ *
+ * @return SX_STATUS_SUCCESS - Operation completes successfully.
+ * @return SX_STATUS_INVALID_HANDLE - Invalid handle.
+ * @return SX_STATUS_PARAM_ERROR - Parameter is invalid.
+ */
+sx_status_t sx_api_lag_distributer_list_get(const sx_api_handle_t       handle,
+                                            const sx_port_log_id_t      lag_log_port,
+                                            sx_lag_fine_grain_params_t *params_p,
+                                            sx_lag_fine_grain_member_t *port_list_p,
+                                            uint32_t                   *port_cnt_p);
+
 
 #endif /* __SX_API_LAG_H__ */

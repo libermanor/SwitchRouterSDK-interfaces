@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -485,7 +485,7 @@ SX_STATUS_CMD_UNSUPPORTED if being called in Spectrum </dd></dl>
 <p>Each packet has an assigned priority. The priority of the packet is mapped to one of eight traffic classes (egress queue) according to prio -&gt; traffic class map. Each packet is dequeued on the egress port based on its traffic class.</p>
 <p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <p>Note: Multiple priorities can be mapped to a single TC. SwitchX default settings: Priority 0 -&gt; Traffic Class 0; Priority 1 -&gt; Traffic Class 0; Priority 2 -&gt; Traffic Class 1; Priority 3 -&gt; Traffic Class 1; Priority 4 -&gt; Traffic Class 2; Priority 5 -&gt; Traffic Class 2; Priority 6 -&gt; Traffic Class 3; Priority 7 -&gt; Traffic Class 3;</p>
-<p>Spectrum default settings: i = 0,...,14 Priority i -&gt; Traffic Class i;</p>
+<p>Spectrum default settings: for i = [0,7]: switch priority i -&gt; traffic class i. for i = [8,14]: switch priority i -&gt; traffic class 7.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3693,6 +3693,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

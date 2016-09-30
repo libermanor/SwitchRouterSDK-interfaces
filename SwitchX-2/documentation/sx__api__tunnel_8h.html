@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -59,12 +59,18 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#aa7ec5c4b2f9b81ec479dad1b50d9ba52">sx_api_tunnel_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_attribute_t *tunnel_attr_p, sx_tunnel_id_t *tunnel_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#ac22113f980b5750d68d351869bd87588">sx_api_tunnel_get</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_attribute_t *tunnel_attr_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a5a9ad0f9d5aba9b3d67571f3d32f5acd">sx_api_tunnel_counter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, sx_tunnel_counter_t *counter)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a81c73869ac8e481dd88b2a3ffeaef293">sx_api_tunnel_map_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, const sx_tunnel_map_entry_t *map_entries_p, const uint32_t map_entries_cnt)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#ad1fdbbc0d4f4fd70a5faa3fead56e757">sx_api_tunnel_map_get</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_map_entry_t *map_entries_p, uint32_t *map_entries_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#af16b2ae1f5bf4f1475c69302b2eb42e8">sx_api_tunnel_decap_rules_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_decap_entry_key_t *decap_key_p, const sx_tunnel_decap_entry_data_t *decap_data_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a89448d7a5bf4dfdce358d149fbd5094a">sx_api_tunnel_decap_rules_get</a> (const sx_api_handle_t handle, const sx_tunnel_decap_entry_key_t *decap_key_p, sx_tunnel_decap_entry_data_t *decap_data_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a19ad038ffde3ed3d010d3ac13791c030">sx_api_tunnel_init_set</a> (const sx_api_handle_t handle, sx_tunnel_general_params_t *params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a8a5441bcc9b92faf2210b9245091e9d1">sx_api_tunnel_deinit_set</a> (const sx_api_handle_t handle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a1b0289ce12b688e179afd12b033eb310">sx_api_tunnel_map_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, const sx_tunnel_map_entry_t *map_entries_p, const uint32_t map_entries_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#afa6753f86e8ddfdb89212f2396421d1b">sx_api_tunnel_map_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, sx_tunnel_map_entry_t map_entry_key, sx_tunnel_map_entry_t *map_entries_p, uint32_t *map_entries_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#afa0850ddee0e9d5de66c019d34c58298">sx_api_tunnel_ttl_set</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, const sx_tunnel_ttl_data_t *ttl_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a051e78da067e72db6d6bd0d0354a164e">sx_api_tunnel_ttl_get</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_ttl_data_t *ttl_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#adacaed82de539dde10f0f224c8481131">sx_api_tunnel_hash_set</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, const sx_tunnel_hash_data_t *hash_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a4913cbbdda820ade6c31286205243ef3">sx_api_tunnel_hash_get</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_hash_data_t *hash_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a8282a313296ef7e26c11baaa74f5e09e">sx_api_tunnel_cos_set</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, const sx_tunnel_cos_data_t *cos_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#af8ccc19db14cb9bb25d7c573942e4a80">sx_api_tunnel_cos_get</a> (const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_cos_data_t *cos_data_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a40bc19e566d33dc03cf2e672cb18a55d"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_log_verbosity_level_set" ref="a40bc19e566d33dc03cf2e672cb18a55d" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -215,12 +221,12 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API is used to create/destroy tunnels.</p>
-<p>When destroying a tunnel, tunnel_attr_p is ignored. Supported devices: Spectrum.</p>
+<p>This API is used to create/edit/destroy tunnels.</p>
+<p>When destroying a tunnel, tunnel_attr_p is ignored. By default tunnel is created with TTL 255. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / DESTROY / EDIT </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_attr_p</td><td>- pointer to tunnel attributes structure. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">tunnel_id_p</td><td>- Tunnel ID</td></tr>
   </table>
@@ -336,129 +342,6 @@ SX_STATUS_ERROR general error </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
-<dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a81c73869ac8e481dd88b2a3ffeaef293"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_map_set" ref="a81c73869ac8e481dd88b2a3ffeaef293" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, const sx_tunnel_map_entry_t *map_entries_p, const uint32_t map_entries_cnt)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static sx_status_t sx_api_tunnel_map_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
-          <td class="paramname"><em>tunnel_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_tunnel_map_entry_t *&#160;</td>
-          <td class="paramname"><em>map_entries_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>map_entries_cnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This API is used to manage tunnel to bridge mapping.</p>
-<p>When using command delete all, map_entries_p is deprecated. Supported devices: Spectrum.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD / DELETE / DELETE_ALL </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">map_entries_p</td><td>- Array of map entries </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">map_entries_cnt</td><td>- amount of entries in map_entries_p</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel or bridge doesn't exists. </dd>
-<dd>
-SX_STATUS_ENTRY_ALREADY_BOUND if tunnel and bridge already bound. </dd>
-<dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ad1fdbbc0d4f4fd70a5faa3fead56e757"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_map_get" ref="ad1fdbbc0d4f4fd70a5faa3fead56e757" args="(const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_map_entry_t *map_entries_p, uint32_t *map_entries_cnt_p)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static sx_status_t sx_api_tunnel_map_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
-          <td class="paramname"><em>tunnel_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_tunnel_map_entry_t *&#160;</td>
-          <td class="paramname"><em>map_entries_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>map_entries_cnt_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This API is used to get tunnel to bridge mapping.</p>
-<p>Supported devices: Spectrum.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">map_entries_p</td><td>- Array of map entries </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">map_entries_cnt_p</td><td>- amount of entries in map_entries_p</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists. </dd>
 <dd>
 SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
 <dd>
@@ -643,6 +526,458 @@ SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a1b0289ce12b688e179afd12b033eb310"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_map_set" ref="a1b0289ce12b688e179afd12b033eb310" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, const sx_tunnel_map_entry_t *map_entries_p, const uint32_t map_entries_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_map_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_map_entry_t *&#160;</td>
+          <td class="paramname"><em>map_entries_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>map_entries_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to manage tunnel to bridge mapping.</p>
+<p>When using command delete all, map_entries_p is deprecated. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD / DELETE / DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map_entries_p</td><td>- Array of map entries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map_entries_cnt</td><td>- amount of entries in map_entries_p</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel or bridge doesn't exists. </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_BOUND if tunnel and bridge already bound. </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afa6753f86e8ddfdb89212f2396421d1b"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_map_get" ref="afa6753f86e8ddfdb89212f2396421d1b" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, sx_tunnel_map_entry_t map_entry_key, sx_tunnel_map_entry_t *map_entries_p, uint32_t *map_entries_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_map_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tunnel_map_entry_t&#160;</td>
+          <td class="paramname"><em>map_entry_key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tunnel_map_entry_t *&#160;</td>
+          <td class="paramname"><em>map_entries_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>map_entries_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API gets the tunnel to bridge mapping information.</p>
+<p>The function can receive three types of input:</p>
+<ul>
+<li>1) cmd SX_ACCESS_CMD_GET_FIRST, get a list of first n&lt;=1000 map entries of specified tunnel id.</li>
+</ul>
+<ul>
+<li>2) cmd SX_ACCESS_CMD_GETNEXT, get a list of n&lt;=1000 next map entries whose value larger than the given map_entry_key of specified tunnel id.</li>
+</ul>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_FIRST/ GET_NEXT. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map_entry_key</td><td>- map entry, as a key to get next entries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">map_entries_p</td><td>- Array of map entries </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">map_entries_cnt_p</td><td>- amount of entries in map_entries_p</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if neighbour was not added. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afa0850ddee0e9d5de66c019d34c58298"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_ttl_set" ref="afa0850ddee0e9d5de66c019d34c58298" args="(const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, const sx_tunnel_ttl_data_t *ttl_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_ttl_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_ttl_data_t *&#160;</td>
+          <td class="paramname"><em>ttl_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to set tunnel TTL parameters.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ttl_data_p</td><td>- pointer to tunnel ttl data structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a051e78da067e72db6d6bd0d0354a164e"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_ttl_get" ref="a051e78da067e72db6d6bd0d0354a164e" args="(const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_ttl_data_t *ttl_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_ttl_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tunnel_ttl_data_t *&#160;</td>
+          <td class="paramname"><em>ttl_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to get tunnel TTL parameters.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ttl_data_p</td><td>- pointer to tunnel ttl data structure, set direction field for which you want get config.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adacaed82de539dde10f0f224c8481131"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_hash_set" ref="adacaed82de539dde10f0f224c8481131" args="(const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, const sx_tunnel_hash_data_t *hash_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_hash_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_hash_data_t *&#160;</td>
+          <td class="paramname"><em>hash_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to set tunnel hash parameters.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash_data_p</td><td>- pointer to tunnel hash data structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4913cbbdda820ade6c31286205243ef3"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_hash_get" ref="a4913cbbdda820ade6c31286205243ef3" args="(const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_hash_data_t *hash_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_hash_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tunnel_hash_data_t *&#160;</td>
+          <td class="paramname"><em>hash_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to get tunnel hash parameters.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">hash_data_p</td><td>- pointer to tunnel hash data structure, set hash_field_type field for which you want get config.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8282a313296ef7e26c11baaa74f5e09e"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_cos_set" ref="a8282a313296ef7e26c11baaa74f5e09e" args="(const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, const sx_tunnel_cos_data_t *cos_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_cos_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_cos_data_t *&#160;</td>
+          <td class="paramname"><em>cos_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to set tunnel CoS attributes.</p>
+<p>The key is the tunnel id. User is capable to set a tunnel CoS behaviour per tunnel type. Changes in 1 tunnel will change the CoS behaviour for all tunnels from the same type.</p>
+<p>Supported devices: Spectrum. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel</td><td>id - Tunnel ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cos_data_p</td><td>- Pointer to CoS data structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device or tunnel type/direction. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af8ccc19db14cb9bb25d7c573942e4a80"></a><!-- doxytag: member="sx_api_tunnel.h::sx_api_tunnel_cos_get" ref="af8ccc19db14cb9bb25d7c573942e4a80" args="(const sx_api_handle_t handle, const sx_tunnel_id_t tunnel_id, sx_tunnel_cos_data_t *cos_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_cos_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_id_t&#160;</td>
+          <td class="paramname"><em>tunnel_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tunnel_cos_data_t *&#160;</td>
+          <td class="paramname"><em>cos_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to retrieve CoS data. The user has to fill cos_data_p-&gt;param_type to specify the CoS direction they would like to get (ENCAP or DECAP). Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel</td><td>id - Tunnel ID. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>cos_data_p - Pointer to CoS data structure - by CoS param type (ENCAP/DECAP).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if api is not supported for this device or tunnel type/direction </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -662,6 +997,6 @@ SX_STATUS_ERROR general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

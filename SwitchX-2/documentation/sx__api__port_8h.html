@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -87,8 +87,9 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ac4d9e0a2e66d1fde42fce0c0ce24e3bb">sx_api_port_counter_rfc_2819_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_rfc_2819_t *cntr_rfc_2819_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af164c75be838e07f152274206ce2b346">sx_api_port_counter_rfc_3635_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_rfc_3635_t *cntr_rfc_3635_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a20cb565fd4a0ebd4916f36ecf7125dec">sx_api_port_counter_cli_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_cli_t *cntr_cli_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a767171360015776bfe8c4a826b96c230">sx_api_port_counter_prio_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_prio_id_t prio_id, sx_port_cntr_prio_t *cntr_prio_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a508d4c802af65d7ca579e82f74a97cf2">sx_api_port_counter_prio_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_ieee_prio_t prio_id, sx_port_cntr_prio_t *cntr_prio_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a48f6e4fc57d5892dba61185154c66446">sx_api_port_counter_tc_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_tc_id_t tc_id, sx_port_traffic_cntr_t *cntr_tc_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#aa0e6a9a3d90145c303b61bca3541c0c1">sx_api_port_counter_buff_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_priority_group_t buff_id, sx_port_cntr_buff_t *cntr_buff_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#aa5328e02b80e20924b025b3142ca546e">sx_api_port_counter_perf_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_prio_id_t prio_id, sx_port_cntr_perf_t *cntr_perf_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a5ea8fac313cd4a57dae8547c4fe676d7">sx_api_port_counter_discard_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_discard_t *cntr_discard_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a4b793ce2927cd10dee9fd39d0acf1e71">sx_api_port_counter_clear_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const boolean_t all_ports, const sx_port_cntr_grp_t cntr_grp)</td></tr>
@@ -116,6 +117,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#afb429aafa04ed85e5067e1c260330cf8">sx_api_port_vport_mirror_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t virtual_port, const sx_mirror_direction_t mirror_direction, sx_mirror_mode_t *mirror_mode_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ae7497db77430915b70638c5643044a66">sx_api_port_phy_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_phy_speed_t speed, const sx_port_phy_mode_t admin_mode)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af025d901dace3b52c1c96874cdb54250">sx_api_port_phy_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_phy_speed_t speed, sx_port_phy_mode_t *admin_mode_p, sx_port_phy_mode_t *oper_mode_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a8d7eba93b6d86d73d3f15c6a070d9ee6">sx_api_port_discard_reason_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_port_discard_reason_t *discard_reason_list_p, const uint32_t list_count)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ac3457a41837c6780bbf94b56dd2a0cd4"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_log_verbosity_level_set" ref="ac3457a41837c6780bbf94b56dd2a0cd4" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -1938,7 +1940,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a767171360015776bfe8c4a826b96c230"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_counter_prio_get" ref="a767171360015776bfe8c4a826b96c230" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_prio_id_t prio_id, sx_port_cntr_prio_t *cntr_prio_p)" -->
+<a class="anchor" id="a508d4c802af65d7ca579e82f74a97cf2"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_counter_prio_get" ref="a508d4c802af65d7ca579e82f74a97cf2" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_ieee_prio_t prio_id, sx_port_cntr_prio_t *cntr_prio_p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1963,7 +1965,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_port_prio_id_t&#160;</td>
+          <td class="paramtype">const sx_cos_ieee_prio_t&#160;</td>
           <td class="paramname"><em>prio_id</em>, </td>
         </tr>
         <tr>
@@ -1993,17 +1995,11 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
-<dd>
-SX_STATUS_COMM_ERROR if client communication fails </dd>
-<dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 
 </div>
 </div>
@@ -2049,11 +2045,13 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API retrieves the port's traffic class counters. Note: The API does not support LAG nor VPORT. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API retrieves the port's traffic class counters. Note: The API does not support LAG nor VPORT.</p>
+<p>For Spectrum device, in UC mode Tx UC octects and Tx UC frames counters are available only for TC ID 0 - 7.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tc_id</td><td>- traffic class ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">cntr_tc_p</td><td>- per port per TC counters</td></tr>
@@ -2062,13 +2060,76 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa0e6a9a3d90145c303b61bca3541c0c1"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_counter_buff_get" ref="aa0e6a9a3d90145c303b61bca3541c0c1" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_priority_group_t buff_id, sx_port_cntr_buff_t *cntr_buff_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_counter_buff_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_priority_group_t&#160;</td>
+          <td class="paramname"><em>buff_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_cntr_buff_t *&#160;</td>
+          <td class="paramname"><em>cntr_buff_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves the port buffer counters from the SDK. When a LAG port is given, the result is the sum of all the LAG ports counters.</p>
+<p>In UC mode Rx Uc octects, Rx UC frames, and Rx discard counters are available only for Buff ID 0 - 7.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buff_id</td><td>- buffer ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cntr_buff_p</td><td>- buffer counters entry</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 
 </div>
 </div>
@@ -3531,7 +3592,7 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>- Phy Speed - 10G/40G/25G/50G/100G </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>- Phy Speed - 10G/40G/25G/50G/100G Note: Changing the FEC mode of 25G speed also sets 50G speed mode and vice versa. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>- new phy admin mode</td></tr>
   </table>
   </dd>
@@ -3609,6 +3670,62 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a8d7eba93b6d86d73d3f15c6a070d9ee6"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_discard_reason_get" ref="a8d7eba93b6d86d73d3f15c6a070d9ee6" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_port_discard_reason_t *discard_reason_list_p, const uint32_t list_count)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_discard_reason_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_discard_reason_t *&#160;</td>
+          <td class="paramname"><em>discard_reason_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>list_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API enables to read/clear discard reason Supported devices: Spectrum</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">discard_reason_list_p</td><td>- array of discard reason </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">list_count</td><td>- array's length</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received O/W, the appropriate error code it returned. </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -3628,6 +3745,6 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

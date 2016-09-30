@@ -704,35 +704,35 @@ sx_status_t sx_api_port_counter_cli_get(const sx_api_handle_t  handle,
  * @param[out] cntr_prio_p - priority counters entry
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
- * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
- * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
- * @return SX_STATUS_COMM_ERROR if client communication fails
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  */
-sx_status_t sx_api_port_counter_prio_get(const sx_api_handle_t   handle,
-                                         const sx_access_cmd_t   cmd,
-                                         const sx_port_log_id_t  log_port,
-                                         const sx_port_prio_id_t prio_id,
-                                         sx_port_cntr_prio_t    *cntr_prio_p);
+sx_status_t sx_api_port_counter_prio_get(const sx_api_handle_t    handle,
+                                         const sx_access_cmd_t    cmd,
+                                         const sx_port_log_id_t   log_port,
+                                         const sx_cos_ieee_prio_t prio_id,
+                                         sx_port_cntr_prio_t     *cntr_prio_p);
 
 /**
  *  This API retrieves the port's traffic class counters.
  *  Note: The API does not support LAG nor VPORT.
+ *
+ *  For Spectrum device, in UC mode Tx UC octects and
+ *  Tx UC frames counters are available only for TC ID 0 - 7.
+ *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle        - SX-API handle
- * @param[in] cmd           - READ
+ * @param[in] cmd           - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
  * @param[in] log_port      - logical port ID
  * @param[in] tc_id         - traffic class ID
  * @param[out] cntr_tc_p    - per port per TC counters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_ERROR for a general error
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  */
 sx_status_t sx_api_port_counter_tc_get(const sx_api_handle_t   handle,
                                        const sx_access_cmd_t   cmd,
@@ -740,6 +740,32 @@ sx_status_t sx_api_port_counter_tc_get(const sx_api_handle_t   handle,
                                        const sx_port_tc_id_t   tc_id,
                                        sx_port_traffic_cntr_t *cntr_tc_p);
 
+/**
+ *  This API retrieves the port buffer counters from the SDK.
+ *  When a LAG port is given, the result is the sum of all the
+ *  LAG ports counters.
+ *
+ *  In UC mode Rx Uc octects, Rx UC frames, and Rx discard counters
+ *  are available only for Buff ID 0 - 7.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in]  handle       - SX-API handle
+ * @param[in]  cmd          - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
+ * @param[in]  log_port     - logical port ID
+ * @param[in]  buff_id      - buffer ID
+ * @param[out] cntr_buff_p  - buffer counters entry
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ */
+sx_status_t sx_api_port_counter_buff_get(const sx_api_handle_t         handle,
+                                         const sx_access_cmd_t         cmd,
+                                         const sx_port_log_id_t        log_port,
+                                         const sx_cos_priority_group_t buff_id,
+                                         sx_port_cntr_buff_t          *cntr_buff_p);
 
 /**
  *  This API Retrieves the extended port counters from the SDK.
@@ -1285,6 +1311,7 @@ sx_status_t sx_api_port_vport_mirror_get(const sx_api_handle_t       handle,
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
  * @param[in] speed - Phy Speed - 10G/40G/25G/50G/100G
+ *                                        Note: Changing the FEC mode of 25G speed also sets 50G speed mode and vice versa.
  * @param[in] mode   - new phy admin mode
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -1317,6 +1344,26 @@ sx_status_t sx_api_port_phy_mode_set(const sx_api_handle_t     handle,
 sx_status_t sx_api_port_phy_mode_get(const sx_api_handle_t handle,
                                      const sx_port_log_id_t log_port, const sx_port_phy_speed_t speed,
                                      sx_port_phy_mode_t* admin_mode_p, sx_port_phy_mode_t* oper_mode_p);
+
+/**
+ * This API enables to read/clear discard reason
+ * Supported devices: Spectrum
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] cmd                       - READ/READ_CLEAR
+ * @param[in,out] discard_reason_list_p - array of discard reason
+ * @param[in] list_count                - array's length
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * O/W, the appropriate error code it returned.
+ */
+sx_status_t sx_api_port_discard_reason_get(const sx_api_handle_t     handle,
+                                           const sx_access_cmd_t     cmd,
+                                           sx_port_discard_reason_t *discard_reason_list_p,
+                                           const uint32_t            list_count);
 
 
 #endif /* __SX_API_PORT_H__ */

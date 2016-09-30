@@ -298,4 +298,23 @@ sx_status_t sx_api_host_ifc_policer_bind_get(const sx_api_handle_t handle,
                                              const sx_trap_group_t trap_group,
                                              sx_policer_id_t      *policer_id);
 
+/**
+ * Get host interface counters:
+ * Supported devices: Spectrum.
+ *
+ * @param[in]     handle         - SX-API handle.
+ * @param[in]     cmd            - READ/READ_CLEAR.
+ * @param[in]     filter_p       - Filter to determine which counters to get.
+ * @param[out]    host_ifc_cnt_p - Host interface counters.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if any input parameters is null
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_host_ifc_counters_get(const sx_api_handle_t                handle,
+                                         const sx_access_cmd_t                cmd,
+                                         const sx_host_ifc_counters_filter_t *filter_p,
+                                         sx_host_ifc_counters_t              *host_ifc_cnt_p);
+
 #endif /* __SX_API_HOST_IFC_H__ */

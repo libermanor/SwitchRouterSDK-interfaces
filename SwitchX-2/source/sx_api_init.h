@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -127,5 +127,20 @@ sx_status_t sx_api_sdk_init_set(const sx_api_handle_t       handle,
  */
 sx_status_t sx_api_sx_sdk_version_get(const sx_api_handle_t     handle,
                                       sx_api_sx_sdk_versions_t *versions_p);
+
+/**
+ *  This function is used to enter/exit transaction burst mode.
+ *  Supported devices: Spectrum
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - ENABLE /DISABLE
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behaviour occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_transaction_mode_set(const sx_api_handle_t handle,
+                                        const sx_access_cmd_t cmd);
 
 #endif /* __SX_API_INIT_H__ */

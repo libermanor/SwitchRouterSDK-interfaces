@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.2002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -76,6 +76,18 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a2943e03e105609c89d70865940ddf9c4">sx_api_acl_vlan_group_map_get</a> (const sx_api_handle_t handle, const sx_swid_id_t swid, const sx_acl_vlan_group_t group_id, sx_vlan_id_t *vlan_list_p, uint32_t *vlan_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a3f5727bed5f37c11a2691483d3f368c9">sx_api_acl_vlan_group_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_vlan_group_t vlan_group, const sx_acl_id_t acl_id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab91d548d2e1386edee4e5e4fd6c0813a">sx_api_acl_vlan_group_bind_get</a> (const sx_api_handle_t handle, const sx_acl_vlan_group_t vlan_group, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aaba4b8d2a4b0e13541c5d2dc33caead5">sx_api_acl_flex_key_attr_get</a> (const sx_api_handle_t handle, const sx_acl_key_type_t key_handle, sx_acl_flex_key_attr_t *key_attr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a77d6ceeb4c13e21075e9e25eb631976b">sx_api_acl_flex_key_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_key_t *key_list_p, const uint32_t key_count, sx_acl_key_type_t *key_handle_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#af92b255d5ce7a24c8527cd55f61d8da1">sx_api_acl_flex_key_get</a> (const sx_api_handle_t handle, const sx_acl_key_type_t key_handle, sx_acl_key_t *key_list_p, uint32_t *key_count_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#acbf34d5037f1494d0c146ada9f407840">sx_api_acl_flex_rules_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, sx_acl_rule_offset_t *offsets_list_p, const sx_flex_acl_flex_rule_t *rules_list_p, const uint32_t rules_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a7820db61cf02508199106ad6b52562af">sx_api_acl_flex_rules_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, sx_acl_rule_offset_t *offsets_list_p, sx_flex_acl_flex_rule_t *rules_list_p, uint32_t *rules_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a5affcc85683c3ceca56d5b2bfdc81a95">sx_api_acl_rif_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_rif_id_t rif_id, const sx_acl_id_t acl_id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a82890bcca35387bcad58a4cc8be18c4d">sx_api_acl_rif_bind_get</a> (const sx_api_handle_t handle, const sx_rif_id_t rif_id, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a8d75e017d9af517108026cd99b68ece9">sx_api_acl_group_bind_set</a> (sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_id_t group_id, sx_acl_id_t next_group_id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aece9f1a820e5fe724e91b5ae46eac747">sx_api_acl_group_bind_get</a> (sx_api_handle_t handle, sx_acl_id_t group_id, sx_acl_id_t *group_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab8f2477244a41031b345572131287a04">sx_api_acl_port_list_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_port_list_entry_t *port_list_p, const uint32_t port_list_cnt, sx_acl_port_list_id_t *port_list_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1f73a62d89a23869e37faf3fa8933a60">sx_api_acl_port_list_get</a> (const sx_api_handle_t handle, const sx_acl_port_list_id_t port_list_id, sx_acl_port_list_entry_t *port_list_p, uint32_t *port_list_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab93629cae18b47ab7681567547431c5c">sx_api_acl_region_hw_size_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, sx_acl_size_t *region_size_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="aadfc89bd1ed719720aef093a6d27aef0"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_log_verbosity_level_set" ref="aadfc89bd1ed719720aef093a6d27aef0" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -124,7 +136,9 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully SX_STATUS_PARAM_ERROR if any input parameters is invalid SX_STATUS_ERROR general error </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -174,7 +188,11 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully SX_STATUS_PARAM_ERROR if any input parameters is invalid SX_STATUS_ERROR general error </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -240,7 +258,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 <dd>
@@ -305,7 +323,7 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 
@@ -373,7 +391,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 <dd>
@@ -506,11 +524,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter exceeds its range </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 <dd>
@@ -575,7 +589,7 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 
@@ -638,9 +652,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL if any inpu parameter is NULL </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter exceeds its allowed range </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if element is not found in DB </dd>
 <dd>
@@ -717,9 +729,7 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL if any of the input parameters are NULL </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter exceeds its allowed range </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -783,13 +793,11 @@ SX_STATUS_MESSAGE_SIZE_ZERO: Message size error </dd>
 <dd>
 SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
 <dd>
@@ -842,7 +850,7 @@ SX_STATUS_MESSAGE_SIZE_ZERO: Message size error </dd>
 <dd>
 SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -908,7 +916,7 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -976,7 +984,7 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -1039,7 +1047,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure requested </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -1102,7 +1110,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure requested </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -1158,7 +1166,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -1218,7 +1226,7 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if port is not bound </dd></dl>
 
@@ -1287,7 +1295,7 @@ SX_STATUS_ENTRY_NOT_FOUND if port is not bound </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 <dd>
@@ -1353,7 +1361,7 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 <dd>
@@ -1410,7 +1418,7 @@ SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 <dd>
@@ -1477,6 +1485,700 @@ SX_STATUS_ENTRY_NOT_FOUND if vlan group is not bound </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="aaba4b8d2a4b0e13541c5d2dc33caead5"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_flex_key_attr_get" ref="aaba4b8d2a4b0e13541c5d2dc33caead5" args="(const sx_api_handle_t handle, const sx_acl_key_type_t key_handle, sx_acl_flex_key_attr_t *key_attr_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_flex_key_attr_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_key_type_t&#160;</td>
+          <td class="paramname"><em>key_handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_flex_key_attr_t *&#160;</td>
+          <td class="paramname"><em>key_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function returns attributes of the flexible key.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_handle</td><td>- The handle to flexible key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">key_width_p</td><td>- Key width</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR any input parameters is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND the key handle is wrong </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a77d6ceeb4c13e21075e9e25eb631976b"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_flex_key_set" ref="a77d6ceeb4c13e21075e9e25eb631976b" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_key_t *key_list_p, const uint32_t key_count, sx_acl_key_type_t *key_handle_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_flex_key_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_key_t *&#160;</td>
+          <td class="paramname"><em>key_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>key_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_key_type_t *&#160;</td>
+          <td class="paramname"><em>key_handle_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The key will be composed from predefined filter blocks of 9B keys by SCP algorithm and it maximum size is bounded to 54B. Key creation is pure DB operation. The maximum number of keys is equal to the maximum number of regions.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- The access cmd CREATE/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_list_p</td><td>- Array of basic key ID's </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_cnt</td><td>- Number of elements in basic key array </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">key_handle_p</td><td>- The handle to created flexible key</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR any input parameters is invalid </dd>
+<dd>
+SX_STATUS_UNSUPPORTED the wanted key cannot be created </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af92b255d5ce7a24c8527cd55f61d8da1"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_flex_key_get" ref="af92b255d5ce7a24c8527cd55f61d8da1" args="(const sx_api_handle_t handle, const sx_acl_key_type_t key_handle, sx_acl_key_t *key_list_p, uint32_t *key_count_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_flex_key_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_key_type_t&#160;</td>
+          <td class="paramname"><em>key_handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_key_t *&#160;</td>
+          <td class="paramname"><em>key_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>key_count_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function returns list of filters included in the flexible key. The user is responsible for a memory management of the filters list.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_handle</td><td>- The handle to flexible key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">key_list_p</td><td>- Array of basic key ID's </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">key_count_p</td><td>- Number of elements in basic key array on return will contain the actual number of elements copied to the array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR any input parameters is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND the key handle is wrong </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acbf34d5037f1494d0c146ada9f407840"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_flex_rules_set" ref="acbf34d5037f1494d0c146ada9f407840" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, sx_acl_rule_offset_t *offsets_list_p, const sx_flex_acl_flex_rule_t *rules_list_p, const uint32_t rules_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_flex_rules_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_region_id_t&#160;</td>
+          <td class="paramname"><em>region_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_rule_offset_t *&#160;</td>
+          <td class="paramname"><em>offsets_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_acl_flex_rule_t *&#160;</td>
+          <td class="paramname"><em>rules_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>rules_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>ACL rule is added or removed from a certain ACL region. The user is responsible for memory management - it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API and de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API. This operation configures HW if the ACL is bound to a device. The configured rule is overrides the given offset with the new rule. The flexible ACL allows to the user to define set of filters that are subset of the key assigned to the region. Also the user can define a custom set of actions for each rule. The function should be called after bind ACL to region. If an offset in offsets array crosses the boundaries of the region allocation the function will fail.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- The access command SET/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">region_id</td><td>- ACL region ID received on a region creation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offsets_list_p</td><td>- array of rule offset into region directly associated with the appropriate item on in array of rules </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rules_list_p</td><td>- Array of structures describing the flexible rule content (see the next table) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rules_cnt</td><td>- Number of elements in array of flexible rule descriptors</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS The operation completed successfully </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED The sent command is unsupported </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Invalid parameter </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND Wrong region ID </dd>
+<dd>
+SX_STATUS_NO_RESOURCES No more space for rules. Cannot allocate space for all actions </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7820db61cf02508199106ad6b52562af"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_flex_rules_get" ref="a7820db61cf02508199106ad6b52562af" args="(const sx_api_handle_t handle, const sx_acl_region_id_t region_id, sx_acl_rule_offset_t *offsets_list_p, sx_flex_acl_flex_rule_t *rules_list_p, uint32_t *rules_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_flex_rules_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_region_id_t&#160;</td>
+          <td class="paramname"><em>region_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_rule_offset_t *&#160;</td>
+          <td class="paramname"><em>offsets_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_acl_flex_rule_t *&#160;</td>
+          <td class="paramname"><em>rules_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>rules_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function returns list of rules associated with particular region. The user is responsible for memory management - it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API and de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API.</p>
+<p>If the function is called with rules_list_p parameter set to NULL or *rules_cnt_p set to 0, it will return the actual number of rules set to the region.</p>
+<p>If the function is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set to NULL and offset_list_p array filled with zeroes - it will return the actual number of keys and actions for each valid rule starting from offset 0, as well as the rule's offset in offset list for this rule.</p>
+<p>If the function is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set to NULL, but offset_list_p array is filled with non-zero values - it will return the actual number of keys and actions for each valid rule according to the offset, which is defined in the offset list. In this case the offset list should be filled with offsets of the rules, which are valid.</p>
+<p>If the function is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set to non-NULL, it is assumed that rule structures are allocated for all rules in the list. It also assumed that the offset list is filled with real offsets of the rules in the same order as in the rules list.</p>
+<p>On Api call the key_desc_count and action_count of each sx_flex_acl_flex_rule_t should contain number of allocated items, on API return these parameters will contain actual number of items. The offset list should contain offsets of valid rules only.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">region_id</td><td>- ACL region ID received on a region creation </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">offsets_list_p</td><td>- array of rule offset into region directly associated with the appropriate item on in array of rules </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rules_list_p</td><td>- Array of structures describing the flexible rule content (see the next table) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">rules_cnt</td><td>- Desirable number of elements in array of flexible rule descriptors. Function return</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS The operation completed successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND Wrong region ID </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5affcc85683c3ceca56d5b2bfdc81a95"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_rif_bind_set" ref="a5affcc85683c3ceca56d5b2bfdc81a95" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_rif_id_t rif_id, const sx_acl_id_t acl_id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_rif_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_rif_id_t&#160;</td>
+          <td class="paramname"><em>rif_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>acl_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to bind/unbind ACL or ACL group to RIF</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- The command BIND/UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_id</td><td>- RIF ID to bind/unbind </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_id</td><td>- ACL or ACL group ID that is going to be bound to RIF</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS The operation completed successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND ACL ID or RIF ID not found in DB </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Invalid parameter </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED the given comand is unsupported </dd>
+<dd>
+SX_STATUS_ERROR The operation cannot be complited </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a82890bcca35387bcad58a4cc8be18c4d"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_rif_bind_get" ref="a82890bcca35387bcad58a4cc8be18c4d" args="(const sx_api_handle_t handle, const sx_rif_id_t rif_id, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_rif_bind_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_rif_id_t&#160;</td>
+          <td class="paramname"><em>rif_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_direction_t&#160;</td>
+          <td class="paramname"><em>acl_direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t *&#160;</td>
+          <td class="paramname"><em>acl_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to get ACL or ACL group ID that bound to RIF</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_id</td><td>- RIF ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- The direction of ACL(ingress/egress) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acl_id_p</td><td>- ACL or ACL group ID that is bound to RIF</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS The operation completed successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND ACL ID or RIF ID not found in DB </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8d75e017d9af517108026cd99b68ece9"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_group_bind_set" ref="a8d75e017d9af517108026cd99b68ece9" args="(sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_id_t group_id, sx_acl_id_t next_group_id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_group_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>group_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>next_group_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>On ACL module initialization the user can choose the parallel ACL search type. This function is used to support this feature. It links one ACL group to another. Their relation could be described as "one directional linked list" where the second group is next to the first one. Only the head of the list of groups is allowed to be bound to port/VLAN/RIF. The other linked groups will be bound automatically. An attempt to bind explicitly the other but the head will cause to an error.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- The command BIND/UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent_group_id</td><td>- The first, parent ACL or ACL group ID that second one will be bound to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group_id</td><td>- The second ACL or ACL group ID that will be bound to the first one</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS The operation completed successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND ACL ID not found in DB </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aece9f1a820e5fe724e91b5ae46eac747"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_group_bind_get" ref="aece9f1a820e5fe724e91b5ae46eac747" args="(sx_api_handle_t handle, sx_acl_id_t group_id, sx_acl_id_t *group_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_group_bind_get </td>
+          <td>(</td>
+          <td class="paramtype">sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>group_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t *&#160;</td>
+          <td class="paramname"><em>group_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function returns the next ACL group bound to the given one.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group_id</td><td>- The first, parent ACL or ACL group ID that second one will be bound to </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">group_id_p</td><td>- The ACL or ACL group ID that bound to the parent. In case of no one is bound to the parent invalid ACL ID will be returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS The operation completed successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND ACL ID not found in DB </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab8f2477244a41031b345572131287a04"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_port_list_set" ref="ab8f2477244a41031b345572131287a04" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_port_list_entry_t *port_list_p, const uint32_t port_list_cnt, sx_acl_port_list_id_t *port_list_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_port_list_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_list_entry_t *&#160;</td>
+          <td class="paramname"><em>port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_list_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_list_id_t *&#160;</td>
+          <td class="paramname"><em>port_list_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Manipulate a port list container Command CREATE creates a new container with the specified list of logical ports and returns its new container ID in port_list_id_p. Command SET replaces the contents of an existing container specified by port_list_id_p, with the specified list of logical ports in port_list_p. Command DESTROY deletes an existing container specified by port_list_id_p. Notes: An port list in use (e.g. by an acl key) cannot be destroyed or modified A container may contain at most RM_API_ACL_PORT_LIST_MAX logical ports A container may contain only Ethernet logical ports and not LAG ports</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/SET/DESTROY. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_list_p</td><td>- Specifies or returns the container ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_list_cnt</td><td>- Specifies the list of logical ports for the container </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>port_list_id_p - specifies the id of the port list created/to change</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1f73a62d89a23869e37faf3fa8933a60"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_port_list_get" ref="a1f73a62d89a23869e37faf3fa8933a60" args="(const sx_api_handle_t handle, const sx_acl_port_list_id_t port_list_id, sx_acl_port_list_entry_t *port_list_p, uint32_t *port_list_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_port_list_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_port_list_id_t&#160;</td>
+          <td class="paramname"><em>port_list_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_list_entry_t *&#160;</td>
+          <td class="paramname"><em>port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>port_list_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Retrieve information about a port list container specified by port_list_id. Notes: *port_list_cnt should contain the maximum amount of logical ports to retrieve. If port_list_p is NULL, then port_list_p are not retrieved at all. In this case port_list_cnt will contain the actual number if ports in the port list</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_list_id</td><td>- specifies the id of the port list to retrieve </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">port_list_p</td><td>- array of ports to copy into </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_list_cnt_p</td><td>- Specifies the maximum amount of logical ports to retrieve, and returns the amount logical ports retrieved</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab93629cae18b47ab7681567547431c5c"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_region_hw_size_get" ref="ab93629cae18b47ab7681567547431c5c" args="(const sx_api_handle_t handle, const sx_acl_region_id_t region_id, sx_acl_size_t *region_size_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_region_hw_size_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_region_id_t&#160;</td>
+          <td class="paramname"><em>region_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_size_t *&#160;</td>
+          <td class="paramname"><em>region_size_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to get ACL region HW size . Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">region_id</td><td>- ACL region ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">region_size_p</td><td>- The region actual hw size</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -1496,6 +2198,6 @@ SX_STATUS_ENTRY_NOT_FOUND if vlan group is not bound </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Tue Jun 14 2016 21:18:10 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

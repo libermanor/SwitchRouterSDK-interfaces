@@ -81,7 +81,7 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  * @param[in,out] container_id_p - Specifies or returns the container ID
  * @param[in] next_hop_list_p - Specifies the list of next hops for the container
  * @param[in] next_hop_cnt - Specifies the amount of next hops in next_hop_list_p
- * @param[in] container_attr - Specifies the container attributes
+ * @param[in] container_attr_p - Specifies the container attributes
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
@@ -94,7 +94,7 @@ sx_status_t sx_api_mc_container_set(const sx_api_handle_t               handle,
                                     sx_mc_container_id_t               *container_id_p,
                                     const sx_mc_next_hop_t             *next_hop_list_p,
                                     const uint32_t                      next_hop_cnt,
-                                    const sx_mc_container_attributes_t* container_attr);
+                                    const sx_mc_container_attributes_t* container_attr_p);
 
 /**
  * Retrieve information about a multicast container
@@ -112,22 +112,22 @@ sx_status_t sx_api_mc_container_set(const sx_api_handle_t               handle,
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - GET/GETFIRST/GETNEXT/COUNT
- * @param[in,out] container_id_p - Specifies a container ID or returns a container ID
- * @param[in,out] next_hop_cnt - Specifies the maximum amount of next hops to retrieve,
- *                               and returns the amount of next hops retrieved
+ * @param[in] container_id - Specifies a container ID or returns a container ID
  * @param[out] next_hop_list_p - Returns the list of next hops in the container
- * @param[out] container_attr - Returns the container attributes
+ * @param[in,out] next_hop_cnt_p - Specifies the maximum amount of next hops to retrieve,
+ *                               and returns the amount of next hops retrieved
+ * @param[out] container_attr_p - Returns the container attributes
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
  * @return SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers.
  */
-sx_status_t sx_api_mc_container_get(const sx_api_handle_t               handle,
-                                    const sx_access_cmd_t               cmd,
-                                    sx_mc_container_id_t               *container_id_p,
-                                    const uint32_t                     *next_hop_cnt,
-                                    const sx_mc_next_hop_t             *next_hop_list_p,
-                                    const sx_mc_container_attributes_t* container_attr);
+sx_status_t sx_api_mc_container_get(const sx_api_handle_t         handle,
+                                    const sx_access_cmd_t         cmd,
+                                    sx_mc_container_id_t          container_id,
+                                    sx_mc_next_hop_t             *next_hop_list_p,
+                                    uint32_t                     *next_hop_cnt_p,
+                                    sx_mc_container_attributes_t *container_attr_p);
 
 #endif /* __SX_API_MC_CONTAINER_H__ */
