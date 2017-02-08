@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,12 +60,15 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a6b49b3d09fd3e0e105abe4927a5c602d">sx_api_acl_region_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, sx_acl_key_type_t *key_type_p, sx_acl_action_type_t *action_type_p, sx_acl_size_t *region_size_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a3d3eac6c48940390d6b9fbd8e4c9326c">sx_api_acl_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_type_t acl_type, const sx_acl_direction_t acl_direction, const sx_acl_region_group_t *acl_region_group_p, sx_acl_id_t *acl_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a21db595169c45f866832b88844cb9f1f">sx_api_acl_get</a> (const sx_api_handle_t handle, const sx_acl_id_t acl_id, sx_acl_type_t *acl_type_p, sx_acl_direction_t *acl_direction_p, sx_acl_region_group_t *acl_region_group_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aefb22b1a6ad356f324550aea2c94d93b">sx_api_acl_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t acl_id_key, const sx_acl_filter_t *acl_filter_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#acc922fb9cf64214d703db802ca91bf32">sx_api_acl_group_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_direction_t acl_direction, const sx_acl_id_t *acl_id_list_p, const uint32_t acl_id_cnt, sx_acl_id_t *group_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab7ecf2ea6914f57c8b24fc288b6aec40">sx_api_acl_group_get</a> (const sx_api_handle_t handle, const sx_acl_id_t group_id, sx_acl_direction_t *acl_direction_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ae82c545a8e0bb101aa5c8aa398c109b3">sx_api_acl_group_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t group_id_key, const sx_acl_filter_t *acl_filter_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#af7f1841f9e865b353f5dc6742212b4a0">sx_api_acl_policy_based_switching_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_entry_t *pbs_entry_p, sx_acl_pbs_id_t *pbs_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1d3627a7131f363300617de31f7edc3b">sx_api_acl_policy_based_switching_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_id_t pbs_id, sx_acl_pbs_entry_t *pbs_entry_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1395c6e1613b712e9854f4e982ff8a62">sx_api_acl_l4_port_range_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_port_range_entry_t *l4_port_range_p, sx_acl_port_range_id_t *range_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ad1c17eb4b9b274fddb09c13f1514c289">sx_api_acl_l4_port_range_get</a> (const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_port_range_entry_t *l4_port_range_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#abb16aaa28349e293f8d768c91f1ebbc7">sx_api_acl_l4_port_range_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_port_range_id_t range_id_key, const sx_acl_port_range_filter_t *range_id_filter_p, sx_acl_port_range_id_t *range_id_list_p, uint32_t *range_id_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a85de9c7f09f1494b0af588835ba5febb">sx_api_acl_rules_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_t *rules_list_p, const uint32_t rules_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a8a71f177218829d87debe98d4c399238">sx_api_acl_rules_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t start_offset, sx_acl_rule_t *rules_list_p, uint32_t *rules_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aae2d4dde1a42506c57445dedaa2934d7">sx_api_acl_rule_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t rule_offset, boolean_t *activity_p)</td></tr>
@@ -88,6 +91,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab8f2477244a41031b345572131287a04">sx_api_acl_port_list_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_port_list_entry_t *port_list_p, const uint32_t port_list_cnt, sx_acl_port_list_id_t *port_list_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1f73a62d89a23869e37faf3fa8933a60">sx_api_acl_port_list_get</a> (const sx_api_handle_t handle, const sx_acl_port_list_id_t port_list_id, sx_acl_port_list_entry_t *port_list_p, uint32_t *port_list_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab93629cae18b47ab7681567547431c5c">sx_api_acl_region_hw_size_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, sx_acl_size_t *region_size_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a2876e1a90b618f87a0eecadba8d2210d">sx_api_acl_custom_bytes_set</a> (sx_api_handle_t handle, sx_access_cmd_t cmd, const sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes, sx_acl_key_t *custom_bytes_set_key_id_p, uint32_t *custom_bytes_set_key_id_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a9321fdeee15f48934a15a97c3f26e35a">sx_api_acl_custom_bytes_get</a> (sx_api_handle_t handle, sx_acl_key_t *custom_bytes_set_key_id_p, sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="aadfc89bd1ed719720aef093a6d27aef0"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_log_verbosity_level_set" ref="aadfc89bd1ed719720aef093a6d27aef0" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -462,6 +467,86 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="aefb22b1a6ad356f324550aea2c94d93b"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_iter_get" ref="aefb22b1a6ad356f324550aea2c94d93b" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t acl_id_key, const sx_acl_filter_t *acl_filter_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>acl_id_key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_filter_t *&#160;</td>
+          <td class="paramname"><em>acl_filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t *&#160;</td>
+          <td class="paramname"><em>acl_id_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>acl_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets a list of valid ACL Ids. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>GET/GET_NEXT/GET_FIRST </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_id_key</td><td>- ACL ID to use and key. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_filter_p</td><td>- Filter to use (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acl_id_list_p</td><td>- pointer to the list of ACL IDs returned. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_id_cnt_p</td><td>[in] number of entries to retrieve (max 400); [out] retrieved number of entries.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Input/Output types</p>
+<ul>
+<li>Get first - Get a list of first n entries. Cmd should be SX_ACCESS_CMD_GET_FIRST and count should be equal to n. key is irrelevant in this case. Returns number of entries retrieved as count</li>
+<li>Get next - Get n entries after a specified key (it does not have to exist). Cmd should be SX_ACCESS_CMD_GETNEXT. count should be equal to n. Returns number of entries retrieved as count</li>
+<li>Get - Gets a specific entry. Cmd should be SX_ACCESS_CMD_GET and count should be 1. If input count is 0, then returns a count of ACL Ids as output instead.</li>
+</ul>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any paramter is in error. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle in invalid </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="acc922fb9cf64214d703db802ca91bf32"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_group_set" ref="acc922fb9cf64214d703db802ca91bf32" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_direction_t acl_direction, const sx_acl_id_t *acl_id_list_p, const uint32_t acl_id_cnt, sx_acl_id_t *group_id_p)" -->
 <div class="memitem">
 <div class="memproto">
@@ -592,6 +677,86 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
 SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae82c545a8e0bb101aa5c8aa398c109b3"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_group_iter_get" ref="ae82c545a8e0bb101aa5c8aa398c109b3" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t group_id_key, const sx_acl_filter_t *acl_filter_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_group_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>group_id_key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_filter_t *&#160;</td>
+          <td class="paramname"><em>acl_filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t *&#160;</td>
+          <td class="paramname"><em>acl_id_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>acl_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets a list of valid ACL Group Ids. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>GET/GET_NEXT/GET_FIRST </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group_id_key</td><td>- ACL Group ID to use as Key for GET and GET_NEXT commands. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_filter_p</td><td>- Filter to use (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acl_id_list_p</td><td>- pointer to the list of valid ACL Group IDs returned. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_id_cnt_p</td><td>[in] number of entries to retrieve (max 400); [out] retrieved number of entries.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Input/Output types</p>
+<ul>
+<li>Get first - Get a list of first n entries. Cmd should be SX_ACCESS_CMD_GET_FIRST and count should be equal to n. key is irrelevant in this case. Returns number of entries retrieved as count</li>
+<li>Get next - Get n entries after a specified key (it does not have to exist). Cmd should be SX_ACCESS_CMD_GETNEXT. count should be equal to n. Returns number of entries retrieved as count</li>
+<li>Get - Gets a specific entry. Cmd should be SX_ACCESS_CMD_GET and count should be 1. If input count is 0, then returns a count of ACL Group Ids as output instead.</li>
+</ul>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any paramter is in error. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle in invalid </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
@@ -857,6 +1022,86 @@ SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abb16aaa28349e293f8d768c91f1ebbc7"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_l4_port_range_iter_get" ref="abb16aaa28349e293f8d768c91f1ebbc7" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_port_range_id_t range_id_key, const sx_acl_port_range_filter_t *range_id_filter_p, sx_acl_port_range_id_t *range_id_list_p, uint32_t *range_id_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_l4_port_range_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_port_range_id_t&#160;</td>
+          <td class="paramname"><em>range_id_key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_port_range_filter_t *&#160;</td>
+          <td class="paramname"><em>range_id_filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_range_id_t *&#160;</td>
+          <td class="paramname"><em>range_id_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>range_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets a list of ACL L4 Port Range IDs Supported devices: Spectrum. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>GET/GET_NEXT/GET_FIRST </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range_id_key</td><td>-Range ID to use as Key for GET and GET_NEXT commands. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range_id_filter_p</td><td>- Filter to use (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">range_id_list_p</td><td>- pointer to the list of Range IDs returned. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">range_id_cnt_p</td><td>[in] number of entries to retrieve (max 16); [out] retrieved number of entries.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Input/Output types</p>
+<ul>
+<li>Get first - Get a list of first n entries. Cmd should be SX_ACCESS_CMD_GET_FIRST and count should be equal to n. key is irrelevant in this case. Returns number of entries retrieved as count</li>
+<li>Get next - Get n entries after a specified key (it does not have to exist). Cmd should be SX_ACCESS_CMD_GETNEXT. count should be equal to n. Returns number of entries retrieved as count</li>
+<li>Get - Gets a specific entry. Cmd should be SX_ACCESS_CMD_GET and count should be 1. If input count is 0, then returns a count of Range Ids as output instead.</li>
+</ul>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any paramter is in error. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle in invalid </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
@@ -2179,6 +2424,122 @@ SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if 
 
 </div>
 </div>
+<a class="anchor" id="a2876e1a90b618f87a0eecadba8d2210d"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_custom_bytes_set" ref="a2876e1a90b618f87a0eecadba8d2210d" args="(sx_api_handle_t handle, sx_access_cmd_t cmd, const sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes, sx_acl_key_t *custom_bytes_set_key_id_p, uint32_t *custom_bytes_set_key_id_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_custom_bytes_set </td>
+          <td>(</td>
+          <td class="paramtype">sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_custom_bytes_set_attributes_t *&#160;</td>
+          <td class="paramname"><em>custom_bytes_set_attributes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_key_t *&#160;</td>
+          <td class="paramname"><em>custom_bytes_set_key_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>custom_bytes_set_key_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API creates and deletes the Custom Bytes Set. Currently only 4-bytes sets are supported. Returned value is key Id from sx_acl_key_t space, which should be used with FLEX_ACL_KEY_CUSTOM_BYTES_BYTE macro. Each custom byte is accessed as a separate ACL key.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY/EDIT. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">custom_bytes_set_attributes</td><td>- Specifies extraction points data. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>custom_bytes_set_key_id_p - Specifies an array of the custom bytes keys id. For create a list of usable SDK key id is provided. For destory. Only the first key is used to destory the set. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>custom_bytes_set_key_id_cnt_p - Specifies how many custum bytes are expected by the user. The counter is updated with :MIN(available number of bytes in allocated set, Requested number of bytes) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9321fdeee15f48934a15a97c3f26e35a"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_custom_bytes_get" ref="a9321fdeee15f48934a15a97c3f26e35a" args="(sx_api_handle_t handle, sx_acl_key_t *custom_bytes_set_key_id_p, sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_custom_bytes_get </td>
+          <td>(</td>
+          <td class="paramtype">sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_key_t *&#160;</td>
+          <td class="paramname"><em>custom_bytes_set_key_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_custom_bytes_set_attributes_t *&#160;</td>
+          <td class="paramname"><em>custom_bytes_set_attributes_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API returns extraction point parameters of the existing Custom Bytes Set</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">custom_bytes_set_key_id_p</td><td>- Specifies an array of the custom bytes keys id. Only first item in array is provided. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">custom_bytes_key_extraction_point_list_p</td><td>- Specifies extraction points fetched data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers. </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -2198,6 +2559,6 @@ SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if 
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

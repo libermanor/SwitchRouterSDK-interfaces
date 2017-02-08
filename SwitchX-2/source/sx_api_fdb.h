@@ -978,12 +978,15 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
 
 /**
  * This API is used to manage flood control for tunnels.
- * for each tunnel, you can add or remove flooding for specificed bridges.
+ * Configuration from this API extends config from
+ * sx_api_fdb_flood_control_set for tunnel support.
+ * For each tunnel, you can add or remove flooding for specified
+ * bridge.
  *
  * Supported devices: Spectrum.
  *
  * @param[in] handle         - SX-API handle
- * @param[in] cmd			 - ADD / DELETE
+ * @param[in] cmd			 - ADD / DELETE / SET
  * @param[in] swid           - virtual switch partition id
  * @param[in] fid            - FID
  * @param[in] flood_vector   - MC Container contains Flooding vector as ecmp object for head replication.

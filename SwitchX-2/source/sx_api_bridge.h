@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -262,5 +262,55 @@ sx_status_t sx_api_bridge_mirror_get(const sx_api_handle_t       handle,
                                      const sx_bridge_id_t        bridge_id,
                                      const sx_mirror_direction_t mirror_direction,
                                      sx_mirror_mode_t           *mirror_mode_p);
+
+/**
+ *  This API bind counter for tunnel mapped to the bridge
+ *  Supported devices: Spectrum
+ *
+ * For ENCAP_UC and ENCAP_MC counters this operation can be performed only when FDB doesn't
+ * contain any entries for tunnel in fid
+ * counters can be bind only if mapping bridge to tunnel is configured
+ *
+ * @param[in] handle            - SX-API handle.
+ * @param[in] cmd               - SX_ACCESS_CMD_BIND/SX_ACCESS_CMD_UNBIND.
+ * @param[in] bridge_id         - bridge_id on which tunnel mapped.
+ * @param[in] attr_p            - counter attributes (type, tunnel_id)
+ * @param[in] counter_d         - flow counter ID which will be bound
+ *
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel or tunnel mapping do not exist.
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND if counter already bound.
+ *
+ */
+
+sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t                  handle,
+                                                  const sx_access_cmd_t                  cmd,
+                                                  const sx_bridge_id_t                   bridge_id,
+                                                  const sx_bridge_tunnel_counter_attr_t *counter_attr_p,
+                                                  const sx_flow_counter_id_t             counter_id);
+
+/**
+ *  This API get flow counter for tunnel mapped to the bridge
+ *  Supported devices: Spectrum
+ *
+ * @param[in] handle            - SX-API handle.
+ * @param[in] bridge_id         - bridge_id on which tunnel mapped.
+ * @param[in] attr_p            - counter attributes (type, tunnel_id)
+ * @param[out] counter_id_p     - pointer to flow counter ID. Returns bound counter_id
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel isn't exists or mapping is not found.
+ * @return SX_STATUS_ENTRY_NOT_BOUND if counter isn't bound.
+ *
+ */
+
+sx_status_t sx_api_bridge_tunnel_counter_bind_get(const sx_api_handle_t                  handle,
+                                                  const sx_bridge_id_t                   bridge_id,
+                                                  const sx_bridge_tunnel_counter_attr_t *counter_attr_p,
+                                                  sx_flow_counter_id_t                  *counter_id_p);
 
 #endif /* __SX_API_BRIDGE_H__ */

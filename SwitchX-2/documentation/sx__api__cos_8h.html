@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -119,6 +119,25 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#ac65d60cb471257f2f346df953a720d70">sx_api_cos_port_ets_element_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_ets_element_config_t *ets_element_p, uint32_t *element_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a6d337b30a40ea36532ee57783f00b205">sx_api_cos_port_tc_mcaware_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const boolean_t mc_aware)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a916254ee1a2f7fc94aea9c34440ec3cf">sx_api_cos_port_tc_mcaware_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, boolean_t *mc_aware_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#acfbee50596107f7b6c5d8f25f1432cf7">sx_api_cos_redecn_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a23a32679ada265f8bb551a5a5a4f9127">sx_api_cos_redecn_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#acc2bbdffd606edfc900626e0c44e1bc2">sx_api_cos_redecn_general_param_set</a> (const sx_api_handle_t handle, const sx_cos_redecn_global_t *configuration_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#ab491fd97c251273c852a53215c878307">sx_api_cos_redecn_general_param_get</a> (const sx_api_handle_t handle, sx_cos_redecn_global_t *configuration_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a52eb4bf29b8ab3efbe04d2c69a340352">sx_api_cos_redecn_profile_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_cos_redecn_profile_attributes_t *params_p, sx_cos_redecn_profile_t *profile_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a4a9f7c02ef00e12eee565045ded87532">sx_api_cos_redecn_profile_get</a> (const sx_api_handle_t handle, const sx_cos_redecn_profile_t profile, sx_cos_redecn_profile_attributes_t *params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a2d734be24b7634f44d0f9b6a3530a53e">sx_api_cos_redecn_tc_enable_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t *traffic_classes_p, const uint8_t traffic_classes_cnt, const sx_cos_redecn_enable_params_t *params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a2fcb418d9cfe2478024036fb5fff6947">sx_api_cos_redecn_tc_enable_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t traffic_class, sx_cos_redecn_enable_params_t *params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#aee038f2d1aeef84ca90d512231019077">sx_api_cos_redecn_profile_tc_bind_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_access_cmd_t cmd, const sx_cos_traffic_class_t *traffic_classes_p, const uint8_t traffic_classes_cnt, const sx_cos_redecn_flow_type_e flow_type, const sx_cos_redecn_bind_params_t *params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a35c28c9b9c5174a6475d0f1422b75333">sx_api_cos_redecn_profile_tc_bind_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t traffic_class, const sx_cos_redecn_flow_type_e flow_type, sx_cos_redecn_bind_params_t *params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a30a9dbfa7d7a792a896d15f2baf1de48">sx_api_cos_redecn_rate_based_set</a> (const sx_api_handle_t handle, const boolean_t enabled, const sx_port_log_id_t log_port, sx_cos_redecn_rate_based_params_t *params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a4e702ba63d432c09bdf9ed74eb0785a5">sx_api_cos_redecn_rate_based_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_redecn_rate_based_params_t *params_p, boolean_t *enabled_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a879a0fb59e8e59e102094dccb3fbfb6b">sx_api_cos_redecn_mirroring_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t ingress_port, const sx_span_session_id_t span_session_id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a0cc80510f7d82bab54e2426c6b33afe0">sx_api_cos_redecn_mirroring_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t ingress_port, boolean_t *enabled_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a8b22727c5fd25816e2a5fe9805fe4524">sx_api_cos_redecn_counters_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_cos_redecn_port_counters_t *counters_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#af5d8b8fab94ebe140f2f31a12c169ee7">sx_api_cos_redecn_red_counter_per_port_tc_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t *tc_list_p, const uint8_t tc_list_cnt, sx_port_cntr_t *red_counter_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a4a2e87fb1f9db97d1c64195f7aa82bc5">sx_api_cos_redecn_ecn_counter_per_port_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_t *ecn_counters_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#ae8338f4bdc8406e2fa396e5134497a99">sx_api_cos_redecn_counters_count_marked_set</a> (const sx_api_handle_t handle, const boolean_t enabled)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a9a42dda380830a99c701ebc2dd83827d">sx_api_cos_redecn_counters_count_marked_get</a> (const sx_api_handle_t handle, const boolean_t *enabled_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a75fb421fa03095f214dbe8f465d9f9d2"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_log_verbosity_level_set" ref="a75fb421fa03095f214dbe8f465d9f9d2" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -3674,6 +3693,1021 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="acfbee50596107f7b6c5d8f25f1432cf7"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_verbosity_level_set" ref="acfbee50596107f7b6c5d8f25f1432cf7" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_verbosity_level_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_log_verbosity_target_t&#160;</td>
+          <td class="paramname"><em>verbosity_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_verbosity_level_t&#160;</td>
+          <td class="paramname"><em>module_verbosity_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_verbosity_level_t&#160;</td>
+          <td class="paramname"><em>api_verbosity_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API sets the log verbosity level of REDECN MODULE. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- BRIDGE module verbosity level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- BRIDGE API verbosity level</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a23a32679ada265f8bb551a5a5a4f9127"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_log_verbosity_level_get" ref="a23a32679ada265f8bb551a5a5a4f9127" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_log_verbosity_level_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_log_verbosity_target_t&#160;</td>
+          <td class="paramname"><em>verbosity_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_verbosity_level_t *&#160;</td>
+          <td class="paramname"><em>module_verbosity_level_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_verbosity_level_t *&#160;</td>
+          <td class="paramname"><em>api_verbosity_level_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API gets the log verbosity level of REDECN MODULE. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- BRIDGE module verbosity level </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- BRIDGE API verbosity level</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc2bbdffd606edfc900626e0c44e1bc2"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_general_param_set" ref="acc2bbdffd606edfc900626e0c44e1bc2" args="(const sx_api_handle_t handle, const sx_cos_redecn_global_t *configuration_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_general_param_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_redecn_global_t *&#160;</td>
+          <td class="paramname"><em>configuration_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets global configuration of ECN and RED Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">configuration_p</td><td>- configuration parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="see"><dt><b>See also:</b></dt><dd>sx_cos_redecn_global_t</dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab491fd97c251273c852a53215c878307"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_general_param_get" ref="ab491fd97c251273c852a53215c878307" args="(const sx_api_handle_t handle, sx_cos_redecn_global_t *configuration_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_general_param_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_global_t *&#160;</td>
+          <td class="paramname"><em>configuration_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets global configuration of ECN and RED Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">configuration_p</td><td>- configuration parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="see"><dt><b>See also:</b></dt><dd>sx_cos_redecn_global_t</dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a52eb4bf29b8ab3efbe04d2c69a340352"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_profile_set" ref="a52eb4bf29b8ab3efbe04d2c69a340352" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_cos_redecn_profile_attributes_t *params_p, sx_cos_redecn_profile_t *profile_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_profile_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_redecn_profile_attributes_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_profile_t *&#160;</td>
+          <td class="paramname"><em>profile_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function creates a single RED/ECN profile Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD - create a new profile - profile_p is the output SX_ACCESS_CMD_EDIT - edit a profile SX_ACCESS_CMD_DELETE - delete a profile (params_p is ignored) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- parameter of redecn profile attributes </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>profile_p - configured or profile to reconfigure/delete</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd>
+<dd>
+SX_STATUS_NO_RESOURCES no available </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4a9f7c02ef00e12eee565045ded87532"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_profile_get" ref="a4a9f7c02ef00e12eee565045ded87532" args="(const sx_api_handle_t handle, const sx_cos_redecn_profile_t profile, sx_cos_redecn_profile_attributes_t *params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_profile_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_redecn_profile_t&#160;</td>
+          <td class="paramname"><em>profile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_profile_attributes_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets RED/ECN profile configuration for given profile Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>- redecn profile to get </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- structure of retrieved profile attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2d734be24b7634f44d0f9b6a3530a53e"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_tc_enable_set" ref="a2d734be24b7634f44d0f9b6a3530a53e" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t *traffic_classes_p, const uint8_t traffic_classes_cnt, const sx_cos_redecn_enable_params_t *params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_tc_enable_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_traffic_class_t *&#160;</td>
+          <td class="paramname"><em>traffic_classes_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>traffic_classes_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_redecn_enable_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function enables/disables RED and ECN for traffic classes Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to set </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_p</td><td>- list of traffic classes this configuration applies to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_cnt</td><td>- num of traffic classes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- enable parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2fcb418d9cfe2478024036fb5fff6947"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_tc_enable_get" ref="a2fcb418d9cfe2478024036fb5fff6947" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t traffic_class, sx_cos_redecn_enable_params_t *params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_tc_enable_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_traffic_class_t&#160;</td>
+          <td class="paramname"><em>traffic_class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_enable_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets RED and ECN enabled parameters of a traffic class Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to query </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- traffic class to get </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- enable parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aee038f2d1aeef84ca90d512231019077"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_profile_tc_bind_set" ref="aee038f2d1aeef84ca90d512231019077" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_access_cmd_t cmd, const sx_cos_traffic_class_t *traffic_classes_p, const uint8_t traffic_classes_cnt, const sx_cos_redecn_flow_type_e flow_type, const sx_cos_redecn_bind_params_t *params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_profile_tc_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_traffic_class_t *&#160;</td>
+          <td class="paramname"><em>traffic_classes_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>traffic_classes_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_redecn_flow_type_e&#160;</td>
+          <td class="paramname"><em>flow_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_redecn_bind_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function binds RED and ECN profiles to the traffic class and traffic type (TCP/non-TCP, color). Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to bind/unbind </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_BIND - bind a port+tc+flow to a profile SX_ACCESS_CMD_UNBIND - unbind a port+tc+flow from a profile </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_p</td><td>- traffic classes affected by this command </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_cnt</td><td>- number of traffic classes in the above array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flow_type</td><td>- flow type to bind/unbind </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- profile to bind to this flow type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a35c28c9b9c5174a6475d0f1422b75333"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_profile_tc_bind_get" ref="a35c28c9b9c5174a6475d0f1422b75333" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t traffic_class, const sx_cos_redecn_flow_type_e flow_type, sx_cos_redecn_bind_params_t *params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_profile_tc_bind_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_traffic_class_t&#160;</td>
+          <td class="paramname"><em>traffic_class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_redecn_flow_type_e&#160;</td>
+          <td class="paramname"><em>flow_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_bind_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves the binding of RED/ECN profiles configuration for given egress port and traffic class. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to query </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- traffic class to retrieve </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flow_type</td><td>- flow type to bind/unbind </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- profile to bind to this flow type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a30a9dbfa7d7a792a896d15f2baf1de48"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_rate_based_set" ref="a30a9dbfa7d7a792a896d15f2baf1de48" args="(const sx_api_handle_t handle, const boolean_t enabled, const sx_port_log_id_t log_port, sx_cos_redecn_rate_based_params_t *params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_rate_based_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const boolean_t&#160;</td>
+          <td class="paramname"><em>enabled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_rate_based_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets the rate based configuration for RED/ECN Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enabled</td><td>- enable/disable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to configure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- parameters - used only when enabling</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4e702ba63d432c09bdf9ed74eb0785a5"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_rate_based_get" ref="a4e702ba63d432c09bdf9ed74eb0785a5" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_redecn_rate_based_params_t *params_p, boolean_t *enabled_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_rate_based_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_rate_based_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boolean_t *&#160;</td>
+          <td class="paramname"><em>enabled_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets the rate based configuration for RED/ECN Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to configure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- configured parameters </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">enabled_p</td><td>- is rate based enabled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a879a0fb59e8e59e102094dccb3fbfb6b"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_mirroring_set" ref="a879a0fb59e8e59e102094dccb3fbfb6b" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t ingress_port, const sx_span_session_id_t span_session_id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_mirroring_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>ingress_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_session_id_t&#160;</td>
+          <td class="paramname"><em>span_session_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD or SX_ACCESS_CMD_DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ingress_port</td><td>- port to mirror to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- session id to use</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0cc80510f7d82bab54e2426c6b33afe0"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_mirroring_get" ref="a0cc80510f7d82bab54e2426c6b33afe0" args="(const sx_api_handle_t handle, const sx_port_log_id_t ingress_port, boolean_t *enabled_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_mirroring_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>ingress_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boolean_t *&#160;</td>
+          <td class="paramname"><em>enabled_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ingress_port_p</td><td>- port to test </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">enabled_p</td><td>- enabled/disabled for the port</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8b22727c5fd25816e2a5fe9805fe4524"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_counters_get" ref="a8b22727c5fd25816e2a5fe9805fe4524" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_cos_redecn_port_counters_t *counters_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_counters_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_redecn_port_counters_t *&#160;</td>
+          <td class="paramname"><em>counters_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function get the RED/ECN counter for a specific egress_port Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to query </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counters_p</td><td>- counters structure</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af5d8b8fab94ebe140f2f31a12c169ee7"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_red_counter_per_port_tc_get" ref="af5d8b8fab94ebe140f2f31a12c169ee7" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t *tc_list_p, const uint8_t tc_list_cnt, sx_port_cntr_t *red_counter_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_red_counter_per_port_tc_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_traffic_class_t *&#160;</td>
+          <td class="paramname"><em>tc_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>tc_list_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_cntr_t *&#160;</td>
+          <td class="paramname"><em>red_counter_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function reads the RED drop counter for one or more user provided traffic Classes for a given specific egress_port Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical egress port to query </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tc_list_p</td><td>- list of traffic classes on the specified port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tc_list_cnt</td><td>- num of traffic classes </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">red_counter_p</td><td>- array of counters indexed in same order as tc_list_p</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if input cmd is not supported </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4a2e87fb1f9db97d1c64195f7aa82bc5"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_ecn_counter_per_port_get" ref="a4a2e87fb1f9db97d1c64195f7aa82bc5" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_t *ecn_counters_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_ecn_counter_per_port_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_cntr_t *&#160;</td>
+          <td class="paramname"><em>ecn_counters_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function reads the ECN counter for a user specified egress_port Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical egress port to query </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ecn_counters_p</td><td>- return counter of number of ecn packets sent on this port</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if input cmd is not supported </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae8338f4bdc8406e2fa396e5134497a99"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_counters_count_marked_set" ref="ae8338f4bdc8406e2fa396e5134497a99" args="(const sx_api_handle_t handle, const boolean_t enabled)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_counters_count_marked_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const boolean_t&#160;</td>
+          <td class="paramname"><em>enabled</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to configure whether ecn marking should be counted Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enabled</td><td>true for counting, false to not count</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if the function is being called in an unsupported chip </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9a42dda380830a99c701ebc2dd83827d"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_redecn_counters_count_marked_get" ref="a9a42dda380830a99c701ebc2dd83827d" args="(const sx_api_handle_t handle, const boolean_t *enabled_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_counters_count_marked_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const boolean_t *&#160;</td>
+          <td class="paramname"><em>enabled_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to get whether ecn marking should be counted Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enabled_p</td><td>true for counting, false to not count</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -3693,6 +4727,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

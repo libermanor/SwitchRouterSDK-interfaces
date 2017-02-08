@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_mc_container.h Source File</title>
+<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_tele.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,10 +43,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="headertitle">
-<h1>sdk/sx_api_mc_container.h</h1>  </div>
+<h1>sdk/sx_api_tele.h</h1>  </div>
 </div>
 <div class="contents">
-<a href="sx__api__mc__container_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a href="sx__api__tele_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
 <a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
@@ -64,8 +64,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 <span class="comment"> */</span>
 <a name="l00017"></a>00017 
 <a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="preprocessor">#ifndef __SX_API_MC_CONTAINER_H__</span>
-<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_MC_CONTAINER_H__</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#ifndef __SX_API_TELE_H__</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_TELE_H__</span>
 <a name="l00021"></a>00021 <span class="preprocessor"></span>
 <a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
 <a name="l00023"></a>00023 
@@ -73,31 +73,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a>00025 <span class="comment"> *  API functions</span>
 <a name="l00026"></a>00026 <span class="comment"> ***********************************************/</span>
 <a name="l00027"></a>00027 
-<a name="l00041"></a>00041 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#a415b496a5e7588f947fdf60705efefe4">sx_api_mc_container_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00042"></a>00042                                                         <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00043"></a>00043                                                         <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
-<a name="l00044"></a>00044                                                         <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
+<a name="l00041"></a>00041 sx_status_t <a class="code" href="sx__api__tele_8h.html#ad296c2522919d1d0a5e34d6dd0981be1">sx_api_tele_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00042"></a>00042                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00043"></a>00043                                                 <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
+<a name="l00044"></a>00044                                                 <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
 <a name="l00045"></a>00045 
-<a name="l00059"></a>00059 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#a01907867c8296060f798d1506982a357">sx_api_mc_container_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00060"></a>00060                                                         <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00061"></a>00061                                                         sx_verbosity_level_t           *module_verbosity_level_p,
-<a name="l00062"></a>00062                                                         sx_verbosity_level_t           *api_verbosity_level_p);
+<a name="l00059"></a>00059 sx_status_t <a class="code" href="sx__api__tele_8h.html#ad89ba31b3b0da66d368f2df816216c11">sx_api_tele_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00060"></a>00060                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00061"></a>00061                                                 sx_verbosity_level_t           *module_verbosity_level_p,
+<a name="l00062"></a>00062                                                 sx_verbosity_level_t           *api_verbosity_level_p);
 <a name="l00063"></a>00063 
-<a name="l00092"></a>00092 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#ab8112eeec14fd0fa0fce404c2639a14a">sx_api_mc_container_set</a>(<span class="keyword">const</span> sx_api_handle_t               handle,
-<a name="l00093"></a>00093                                     <span class="keyword">const</span> sx_access_cmd_t               cmd,
-<a name="l00094"></a>00094                                     sx_mc_container_id_t               *container_id_p,
-<a name="l00095"></a>00095                                     <span class="keyword">const</span> sx_mc_next_hop_t             *next_hop_list_p,
-<a name="l00096"></a>00096                                     <span class="keyword">const</span> uint32_t                      next_hop_cnt,
-<a name="l00097"></a>00097                                     <span class="keyword">const</span> sx_mc_container_attributes_t* container_attr_p);
-<a name="l00098"></a>00098 
-<a name="l00126"></a>00126 sx_status_t <a class="code" href="sx__api__mc__container_8h.html#a9326cdec1f4de0b40b239c8abdf2f1a3">sx_api_mc_container_get</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
-<a name="l00127"></a>00127                                     <span class="keyword">const</span> sx_access_cmd_t         cmd,
-<a name="l00128"></a>00128                                     sx_mc_container_id_t          container_id,
-<a name="l00129"></a>00129                                     sx_mc_next_hop_t             *next_hop_list_p,
-<a name="l00130"></a>00130                                     uint32_t                     *next_hop_cnt_p,
-<a name="l00131"></a>00131                                     sx_mc_container_attributes_t *container_attr_p);
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_MC_CONTAINER_H__ */</span>
+<a name="l00075"></a>00075 sx_status_t <a class="code" href="sx__api__tele_8h.html#a6372e517eb27cba7795299cf281b247a">sx_api_tele_init_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00076"></a>00076                                  sx_tele_init_params_t *params_p);
+<a name="l00077"></a>00077 
+<a name="l00087"></a>00087 sx_status_t <a class="code" href="sx__api__tele_8h.html#a58f443c05bd9f73c74de1f1b0a1d37a1">sx_api_tele_deinit_set</a>(<span class="keyword">const</span> sx_api_handle_t handle);
+<a name="l00088"></a>00088 
+<a name="l00108"></a>00108 sx_status_t <a class="code" href="sx__api__tele_8h.html#adc313fedb7b25e5f7d152f255620cb21">sx_api_tele_histogram_set</a>(<span class="keyword">const</span> sx_api_handle_t                     handle,
+<a name="l00109"></a>00109                                       <span class="keyword">const</span> sx_access_cmd_t                     cmd,
+<a name="l00110"></a>00110                                       <span class="keyword">const</span> sx_tele_histogram_key_t             key,
+<a name="l00111"></a>00111                                       <span class="keyword">const</span> sx_tele_histogram_attributes_data_t data);
+<a name="l00112"></a>00112 
+<a name="l00129"></a>00129 sx_status_t <a class="code" href="sx__api__tele_8h.html#ad7548dd2daa606dc935b70ee9bb39d80">sx_api_tele_histogram_get</a>(<span class="keyword">const</span> sx_api_handle_t                handle,
+<a name="l00130"></a>00130                                       <span class="keyword">const</span> sx_access_cmd_t                cmd,
+<a name="l00131"></a>00131                                       <span class="keyword">const</span> sx_tele_histogram_key_t        key,
+<a name="l00132"></a>00132                                       sx_tele_histogram_attributes_data_t *data_p);
+<a name="l00133"></a>00133 
+<a name="l00203"></a>00203 sx_status_t <a class="code" href="sx__api__tele_8h.html#ab85c3e44bbac64a2948c2746a56af6e8">sx_api_tele_histogram_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
+<a name="l00204"></a>00204                                            <span class="keyword">const</span> sx_access_cmd_t            cmd,
+<a name="l00205"></a>00205                                            <span class="keyword">const</span> sx_tele_histogram_key_t   *hist_key_p,
+<a name="l00206"></a>00206                                            <span class="keyword">const</span> sx_tele_histogram_filter_t filter,
+<a name="l00207"></a>00207                                            sx_tele_histogram_key_t         *hist_list_p,
+<a name="l00208"></a>00208                                            uint32_t                        *hist_cnt_p);
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 
+<a name="l00232"></a>00232 sx_status_t <a class="code" href="sx__api__tele_8h.html#afc14029bb31bb2c06b6bd1f5b08e2641">sx_api_tele_histogram_data_get</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
+<a name="l00233"></a>00233                                            <span class="keyword">const</span> sx_access_cmd_t         cmd,
+<a name="l00234"></a>00234                                            <span class="keyword">const</span> sx_tele_histogram_key_t key,
+<a name="l00235"></a>00235                                            sx_tele_histogram_data_t     *histogram_p);
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237 
+<a name="l00238"></a>00238 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_TELE_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->

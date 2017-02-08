@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -110,165 +110,197 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00173"></a>00173                            sx_acl_direction_t    *acl_direction_p,
 <a name="l00174"></a>00174                            sx_acl_region_group_t *acl_region_group_p);
 <a name="l00175"></a>00175 
-<a name="l00204"></a>00204 sx_status_t <a class="code" href="sx__api__acl_8h.html#acc922fb9cf64214d703db802ca91bf32">sx_api_acl_group_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00205"></a>00205                                  <span class="keyword">const</span> sx_access_cmd_t    cmd,
-<a name="l00206"></a>00206                                  <span class="keyword">const</span> sx_acl_direction_t acl_direction,
-<a name="l00207"></a>00207                                  <span class="keyword">const</span> sx_acl_id_t       *acl_id_list_p,
-<a name="l00208"></a>00208                                  <span class="keyword">const</span> uint32_t           acl_id_cnt,
-<a name="l00209"></a>00209                                  sx_acl_id_t             *group_id_p);
-<a name="l00210"></a>00210 
-<a name="l00232"></a>00232 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab7ecf2ea6914f57c8b24fc288b6aec40">sx_api_acl_group_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00233"></a>00233                                  <span class="keyword">const</span> sx_acl_id_t     group_id,
-<a name="l00234"></a>00234                                  sx_acl_direction_t   *acl_direction_p,
-<a name="l00235"></a>00235                                  sx_acl_id_t          *acl_id_list_p,
-<a name="l00236"></a>00236                                  uint32_t             *acl_id_cnt_p);
-<a name="l00237"></a>00237 
-<a name="l00269"></a>00269 sx_status_t <a class="code" href="sx__api__acl_8h.html#af7f1841f9e865b353f5dc6742212b4a0">sx_api_acl_policy_based_switching_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00270"></a>00270                                                   <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l00271"></a>00271                                                   <span class="keyword">const</span> sx_swid_t           swid,
-<a name="l00272"></a>00272                                                   <span class="keyword">const</span> sx_acl_pbs_entry_t *pbs_entry_p,
-<a name="l00273"></a>00273                                                   sx_acl_pbs_id_t          *pbs_id_p);
-<a name="l00274"></a>00274 
-<a name="l00299"></a>00299 sx_status_t <a class="code" href="sx__api__acl_8h.html#a1d3627a7131f363300617de31f7edc3b">sx_api_acl_policy_based_switching_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00300"></a>00300                                                   <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00301"></a>00301                                                   <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00302"></a>00302                                                   <span class="keyword">const</span> sx_acl_pbs_id_t pbs_id,
-<a name="l00303"></a>00303                                                   sx_acl_pbs_entry_t   *pbs_entry_p);
-<a name="l00304"></a>00304 
-<a name="l00328"></a>00328 sx_status_t <a class="code" href="sx__api__acl_8h.html#a1395c6e1613b712e9854f4e982ff8a62">sx_api_acl_l4_port_range_set</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
-<a name="l00329"></a>00329                                          <span class="keyword">const</span> sx_access_cmd_t            cmd,
-<a name="l00330"></a>00330                                          <span class="keyword">const</span> sx_acl_port_range_entry_t *l4_port_range_p,
-<a name="l00331"></a>00331                                          sx_acl_port_range_id_t          *range_id_p);
-<a name="l00332"></a>00332 
-<a name="l00351"></a>00351 sx_status_t <a class="code" href="sx__api__acl_8h.html#ad1c17eb4b9b274fddb09c13f1514c289">sx_api_acl_l4_port_range_get</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
-<a name="l00352"></a>00352                                          <span class="keyword">const</span> sx_acl_port_range_id_t range_id,
-<a name="l00353"></a>00353                                          sx_acl_port_range_entry_t   *l4_port_range_p);
-<a name="l00354"></a>00354 
-<a name="l00384"></a>00384 sx_status_t <a class="code" href="sx__api__acl_8h.html#a85de9c7f09f1494b0af588835ba5febb">sx_api_acl_rules_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00385"></a>00385                                  <span class="keyword">const</span> sx_access_cmd_t    cmd,
-<a name="l00386"></a>00386                                  <span class="keyword">const</span> sx_acl_region_id_t region_id,
-<a name="l00387"></a>00387                                  <span class="keyword">const</span> sx_acl_rule_t     *rules_list_p,
-<a name="l00388"></a>00388                                  <span class="keyword">const</span> uint32_t           rules_cnt);
-<a name="l00389"></a>00389 
-<a name="l00413"></a>00413 sx_status_t <a class="code" href="sx__api__acl_8h.html#a8a71f177218829d87debe98d4c399238">sx_api_acl_rules_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l00414"></a>00414                                  <span class="keyword">const</span> sx_acl_region_id_t   region_id,
-<a name="l00415"></a>00415                                  <span class="keyword">const</span> sx_acl_rule_offset_t start_offset,
-<a name="l00416"></a>00416                                  sx_acl_rule_t             *rules_list_p,
-<a name="l00417"></a>00417                                  uint32_t                  *rules_cnt_p);
-<a name="l00418"></a>00418 
-<a name="l00435"></a>00435 sx_status_t <a class="code" href="sx__api__acl_8h.html#aae2d4dde1a42506c57445dedaa2934d7">sx_api_acl_rule_activity_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l00436"></a>00436                                          <span class="keyword">const</span> sx_access_cmd_t      cmd,
-<a name="l00437"></a>00437                                          <span class="keyword">const</span> sx_acl_region_id_t   region_id,
-<a name="l00438"></a>00438                                          <span class="keyword">const</span> sx_acl_rule_offset_t rule_offset,
-<a name="l00439"></a>00439                                          boolean_t                 *activity_p);
-<a name="l00440"></a>00440 
-<a name="l00464"></a>00464 sx_status_t <a class="code" href="sx__api__acl_8h.html#a022e95843912425808dcbb26058e6c5f">sx_api_acl_rule_block_move_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l00465"></a>00465                                            <span class="keyword">const</span> sx_acl_region_id_t   region_id,
-<a name="l00466"></a>00466                                            <span class="keyword">const</span> sx_acl_rule_offset_t block_start,
-<a name="l00467"></a>00467                                            <span class="keyword">const</span> sx_acl_size_t        block_size,
-<a name="l00468"></a>00468                                            <span class="keyword">const</span> sx_acl_rule_offset_t new_block_start);
-<a name="l00469"></a>00469 
-<a name="l00489"></a>00489 sx_status_t <a class="code" href="sx__api__acl_8h.html#a92286cc3f4baf42e3f97ad25c380ffb6">sx_api_acl_port_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00490"></a>00490                                      <span class="keyword">const</span> sx_access_cmd_t  cmd,
-<a name="l00491"></a>00491                                      <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00492"></a>00492                                      <span class="keyword">const</span> sx_acl_id_t      acl_id);
-<a name="l00493"></a>00493 
-<a name="l00508"></a>00508 sx_status_t <a class="code" href="sx__api__acl_8h.html#a9543188e428bed340f419ed050a47277">sx_api_acl_port_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00509"></a>00509                                      <span class="keyword">const</span> sx_port_log_id_t   log_port,
-<a name="l00510"></a>00510                                      <span class="keyword">const</span> sx_acl_direction_t acl_direction,
-<a name="l00511"></a>00511                                      sx_acl_id_t             *acl_id_p);
-<a name="l00512"></a>00512 
-<a name="l00540"></a>00540 sx_status_t <a class="code" href="sx__api__acl_8h.html#a6cfe4cc96f0de7b65e2a46603fc1b78a">sx_api_acl_vlan_group_map_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00541"></a>00541                                           <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00542"></a>00542                                           <span class="keyword">const</span> sx_swid_id_t    swid,
-<a name="l00543"></a>00543                                           <span class="keyword">const</span> sx_vlan_id_t   *vlan_list_p,
-<a name="l00544"></a>00544                                           <span class="keyword">const</span> uint32_t        vlan_cnt,
-<a name="l00545"></a>00545                                           sx_acl_vlan_group_t  *group_id_p);
-<a name="l00546"></a>00546 
-<a name="l00572"></a>00572 sx_status_t <a class="code" href="sx__api__acl_8h.html#a2943e03e105609c89d70865940ddf9c4">sx_api_acl_vlan_group_map_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00573"></a>00573                                           <span class="keyword">const</span> sx_swid_id_t        swid,
-<a name="l00574"></a>00574                                           <span class="keyword">const</span> sx_acl_vlan_group_t group_id,
-<a name="l00575"></a>00575                                           sx_vlan_id_t             *vlan_list_p,
-<a name="l00576"></a>00576                                           uint32_t                 *vlan_cnt_p);
-<a name="l00577"></a>00577 
-<a name="l00599"></a>00599 sx_status_t <a class="code" href="sx__api__acl_8h.html#a3f5727bed5f37c11a2691483d3f368c9">sx_api_acl_vlan_group_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00600"></a>00600                                            <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l00601"></a>00601                                            <span class="keyword">const</span> sx_acl_vlan_group_t vlan_group,
-<a name="l00602"></a>00602                                            <span class="keyword">const</span> sx_acl_id_t         acl_id);
-<a name="l00603"></a>00603 
-<a name="l00622"></a>00622 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab91d548d2e1386edee4e5e4fd6c0813a">sx_api_acl_vlan_group_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00623"></a>00623                                            <span class="keyword">const</span> sx_acl_vlan_group_t vlan_group,
-<a name="l00624"></a>00624                                            <span class="keyword">const</span> sx_acl_direction_t  acl_direction,
-<a name="l00625"></a>00625                                            sx_acl_id_t              *acl_id_p);
-<a name="l00626"></a>00626 
-<a name="l00640"></a>00640 sx_status_t <a class="code" href="sx__api__acl_8h.html#aaba4b8d2a4b0e13541c5d2dc33caead5">sx_api_acl_flex_key_attr_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00641"></a>00641                                          <span class="keyword">const</span> sx_acl_key_type_t  key_handle,
-<a name="l00642"></a>00642                                          sx_acl_flex_key_attr_t * key_attr_p);
-<a name="l00643"></a>00643 
-<a name="l00661"></a>00661 sx_status_t <a class="code" href="sx__api__acl_8h.html#a77d6ceeb4c13e21075e9e25eb631976b">sx_api_acl_flex_key_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00662"></a>00662                                     <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00663"></a>00663                                     <span class="keyword">const</span> sx_acl_key_t  * key_list_p,
-<a name="l00664"></a>00664                                     <span class="keyword">const</span> uint32_t        key_count,
-<a name="l00665"></a>00665                                     sx_acl_key_type_t   * key_handle_p);
-<a name="l00666"></a>00666 
-<a name="l00684"></a>00684 sx_status_t <a class="code" href="sx__api__acl_8h.html#af92b255d5ce7a24c8527cd55f61d8da1">sx_api_acl_flex_key_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00685"></a>00685                                     <span class="keyword">const</span> sx_acl_key_type_t key_handle,
-<a name="l00686"></a>00686                                     sx_acl_key_t           *key_list_p,
-<a name="l00687"></a>00687                                     uint32_t              * key_count_p);
-<a name="l00688"></a>00688 
-<a name="l00689"></a>00689 
-<a name="l00716"></a>00716 sx_status_t <a class="code" href="sx__api__acl_8h.html#acbf34d5037f1494d0c146ada9f407840">sx_api_acl_flex_rules_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00717"></a>00717                                       <span class="keyword">const</span> sx_access_cmd_t          cmd,
-<a name="l00718"></a>00718                                       <span class="keyword">const</span> sx_acl_region_id_t       region_id,
-<a name="l00719"></a>00719                                       sx_acl_rule_offset_t          *offsets_list_p,
-<a name="l00720"></a>00720                                       <span class="keyword">const</span> sx_flex_acl_flex_rule_t *rules_list_p,
-<a name="l00721"></a>00721                                       <span class="keyword">const</span> uint32_t                 rules_cnt);
-<a name="l00722"></a>00722 
-<a name="l00723"></a>00723 
-<a name="l00763"></a>00763 sx_status_t <a class="code" href="sx__api__acl_8h.html#a7820db61cf02508199106ad6b52562af">sx_api_acl_flex_rules_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00764"></a>00764                                       <span class="keyword">const</span> sx_acl_region_id_t region_id,
-<a name="l00765"></a>00765                                       sx_acl_rule_offset_t    *offsets_list_p,
-<a name="l00766"></a>00766                                       sx_flex_acl_flex_rule_t *rules_list_p,
-<a name="l00767"></a>00767                                       uint32_t               * rules_cnt_p);
-<a name="l00768"></a>00768 
-<a name="l00769"></a>00769 
-<a name="l00786"></a>00786 sx_status_t <a class="code" href="sx__api__acl_8h.html#a5affcc85683c3ceca56d5b2bfdc81a95">sx_api_acl_rif_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00787"></a>00787                                     <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00788"></a>00788                                     <span class="keyword">const</span> sx_rif_id_t     rif_id,
-<a name="l00789"></a>00789                                     <span class="keyword">const</span> sx_acl_id_t     acl_id);
-<a name="l00790"></a>00790 
-<a name="l00805"></a>00805 sx_status_t <a class="code" href="sx__api__acl_8h.html#a82890bcca35387bcad58a4cc8be18c4d">sx_api_acl_rif_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00806"></a>00806                                     <span class="keyword">const</span> sx_rif_id_t        rif_id,
-<a name="l00807"></a>00807                                     <span class="keyword">const</span> sx_acl_direction_t acl_direction,
-<a name="l00808"></a>00808                                     sx_acl_id_t             *acl_id_p);
-<a name="l00809"></a>00809 
-<a name="l00827"></a>00827 sx_status_t <a class="code" href="sx__api__acl_8h.html#a8d75e017d9af517108026cd99b68ece9">sx_api_acl_group_bind_set</a>(sx_api_handle_t       handle,
-<a name="l00828"></a>00828                                       <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00829"></a>00829                                       sx_acl_id_t           group_id,
-<a name="l00830"></a>00830                                       sx_acl_id_t           next_group_id);
-<a name="l00831"></a>00831 
-<a name="l00846"></a>00846 sx_status_t <a class="code" href="sx__api__acl_8h.html#aece9f1a820e5fe724e91b5ae46eac747">sx_api_acl_group_bind_get</a>(sx_api_handle_t handle,
-<a name="l00847"></a>00847                                       sx_acl_id_t     group_id,
-<a name="l00848"></a>00848                                       sx_acl_id_t   * group_id_p);
-<a name="l00849"></a>00849 
-<a name="l00875"></a>00875 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab8f2477244a41031b345572131287a04">sx_api_acl_port_list_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00876"></a>00876                                      <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l00877"></a>00877                                      sx_acl_port_list_entry_t *port_list_p,
-<a name="l00878"></a>00878                                      <span class="keyword">const</span> uint32_t            port_list_cnt,
-<a name="l00879"></a>00879                                      sx_acl_port_list_id_t    *port_list_id_p);
-<a name="l00880"></a>00880 
-<a name="l00900"></a>00900 sx_status_t <a class="code" href="sx__api__acl_8h.html#a1f73a62d89a23869e37faf3fa8933a60">sx_api_acl_port_list_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00901"></a>00901                                      <span class="keyword">const</span> sx_acl_port_list_id_t port_list_id,
-<a name="l00902"></a>00902                                      sx_acl_port_list_entry_t   *port_list_p,
-<a name="l00903"></a>00903                                      uint32_t                   *port_list_cnt_p);
-<a name="l00904"></a>00904 
-<a name="l00905"></a>00905 
-<a name="l00920"></a>00920 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab93629cae18b47ab7681567547431c5c">sx_api_acl_region_hw_size_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00921"></a>00921                                           <span class="keyword">const</span> sx_acl_region_id_t region_id,
-<a name="l00922"></a>00922                                           sx_acl_size_t           *region_size_p);
-<a name="l00923"></a>00923 
-<a name="l00924"></a>00924 
-<a name="l00925"></a>00925 <span class="preprocessor">#endif </span><span class="comment">/* ifndef __SX_API_ACL_H__ */</span>
+<a name="l00205"></a>00205 sx_status_t <a class="code" href="sx__api__acl_8h.html#aefb22b1a6ad356f324550aea2c94d93b">sx_api_acl_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00206"></a>00206                                 <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l00207"></a>00207                                 <span class="keyword">const</span> sx_acl_id_t      acl_id_key,
+<a name="l00208"></a>00208                                 <span class="keyword">const</span> sx_acl_filter_t *acl_filter_p,
+<a name="l00209"></a>00209                                 sx_acl_id_t           *acl_id_list_p,
+<a name="l00210"></a>00210                                 uint32_t              *acl_id_cnt_p);
+<a name="l00211"></a>00211 
+<a name="l00240"></a>00240 sx_status_t <a class="code" href="sx__api__acl_8h.html#acc922fb9cf64214d703db802ca91bf32">sx_api_acl_group_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00241"></a>00241                                  <span class="keyword">const</span> sx_access_cmd_t    cmd,
+<a name="l00242"></a>00242                                  <span class="keyword">const</span> sx_acl_direction_t acl_direction,
+<a name="l00243"></a>00243                                  <span class="keyword">const</span> sx_acl_id_t       *acl_id_list_p,
+<a name="l00244"></a>00244                                  <span class="keyword">const</span> uint32_t           acl_id_cnt,
+<a name="l00245"></a>00245                                  sx_acl_id_t             *group_id_p);
+<a name="l00246"></a>00246 
+<a name="l00268"></a>00268 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab7ecf2ea6914f57c8b24fc288b6aec40">sx_api_acl_group_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00269"></a>00269                                  <span class="keyword">const</span> sx_acl_id_t     group_id,
+<a name="l00270"></a>00270                                  sx_acl_direction_t   *acl_direction_p,
+<a name="l00271"></a>00271                                  sx_acl_id_t          *acl_id_list_p,
+<a name="l00272"></a>00272                                  uint32_t             *acl_id_cnt_p);
+<a name="l00273"></a>00273 
+<a name="l00303"></a>00303 sx_status_t <a class="code" href="sx__api__acl_8h.html#ae82c545a8e0bb101aa5c8aa398c109b3">sx_api_acl_group_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00304"></a>00304                                       <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l00305"></a>00305                                       <span class="keyword">const</span> sx_acl_id_t      group_id_key,
+<a name="l00306"></a>00306                                       <span class="keyword">const</span> sx_acl_filter_t *acl_filter_p,
+<a name="l00307"></a>00307                                       sx_acl_id_t           *acl_id_list_p,
+<a name="l00308"></a>00308                                       uint32_t              *acl_id_cnt_p);
+<a name="l00309"></a>00309 
+<a name="l00341"></a>00341 sx_status_t <a class="code" href="sx__api__acl_8h.html#af7f1841f9e865b353f5dc6742212b4a0">sx_api_acl_policy_based_switching_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00342"></a>00342                                                   <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l00343"></a>00343                                                   <span class="keyword">const</span> sx_swid_t           swid,
+<a name="l00344"></a>00344                                                   <span class="keyword">const</span> sx_acl_pbs_entry_t *pbs_entry_p,
+<a name="l00345"></a>00345                                                   sx_acl_pbs_id_t          *pbs_id_p);
+<a name="l00346"></a>00346 
+<a name="l00371"></a>00371 sx_status_t <a class="code" href="sx__api__acl_8h.html#a1d3627a7131f363300617de31f7edc3b">sx_api_acl_policy_based_switching_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00372"></a>00372                                                   <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00373"></a>00373                                                   <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00374"></a>00374                                                   <span class="keyword">const</span> sx_acl_pbs_id_t pbs_id,
+<a name="l00375"></a>00375                                                   sx_acl_pbs_entry_t   *pbs_entry_p);
+<a name="l00376"></a>00376 
+<a name="l00400"></a>00400 sx_status_t <a class="code" href="sx__api__acl_8h.html#a1395c6e1613b712e9854f4e982ff8a62">sx_api_acl_l4_port_range_set</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
+<a name="l00401"></a>00401                                          <span class="keyword">const</span> sx_access_cmd_t            cmd,
+<a name="l00402"></a>00402                                          <span class="keyword">const</span> sx_acl_port_range_entry_t *l4_port_range_p,
+<a name="l00403"></a>00403                                          sx_acl_port_range_id_t          *range_id_p);
+<a name="l00404"></a>00404 
+<a name="l00423"></a>00423 sx_status_t <a class="code" href="sx__api__acl_8h.html#ad1c17eb4b9b274fddb09c13f1514c289">sx_api_acl_l4_port_range_get</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
+<a name="l00424"></a>00424                                          <span class="keyword">const</span> sx_acl_port_range_id_t range_id,
+<a name="l00425"></a>00425                                          sx_acl_port_range_entry_t   *l4_port_range_p);
+<a name="l00426"></a>00426 
+<a name="l00455"></a>00455 sx_status_t <a class="code" href="sx__api__acl_8h.html#abb16aaa28349e293f8d768c91f1ebbc7">sx_api_acl_l4_port_range_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t             handle,
+<a name="l00456"></a>00456                                               <span class="keyword">const</span> sx_access_cmd_t             cmd,
+<a name="l00457"></a>00457                                               <span class="keyword">const</span> sx_acl_port_range_id_t      range_id_key,
+<a name="l00458"></a>00458                                               <span class="keyword">const</span> sx_acl_port_range_filter_t *range_id_filter_p,
+<a name="l00459"></a>00459                                               sx_acl_port_range_id_t           *range_id_list_p,
+<a name="l00460"></a>00460                                               uint32_t                         *range_id_cnt_p);
+<a name="l00461"></a>00461 
+<a name="l00491"></a>00491 sx_status_t <a class="code" href="sx__api__acl_8h.html#a85de9c7f09f1494b0af588835ba5febb">sx_api_acl_rules_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00492"></a>00492                                  <span class="keyword">const</span> sx_access_cmd_t    cmd,
+<a name="l00493"></a>00493                                  <span class="keyword">const</span> sx_acl_region_id_t region_id,
+<a name="l00494"></a>00494                                  <span class="keyword">const</span> sx_acl_rule_t     *rules_list_p,
+<a name="l00495"></a>00495                                  <span class="keyword">const</span> uint32_t           rules_cnt);
+<a name="l00496"></a>00496 
+<a name="l00520"></a>00520 sx_status_t <a class="code" href="sx__api__acl_8h.html#a8a71f177218829d87debe98d4c399238">sx_api_acl_rules_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l00521"></a>00521                                  <span class="keyword">const</span> sx_acl_region_id_t   region_id,
+<a name="l00522"></a>00522                                  <span class="keyword">const</span> sx_acl_rule_offset_t start_offset,
+<a name="l00523"></a>00523                                  sx_acl_rule_t             *rules_list_p,
+<a name="l00524"></a>00524                                  uint32_t                  *rules_cnt_p);
+<a name="l00525"></a>00525 
+<a name="l00542"></a>00542 sx_status_t <a class="code" href="sx__api__acl_8h.html#aae2d4dde1a42506c57445dedaa2934d7">sx_api_acl_rule_activity_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l00543"></a>00543                                          <span class="keyword">const</span> sx_access_cmd_t      cmd,
+<a name="l00544"></a>00544                                          <span class="keyword">const</span> sx_acl_region_id_t   region_id,
+<a name="l00545"></a>00545                                          <span class="keyword">const</span> sx_acl_rule_offset_t rule_offset,
+<a name="l00546"></a>00546                                          boolean_t                 *activity_p);
+<a name="l00547"></a>00547 
+<a name="l00571"></a>00571 sx_status_t <a class="code" href="sx__api__acl_8h.html#a022e95843912425808dcbb26058e6c5f">sx_api_acl_rule_block_move_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l00572"></a>00572                                            <span class="keyword">const</span> sx_acl_region_id_t   region_id,
+<a name="l00573"></a>00573                                            <span class="keyword">const</span> sx_acl_rule_offset_t block_start,
+<a name="l00574"></a>00574                                            <span class="keyword">const</span> sx_acl_size_t        block_size,
+<a name="l00575"></a>00575                                            <span class="keyword">const</span> sx_acl_rule_offset_t new_block_start);
+<a name="l00576"></a>00576 
+<a name="l00596"></a>00596 sx_status_t <a class="code" href="sx__api__acl_8h.html#a92286cc3f4baf42e3f97ad25c380ffb6">sx_api_acl_port_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00597"></a>00597                                      <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l00598"></a>00598                                      <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00599"></a>00599                                      <span class="keyword">const</span> sx_acl_id_t      acl_id);
+<a name="l00600"></a>00600 
+<a name="l00615"></a>00615 sx_status_t <a class="code" href="sx__api__acl_8h.html#a9543188e428bed340f419ed050a47277">sx_api_acl_port_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00616"></a>00616                                      <span class="keyword">const</span> sx_port_log_id_t   log_port,
+<a name="l00617"></a>00617                                      <span class="keyword">const</span> sx_acl_direction_t acl_direction,
+<a name="l00618"></a>00618                                      sx_acl_id_t             *acl_id_p);
+<a name="l00619"></a>00619 
+<a name="l00647"></a>00647 sx_status_t <a class="code" href="sx__api__acl_8h.html#a6cfe4cc96f0de7b65e2a46603fc1b78a">sx_api_acl_vlan_group_map_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00648"></a>00648                                           <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00649"></a>00649                                           <span class="keyword">const</span> sx_swid_id_t    swid,
+<a name="l00650"></a>00650                                           <span class="keyword">const</span> sx_vlan_id_t   *vlan_list_p,
+<a name="l00651"></a>00651                                           <span class="keyword">const</span> uint32_t        vlan_cnt,
+<a name="l00652"></a>00652                                           sx_acl_vlan_group_t  *group_id_p);
+<a name="l00653"></a>00653 
+<a name="l00679"></a>00679 sx_status_t <a class="code" href="sx__api__acl_8h.html#a2943e03e105609c89d70865940ddf9c4">sx_api_acl_vlan_group_map_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00680"></a>00680                                           <span class="keyword">const</span> sx_swid_id_t        swid,
+<a name="l00681"></a>00681                                           <span class="keyword">const</span> sx_acl_vlan_group_t group_id,
+<a name="l00682"></a>00682                                           sx_vlan_id_t             *vlan_list_p,
+<a name="l00683"></a>00683                                           uint32_t                 *vlan_cnt_p);
+<a name="l00684"></a>00684 
+<a name="l00706"></a>00706 sx_status_t <a class="code" href="sx__api__acl_8h.html#a3f5727bed5f37c11a2691483d3f368c9">sx_api_acl_vlan_group_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00707"></a>00707                                            <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l00708"></a>00708                                            <span class="keyword">const</span> sx_acl_vlan_group_t vlan_group,
+<a name="l00709"></a>00709                                            <span class="keyword">const</span> sx_acl_id_t         acl_id);
+<a name="l00710"></a>00710 
+<a name="l00729"></a>00729 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab91d548d2e1386edee4e5e4fd6c0813a">sx_api_acl_vlan_group_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00730"></a>00730                                            <span class="keyword">const</span> sx_acl_vlan_group_t vlan_group,
+<a name="l00731"></a>00731                                            <span class="keyword">const</span> sx_acl_direction_t  acl_direction,
+<a name="l00732"></a>00732                                            sx_acl_id_t              *acl_id_p);
+<a name="l00733"></a>00733 
+<a name="l00747"></a>00747 sx_status_t <a class="code" href="sx__api__acl_8h.html#aaba4b8d2a4b0e13541c5d2dc33caead5">sx_api_acl_flex_key_attr_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00748"></a>00748                                          <span class="keyword">const</span> sx_acl_key_type_t  key_handle,
+<a name="l00749"></a>00749                                          sx_acl_flex_key_attr_t * key_attr_p);
+<a name="l00750"></a>00750 
+<a name="l00768"></a>00768 sx_status_t <a class="code" href="sx__api__acl_8h.html#a77d6ceeb4c13e21075e9e25eb631976b">sx_api_acl_flex_key_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00769"></a>00769                                     <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00770"></a>00770                                     <span class="keyword">const</span> sx_acl_key_t  * key_list_p,
+<a name="l00771"></a>00771                                     <span class="keyword">const</span> uint32_t        key_count,
+<a name="l00772"></a>00772                                     sx_acl_key_type_t   * key_handle_p);
+<a name="l00773"></a>00773 
+<a name="l00791"></a>00791 sx_status_t <a class="code" href="sx__api__acl_8h.html#af92b255d5ce7a24c8527cd55f61d8da1">sx_api_acl_flex_key_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00792"></a>00792                                     <span class="keyword">const</span> sx_acl_key_type_t key_handle,
+<a name="l00793"></a>00793                                     sx_acl_key_t           *key_list_p,
+<a name="l00794"></a>00794                                     uint32_t              * key_count_p);
+<a name="l00795"></a>00795 
+<a name="l00796"></a>00796 
+<a name="l00823"></a>00823 sx_status_t <a class="code" href="sx__api__acl_8h.html#acbf34d5037f1494d0c146ada9f407840">sx_api_acl_flex_rules_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00824"></a>00824                                       <span class="keyword">const</span> sx_access_cmd_t          cmd,
+<a name="l00825"></a>00825                                       <span class="keyword">const</span> sx_acl_region_id_t       region_id,
+<a name="l00826"></a>00826                                       sx_acl_rule_offset_t          *offsets_list_p,
+<a name="l00827"></a>00827                                       <span class="keyword">const</span> sx_flex_acl_flex_rule_t *rules_list_p,
+<a name="l00828"></a>00828                                       <span class="keyword">const</span> uint32_t                 rules_cnt);
+<a name="l00829"></a>00829 
+<a name="l00830"></a>00830 
+<a name="l00870"></a>00870 sx_status_t <a class="code" href="sx__api__acl_8h.html#a7820db61cf02508199106ad6b52562af">sx_api_acl_flex_rules_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00871"></a>00871                                       <span class="keyword">const</span> sx_acl_region_id_t region_id,
+<a name="l00872"></a>00872                                       sx_acl_rule_offset_t    *offsets_list_p,
+<a name="l00873"></a>00873                                       sx_flex_acl_flex_rule_t *rules_list_p,
+<a name="l00874"></a>00874                                       uint32_t               * rules_cnt_p);
+<a name="l00875"></a>00875 
+<a name="l00876"></a>00876 
+<a name="l00893"></a>00893 sx_status_t <a class="code" href="sx__api__acl_8h.html#a5affcc85683c3ceca56d5b2bfdc81a95">sx_api_acl_rif_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00894"></a>00894                                     <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00895"></a>00895                                     <span class="keyword">const</span> sx_rif_id_t     rif_id,
+<a name="l00896"></a>00896                                     <span class="keyword">const</span> sx_acl_id_t     acl_id);
+<a name="l00897"></a>00897 
+<a name="l00912"></a>00912 sx_status_t <a class="code" href="sx__api__acl_8h.html#a82890bcca35387bcad58a4cc8be18c4d">sx_api_acl_rif_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00913"></a>00913                                     <span class="keyword">const</span> sx_rif_id_t        rif_id,
+<a name="l00914"></a>00914                                     <span class="keyword">const</span> sx_acl_direction_t acl_direction,
+<a name="l00915"></a>00915                                     sx_acl_id_t             *acl_id_p);
+<a name="l00916"></a>00916 
+<a name="l00934"></a>00934 sx_status_t <a class="code" href="sx__api__acl_8h.html#a8d75e017d9af517108026cd99b68ece9">sx_api_acl_group_bind_set</a>(sx_api_handle_t       handle,
+<a name="l00935"></a>00935                                       <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00936"></a>00936                                       sx_acl_id_t           group_id,
+<a name="l00937"></a>00937                                       sx_acl_id_t           next_group_id);
+<a name="l00938"></a>00938 
+<a name="l00953"></a>00953 sx_status_t <a class="code" href="sx__api__acl_8h.html#aece9f1a820e5fe724e91b5ae46eac747">sx_api_acl_group_bind_get</a>(sx_api_handle_t handle,
+<a name="l00954"></a>00954                                       sx_acl_id_t     group_id,
+<a name="l00955"></a>00955                                       sx_acl_id_t   * group_id_p);
+<a name="l00956"></a>00956 
+<a name="l00982"></a>00982 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab8f2477244a41031b345572131287a04">sx_api_acl_port_list_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00983"></a>00983                                      <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l00984"></a>00984                                      sx_acl_port_list_entry_t *port_list_p,
+<a name="l00985"></a>00985                                      <span class="keyword">const</span> uint32_t            port_list_cnt,
+<a name="l00986"></a>00986                                      sx_acl_port_list_id_t    *port_list_id_p);
+<a name="l00987"></a>00987 
+<a name="l01007"></a>01007 sx_status_t <a class="code" href="sx__api__acl_8h.html#a1f73a62d89a23869e37faf3fa8933a60">sx_api_acl_port_list_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01008"></a>01008                                      <span class="keyword">const</span> sx_acl_port_list_id_t port_list_id,
+<a name="l01009"></a>01009                                      sx_acl_port_list_entry_t   *port_list_p,
+<a name="l01010"></a>01010                                      uint32_t                   *port_list_cnt_p);
+<a name="l01011"></a>01011 
+<a name="l01012"></a>01012 
+<a name="l01027"></a>01027 sx_status_t <a class="code" href="sx__api__acl_8h.html#ab93629cae18b47ab7681567547431c5c">sx_api_acl_region_hw_size_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l01028"></a>01028                                           <span class="keyword">const</span> sx_acl_region_id_t region_id,
+<a name="l01029"></a>01029                                           sx_acl_size_t           *region_size_p);
+<a name="l01030"></a>01030 
+<a name="l01031"></a>01031 
+<a name="l01052"></a>01052 sx_status_t <a class="code" href="sx__api__acl_8h.html#a2876e1a90b618f87a0eecadba8d2210d">sx_api_acl_custom_bytes_set</a>(sx_api_handle_t                             handle,
+<a name="l01053"></a>01053                                         sx_access_cmd_t                             cmd,
+<a name="l01054"></a>01054                                         <span class="keyword">const</span> sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes,
+<a name="l01055"></a>01055                                         sx_acl_key_t                               *custom_bytes_set_key_id_p,
+<a name="l01056"></a>01056                                         uint32_t                                   *custom_bytes_set_key_id_cnt_p);
+<a name="l01057"></a>01057 
+<a name="l01074"></a>01074 sx_status_t <a class="code" href="sx__api__acl_8h.html#a9321fdeee15f48934a15a97c3f26e35a">sx_api_acl_custom_bytes_get</a>(sx_api_handle_t                       handle,
+<a name="l01075"></a>01075                                         sx_acl_key_t                         *custom_bytes_set_key_id_p,
+<a name="l01076"></a>01076                                         sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes_p);
+<a name="l01077"></a>01077 
+<a name="l01078"></a>01078 
+<a name="l01079"></a>01079 <span class="preprocessor">#endif </span><span class="comment">/* ifndef __SX_API_ACL_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -289,6 +321,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Sep 28 2016 16:15:59 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:01 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

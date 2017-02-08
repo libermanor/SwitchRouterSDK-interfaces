@@ -174,6 +174,42 @@ sx_status_t sx_api_acl_get(const sx_api_handle_t  handle,
                            sx_acl_region_group_t *acl_region_group_p);
 
 /**
+ *  This function gets a list of valid ACL Ids.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd    GET/GET_NEXT/GET_FIRST
+ * @param[in] acl_id_key - ACL ID to use and key.
+ * @param[in] acl_filter_p - Filter to use (not supported yet)
+ * @param[out] acl_id_list_p - pointer to the list of ACL IDs returned.
+ * @param[in,out] acl_id_cnt_p [in] number of entries to retrieve (max 400); [out] retrieved  number of entries.
+ *
+ * Input/Output types
+ *      - Get first - Get a list of first n entries.  Cmd should be SX_ACCESS_CMD_GET_FIRST and
+ *           count should be equal to n. key is irrelevant in this case. Returns number of
+ *           entries retrieved as count
+ *      -  Get next  - Get n entries after a specified key (it does not have to exist).
+ *           Cmd should be SX_ACCESS_CMD_GETNEXT. count should be equal to n.
+ *           Returns number of entries retrieved as count
+ *      - Get - Gets a specific entry. Cmd should be SX_ACCESS_CMD_GET and count should be 1.
+ *       If input count is 0, then returns a count of ACL Ids as output instead.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
+ * @return SX_STATUS_PARAM_ERROR if any paramter is in error.
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_INVALID_HANDLE if handle in invalid
+ * @return SX_STATUS_ERROR general error.
+ */
+
+sx_status_t sx_api_acl_iter_get(const sx_api_handle_t  handle,
+                                const sx_access_cmd_t  cmd,
+                                const sx_acl_id_t      acl_id_key,
+                                const sx_acl_filter_t *acl_filter_p,
+                                sx_acl_id_t           *acl_id_list_p,
+                                uint32_t              *acl_id_cnt_p);
+
+/**
  *
  *  This function is used for controlling a group of ACL or in
  *  other words cascaded ACL blocks up to the size of
@@ -234,6 +270,42 @@ sx_status_t sx_api_acl_group_get(const sx_api_handle_t handle,
                                  sx_acl_direction_t   *acl_direction_p,
                                  sx_acl_id_t          *acl_id_list_p,
                                  uint32_t             *acl_id_cnt_p);
+
+/**
+ *  This function gets a list of valid ACL Group Ids.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd    GET/GET_NEXT/GET_FIRST
+ * @param[in] group_id_key - ACL Group ID to use as Key for GET and GET_NEXT commands.
+ * @param[in] acl_filter_p - Filter to use (not supported yet)
+ * @param[out] acl_id_list_p - pointer to the list of valid ACL Group IDs returned.
+ * @param[in,out] acl_id_cnt_p [in] number of entries to retrieve (max 400); [out] retrieved  number of entries.
+ *
+ * Input/Output types
+ *      - Get first - Get a list of first n entries.  Cmd should be SX_ACCESS_CMD_GET_FIRST and
+ *           count should be equal to n. key is irrelevant in this case. Returns number of
+ *           entries retrieved as count
+ *      -  Get next  - Get n entries after a specified key (it does not have to exist).
+ *           Cmd should be SX_ACCESS_CMD_GETNEXT. count should be equal to n.
+ *           Returns number of entries retrieved as count
+ *      - Get - Gets a specific entry. Cmd should be SX_ACCESS_CMD_GET and count should be 1.
+ *       If input count is 0, then returns a count of ACL Group Ids as output instead.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
+ * @return SX_STATUS_PARAM_ERROR if any paramter is in error.
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_INVALID_HANDLE if handle in invalid
+ * @return SX_STATUS_ERROR general error.
+ */
+
+sx_status_t sx_api_acl_group_iter_get(const sx_api_handle_t  handle,
+                                      const sx_access_cmd_t  cmd,
+                                      const sx_acl_id_t      group_id_key,
+                                      const sx_acl_filter_t *acl_filter_p,
+                                      sx_acl_id_t           *acl_id_list_p,
+                                      uint32_t              *acl_id_cnt_p);
 
 /**
  *  This function adds/edits/deletes a policy based switching
@@ -351,6 +423,41 @@ sx_status_t sx_api_acl_l4_port_range_set(const sx_api_handle_t            handle
 sx_status_t sx_api_acl_l4_port_range_get(const sx_api_handle_t        handle,
                                          const sx_acl_port_range_id_t range_id,
                                          sx_acl_port_range_entry_t   *l4_port_range_p);
+
+/**
+ *  This function gets a list of ACL L4 Port Range IDs
+ *  Supported devices: Spectrum.
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd    GET/GET_NEXT/GET_FIRST
+ * @param[in] range_id_key -Range ID to use as Key for GET and GET_NEXT commands.
+ * @param[in] range_id_filter_p - Filter to use (not supported yet)
+ * @param[out] range_id_list_p - pointer to the list of Range IDs returned.
+ * @param[in,out] range_id_cnt_p [in] number of entries to retrieve (max 16); [out] retrieved  number of entries.
+ *
+ * Input/Output types
+ *      - Get first - Get a list of first n entries.  Cmd should be SX_ACCESS_CMD_GET_FIRST and
+ *           count should be equal to n. key is irrelevant in this case. Returns number of
+ *           entries retrieved as count
+ *      -  Get next  - Get n entries after a specified key (it does not have to exist).
+ *           Cmd should be SX_ACCESS_CMD_GETNEXT. count should be equal to n.
+ *           Returns number of entries retrieved as count
+ *      - Get - Gets a specific entry. Cmd should be SX_ACCESS_CMD_GET and count should be 1.
+ *       If input count is 0, then returns a count of Range Ids as output instead.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
+ * @return SX_STATUS_PARAM_ERROR if any paramter is in error.
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_INVALID_HANDLE if handle in invalid
+ * @return SX_STATUS_ERROR general error.
+ */
+
+sx_status_t sx_api_acl_l4_port_range_iter_get(const sx_api_handle_t             handle,
+                                              const sx_access_cmd_t             cmd,
+                                              const sx_acl_port_range_id_t      range_id_key,
+                                              const sx_acl_port_range_filter_t *range_id_filter_p,
+                                              sx_acl_port_range_id_t           *range_id_list_p,
+                                              uint32_t                         *range_id_cnt_p);
 
 /**
  *  This function is used for inserting rules into an ACL
@@ -920,6 +1027,53 @@ sx_status_t sx_api_acl_port_list_get(const sx_api_handle_t       handle,
 sx_status_t sx_api_acl_region_hw_size_get(const sx_api_handle_t    handle,
                                           const sx_acl_region_id_t region_id,
                                           sx_acl_size_t           *region_size_p);
+
+
+/**
+ * This API creates and deletes the Custom Bytes Set. Currently only 4-bytes sets are supported.
+ * Returned value is key Id from sx_acl_key_t space, which should be used with FLEX_ACL_KEY_CUSTOM_BYTES_BYTE
+ * macro. Each custom byte is accessed as a separate ACL key.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - CREATE/DESTROY/EDIT.
+ * @param[in] custom_bytes_set_attributes - Specifies extraction points data.
+ * @param[in/out] custom_bytes_set_key_id_p - Specifies an array of the custom bytes keys id.
+ *  For create a list of usable SDK key id is provided. For destory. Only the first key is used to destory the set.
+ * @param[in/out] custom_bytes_set_key_id_cnt_p - Specifies how many custum bytes are expected by the user.
+ *  The counter is updated with :MIN(available number of bytes in allocated set, Requested number of bytes)
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist.
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
+ * @return SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed.
+ */
+sx_status_t sx_api_acl_custom_bytes_set(sx_api_handle_t                             handle,
+                                        sx_access_cmd_t                             cmd,
+                                        const sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes,
+                                        sx_acl_key_t                               *custom_bytes_set_key_id_p,
+                                        uint32_t                                   *custom_bytes_set_key_id_cnt_p);
+
+/**
+ *
+ * This API returns extraction point parameters of the existing Custom Bytes Set
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] custom_bytes_set_key_id_p - Specifies an array of the custom bytes keys id. Only first item
+ *                                        in array is provided.
+ * @param[out] custom_bytes_key_extraction_point_list_p - Specifies extraction points fetched data.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers.
+ */
+sx_status_t sx_api_acl_custom_bytes_get(sx_api_handle_t                       handle,
+                                        sx_acl_key_t                         *custom_bytes_set_key_id_p,
+                                        sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes_p);
 
 
 #endif /* ifndef __SX_API_ACL_H__ */

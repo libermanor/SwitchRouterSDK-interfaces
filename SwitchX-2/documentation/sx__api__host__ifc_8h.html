@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
+<a href="#define-members">Defines</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <h1>sdk/sx_api_host_ifc.h File Reference</h1>  </div>
@@ -52,6 +53,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><a href="sx__api__host__ifc_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#ae1bbebd5bde7a2e3ecccf74841fff356">POSIX_EINTR_RETRY</a>(ret_value, op)</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a29f2c0d0f82dc50c9c4fed61d616ed05">sx_api_host_ifc_log_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
@@ -63,11 +67,43 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a3b99edc2800fa0eb9f5da2084f34673f">sx_api_host_ifc_trap_id_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_trap_group_t trap_group, const sx_trap_action_t trap_action)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a617dd77f8834dce0d5adf40b9dd7ff1b">sx_api_host_ifc_user_defined_trap_id_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, sx_trap_id_user_defined_attributes_t *trap_attributes_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a41ba1d6d892efdba33bd88b786846a1c">sx_api_host_ifc_trap_id_register_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_user_channel_t *user_channel_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a66141735e7f680e87c489c9d4a3a0e8c">sx_api_host_ifc_port_vlan_trap_id_register_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_host_ifc_register_key_t *register_key_p, const sx_user_channel_t *user_channel_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a37821970ee589f06824d4bd6fe43f876">sx_api_host_ifc_trap_filter_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, sx_port_log_id_t *log_port_list_p, uint32_t *log_port_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#ad7da4f1d811ab525751470302e4e96ea">sx_api_host_ifc_policer_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_group_t trap_group, const sx_policer_id_t policer_id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#ac40d153892ede32db36bc79f0ce80c14">sx_api_host_ifc_policer_bind_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_trap_group_t trap_group, sx_policer_id_t *policer_id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a9de7c875854a65fc5bb8c5dd12c5aad7">sx_api_host_ifc_counters_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_host_ifc_counters_filter_t *filter_p, sx_host_ifc_counters_t *host_ifc_cnt_p)</td></tr>
 </table>
+<hr/><h2>Define Documentation</h2>
+<a class="anchor" id="ae1bbebd5bde7a2e3ecccf74841fff356"></a><!-- doxytag: member="sx_api_host_ifc.h::POSIX_EINTR_RETRY" ref="ae1bbebd5bde7a2e3ecccf74841fff356" args="(ret_value, op)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POSIX_EINTR_RETRY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ret_value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">do</span> {                                 \
+        ret_value = op;                  \
+    } <span class="keywordflow">while</span> (((ret_value) == -1) &amp;&amp; (errno == EINTR))
+</pre></div>
+</div>
+</div>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a29f2c0d0f82dc50c9c4fed61d616ed05"></a><!-- doxytag: member="sx_api_host_ifc.h::sx_api_host_ifc_log_verbosity_level_set" ref="a29f2c0d0f82dc50c9c4fed61d616ed05" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
 <div class="memitem">
@@ -550,7 +586,7 @@ SX_STATUS_ENTRY_ALREADY_EXISTS If trap ID is already configured. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>Register / DeRegister Traps (STP , LACP) or Events (Port up / down , Temperature event) in the driver. Configure the driver to pass packets matching this trap ID / Event ID, criteria &amp; SWID to the client (according to hw_p). The source_log_port parameter of the received L2 trap always relates to the relevant physical port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>Register / DeRegister Traps (STP , LACP) or Events (Port up / down , Temperature event) in the driver. Configure the driver to pass packets matching this trap ID / Event ID, criteria &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -567,6 +603,75 @@ SX_STATUS_PARAM_NULL if any input parameters is null </dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_MEMORY_ERROR error handling memory </dd>
+<dd>
+SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a66141735e7f680e87c489c9d4a3a0e8c"></a><!-- doxytag: member="sx_api_host_ifc.h::sx_api_host_ifc_port_vlan_trap_id_register_set" ref="a66141735e7f680e87c489c9d4a3a0e8c" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_host_ifc_register_key_t *register_key_p, const sx_user_channel_t *user_channel_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_host_ifc_port_vlan_trap_id_register_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_trap_id_t&#160;</td>
+          <td class="paramname"><em>trap_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_host_ifc_register_key_t *&#160;</td>
+          <td class="paramname"><em>register_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_user_channel_t *&#160;</td>
+          <td class="paramname"><em>user_channel_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Register / DeRegister Traps (STP , LACP) or Events (Port up / down , Temperature event) in the driver. Configure the driver to pass packets matching this trap ID / Event ID, port OR vlan &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- REGISTER - register to trap trap_id DEREGISTER - de-register to trap trap_id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">register_key_p</td><td>- Port/FID/Global </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">user_channel_p</td><td>- The channel for the packets to be trapped.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
 SX_STATUS_MEMORY_ERROR error handling memory </dd>
 <dd>
@@ -846,6 +951,6 @@ SX_STATUS_ERROR general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -19,6 +19,14 @@
 #ifndef __SX_API_HOST_IFC_H__
 #define __SX_API_HOST_IFC_H__
 
+/*
+ * Retry macro to be used with interruptible POSIX operations
+ */
+#define POSIX_EINTR_RETRY(ret_value, op) \
+    do {                                 \
+        ret_value = op;                  \
+    } while (((ret_value) == -1) && (errno == EINTR))
+
 #include <sx/sdk/sx_api.h>
 
 /**
@@ -196,7 +204,7 @@ sx_status_t sx_api_host_ifc_user_defined_trap_id_set(const sx_api_handle_t      
  * Register / DeRegister Traps (STP , LACP)  or Events (Port up /
  * down , Temperature event) in the driver. Configure the driver
  * to pass packets matching this trap ID / Event ID, criteria &
- * SWID to the client (according to hw_p).
+ * SWID to the client (according to user_channel).
  * The source_log_port parameter of the received L2 trap always relates
  * to the relevant physical port.
  * Supported devices: SwitchX, SwitchX2, Spectrum.
@@ -221,6 +229,35 @@ sx_status_t sx_api_host_ifc_trap_id_register_set(const sx_api_handle_t    handle
                                                  const sx_swid_t          swid,
                                                  const sx_trap_id_t       trap_id,
                                                  const sx_user_channel_t *user_channel_p);
+/**
+ * Register / DeRegister Traps (STP , LACP)  or Events (Port up /
+ * down , Temperature event) in the driver. Configure the driver
+ * to pass packets matching this trap ID / Event ID, port OR vlan &
+ * SWID to the client (according to user_channel).
+ * The source_log_port parameter of the received L2 trap always relates
+ * to the relevant physical port.
+ * Supported devices: Spectrum.
+ *
+ * @param[in]     handle          - SX-API handle.
+ * @param[in]     cmd             - REGISTER    - register to trap trap_id
+ *                                                      DEREGISTER  - de-register to trap trap_id
+ * @param[in]     trap_id         - Trap ID.
+ * @param[in]     register_key_p  - Port/FID/Global
+ * @param[in]     user_channel_p  - The channel for the packets
+ *                                  to be trapped.
+ *
+ * @return  SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_MEMORY_ERROR error handling memory
+ * @return SX_STATUS_NO_RESOURCES device was not opened
+ */
+
+sx_status_t sx_api_host_ifc_port_vlan_trap_id_register_set(const sx_api_handle_t             handle,
+                                                           const sx_access_cmd_t             cmd,
+                                                           const sx_swid_t                   swid,
+                                                           const sx_trap_id_t                trap_id,
+                                                           const sx_host_ifc_register_key_t *register_key_p,
+                                                           const sx_user_channel_t          *user_channel_p);
 
 /**
  * This function configures the switch to filter packets received from certain ports/LAGs.

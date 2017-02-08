@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -56,13 +56,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#af8eca851c2ee0c33c574e50576a2e2bf">sx_api_mpls_log_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a8e2089a07be8fb0493ee0827bdd8cec6">sx_api_mpls_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#ae89bbcf7763a7e231f65272bf262d796">sx_api_mpls_init_set</a> (const sx_api_handle_t handle, const sx_mpls_general_params_t general_params)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a40c15132b0afe4f43f360e918bd964f5">sx_api_mpls_init_set</a> (const sx_api_handle_t handle, const sx_mpls_general_params_t *general_params)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a26b51c8a9d05e4a3f631bdc229a4e49b">sx_api_mpls_deinit_set</a> (const sx_api_handle_t handle)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a82d913298bf96a17efb3f71f08c29b7c">sx_api_mpls_ilm_init_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_ilm_table_id_t ilm_table)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#ad6f48513d8642b3a807a3a2dfaf282e1">sx_api_mpls_in_segment_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, const sx_mpls_in_segment_params_t *in_segment_params_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#aa55a0a9f8ee5ed3eda3f97a24228202a">sx_api_mpls_in_segment_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t *in_segment_params_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#af01de385b6c06e9231765f0af1467a63">sx_api_mpls_router_interface_attributes_set</a> (const sx_api_handle_t handle, const sx_router_interface_t *rif_p, const sx_mpls_router_interface_attr_t *rif_mpls_attr_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a9a99bf193f352303faff660c611ad29f">sx_api_mpls_router_interface_attributes_get</a> (const sx_api_handle_t handle, const sx_router_interface_t *rif_p, sx_mpls_router_interface_attr_t *rif_mpls_attr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a1d26fa52ffe1d0b80ee868b52963d12e">sx_api_mpls_in_segment_get</a> (const sx_api_handle_t handle, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t in_segment_params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a0bc07d1a02a63c9efd33094fdba7feea">sx_api_mpls_in_segment_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, const sx_in_segment_key_filter_t *filter_p, sx_mpls_in_segment_key_t *in_segment_key_list_p, uint32_t *in_segment_get_entries_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a0f5615b84068a62f8050882a530316c7">sx_api_mpls_router_interface_attributes_set</a> (const sx_api_handle_t handle, const sx_router_interface_t rif, const sx_mpls_router_interface_attr_t rif_mpls_attr)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a5aad3e252a4f75d7c3909b4d8b38f7d1">sx_api_mpls_router_interface_attributes_get</a> (const sx_api_handle_t handle, const sx_router_interface_t rif, sx_mpls_router_interface_attr_t *rif_mpls_attr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#abd9faa5dc766983c9e4b1652607b270d">sx_api_mpls_ilm_counter_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, const sx_flow_counter_id_t counter_id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a63ef76b4b6ad05bc7073254b92a52ba2">sx_api_mpls_ilm_counter_bind_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_flow_counter_id_t *counter_id_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="af8eca851c2ee0c33c574e50576a2e2bf"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_log_verbosity_level_set" ref="af8eca851c2ee0c33c574e50576a2e2bf" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -101,6 +104,17 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This API sets the log verbosity level of MPLS MODULE. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- MPLS module verbosity level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- MPLS API verbosity level</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
@@ -140,10 +154,21 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This API gets the log verbosity level of MPLS MODULE. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- MPLS module verbosity level </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- MPLS API verbosity level</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ae89bbcf7763a7e231f65272bf262d796"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_init_set" ref="ae89bbcf7763a7e231f65272bf262d796" args="(const sx_api_handle_t handle, const sx_mpls_general_params_t general_params)" -->
+<a class="anchor" id="a40c15132b0afe4f43f360e918bd964f5"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_init_set" ref="a40c15132b0afe4f43f360e918bd964f5" args="(const sx_api_handle_t handle, const sx_mpls_general_params_t *general_params)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -156,7 +181,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_mpls_general_params_t&#160;</td>
+          <td class="paramtype">const sx_mpls_general_params_t *&#160;</td>
           <td class="paramname"><em>general_params</em>&#160;</td>
         </tr>
         <tr>
@@ -167,6 +192,16 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This function initiates the MPLS module in SDK. Supported devices: Spectrum.</p>
+<p>Must be called after the router module is initialised.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">general_params_p</td><td>- MPLS general parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
@@ -184,6 +219,15 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This function de-initiates the MPLS block in the SDK Supported devices: Spectrum.</p>
+<p>Must called before the router module is de-initialised.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
@@ -217,6 +261,17 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This function creates ILM table Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/ADD/DELETE/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ilm_table</td><td>- MPLS ILM table ID</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Only label space 0 is currently supported (ilm_table).</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
@@ -256,15 +311,71 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This function sets an in-segment Supported devices: Spectrum.</p>
+<p>Match on one label is currently supported. Only label space 0 is currently supported (ilm_table).</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/EDIT/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- in-segment incoming label </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_params_p</td><td>- parameters for in-segment</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aa55a0a9f8ee5ed3eda3f97a24228202a"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_in_segment_get" ref="aa55a0a9f8ee5ed3eda3f97a24228202a" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t *in_segment_params_p)" -->
+<a class="anchor" id="a1d26fa52ffe1d0b80ee868b52963d12e"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_in_segment_get" ref="a1d26fa52ffe1d0b80ee868b52963d12e" args="(const sx_api_handle_t handle, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t in_segment_params_p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">sx_status_t sx_api_mpls_in_segment_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mpls_in_segment_key_t *&#160;</td>
+          <td class="paramname"><em>in_segment_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_mpls_in_segment_params_t&#160;</td>
+          <td class="paramname"><em>in_segment_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets an in-segment parameters Supported devices: Spectrum.</p>
+<p>In-segment filter is currently unsupported.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- specify a in segment key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_params_p</td><td>- list of in segment params</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0bc07d1a02a63c9efd33094fdba7feea"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_in_segment_iter_get" ref="a0bc07d1a02a63c9efd33094fdba7feea" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, const sx_in_segment_key_filter_t *filter_p, sx_mpls_in_segment_key_t *in_segment_key_list_p, uint32_t *in_segment_get_entries_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_mpls_in_segment_iter_get </td>
           <td>(</td>
           <td class="paramtype">const sx_api_handle_t&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
@@ -284,8 +395,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sx_mpls_in_segment_params_t *&#160;</td>
-          <td class="paramname"><em>in_segment_params_p</em>&#160;</td>
+          <td class="paramtype">const sx_in_segment_key_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_mpls_in_segment_key_t *&#160;</td>
+          <td class="paramname"><em>in_segment_key_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>in_segment_get_entries_cnt_p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -295,10 +418,58 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This function returns a list of one or more in segment key identifiers. The following use case scenarios apply with different input parameters X = don't-care</p>
+<ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, in_segment_key_list = X, Count =0: In this case the API will return the total number of in segment keys in the ILM</li>
+</ul>
+<ul>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, in_segment_key_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the in_segment_key_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
+</ul>
+<ul>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, in_segment_key_list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
+</ul>
+<ul>
+<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, in_segment_key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
+</ul>
+<ul>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, in_segment_key_list = Valid, Count &gt; 0: In this case the API will return the first count in segments starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care.</li>
+</ul>
+<ul>
+<li>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, Rif_list = Valid, Count &gt; 0: In this case the API will return the next set of in segments starting from the next valid in segment k after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next in segment exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
+</ul>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>: SX API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>: GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>: specify a in segment key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>: specify a filter parameter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_key_list_p</td><td>: return list of in segment keys </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in_segment_get_entries_cnt_p</td><td>: [in] number of in segments to get : [out] number of in segments returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if an unexpected NULL parameter was passed. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialised </dd>
+<dd>
+SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails </dd>
+<dd>
+SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialised </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="af01de385b6c06e9231765f0af1467a63"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_router_interface_attributes_set" ref="af01de385b6c06e9231765f0af1467a63" args="(const sx_api_handle_t handle, const sx_router_interface_t *rif_p, const sx_mpls_router_interface_attr_t *rif_mpls_attr_p)" -->
+<a class="anchor" id="a0f5615b84068a62f8050882a530316c7"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_router_interface_attributes_set" ref="a0f5615b84068a62f8050882a530316c7" args="(const sx_api_handle_t handle, const sx_router_interface_t rif, const sx_mpls_router_interface_attr_t rif_mpls_attr)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -311,14 +482,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_router_interface_t *&#160;</td>
-          <td class="paramname"><em>rif_p</em>, </td>
+          <td class="paramtype">const sx_router_interface_t&#160;</td>
+          <td class="paramname"><em>rif</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_mpls_router_interface_attr_t *&#160;</td>
-          <td class="paramname"><em>rif_mpls_attr_p</em>&#160;</td>
+          <td class="paramtype">const sx_mpls_router_interface_attr_t&#160;</td>
+          <td class="paramname"><em>rif_mpls_attr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -328,10 +499,21 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This function sets the MPLS attributes of the interface Supported devices: Spectrum.</p>
+<p>Must be called to enable/disable MPLS on a router interface. Only label space 0 is currently supported (ilm_table_id).</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_p</td><td>- router interface ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_mpls_attr_p</td><td>- the MPLS attributes of the interface</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a9a99bf193f352303faff660c611ad29f"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_router_interface_attributes_get" ref="a9a99bf193f352303faff660c611ad29f" args="(const sx_api_handle_t handle, const sx_router_interface_t *rif_p, sx_mpls_router_interface_attr_t *rif_mpls_attr_p)" -->
+<a class="anchor" id="a5aad3e252a4f75d7c3909b4d8b38f7d1"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_router_interface_attributes_get" ref="a5aad3e252a4f75d7c3909b4d8b38f7d1" args="(const sx_api_handle_t handle, const sx_router_interface_t rif, sx_mpls_router_interface_attr_t *rif_mpls_attr_p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -344,8 +526,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_router_interface_t *&#160;</td>
-          <td class="paramname"><em>rif_p</em>, </td>
+          <td class="paramtype">const sx_router_interface_t&#160;</td>
+          <td class="paramname"><em>rif</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -361,6 +543,116 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>This function gets the MPLS attributes of the interface Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_p</td><td>- router interface ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rif_mpls_attr_p</td><td>- the MPLS attributes of the interface</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abd9faa5dc766983c9e4b1652607b270d"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_ilm_counter_bind_set" ref="abd9faa5dc766983c9e4b1652607b270d" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, const sx_flow_counter_id_t counter_id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_mpls_ilm_counter_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mpls_in_segment_key_t *&#160;</td>
+          <td class="paramname"><em>in_segment_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flow_counter_id_t&#160;</td>
+          <td class="paramname"><em>counter_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Binds or un-binds a flow counter to an existing ILM entry Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key</td><td>- in-segment identificator </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id</td><td>- A flow counter identifier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a63ef76b4b6ad05bc7073254b92a52ba2"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_ilm_counter_bind_get" ref="a63ef76b4b6ad05bc7073254b92a52ba2" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_flow_counter_id_t *counter_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_mpls_ilm_counter_bind_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mpls_in_segment_key_t *&#160;</td>
+          <td class="paramname"><em>in_segment_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flow_counter_id_t *&#160;</td>
+          <td class="paramname"><em>counter_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Retrieves a flow counter identifier bounded to an existing ILM entry Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- in-segment identificator </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_p</td><td>- A flow counter identifier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>sx_status_t </dd></dl>
 
 </div>
 </div>
@@ -383,6 +675,6 @@ Functions</h2></td></tr>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

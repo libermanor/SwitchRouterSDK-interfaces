@@ -252,6 +252,14 @@ sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
 /**
  * This API is used to set tunnel TTL parameters.
  *
+ * Note for Spectrum:
+ * 1. TTL behavior and values are shared between all tunnels of
+ * the same type.
+ * 2. For IPinIP tunnels in encap direction TTL_CMD_SET and
+ * TTL_CMD_COPY are supported, default value is TTL_CMD_COPY.
+ * 3. For NVE tunnels in encap direction TTL_CMD_SET is
+ * supported. Default value is 255.
+ *
  * Supported devices: Spectrum.
  *
  * @param[in] handle        - SX-API handle
@@ -290,10 +298,18 @@ sx_status_t sx_api_tunnel_ttl_get(const sx_api_handle_t handle,
 /**
  * This API is used to set tunnel hash parameters.
  *
+ * Note for Spectrum:
+ * 1. Hash parameters are shared between all tunnels of the same
+ * type.
+ * 2. IPinIP tunnels support setting an IPV6_FLOW_LABEL. Default
+ * value is 0.
+ * 3. NVE tunnels support setting a UDP_SPORT. Default value is
+ * 0.
+ *
  * Supported devices: Spectrum.
  *
- * @param[in] handle          - SX-API handle
- * @param[in] tunnel_id     - Tunnel ID
+ * @param[in] handle         - SX-API handle
+ * @param[in] tunnel_id      - Tunnel ID
  * @param[in] hash_data_p    - pointer to tunnel hash data structure.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -128,6 +128,38 @@ sx_status_t sx_api_mstp_inst_set(const sx_api_handle_t   handle,
                                  const sx_access_cmd_t   cmd,
                                  const sx_swid_t         swid,
                                  const sx_mstp_inst_id_t inst_id);
+
+/**
+ *  This function gets a list of MSTP instances.
+ *  If cmd is GET and inst_list_p is NULL, this function will only return the count.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle         - SX-API handle
+ * @param[in] cmd            - GET/GET_FIRST/GET_NEXT
+ * @param[in] swid           - switch ID
+ * @param[in] inst_key       - MSTP instance ID, used only for GET_NEXT
+ * @param[in] inst_filter_p  - filter used on the list: VLAN-ID
+ * @param[out] inst_list_p   - Pointer to list of instances
+ * @param[in,out] inst_cnt_p - In: Number of instances to retrieve (max: 1024)
+ *                             Out: Number of instances retrieved successfully
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_CMD_UNPERMITTED if using it not in MSTP mode
+ */
+sx_status_t sx_api_mstp_inst_iter_get(const sx_api_handle_t        handle,
+                                      const sx_access_cmd_t        cmd,
+                                      const sx_swid_t              swid,
+                                      const sx_mstp_inst_id_t      inst_key,
+                                      const sx_mstp_inst_filter_t *inst_filter_p,
+                                      sx_mstp_inst_id_t           *inst_list_p,
+                                      uint32_t                    *inst_cnt_p);
 
 /**
  *  This function adds/deletes a mapping between a list of VLANs to/from the

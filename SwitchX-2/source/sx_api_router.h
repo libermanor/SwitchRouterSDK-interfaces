@@ -194,7 +194,7 @@ sx_status_t sx_api_router_init_set(const sx_api_handle_t              handle,
 sx_status_t sx_api_router_deinit_set(const sx_api_handle_t handle);
 
 /**
- *  This function adds/deletes a virtual router.
+ *  This function adds/deletes/edits a virtual router.
  *  The router ID is allocated and returned to the caller when
  *  cmd is ADD, otherwise it is given by the caller. All
  *  interfaces and routes associated with a router must be
@@ -203,7 +203,7 @@ sx_status_t sx_api_router_deinit_set(const sx_api_handle_t handle);
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
- * @param[in] cmd - ADD/DELETE.
+ * @param[in] cmd - ADD/DELETE/EDIT.
  * @param[in] router_attr - Router attributes.
  * @param[in,out] vrid - Virtual router ID
  *
@@ -240,6 +240,41 @@ sx_status_t sx_api_router_set(const sx_api_handle_t         handle,
 sx_status_t sx_api_router_get(const sx_api_handle_t   handle,
                               const sx_router_id_t    vrid,
                               sx_router_attributes_t *router_attr);
+
+/**
+ *  This function gets a list of valid VRIDs.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd    GET/GET_NEXT/GET_FIRST
+ * @param[in] vrid_key - Virtual Router ID.
+ * @param[in] vrid_filter_p - Filter to use (not supported yet)
+ * @param[out] vrid_list_p - pointer to the list of valid VRIDs returned.
+ * @param[in,out] vrid_cnt_p [in] number of entries to retrieve (max: 254).; [out] retrieved  number of entries.
+ *
+ * Input/Output types
+ *      - Get first - Get a list of first n entries.  Cmd should be SX_ACCESS_CMD_GET_FIRST and
+ *           vrid_cnt_p should be equal to n. key is irrelevant in this case. Returns number of
+ *           entries retrieved as vrid_cnt_p
+ *      -  Get next  - Get n entries after a specified vrid (it does not have to exist).
+ *           Cmd should be SX_ACCESS_CMD_GETNEXT. vrid_cnt_p should be equal to n.
+ *           Returns number of entries retrieved as vrid_cnt_p
+ *      - Get - Gets a specific entry. Cmd should be SX_ACCESS_CMD_GET and vrid_cnt_p should be 1.  *    input vrid_cnt_p is 0, then returns a count of valid VRIDs as output instead.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_INVALID_HANDLE if handle in invalid
+ * @return SX_STATUS_ERROR general error.
+ */
+sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
+                                        const sx_access_cmd_t   cmd,
+                                        const sx_router_id_t    vrid_key,
+                                        const sx_vrid_filter_t *vrid_filter_p,
+                                        sx_router_id_t         *vrid_list_p,
+                                        uint32_t               *vrid_cnt_p);
+
 
 /**
  *  This function adds/modifies/deletes/delete_all a router
@@ -313,7 +348,83 @@ sx_status_t sx_api_router_interface_get(const sx_api_handle_t        handle,
                                         sx_router_id_t              *vrid_p,
                                         sx_router_interface_param_t *ifc_p,
                                         sx_interface_attributes_t   *ifc_attr_p);
-
+/**
+ *  This function returns a list of one or more router interface identifiers.
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, Rif_list = X, Count =0:
+ *        In this case the API will return the total number of RIFs in the
+ *        Internal db
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, Rif_list =
+ *        Valid, Count = 1:
+ *        In this case the API will check if the specified key exists. if it does
+ *        the key will be returned in the rif_list along with a count of 1.
+ *        If the key does not exist an empty list will be returned with count = 0
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, Rif_list is Valid, Count =1:
+ *        In this case the API will check if the specified key exists. if it does
+ *        it will check it against the filter parameter. If the filter matches,
+ *        the key will be returned in the rif_list along with a count of 1.
+ *        If the key does not exist or the filter does not match an empty list
+ *        will be returned with count = 0
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid,
+ *        Rif_list is Valid, Count > 1:
+ *        A count >1 will be treated as a count of 1 and the behavior will be same
+ *        as earlier GET use cases.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X,
+ *        Rif_list = Null, Count =0:
+ *        For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count
+ *        will return an empty list.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, Rif_list =
+ *        Valid, Count > 0:
+ *        In this case the API will return the first count rifs starting from
+ *        the head of the database. The total elements fetched will be returned
+ *        as the return count.  Note: return count may be less than or equal to
+ *        the requested count. The key is dont-care.
+ *        If a filter is specified only those rifs that match the filter will
+ *        be returned. a non-Null return rif_list pointer must be provided
+ *
+ *   - 7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid,
+ *        Rif_list = Valid, Count > 0:
+ *        In this case the API will return the next set of rifs starting from
+ *        the next valid rif after the specified key. The total elements fetched
+ *        will be returned as the return count.  If a filter is specified only
+ *        those rifs that match the filter will be returned.
+ *        Note: return count may be less than or equal to the requested count.
+ *        If no valid next rif exists in the db (key = end of list, or invalid
+ *        key specified, or key too large), an empty list will be returned.
+ *
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param [in] handle           : SX API handle
+ * @param [in] cmd              : GET/GET_FIRST/GET_NEXT
+ * @param [in] rif_key_p        : specify a rif key
+ * @param [in] filter           : specify a filter parameter
+ * @param [out] rif_list_p      : return list of rif ids
+ * @param [in,out] rif_cnt_p    : [in] number of rifs to get. max 400
+ *                              : [out] number of rifs returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
+ * @return SX_STATUS_PARAM_NULL if an unexpected NULL parameter was passed.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ERROR general error.
+ * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
+ * @return SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialised
+ * @return SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialised
+ */
+sx_status_t sx_api_router_interface_iter_get(const sx_api_handle_t        handle,
+                                             const sx_access_cmd_t        cmd,
+                                             const sx_router_interface_t *rif_key_p,
+                                             const sx_rif_filter_t       *filter_p,
+                                             sx_router_interface_t       *rif_list_p,
+                                             uint32_t                    *rif_cnt_p);
 /**
  *  This function sets admin state of a router interface. Admin state is set per
  *  IP protocol.
@@ -715,6 +826,26 @@ sx_status_t sx_api_router_counter_set(const sx_api_handle_t   handle,
                                       sx_router_counter_id_t *counter_p);
 
 /**
+ *  This function creates/destroys a router counter by given type.
+ *  A router counter should be bound later to a router interface.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - CREATE/DESTROY.
+ * @param[in] type - Router counter type.
+ * @param[in,out] counter_p - Router counter ID.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_NO_RESOURCES if no counter is available to create.
+ * @return SX_STATUS_ERROR general error.
+ */
+sx_status_t sx_api_router_counter_extended_set(const sx_api_handle_t                handle,
+                                               const sx_access_cmd_t                cmd,
+                                               const sx_router_counter_attributes_t cntr_attributes,
+                                               sx_router_counter_id_t              *counter_p);
+/**
  *  This function binds/unbinds a router counter to a router interface.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -778,6 +909,27 @@ sx_status_t sx_api_router_counter_get(const sx_api_handle_t        handle,
                                       sx_router_counter_set_t     *counter_set_p);
 
 /**
+ *  This function gets a router counter by given type.
+ *  When using cmd=READ_CLEAR, the counters will be returned and cleared.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - READ/READ_CLEAR
+ * @param[in] counter - Router counter ID.
+ * @param[out] counter_data_p - Router counter data values.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if counter was not added.
+ * @return SX_STATUS_ERROR general error.
+ */
+sx_status_t sx_api_router_counter_extended_get(const sx_api_handle_t             handle,
+                                               const sx_access_cmd_t             cmd,
+                                               const sx_router_counter_id_t      counter_id,
+                                               sx_router_counter_set_extended_t *counter_data_p);
+/**
  *  This function clears router counter set of a router counter.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -818,8 +970,8 @@ sx_status_t sx_api_router_counter_clear_set(const sx_api_handle_t        handle,
  * Assert is supported on SwitchX and SwitchX2 only. It is not applicable on Spectrum.
  * On SwitchX, SwitchX2, and Spectrum, the valid manual priority range is 1 - 32.
  * Router action SX_ROUTER_ACTION_SPAN is not supported on any device.
- * RPF actions SX_ROUTER_RPF_ACTION_TRAP_LIST and SX_ROUTER_RPF_ACTION_DROP_LIST
- * are not supported on any device.
+ * in case RPF actions SX_ROUTER_RPF_ACTION_TRAP_LIST and SX_ROUTER_RPF_ACTION_DROP_LIST
+ * a valid RPF Group id must be given (that was previously created).
  *
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -849,6 +1001,9 @@ sx_status_t sx_api_router_mc_route_set(const sx_api_handle_t            handle,
 /**
  * This function gets a multicast route or routes from the MC routing table,
  * based on a given key or criteria.
+ * The COUNT, GET_FIRST and GET_NEXT commands are supported only on Spectrum.
+ * For GET_FIRST and GET_NEXT, the value of mc_route_get_entries_cnt_p must be
+ * smaller or equal to SX_API_MC_ROUTE_GET_MAX_COUNT.
  * The ingress RIF is only considered part of the key for routes that have RPF
  * action SX_ROUTER_RPF_ACTION_DIRECTIONAL. Therefore, routes that were configured
  * with any other RPF action, and with an ingress RIF other than the "don't care"
@@ -859,13 +1014,32 @@ sx_status_t sx_api_router_mc_route_set(const sx_api_handle_t            handle,
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - GET - Get multicast route entry from DB.
+ *                                      COUNT - Get number of MC entries from the DB that match the
+ *                                                      criteria set by filter_p.
+ *                                      GET_FIRST - Spectrum only. Get first MC route entries from DB.
+ *                                                              The maximum number of entries to be returned is
+ *                                                              defined by mc_route_get_entries_cnt_p. The criteria
+ *                                                              according to which entries will be returned is defined
+ *                                                              by filter_p. The last route returned will be in
+ *                                                              mc_route_key_p, and all routes returned will be in
+ *                                                              mc_route_get_entries_list_p.
+ *                                      GET_NEXT - Spectrum only. Get next MC route entries from DB. The
+ *                                                         maximum number of entries to be returned is defined
+ *                                                         by mc_route_get_entries_cnt_p. The criteria according
+ *                                                         to which entries will be returned is defined by filter_p.
+ *                                                         The first entry returned will be the entry after that
+ *                                                         given in mc_route_key_p, which should have been received
+ *                                                         by a previous call to this API with GET_FIRST or GET_NEXT.
+ *                                                         The last route returned will be in mc_route_key_p, and
+ *                                                         all routes returned will be in mc_route_get_entries_list_p.
  * @param[in] vrid - Virtual Router ID.
  * @param[in] mc_route_key_p - mc route entry key
- *                             {Source IP Address, group address, ingress rif}
- * @param[in] filter_p - not supported yet
+ *                                                         {Source IP Address, group address, ingress rif}
+ * @param[in] filter_p - filter according to which MC routes should be returned.
+ *                                       Relevant only for GET_FIRST and GET_NEXT commands.
  * @param[out] mc_route_get_entries_list_p - list of returned MC routes
  * @param[in,out] mc_route_get_entries_cnt_p - as input: number of entries in mc_route_get_entries_list_p
- *                                             as output: number of entries returned in mc_route_get_entries_list_p
+ *                                                                                         as output: number of entries returned in mc_route_get_entries_list_p
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
@@ -1272,7 +1446,55 @@ sx_status_t sx_api_router_ecmp_attributes_get(const sx_api_handle_t handle,
                                               sx_ecmp_attributes_t *attr_p);
 
 /**
+ * This function clone an ECMP container.
+ *
+ * @param[in] handle                 - SX-API handle
+ * @param[in] old_ecmp_id            - Old ID of ECMP container
+ * @param[out] new_ecmp_id_p         - New ID of ECMP
+ *                                     container pointer return
+ *                                     with pointer that
+ *                                     contains the new created
+ *                                     container ID
+ *
+ * @return SX_STATUS_SUCCESS             if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR         if parameter is NULL or exceeds range.
+ * @return SX_STATUS_NO_RESOURCES        if no space for ECMP container allocation.
+ * @return SX_STATUS_ENTRY_NOT_FOUND     if ecmp_id not found.
+ * @return SX_STATUS_ERROR               general error.
+ */
+sx_status_t sx_api_router_ecmp_clone_set(const sx_api_handle_t handle,
+                                         const sx_ecmp_id_t    old_ecmp_id,
+                                         sx_ecmp_id_t         *new_ecmp_id_p);
+
+/**
  * This API is not supported.
+ */
+
+
+/** Manipulate a multicast router Reverse-Path Forwarding group
+ * Command CREATE creates a new RPF group which contains the specified list of
+ * ingress RIFs in rpf_rif_list_p, and returns its new group ID in rpf_group_id_p.
+ * Command SET replaces the contents of an existing RPF group specified by
+ * rpf_group_id_p, with the specified list of ingress RIFs in rpf_rif_list_p.
+ * Command DESTROY deletes the existing RPF group specified by rpf_group_id_p
+ * Command DELETE_ALL deletes all existing RPF groups.
+ * Notes: An RPF group in use by a multicast route cannot be destroyed
+ *        An RPF group may contain only ingress RIFs which belong to the same virtual router
+ *        An RPF group must contain at least one ingress RIF
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - CREATE/SET/DESTROY/DELETE_ALL.
+ * @param[in,out] rpf_group_id_p - Specifies or returns the group ID
+ * @param[in] rpf_rif_list_p - Specifies the list of ingress RIFs in a group
+ * @param[in] rpf_rif_cnt - Specifies the amount of ingress RIFs in rpf_rif_list_p
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified group ID does not exist.
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
+ * @return SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed.
  */
 sx_status_t sx_api_router_mc_rpf_group_set(const sx_api_handle_t   handle,
                                            const sx_access_cmd_t   cmd,
@@ -1281,8 +1503,31 @@ sx_status_t sx_api_router_mc_rpf_group_set(const sx_api_handle_t   handle,
                                            uint32_t                rpf_vif_cnt);
 
 /**
- * This API is not supported.
+ * Retrieve information about a multicast router Reverse-Path Forwarding group
+ * Command GET retrieves information about an RPF group specified by rpf_group_id_p
+ * Command GETFIRST retrieves the first existing RPF group, its ID and contents
+ * Command GETNEXT retrieves the next existing RPF group, its ID and contents
+ * Notes: In order to enumerate all existing RPF groups, a client application may
+ *        call GETFIRST once, and then repeatedly call GETNEXT until all groups are
+ *        retrieved
+ *        If *rpf_rif_cnt_p is 0, then rpf_rif_list_p may be NULL, and only the
+ *        amount of RIFs is returned without the list of RIFs
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - GET/GETFIRST/GETNEXT
+ * @param[in,out] rpf_group_id_p - Specifies a previous group ID or returns a group ID
+ * @param[out] rpf_rif_list_p - Returns a list of ingress RIFs in the group
+ * @param[in,out] rpf_rif_cnt - Specifies the size of rpf_rif_list_p, and returns the amount
+ *                              of ingress RIFs in rpf_rif_list_p
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if specified group ID does not exist, or no more groups.
  */
+
 sx_status_t sx_api_router_mc_rpf_group_get(const sx_api_handle_t   handle,
                                            const sx_access_cmd_t   cmd,
                                            sx_rpf_group_id_t      *rpf_group_id_p,
@@ -1290,7 +1535,25 @@ sx_status_t sx_api_router_mc_rpf_group_get(const sx_api_handle_t   handle,
                                            uint32_t               *rpf_vif_cnt_p);
 
 /**
- * This API is not supported.
+ *  Binds or un-binds a flow counter to an existing multicast route
+ *  Note: A route may be created via a call to sx_api_router_mc_route_set()
+ *        A flow counter may be created via a call to sx_api_flow_counter_set()
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - BIND/UNBIND
+ * @param[in] vrid - Virtual Router ID
+ * @param[in] mc_route_key_p - MC route key
+ * @param[in] counter_id - A flow counter identifier. Applicable only for command BIND
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_PARAM_NULL if any input parameter is null.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if the specified route or flow counter was not found.
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND if mc route already bounded.
+ * @return SX_STATUS_ENTRY_NOT_BOUND if counter was not bound.
+ * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_router_mc_route_counter_bind_set(const sx_api_handle_t      handle,
                                                     const sx_access_cmd_t      cmd,
@@ -1299,7 +1562,22 @@ sx_status_t sx_api_router_mc_route_counter_bind_set(const sx_api_handle_t      h
                                                     const sx_flow_counter_id_t counter_id);
 
 /**
- * This API is not supported.
+ *  Retrieves the flow counter currently bound to a specified multicast route
+ *  Notes: A flow counter may be bound to a route via a call to sx_api_router_mc_route_counter_bind_set()
+ *         If no counter if bound to the specified route, this function returns SUCCESS, and
+ *         sets *counter_id_p to SX_FLOW_COUNTER_ID_INVALID
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] vrid - Virtual Router ID
+ * @param[in] mc_route_key_p - MC route key
+ * @param[out] counter_id_p - Returns the flow counter ID bound to the specified route
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_PARAM_NULL if any input parameter is null.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if the specified route was not found.
+ * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    handle,
                                                     const sx_router_id_t     vrid,

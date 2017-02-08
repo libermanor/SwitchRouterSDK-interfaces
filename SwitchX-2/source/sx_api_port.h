@@ -111,6 +111,22 @@ sx_status_t sx_api_port_device_get(const sx_api_handle_t handle,
                                    uint32_t             *port_cnt_p);
 
 /**
+ *  This API retrieves a device base MAC from the SDK.
+ *  The base MAC is used as a base address for the ports MAC.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] device_id        - device ID
+ * @param[out] base_mac_addr_p - device base MAC
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STAUS_ERROR general error.
+ */
+sx_status_t sx_api_port_device_base_mac_get(const sx_api_handle_t handle,
+                                            const sx_device_id_t  device_id,
+                                            sx_mac_addr_t        *base_mac_addr_p);
+/**
  *  This API sets a ports mapping.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *

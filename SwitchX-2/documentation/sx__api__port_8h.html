@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.3002</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -58,6 +58,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#aeacb0e86f68ff55169aaf669657a22a1">sx_api_port_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a320b05e1b217964e13862e3e20c48b22">sx_api_port_device_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_device_id_t device_id, const sx_mac_addr_t *base_mac_addr_p, sx_port_attributes_t *port_attributes_list_p, const uint32_t port_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af2183e8bd9f2b4301c20dbc281152eb7">sx_api_port_device_get</a> (const sx_api_handle_t handle, const sx_device_id_t device_id, const sx_swid_t swid, sx_port_attributes_t *port_attributes_list_p, uint32_t *port_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#aa2e0b743cdbcbe49a4486ae074352c62">sx_api_port_device_base_mac_get</a> (const sx_api_handle_t handle, const sx_device_id_t device_id, sx_mac_addr_t *base_mac_addr_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ad6b5cce473414e8dd0cccff99f607937">sx_api_port_mapping_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t *log_port_list_p, const sx_port_mapping_t *port_mapping_list_p, const uint32_t port_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ab6aac3d1a251bebecea8661d892ae138">sx_api_port_mapping_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t *log_port_list_p, sx_port_mapping_t *port_mapping_list_p, const uint32_t port_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a8547e671b86adfa81b8914bc6d4a7c9a">sx_api_port_device_list_get</a> (const sx_api_handle_t handle, sx_device_info_t *device_info_list_p, uint32_t *device_info_cnt_p)</td></tr>
@@ -356,6 +357,53 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceed its range </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa2e0b743cdbcbe49a4486ae074352c62"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_device_base_mac_get" ref="aa2e0b743cdbcbe49a4486ae074352c62" args="(const sx_api_handle_t handle, const sx_device_id_t device_id, sx_mac_addr_t *base_mac_addr_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_device_base_mac_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_device_id_t&#160;</td>
+          <td class="paramname"><em>device_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_mac_addr_t *&#160;</td>
+          <td class="paramname"><em>base_mac_addr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves a device base MAC from the SDK. The base MAC is used as a base address for the ports MAC. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">device_id</td><td>- device ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">base_mac_addr_p</td><td>- device base MAC</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STAUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
@@ -3745,6 +3793,6 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received O/W, the appropriate error
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Sep 28 2016 16:16:00 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>
