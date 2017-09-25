@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -74,7 +74,9 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a1eb11c6043ef0aaf7941b424c00bb2e9">sx_api_port_speed_admin_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_speed_capability_t *admin_speed_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a9903aa3a1fec695b1df5a1afd9cce1fb">sx_api_port_speed_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_speed_capability_t *admin_speed_p, sx_port_oper_speed_t *oper_speed_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ac06ca456bb66a95dbd43b418f4455ce9">sx_api_port_capability_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_capability_t *capability_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a02d492ab4853f76e8eb11bbe2178cd6f">sx_api_port_fec_capability_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_fec_capability_t *fec_capability_list_p, uint32_t *fec_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af760dc1277fa07b46d3daa8ac75b5cd7">sx_api_port_phys_addr_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_mac_addr_t *port_mac_addr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ae61ba2b35c7d6d649fdf09ca10e4a613">sx_api_port_phys_addr_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_mac_addr_t *port_mac_addr_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a9c41fd0d58d3a1a376b19ea50e21a87d">sx_api_port_phys_loopback_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_phys_loopback_t phys_loopback)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#acfda04376fd15f844335a23d60e84cba">sx_api_port_phys_loopback_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_phys_loopback_t *phys_loopback_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a086e428d40ce1a614e1684f7c1155875">sx_api_port_state_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_admin_state_t admin_state)</td></tr>
@@ -119,6 +121,23 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ae7497db77430915b70638c5643044a66">sx_api_port_phy_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_phy_speed_t speed, const sx_port_phy_mode_t admin_mode)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af025d901dace3b52c1c96874cdb54250">sx_api_port_phy_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_phy_speed_t speed, sx_port_phy_mode_t *admin_mode_p, sx_port_phy_mode_t *oper_mode_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a8d7eba93b6d86d73d3f15c6a070d9ee6">sx_api_port_discard_reason_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_port_discard_reason_t *discard_reason_list_p, const uint32_t list_count)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#afd76c376d228a7132221481c9ac2c52d">sx_api_port_forwarding_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_forwarding_mode_t admin_fwd_mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a6faebd4529a3119a93941b51ff63213c">sx_api_port_forwarding_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_forwarding_mode_t *admin_fwd_mode_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a994472bd0de2e3bbd71a4090a7fb853a">sx_api_port_parsing_depth_set</a> (const sx_api_handle_t handle, const uint16_t parsing_depth)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a7787e441d72b3923373592cedfa66b8f">sx_api_port_parsing_depth_get</a> (const sx_api_handle_t handle, uint16_t *parsing_depth_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ad81cab6adb1ff0e9e00da8b71a9c0dc7">sx_api_port_vlan_ethertype_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_vlan_ethertype_t *ether_types_list_p, uint32_t ether_type_count)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a9e2c1c1165721f2dd979baaad7aa06c8">sx_api_port_vlan_ethertype_get</a> (const sx_api_handle_t handle, sx_vlan_ethertype_t *ether_types_list_p, uint32_t *ether_type_count_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a5cde445f80ba07b374ec43d429258213">sx_api_port_ber_threshold_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_ber_fec_profile_e fec_profile, const sx_port_ber_fec_profile_threshold_data_t threshold_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a8f667dd7b660b94b62792c1ae69e5fce">sx_api_port_ber_threshold_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_ber_fec_profile_e fec_profile, sx_port_ber_fec_profile_threshold_data_t *threshold_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a1b8fe894b0b098f71d6dc7377857f704">sx_api_port_ber_monitor_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_ber_monitor_data_t monitor_data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a24be4d40087906caa89dd9da0c42bec1">sx_api_port_ber_monitor_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_ber_monitor_data_t *monitor_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a90aed399a13799019672e507f020e62e">sx_api_port_ber_monitor_operational_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_ber_monitor_oper_data_t *monitor_oper_data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a4862f48efbaf9707fe354b1f5b42f2f8">sx_api_port_sll_set</a> (const sx_api_handle_t handle, const uint64_t sll_max_time)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a47cddb263aaa3520ba641e528f138acc">sx_api_port_sll_get</a> (const sx_api_handle_t handle, uint64_t *sll_max_time_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#afd7e583a74d6398fbb03edf451688d1c">sx_api_port_hll_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const uint32_t hll_max_time, const uint32_t hll_stall_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#acb57f0fe402abeb9d42d47ac6a575762">sx_api_port_hll_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, uint32_t *hll_max_time_p, uint32_t *hll_stall_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ac3aec8abde92ea8e8d6fa29b3a598b93">sx_api_port_crc_params_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_crc_params_t *crc_params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a334fed1bc4eeccb5066c6c68fa56016f">sx_api_port_crc_params_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_crc_params_t *crc_params_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ac3457a41837c6780bbf94b56dd2a0cd4"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_log_verbosity_level_set" ref="ac3457a41837c6780bbf94b56dd2a0cd4" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -743,7 +762,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if SWID is out of range </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API retrieves a logical port's binded SWID. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API retrieves a logical port's bound SWID. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -955,7 +974,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical Port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mtu_size</td><td>- new MTU payload size. SDK adds L2 header size bytes to this value.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mtu_size</td><td>- new MTU size. The MTU size is L2 frame size (payload size + L2 header size).</td></tr>
   </table>
   </dd>
 </dl>
@@ -1008,8 +1027,8 @@ SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">max_mtu_size_p</td><td>- maximum MTU supported on this port (payload size) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">oper_mtu_size_p</td><td>- operational MTU configured on this port (payload size)</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">max_mtu_size_p</td><td>- maximum MTU supported on this port (L2 frame size) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">oper_mtu_size_p</td><td>- operational MTU configured on this port (L2 frame size)</td></tr>
   </table>
   </dd>
 </dl>
@@ -1168,7 +1187,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API retrieves the port's supported capabilities from the SDK. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API retrieves the port's supported capabilities from the SDK. HW capabilities are not configurable. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1186,6 +1205,64 @@ SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a02d492ab4853f76e8eb11bbe2178cd6f"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_fec_capability_get" ref="a02d492ab4853f76e8eb11bbe2178cd6f" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_fec_capability_t *fec_capability_list_p, uint32_t *fec_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_fec_capability_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_fec_capability_t *&#160;</td>
+          <td class="paramname"><em>fec_capability_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>fec_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves the port's supported FEC capabilities from the SDK Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">fec_capability_list_p</td><td>- List of capabilities and corresponding speeds </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">fec_cnt_p</td><td>- [in] Number of entries to get, [out] Number of entries in returned list If fec_capability_list is NULL or fec_cnt is 0 returns Count instead</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 
@@ -1225,8 +1302,59 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical lort ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical Port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">port_mac_addr_p</td><td>- current base MAC address</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae61ba2b35c7d6d649fdf09ca10e4a613"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_phys_addr_set" ref="ae61ba2b35c7d6d649fdf09ca10e4a613" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_mac_addr_t *port_mac_addr_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_phys_addr_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mac_addr_t *&#160;</td>
+          <td class="paramname"><em>port_mac_addr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API sets the port's physical address (MAC). Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">port_mac_addr_p</td><td>- new MAC address</td></tr>
   </table>
   </dd>
 </dl>
@@ -2094,7 +2222,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 </div>
 <div class="memdoc">
 <p>This API retrieves the port's traffic class counters. Note: The API does not support LAG nor VPORT.</p>
-<p>For Spectrum device, in UC mode Tx UC octects and Tx UC frames counters are available only for TC ID 0 - 7.</p>
+<p>For Spectrum device, in UC mode Tx UC octets and Tx UC frames counters are available only for TC ID 0 - 7.</p>
 <p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -2159,7 +2287,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 </div>
 <div class="memdoc">
 <p>This API retrieves the port buffer counters from the SDK. When a LAG port is given, the result is the sum of all the LAG ports counters.</p>
-<p>In UC mode Rx Uc octects, Rx UC frames, and Rx discard counters are available only for Buff ID 0 - 7.</p>
+<p>In UC mode Rx Uc octets, Rx UC frames, and Rx discard counters are available only for Buff ID 0 - 7. Shared buffer discard counter is not supported on Spectrum.</p>
 <p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -2229,7 +2357,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">prio_id</td><td>- counters priority ID . In Spectrum support only prio_id=0 is suppoted. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">prio_id</td><td>- counters priority ID . In Spectrum only prio_id=0 is supported. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">cntr_perf_p</td><td>- performance counters entry</td></tr>
   </table>
   </dd>
@@ -3754,7 +3882,10 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API enables to read/clear discard reason Supported devices: Spectrum</p>
+<p>This API enables to read/clear discard reason</p>
+<p>Supported devices: Spectrum</p>
+<p>This release does not support the following causes: ip_discard: sx_port_cause_t packet_to_router_is_not_ip sx_port_cause_t dip_is_loopback sx_port_cause_t sip_is_in_class sx_port_cause_t sip is loopback sx_port_cause_t ip header not okay sx_port_cause_t ipv4 sip is limited broadcast sx_port_cause_t lpm ipv6 miss sx_port_cause_t IPv4 dip is limited broadcast sx_port_cause_t IPv4 dip is local sx_port_cause_t NVE packet to overlay router</p>
+<p>MPLS_discard: sx_port_cause_t outer_label_is_not_valid sx_port_cause_t no_IP_after_decap sx_port_cause_t expected_Bos_but_pop_did_not_expose_BoS; sx_port_cause_t php_decap_and_no_ip_header_or_ip_header_is_not_okay</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3771,6 +3902,844 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received O/W, the appropriate error code it returned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afd76c376d228a7132221481c9ac2c52d"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_forwarding_mode_set" ref="afd76c376d228a7132221481c9ac2c52d" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_forwarding_mode_t admin_fwd_mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_forwarding_mode_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_forwarding_mode_t&#160;</td>
+          <td class="paramname"><em>admin_fwd_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API sets the port's forwarding mode (cut-through vs. store-and-forward) in the SDK. Note: Port operational forwarding mode will be updated only after port toggling. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical Port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">admin_fwd_mode</td><td>- new administrative forwarding mode</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6faebd4529a3119a93941b51ff63213c"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_forwarding_mode_get" ref="a6faebd4529a3119a93941b51ff63213c" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_forwarding_mode_t *admin_fwd_mode_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_forwarding_mode_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_forwarding_mode_t *&#160;</td>
+          <td class="paramname"><em>admin_fwd_mode_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves the port's forwarding mode (cut-through vs. store-and-forward) from the SDK. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">admin_fwd_mode_p</td><td>- administrative forwarding mode configured on this port</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a994472bd0de2e3bbd71a4090a7fb853a"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_parsing_depth_set" ref="a994472bd0de2e3bbd71a4090a7fb853a" args="(const sx_api_handle_t handle, const uint16_t parsing_depth)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_parsing_depth_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>parsing_depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API set the chip parsing depth in bytes . Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parsing_depth</td><td>- parsing depth in bytes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7787e441d72b3923373592cedfa66b8f"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_parsing_depth_get" ref="a7787e441d72b3923373592cedfa66b8f" args="(const sx_api_handle_t handle, uint16_t *parsing_depth_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_parsing_depth_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>parsing_depth_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves the chip parsing depth . Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">parsing_depth_p</td><td>- return parsing depth in bytes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad81cab6adb1ff0e9e00da8b71a9c0dc7"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_vlan_ethertype_set" ref="ad81cab6adb1ff0e9e00da8b71a9c0dc7" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_vlan_ethertype_t *ether_types_list_p, uint32_t ether_type_count)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_vlan_ethertype_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_vlan_ethertype_t *&#160;</td>
+          <td class="paramname"><em>ether_types_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>ether_type_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to set Ethertypes globally. Note that Ethertype 0x8100 will always be configured by default. This API allows the user to configure additional Ethertypes per function.</p>
+<p>Supported devices: Spectrum </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE . </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ether_types_p</td><td>- a pointer to struct holding a list of ether_types </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ether_type_count</td><td>- number of Ethertypes being configured (Max 1 in Spectrum)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any of the parameters are in Error. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if no resources are available </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if a DELETE is called on a non-existent Ethertype </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if a DELETE is called while a resource is in use </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9e2c1c1165721f2dd979baaad7aa06c8"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_vlan_ethertype_get" ref="a9e2c1c1165721f2dd979baaad7aa06c8" args="(const sx_api_handle_t handle, sx_vlan_ethertype_t *ether_types_list_p, uint32_t *ether_type_count_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_vlan_ethertype_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_vlan_ethertype_t *&#160;</td>
+          <td class="paramname"><em>ether_types_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>ether_type_count_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API gets a list of user configured Ethertypes. Note that 0x8100 is always configured and will not be retrieved. Supported devices: Spectrum</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ether_types_p</td><td>- a pointer to struct to hold the retrieved list </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ether_type_count</td><td>- number of Ethertypes being retrieved. If ether_type_count==0,returns count instead.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any of the parameters are in Error. </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5cde445f80ba07b374ec43d429258213"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_ber_threshold_set" ref="a5cde445f80ba07b374ec43d429258213" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_ber_fec_profile_e fec_profile, const sx_port_ber_fec_profile_threshold_data_t threshold_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ber_threshold_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_ber_fec_profile_e&#160;</td>
+          <td class="paramname"><em>fec_profile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_ber_fec_profile_threshold_data_t&#160;</td>
+          <td class="paramname"><em>threshold_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to set values to the different Bit Error Rate profiles. Supported devices: Spectrum.</p>
+<p>Min/max values: |--------------------------------| | Monitor | Min | Max | |--------------------------------| |RS-FEC Pre-FEC | 1e-9 | 1e-4 | |--------------------------------| |FC-FEC PRE-FEC | 1e-11 | 1e-4 | |--------------------------------| |NO-FEC/Post-FEC | 1e-14 | 1e-8 | |--------------------------------|</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Network port only. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fec_profile</td><td>- The FEC profile to be used (RS/FC/NO). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">threshold_data</td><td>- Threshold values to set. Values of fraction of errors. Final BER monitor threshold should be between 0 and 1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f667dd7b660b94b62792c1ae69e5fce"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_ber_threshold_get" ref="a8f667dd7b660b94b62792c1ae69e5fce" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_ber_fec_profile_e fec_profile, sx_port_ber_fec_profile_threshold_data_t *threshold_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ber_threshold_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_ber_fec_profile_e&#160;</td>
+          <td class="paramname"><em>fec_profile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ber_fec_profile_threshold_data_t *&#160;</td>
+          <td class="paramname"><em>threshold_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to retrieve values of the different Bit Error Rate profiles. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Network port only. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fec_profile</td><td>- The FEC profile to retrieve (RS/FC/NO). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">threshold_data_p</td><td>- Threshold values.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1b8fe894b0b098f71d6dc7377857f704"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_ber_monitor_set" ref="a1b8fe894b0b098f71d6dc7377857f704" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_ber_monitor_data_t monitor_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ber_monitor_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_ber_monitor_data_t&#160;</td>
+          <td class="paramname"><em>monitor_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to configure the Bit Error Rate Monitor. It is recommended to use sx_api_port_ber_monitor_operational_get after configuring this API to retrieve the FEC status that is configured. This API is orthogonal to the port FEC configuration. It is recommended to first register to SX_TRAP_ID_BER_MONITOR and then setting the monitor data so the first event will be the current status. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- The port to which to set the monitor. Only network ports are supported. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">monitor_data</td><td>- The monitor attributes to configure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a24be4d40087906caa89dd9da0c42bec1"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_ber_monitor_get" ref="a24be4d40087906caa89dd9da0c42bec1" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_ber_monitor_data_t *monitor_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ber_monitor_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ber_monitor_data_t *&#160;</td>
+          <td class="paramname"><em>monitor_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to retrieve values configured to the Bit Error Rate Monitor. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- The port to which the monitor is configured. Only network ports are supported. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">monitor_data_p</td><td>- Structure to hold the desired data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a90aed399a13799019672e507f020e62e"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_ber_monitor_operational_get" ref="a90aed399a13799019672e507f020e62e" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_ber_monitor_oper_data_t *monitor_oper_data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ber_monitor_operational_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ber_monitor_oper_data_t *&#160;</td>
+          <td class="paramname"><em>monitor_oper_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to retrieve the current state of the Bit Error Rate Monitor. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- The port to which the monitor is configured. Only network ports are supported. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">monitor_oper_data_p</td><td>- Structure to hold the desired data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if cannot allocate resources. </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4862f48efbaf9707fe354b1f5b42f2f8"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_sll_set" ref="a4862f48efbaf9707fe354b1f5b42f2f8" args="(const sx_api_handle_t handle, const uint64_t sll_max_time)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_sll_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>sll_max_time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>SLL is the max lifetime of a frame within the switch after which it is discarded. This function SETs the sll_max_time in microseconds.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sll_max_time</td><td>- The sll duration in micro seconds Min val = 4usec. Max val = 4398046511 usec (or 4398sec) Any value greater than max implies NO SLL i.e packets are never aged &amp; discarded. SDK will round the sll duration to: (the lowest power of 2 &gt;= sll) * 4.096 For e.g. 500000 will be rounded up to 536871</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behaviour occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a47cddb263aaa3520ba641e528f138acc"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_sll_get" ref="a47cddb263aaa3520ba641e528f138acc" args="(const sx_api_handle_t handle, uint64_t *sll_max_time_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_sll_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t *&#160;</td>
+          <td class="paramname"><em>sll_max_time_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>SLL is the max lifetime of a frame within the switch after which it is discarded. This function GETs the system sll_max_time in microseconds.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sll_max_time_p</td><td>- The sll duration in micro seconds .</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behaviour occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afd7e583a74d6398fbb03edf451688d1c"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_hll_set" ref="afd7e583a74d6398fbb03edf451688d1c" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const uint32_t hll_max_time, const uint32_t hll_stall_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_hll_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>hll_max_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>hll_stall_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>HLL is a mechanism that discards packets that are awaiting transmission at the head of a scheduling group queue. The max duration a packet can wait in the queue is configurable After a certain number of packets are discarded, this scheduling group may enter the STALL state if enabled. This function SETs hll_max_time and the hll_stall_cnt for a given port</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- the local port. Only Physical ports and LAG Ports are allowed. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hll_max_time</td><td>- The HLL duration in micro seconds. Min val = 4usec. Max val = 2147483usec (or 2sec) Any value greater than max implies infinite HLL(or No HLL) SDK will round the hll time to: (the lowest power of 2 &gt;= hll) * 4.096 For e.g. 10000 will be rounded up to 16777 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hll_stall_cnt</td><td>- Number of packets that need to be discarded after which the queue enters stall state. Valid range [0-7]; Default = 7; 0 = Stall Disabled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acb57f0fe402abeb9d42d47ac6a575762"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_hll_get" ref="acb57f0fe402abeb9d42d47ac6a575762" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, uint32_t *hll_max_time_p, uint32_t *hll_stall_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_hll_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>hll_max_time_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>hll_stall_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>HLL is a mechanism that discards packets that are awaiting transmission at the head of a scheduling group queue. The max duration a packet can wait in the queue is configurable After a certain number of packets are discarded, this scheduling group may enter the STALL state if enabled. This function GETs hll_max_time and the hll_stall_cnt for a given port</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- the local port. Only Physical ports and LAG Ports are allowed. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">hll_max_time_p</td><td>- The HLL duration in micro seconds rounded up to: ((nearest power of 2) * 4.096) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">hll_stall_cnt_p</td><td>- Number of packets that need to be discarded after which the queue enters stall state. Valid range [0-7]; 0 = Stall Disabled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3aec8abde92ea8e8d6fa29b3a598b93"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_crc_params_set" ref="ac3aec8abde92ea8e8d6fa29b3a598b93" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_crc_params_t *crc_params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_crc_params_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_crc_params_t *&#160;</td>
+          <td class="paramname"><em>crc_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API sets the options for how the port handles CRCs in the SDK. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical Port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">crc_params</td><td>- CRC handling options</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a334fed1bc4eeccb5066c6c68fa56016f"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_crc_params_get" ref="a334fed1bc4eeccb5066c6c68fa56016f" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_crc_params_t *crc_params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_crc_params_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_crc_params_t *&#160;</td>
+          <td class="paramname"><em>crc_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API gets the current options for how the port handles CRCs in the SDK. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical Port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">crc_params</td><td>- CRC handling options</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 
 </div>
 </div>
@@ -3793,6 +4762,6 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received O/W, the appropriate error
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -116,6 +116,79 @@ sx_status_t sx_api_lag_port_group_get(const sx_api_handle_t  handle,
                                       const sx_port_log_id_t lag_log_port,
                                       sx_port_log_id_t      *log_port_list_p,
                                       uint32_t              *log_port_cnt_p);
+
+
+/**
+ *  This function retrieves a list of one or more LAG IDs.
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, swid = valid, lag_id = X, lag_id_list = X,
+ *        lag_id_cnt = 0:
+ *        In this case the API will return the total number of LAG IDs in
+ *        the internal DB.
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, swid = valid, lag_id = valid/invalid,
+ *        lag_id_list = valid, lag_id_cnt = 1:
+ *        In this case the API will check if the specified LAG ID exists.
+ *        If it does, the LAG ID will be returned in the lag_id_list along with a
+ *        lag_id_cnt of 1.
+ *        If the LAG ID does not exist, an empty list will be returned with
+ *        lag_id_cnt = 0.
+ *        A non-NULL lag_id_list pointer must be provided in this case.
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, swid = valid, lag_id = valid/invalid,
+ *        lag_id_list = valid, lag_id_cnt > 1:
+ *        An lag_id_cnt > 1 will be treated as a lag_id_cnt of 1 and the behavior will be
+ *        same as the earlier GET use cases.
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, swid = X, lag_id = X,
+ *        lag_id_list = NULL, lag_id_cnt = 0:
+ *        A zero lag_id_cnt and an empty lag_id_list will be returned.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, lag_id = X,
+ *        lag_id_list = valid, lag_id_cnt > 0:
+ *        In this case the API will return the first lag_id_cnt LAG IDs starting
+ *        from the head of the database. The total number of elements fetched will be
+ *        returned as lag_id_cnt. Note: returned lag_id_cnt may be less than or equal to
+ *        the requested lag_id_cnt. The input LAG ID is ignored in this case.
+ *        A non-NULL lag_id_list pointer must be provided in this case.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, lag_id = valid/invalid,
+ *        lag_id_list = valid, lag_id_cnt > 0:
+ *        In this case the API will return the next set of LAG IDs starting from
+ *        the next LAG ID after the specified LAG ID. The total number of
+ *        elements fetched will be returned as the lag_id_cnt.
+ *        Note: returned lag_id_cnt may be less than or equal to the requested lag_id_cnt.
+ *        If no valid next LAG ID exists in the db, an empty list will be returned.
+ *        A non-NULL lag_id_list pointer must be provided in this case.
+ *
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle                  - SX-API handle
+ * @param [in] cmd                    - GET/GET_FIRST/GET_NEXT
+ * @param[in] swid                    - virtual switch partition ID
+ * @param[in] lag_id                  - LAG ID
+ * @param [in] filter_p               - specify a filter parameter (not supported yet)
+ * @param [out] lag_id_list_p         - return list of LAG IDs
+ * @param [in,out] lag_id_cnt_p       - [in] number of LAG IDs to get
+ *                                    - [out] number of LAG IDs returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_lag_port_group_iter_get(const sx_api_handle_t  handle,
+                                           const sx_access_cmd_t  cmd,
+                                           const sx_swid_t        swid,
+                                           const sx_port_log_id_t lag_id,
+                                           const sx_lag_filter_t *filter_p,
+                                           sx_port_log_id_t      *lag_id_list_p,
+                                           uint32_t              *lag_id_cnt_p);
 
 
 /**

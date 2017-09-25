@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -142,5 +142,27 @@ sx_status_t sx_api_sx_sdk_version_get(const sx_api_handle_t     handle,
  */
 sx_status_t sx_api_transaction_mode_set(const sx_api_handle_t handle,
                                         const sx_access_cmd_t cmd);
+
+/**
+ * This API is used to get the reference count of an SDK object.
+ * On SwitchX and SwitchX2, for RIF and VRID objects, the reference count
+ * returned will actually be a Boolean value that determines whether or not the
+ * object is referenced.
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum-A1.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] object_id_p - Object ID
+ * @param[out] refcount_p - reference count of object
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if router object isn't found.
+ * @return SX_STATUS_ERROR if a general error occurs.
+ */
+sx_status_t sx_api_object_refcount_get(const sx_api_handle_t handle,
+                                       const sx_object_id_t *object_id_p,
+                                       uint32_t             *refcount_p);
 
 #endif /* __SX_API_INIT_H__ */

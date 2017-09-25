@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -61,6 +61,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a520555e24b03155144e7f49a57ee6757">sx_api_sdk_init_set</a> (const sx_api_handle_t handle, const sx_api_sx_sdk_init_t *sdk_init_params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a24bf5f372afe4708cae42d5df1eca0b1">sx_api_sx_sdk_version_get</a> (const sx_api_handle_t handle, sx_api_sx_sdk_versions_t *versions_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a56fbf53744ec0aa68cffde1672aee079">sx_api_transaction_mode_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a381643064a8af7b94e3ed6ff32e08af2">sx_api_object_refcount_get</a> (const sx_api_handle_t handle, const sx_object_id_t *object_id_p, uint32_t *refcount_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a05dd4f8705dd589f2a3b43b82732f36f"></a><!-- doxytag: member="sx_api_init.h::sx_api_system_log_verbosity_level_set" ref="a05dd4f8705dd589f2a3b43b82732f36f" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -368,6 +369,58 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a381643064a8af7b94e3ed6ff32e08af2"></a><!-- doxytag: member="sx_api_init.h::sx_api_object_refcount_get" ref="a381643064a8af7b94e3ed6ff32e08af2" args="(const sx_api_handle_t handle, const sx_object_id_t *object_id_p, uint32_t *refcount_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_object_refcount_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_object_id_t *&#160;</td>
+          <td class="paramname"><em>object_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>refcount_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API is used to get the reference count of an SDK object. On SwitchX and SwitchX2, for RIF and VRID objects, the reference count returned will actually be a Boolean value that determines whether or not the object is referenced.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum-A1.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object_id_p</td><td>- Object ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">refcount_p</td><td>- reference count of object</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if router object isn't found. </dd>
+<dd>
+SX_STATUS_ERROR if a general error occurs. </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -387,6 +440,6 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

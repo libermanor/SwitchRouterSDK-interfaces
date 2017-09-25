@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -66,6 +66,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mstp_8h.html#aa9ce8341e5d61c516654fb637925723d">sx_api_mstp_inst_port_state_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_mstp_inst_id_t inst_id, const sx_port_log_id_t log_port, sx_mstp_inst_port_state_t *port_state_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mstp_8h.html#ad6091fc2cc6d63a1b66ac0ed258ef8a9">sx_api_rstp_port_state_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_mstp_inst_port_state_t port_state)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mstp_8h.html#a50ecddd2f2b9d85b1c071d1a4476fe14">sx_api_rstp_port_state_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_mstp_inst_port_state_t *port_state_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mstp_8h.html#a4fabf037b5bdb07a34246aae20440b27">sx_api_mstp_exclude_port_state_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_mstp_exclude_port_state_t port_state)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mstp_8h.html#ac0c2577711d05e3d9b1af7292f1fe8d3">sx_api_mstp_exclude_port_state_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_mstp_exclude_port_state_t *port_state_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a45c4bfa701c68edbb00a9402f65fb765"></a><!-- doxytag: member="sx_api_mstp.h::sx_api_mstp_log_verbosity_level_set" ref="a45c4bfa701c68edbb00a9402f65fb765" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -838,6 +840,116 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a4fabf037b5bdb07a34246aae20440b27"></a><!-- doxytag: member="sx_api_mstp.h::sx_api_mstp_exclude_port_state_set" ref="a4fabf037b5bdb07a34246aae20440b27" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_mstp_exclude_port_state_t port_state)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_mstp_exclude_port_state_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mstp_exclude_port_state_t&#160;</td>
+          <td class="paramname"><em>port_state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function excludes a port from STP and sets forwarding state to all it's vlans. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>- excluded state NORMAL/FORWARD</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac0c2577711d05e3d9b1af7292f1fe8d3"></a><!-- doxytag: member="sx_api_mstp.h::sx_api_mstp_exclude_port_state_get" ref="ac0c2577711d05e3d9b1af7292f1fe8d3" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_mstp_exclude_port_state_t *port_state_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_mstp_exclude_port_state_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_mstp_exclude_port_state_t *&#160;</td>
+          <td class="paramname"><em>port_state_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves exclude state for a port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">state_p</td><td>- excluded state, NORMAL/FORWARD</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -857,6 +969,6 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="sx__api__tunnel_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
+<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
 <a name="l00005"></a>00005 <span class="comment"> *    not use this file except in compliance with the License. You may obtain</span>
@@ -81,72 +81,79 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00061"></a>00061                                                   sx_verbosity_level_t           *module_verbosity_level_p,
 <a name="l00062"></a>00062                                                   sx_verbosity_level_t           *api_verbosity_level_p);
 <a name="l00063"></a>00063 
-<a name="l00082"></a>00082 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#aa7ec5c4b2f9b81ec479dad1b50d9ba52">sx_api_tunnel_set</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
-<a name="l00083"></a>00083                               <span class="keyword">const</span> sx_access_cmd_t        cmd,
-<a name="l00084"></a>00084                               <span class="keyword">const</span> sx_tunnel_attribute_t *tunnel_attr_p,
-<a name="l00085"></a>00085                               sx_tunnel_id_t              *tunnel_id_p);
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087 
-<a name="l00101"></a>00101 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#ac22113f980b5750d68d351869bd87588">sx_api_tunnel_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00102"></a>00102                               <span class="keyword">const</span> sx_tunnel_id_t   tunnel_id,
-<a name="l00103"></a>00103                               sx_tunnel_attribute_t *tunnel_attr_p);
-<a name="l00104"></a>00104 
-<a name="l00119"></a>00119 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a5a9ad0f9d5aba9b3d67571f3d32f5acd">sx_api_tunnel_counter_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00120"></a>00120                                       <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00121"></a>00121                                       <span class="keyword">const</span> sx_tunnel_id_t  tunnel_id,
-<a name="l00122"></a>00122                                       sx_tunnel_counter_t  *counter);
-<a name="l00123"></a>00123 
-<a name="l00144"></a>00144 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#af16b2ae1f5bf4f1475c69302b2eb42e8">sx_api_tunnel_decap_rules_set</a>(<span class="keyword">const</span> sx_api_handle_t               handle,
-<a name="l00145"></a>00145                                           <span class="keyword">const</span> sx_access_cmd_t               cmd,
-<a name="l00146"></a>00146                                           <span class="keyword">const</span> sx_tunnel_decap_entry_key_t  *decap_key_p,
-<a name="l00147"></a>00147                                           <span class="keyword">const</span> sx_tunnel_decap_entry_data_t *decap_data_p);
-<a name="l00148"></a>00148 
-<a name="l00163"></a>00163 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a89448d7a5bf4dfdce358d149fbd5094a">sx_api_tunnel_decap_rules_get</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
-<a name="l00164"></a>00164                                           <span class="keyword">const</span> sx_tunnel_decap_entry_key_t *decap_key_p,
-<a name="l00165"></a>00165                                           sx_tunnel_decap_entry_data_t      *decap_data_p);
-<a name="l00166"></a>00166 
-<a name="l00178"></a>00178 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a19ad038ffde3ed3d010d3ac13791c030">sx_api_tunnel_init_set</a>(<span class="keyword">const</span> sx_api_handle_t handle, sx_tunnel_general_params_t *params_p);
-<a name="l00179"></a>00179 
-<a name="l00189"></a>00189 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a8a5441bcc9b92faf2210b9245091e9d1">sx_api_tunnel_deinit_set</a>(<span class="keyword">const</span> sx_api_handle_t handle);
+<a name="l00084"></a>00084 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#aa7ec5c4b2f9b81ec479dad1b50d9ba52">sx_api_tunnel_set</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
+<a name="l00085"></a>00085                               <span class="keyword">const</span> sx_access_cmd_t        cmd,
+<a name="l00086"></a>00086                               <span class="keyword">const</span> sx_tunnel_attribute_t *tunnel_attr_p,
+<a name="l00087"></a>00087                               sx_tunnel_id_t              *tunnel_id_p);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 
+<a name="l00104"></a>00104 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#ac22113f980b5750d68d351869bd87588">sx_api_tunnel_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00105"></a>00105                               <span class="keyword">const</span> sx_tunnel_id_t   tunnel_id,
+<a name="l00106"></a>00106                               sx_tunnel_attribute_t *tunnel_attr_p);
+<a name="l00107"></a>00107 
+<a name="l00123"></a>00123 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a5a9ad0f9d5aba9b3d67571f3d32f5acd">sx_api_tunnel_counter_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00124"></a>00124                                       <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00125"></a>00125                                       <span class="keyword">const</span> sx_tunnel_id_t  tunnel_id,
+<a name="l00126"></a>00126                                       sx_tunnel_counter_t  *counter);
+<a name="l00127"></a>00127 
+<a name="l00151"></a>00151 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#af16b2ae1f5bf4f1475c69302b2eb42e8">sx_api_tunnel_decap_rules_set</a>(<span class="keyword">const</span> sx_api_handle_t               handle,
+<a name="l00152"></a>00152                                           <span class="keyword">const</span> sx_access_cmd_t               cmd,
+<a name="l00153"></a>00153                                           <span class="keyword">const</span> sx_tunnel_decap_entry_key_t  *decap_key_p,
+<a name="l00154"></a>00154                                           <span class="keyword">const</span> sx_tunnel_decap_entry_data_t *decap_data_p);
+<a name="l00155"></a>00155 
+<a name="l00171"></a>00171 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a89448d7a5bf4dfdce358d149fbd5094a">sx_api_tunnel_decap_rules_get</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
+<a name="l00172"></a>00172                                           <span class="keyword">const</span> sx_tunnel_decap_entry_key_t *decap_key_p,
+<a name="l00173"></a>00173                                           sx_tunnel_decap_entry_data_t      *decap_data_p);
+<a name="l00174"></a>00174 
+<a name="l00189"></a>00189 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a19ad038ffde3ed3d010d3ac13791c030">sx_api_tunnel_init_set</a>(<span class="keyword">const</span> sx_api_handle_t handle, sx_tunnel_general_params_t *params_p);
 <a name="l00190"></a>00190 
-<a name="l00209"></a>00209 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a1b0289ce12b688e179afd12b033eb310">sx_api_tunnel_map_set</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
-<a name="l00210"></a>00210                                   <span class="keyword">const</span> sx_access_cmd_t         cmd,
-<a name="l00211"></a>00211                                   <span class="keyword">const</span> sx_tunnel_id_t          tunnel_id,
-<a name="l00212"></a>00212                                   <span class="keyword">const</span> sx_tunnel_map_entry_t * map_entries_p,
-<a name="l00213"></a>00213                                   <span class="keyword">const</span> uint32_t                map_entries_cnt);
-<a name="l00214"></a>00214 
-<a name="l00245"></a>00245 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#afa6753f86e8ddfdb89212f2396421d1b">sx_api_tunnel_map_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00246"></a>00246                                   <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l00247"></a>00247                                   <span class="keyword">const</span> sx_tunnel_id_t    tunnel_id,
-<a name="l00248"></a>00248                                   sx_tunnel_map_entry_t   map_entry_key,
-<a name="l00249"></a>00249                                   sx_tunnel_map_entry_t * map_entries_p,
-<a name="l00250"></a>00250                                   uint32_t              * map_entries_cnt_p);
-<a name="l00251"></a>00251 
-<a name="l00274"></a>00274 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#afa0850ddee0e9d5de66c019d34c58298">sx_api_tunnel_ttl_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00275"></a>00275                                   <span class="keyword">const</span> sx_tunnel_id_t        tunnel_id,
-<a name="l00276"></a>00276                                   <span class="keyword">const</span> sx_tunnel_ttl_data_t *ttl_data_p);
-<a name="l00277"></a>00277 
-<a name="l00294"></a>00294 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a051e78da067e72db6d6bd0d0354a164e">sx_api_tunnel_ttl_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00295"></a>00295                                   <span class="keyword">const</span> sx_tunnel_id_t  tunnel_id,
-<a name="l00296"></a>00296                                   sx_tunnel_ttl_data_t *ttl_data_p);
-<a name="l00297"></a>00297 
-<a name="l00320"></a>00320 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#adacaed82de539dde10f0f224c8481131">sx_api_tunnel_hash_set</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
-<a name="l00321"></a>00321                                    <span class="keyword">const</span> sx_tunnel_id_t         tunnel_id,
-<a name="l00322"></a>00322                                    <span class="keyword">const</span> sx_tunnel_hash_data_t *hash_data_p);
-<a name="l00323"></a>00323 
-<a name="l00340"></a>00340 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a4913cbbdda820ade6c31286205243ef3">sx_api_tunnel_hash_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00341"></a>00341                                    <span class="keyword">const</span> sx_tunnel_id_t   tunnel_id,
-<a name="l00342"></a>00342                                    sx_tunnel_hash_data_t *hash_data_p);
-<a name="l00343"></a>00343 
-<a name="l00362"></a>00362 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a8282a313296ef7e26c11baaa74f5e09e">sx_api_tunnel_cos_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00363"></a>00363                                   <span class="keyword">const</span> sx_tunnel_id_t        tunnel_id,
-<a name="l00364"></a>00364                                   <span class="keyword">const</span> sx_tunnel_cos_data_t *cos_data_p);
-<a name="l00382"></a>00382 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#af8ccc19db14cb9bb25d7c573942e4a80">sx_api_tunnel_cos_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00383"></a>00383                                   <span class="keyword">const</span> sx_tunnel_id_t  tunnel_id,
-<a name="l00384"></a>00384                                   sx_tunnel_cos_data_t *cos_data_p);
-<a name="l00385"></a>00385 
-<a name="l00386"></a>00386 
-<a name="l00387"></a>00387 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_TUNNEL_H__ */</span>
+<a name="l00200"></a>00200 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a8a5441bcc9b92faf2210b9245091e9d1">sx_api_tunnel_deinit_set</a>(<span class="keyword">const</span> sx_api_handle_t handle);
+<a name="l00201"></a>00201 
+<a name="l00223"></a>00223 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a1b0289ce12b688e179afd12b033eb310">sx_api_tunnel_map_set</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
+<a name="l00224"></a>00224                                   <span class="keyword">const</span> sx_access_cmd_t         cmd,
+<a name="l00225"></a>00225                                   <span class="keyword">const</span> sx_tunnel_id_t          tunnel_id,
+<a name="l00226"></a>00226                                   <span class="keyword">const</span> sx_tunnel_map_entry_t * map_entries_p,
+<a name="l00227"></a>00227                                   <span class="keyword">const</span> uint32_t                map_entries_cnt);
+<a name="l00228"></a>00228 
+<a name="l00260"></a>00260 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#afa6753f86e8ddfdb89212f2396421d1b">sx_api_tunnel_map_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00261"></a>00261                                   <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l00262"></a>00262                                   <span class="keyword">const</span> sx_tunnel_id_t    tunnel_id,
+<a name="l00263"></a>00263                                   sx_tunnel_map_entry_t   map_entry_key,
+<a name="l00264"></a>00264                                   sx_tunnel_map_entry_t * map_entries_p,
+<a name="l00265"></a>00265                                   uint32_t              * map_entries_cnt_p);
+<a name="l00266"></a>00266 
+<a name="l00290"></a>00290 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#afa0850ddee0e9d5de66c019d34c58298">sx_api_tunnel_ttl_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l00291"></a>00291                                   <span class="keyword">const</span> sx_tunnel_id_t        tunnel_id,
+<a name="l00292"></a>00292                                   <span class="keyword">const</span> sx_tunnel_ttl_data_t *ttl_data_p);
+<a name="l00293"></a>00293 
+<a name="l00311"></a>00311 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a051e78da067e72db6d6bd0d0354a164e">sx_api_tunnel_ttl_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00312"></a>00312                                   <span class="keyword">const</span> sx_tunnel_id_t  tunnel_id,
+<a name="l00313"></a>00313                                   sx_tunnel_ttl_data_t *ttl_data_p);
+<a name="l00314"></a>00314 
+<a name="l00338"></a>00338 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#adacaed82de539dde10f0f224c8481131">sx_api_tunnel_hash_set</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
+<a name="l00339"></a>00339                                    <span class="keyword">const</span> sx_tunnel_id_t         tunnel_id,
+<a name="l00340"></a>00340                                    <span class="keyword">const</span> sx_tunnel_hash_data_t *hash_data_p);
+<a name="l00341"></a>00341 
+<a name="l00359"></a>00359 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a4913cbbdda820ade6c31286205243ef3">sx_api_tunnel_hash_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00360"></a>00360                                    <span class="keyword">const</span> sx_tunnel_id_t   tunnel_id,
+<a name="l00361"></a>00361                                    sx_tunnel_hash_data_t *hash_data_p);
+<a name="l00362"></a>00362 
+<a name="l00400"></a>00400 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a8282a313296ef7e26c11baaa74f5e09e">sx_api_tunnel_cos_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l00401"></a>00401                                   <span class="keyword">const</span> sx_tunnel_id_t        tunnel_id,
+<a name="l00402"></a>00402                                   <span class="keyword">const</span> sx_tunnel_cos_data_t *cos_data_p);
+<a name="l00421"></a>00421 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#af8ccc19db14cb9bb25d7c573942e4a80">sx_api_tunnel_cos_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00422"></a>00422                                   <span class="keyword">const</span> sx_tunnel_id_t  tunnel_id,
+<a name="l00423"></a>00423                                   sx_tunnel_cos_data_t *cos_data_p);
+<a name="l00424"></a>00424 
+<a name="l00492"></a>00492 sx_status_t <a class="code" href="sx__api__tunnel_8h.html#a78a57594ec83a22b4be1a5571d9a8266">sx_api_tunnel_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00493"></a>00493                                    <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l00494"></a>00494                                    <span class="keyword">const</span> sx_tunnel_id_t      tunnel_id,
+<a name="l00495"></a>00495                                    <span class="keyword">const</span> sx_tunnel_filter_t *filter_p,
+<a name="l00496"></a>00496                                    sx_tunnel_id_t           *tunnel_id_list_p,
+<a name="l00497"></a>00497                                    uint32_t                 *tunnel_id_cnt_p);
+<a name="l00498"></a>00498 
+<a name="l00499"></a>00499 
+<a name="l00500"></a>00500 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_TUNNEL_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -167,6 +174,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:01 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

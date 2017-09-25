@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -69,6 +69,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1395c6e1613b712e9854f4e982ff8a62">sx_api_acl_l4_port_range_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_port_range_entry_t *l4_port_range_p, sx_acl_port_range_id_t *range_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ad1c17eb4b9b274fddb09c13f1514c289">sx_api_acl_l4_port_range_get</a> (const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_port_range_entry_t *l4_port_range_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#abb16aaa28349e293f8d768c91f1ebbc7">sx_api_acl_l4_port_range_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_port_range_id_t range_id_key, const sx_acl_port_range_filter_t *range_id_filter_p, sx_acl_port_range_id_t *range_id_list_p, uint32_t *range_id_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a2700b896f2d6045890fd567e2ddf5fa7">sx_api_acl_range_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_range_entry_t *range_entry_p, sx_acl_port_range_id_t *range_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a4ef4198e307f8593b7d693f363297678">sx_api_acl_range_get</a> (const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_range_entry_t *range_entry_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a85de9c7f09f1494b0af588835ba5febb">sx_api_acl_rules_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_t *rules_list_p, const uint32_t rules_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a8a71f177218829d87debe98d4c399238">sx_api_acl_rules_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t start_offset, sx_acl_rule_t *rules_list_p, uint32_t *rules_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aae2d4dde1a42506c57445dedaa2934d7">sx_api_acl_rule_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t rule_offset, boolean_t *activity_p)</td></tr>
@@ -93,6 +95,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab93629cae18b47ab7681567547431c5c">sx_api_acl_region_hw_size_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, sx_acl_size_t *region_size_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a2876e1a90b618f87a0eecadba8d2210d">sx_api_acl_custom_bytes_set</a> (sx_api_handle_t handle, sx_access_cmd_t cmd, const sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes, sx_acl_key_t *custom_bytes_set_key_id_p, uint32_t *custom_bytes_set_key_id_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a9321fdeee15f48934a15a97c3f26e35a">sx_api_acl_custom_bytes_get</a> (sx_api_handle_t handle, sx_acl_key_t *custom_bytes_set_key_id_p, sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a8a79809a0f568054e319455fddd622b4">sx_api_acl_policy_based_ilm_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_pbilm_entry_t *pbilm_entry_p, sx_acl_pbilm_id_t *pbilm_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#adfb5216bf594357e8c6067bebd65d511">sx_api_acl_policy_based_ilm_get</a> (const sx_api_handle_t handle, const sx_acl_pbilm_id_t pbilm_id, sx_acl_pbilm_entry_t *pbilm_entry_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="aadfc89bd1ed719720aef093a6d27aef0"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_log_verbosity_level_set" ref="aadfc89bd1ed719720aef093a6d27aef0" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -942,7 +946,7 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES). Use this comparison set for ACL IPv4 IPv6 full key. When ADD command is used the given ranges are written into a group and its ID is returned. When EDIT command is used the given range is written into a group of range_index. When DELETE command is used the given range_index configuration is cleared. Port range comparison set cannot be deleted if it is applied to an acl rule. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES). Use this comparison set for ACL IPv4 IPv6 full key. When ADD command is used the given ranges are written into a group and its ID is returned. When EDIT command is used the given range is written into a group of range_index. When DELETE command is used the given range_index configuration is cleared. Port range comparison set cannot be deleted if it is applied to an acl rule. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1000,7 +1004,7 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function is used to get a Layer 4 port range comparison set. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function is used to get a Layer 4 port range comparison set. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1073,7 +1077,7 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets a list of ACL L4 Port Range IDs Supported devices: Spectrum. </p>
+<p>This function gets a list of ACL L4 Port Range IDs Supported devices: Spectrum, Spectrum2. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -1102,6 +1106,129 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 SX_STATUS_INVALID_HANDLE if handle in invalid </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2700b896f2d6045890fd567e2ddf5fa7"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_range_set" ref="a2700b896f2d6045890fd567e2ddf5fa7" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_range_entry_t *range_entry_p, sx_acl_port_range_id_t *range_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_range_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_range_entry_t *&#160;</td>
+          <td class="paramname"><em>range_entry_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_port_range_id_t *&#160;</td>
+          <td class="paramname"><em>range_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES). Use this comparison set for ACL IPv4 IPv6 full key. Supported range comparisons: L4 Port, IP Lenght, TTL, Custom Bytes and UTC. Note: At a given time no more than 2 Custom Bytes ranges can be used. When ADD command is used the given ranges are written into a group and its ID is returned. When EDIT command is used the given range is written into a group of range_index. When DELETE command is used the given range_index configuration is cleared. Supported devices: Spectrum2.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD / EDIT / DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range_entry_p</td><td>- struct for range comparison </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">range_id</td><td>- range comparison ID</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO: Message size error </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error </dd>
+<dd>
+SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if range is in use and cannot be deleted </dd>
+<dd>
+SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4ef4198e307f8593b7d693f363297678"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_range_get" ref="a4ef4198e307f8593b7d693f363297678" args="(const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_range_entry_t *range_entry_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_range_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_port_range_id_t&#160;</td>
+          <td class="paramname"><em>range_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_range_entry_t *&#160;</td>
+          <td class="paramname"><em>range_entry_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to get a range comparison set. Supported devices: Spectrum2.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range_id</td><td>- range comparison ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">range_entry_p</td><td>- struct for range comparison</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO: Message size error </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error </dd>
+<dd>
+SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
+<dd>
+SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
 
 </div>
 </div>
@@ -2540,6 +2667,121 @@ SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more cont
 
 </div>
 </div>
+<a class="anchor" id="a8a79809a0f568054e319455fddd622b4"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_policy_based_ilm_set" ref="a8a79809a0f568054e319455fddd622b4" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_pbilm_entry_t *pbilm_entry_p, sx_acl_pbilm_id_t *pbilm_id_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_policy_based_ilm_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_pbilm_entry_t *&#160;</td>
+          <td class="paramname"><em>pbilm_entry_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_pbilm_id_t *&#160;</td>
+          <td class="paramname"><em>pbilm_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function adds/edits/deletes a policy based ILM (PBILM). Policy based ILM entry can be later bound to an ACL rule in order to specify a mpls ecmp that will encapsulate the packet with mpls labels and send it to RIF. It can also send the frame to IP or ILM lookup. Use CREATE to create a PBILM entry, which can be changed when needed by SET. Note that these operations may fail if no HW resources are available. Use DESTROY to remove the PBILM. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / SET / DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pbilm_entry</td><td>- struct for PBILM attributes </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pbilm_id</td><td>- Port range comparison ID</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if element is not found in DB </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no HW resources for PBILM creation </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if the PBILM record is in use </dd>
+<dd>
+SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adfb5216bf594357e8c6067bebd65d511"></a><!-- doxytag: member="sx_api_acl.h::sx_api_acl_policy_based_ilm_get" ref="adfb5216bf594357e8c6067bebd65d511" args="(const sx_api_handle_t handle, const sx_acl_pbilm_id_t pbilm_id, sx_acl_pbilm_entry_t *pbilm_entry_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_policy_based_ilm_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_pbilm_id_t&#160;</td>
+          <td class="paramname"><em>pbilm_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_pbilm_entry_t *&#160;</td>
+          <td class="paramname"><em>pbilm_entry_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to get a PBS set or to count ports of a PBS set. note that for GET command the pbs_entry should be pre-allocated and pbs_entry port_num should be updated to maximal port count to get. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pbilm_id</td><td>- Policy based ILM entry ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pbilm_entry</td><td>- struct for Policy ILM</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -2559,6 +2801,6 @@ SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more cont
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

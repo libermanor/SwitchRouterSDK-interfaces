@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="sx__api__lag_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
+<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
 <a name="l00005"></a>00005 <span class="comment"> *    not use this file except in compliance with the License. You may obtain</span>
@@ -97,65 +97,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00118"></a>00118                                       uint32_t              *log_port_cnt_p);
 <a name="l00119"></a>00119 
 <a name="l00120"></a>00120 
-<a name="l00138"></a>00138 sx_status_t <a class="code" href="sx__api__lag_8h.html#a2df2e28a1a2e44ca970f31c411c51d75">sx_api_lag_port_collector_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00139"></a>00139                                           <span class="keyword">const</span> sx_port_log_id_t    lag_log_port,
-<a name="l00140"></a>00140                                           <span class="keyword">const</span> sx_port_log_id_t    log_port,
-<a name="l00141"></a>00141                                           <span class="keyword">const</span> sx_collector_mode_t collector_mode);
-<a name="l00142"></a>00142 
-<a name="l00143"></a>00143 
-<a name="l00162"></a>00162 sx_status_t <a class="code" href="sx__api__lag_8h.html#a6e8d680719a3738da7296c518c8afafd">sx_api_lag_port_collector_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00163"></a>00163                                           <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
-<a name="l00164"></a>00164                                           <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00165"></a>00165                                           sx_collector_mode_t   *collector_mode_p);
-<a name="l00166"></a>00166 
-<a name="l00184"></a>00184 sx_status_t <a class="code" href="sx__api__lag_8h.html#a522103c40cbc1d1d796dc2bf9b605e43">sx_api_lag_port_distributor_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00185"></a>00185                                             <span class="keyword">const</span> sx_port_log_id_t      lag_log_port,
-<a name="l00186"></a>00186                                             <span class="keyword">const</span> sx_port_log_id_t      log_port,
-<a name="l00187"></a>00187                                             <span class="keyword">const</span> sx_distributor_mode_t distributor_mode);
-<a name="l00188"></a>00188 
-<a name="l00189"></a>00189 
-<a name="l00208"></a>00208 sx_status_t <a class="code" href="sx__api__lag_8h.html#a86f50850b60bbacd44f19603f8ab3fb8">sx_api_lag_port_distributor_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00209"></a>00209                                             <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
-<a name="l00210"></a>00210                                             <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00211"></a>00211                                             sx_distributor_mode_t *distributor_mode_p);
-<a name="l00212"></a>00212 
-<a name="l00227"></a>00227 sx_status_t <a class="code" href="sx__api__lag_8h.html#afd0df407d5f05d7eb18d68fa4df94f07">sx_api_lag_hash_flow_params_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l00228"></a>00228                                             <span class="keyword">const</span> sx_lag_hash_param_t *lag_hash_param_p);
-<a name="l00229"></a>00229 
-<a name="l00230"></a>00230 
-<a name="l00242"></a>00242 sx_status_t <a class="code" href="sx__api__lag_8h.html#a13aa2a1fa69a28c75a491e43927dce1b">sx_api_lag_hash_flow_params_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00243"></a>00243                                             sx_lag_hash_param_t  *lag_hash_param_p);
-<a name="l00244"></a>00244 
-<a name="l00269"></a>00269 sx_status_t <a class="code" href="sx__api__lag_8h.html#a47ec7deec7726fd79ca552e4dc9a400f">sx_api_lag_redirect_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00270"></a>00270                                     <span class="keyword">const</span> sx_access_cmd_t  cmd,
-<a name="l00271"></a>00271                                     <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
-<a name="l00272"></a>00272                                     <span class="keyword">const</span> sx_port_log_id_t redirect_lag_log_port);
-<a name="l00273"></a>00273 
-<a name="l00292"></a>00292 sx_status_t <a class="code" href="sx__api__lag_8h.html#afdd675ec7b2b4ed4b1eb19dd22c1df11">sx_api_lag_redirect_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00293"></a>00293                                     <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
-<a name="l00294"></a>00294                                     boolean_t             *is_redirected_p,
-<a name="l00295"></a>00295                                     sx_port_log_id_t      *redirected_lag_log_port_p);
-<a name="l00296"></a>00296 
-<a name="l00314"></a>00314 sx_status_t <a class="code" href="sx__api__lag_8h.html#adcce195ba79880d44aa65dcfb29127c1">sx_api_lag_redirected_lags_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00315"></a>00315                                            <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
-<a name="l00316"></a>00316                                            sx_port_log_id_t      *lag_log_port_list_p,
-<a name="l00317"></a>00317                                            uint32_t              *lag_log_port_cnt_p);
-<a name="l00318"></a>00318 
-<a name="l00350"></a>00350 sx_status_t <a class="code" href="sx__api__lag_8h.html#afd66e5dd0b3c542bad19d96553b6de78">sx_api_lag_distributer_list_set</a>(<span class="keyword">const</span> sx_api_handle_t             handle,
-<a name="l00351"></a>00351                                             <span class="keyword">const</span> sx_access_cmd_t             access_cmd,
-<a name="l00352"></a>00352                                             <span class="keyword">const</span> sx_port_log_id_t            lag_log_port,
-<a name="l00353"></a>00353                                             <span class="keyword">const</span> sx_lag_fine_grain_params_t *params_p,
-<a name="l00354"></a>00354                                             <span class="keyword">const</span> sx_lag_fine_grain_member_t *port_list_p,
-<a name="l00355"></a>00355                                             <span class="keyword">const</span> uint32_t                    port_cnt);
-<a name="l00356"></a>00356 
-<a name="l00372"></a>00372 sx_status_t <a class="code" href="sx__api__lag_8h.html#a09557dd2dc877715b27398cd9f34c638">sx_api_lag_distributer_list_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00373"></a>00373                                             <span class="keyword">const</span> sx_port_log_id_t      lag_log_port,
-<a name="l00374"></a>00374                                             sx_lag_fine_grain_params_t *params_p,
-<a name="l00375"></a>00375                                             sx_lag_fine_grain_member_t *port_list_p,
-<a name="l00376"></a>00376                                             uint32_t                   *port_cnt_p);
-<a name="l00377"></a>00377 
-<a name="l00378"></a>00378 
-<a name="l00379"></a>00379 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_LAG_H__ */</span>
+<a name="l00185"></a>00185 sx_status_t <a class="code" href="sx__api__lag_8h.html#a7760d37504ce2dbb541b40ca2a394556">sx_api_lag_port_group_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00186"></a>00186                                            <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l00187"></a>00187                                            <span class="keyword">const</span> sx_swid_t        swid,
+<a name="l00188"></a>00188                                            <span class="keyword">const</span> sx_port_log_id_t lag_id,
+<a name="l00189"></a>00189                                            <span class="keyword">const</span> sx_lag_filter_t *filter_p,
+<a name="l00190"></a>00190                                            sx_port_log_id_t      *lag_id_list_p,
+<a name="l00191"></a>00191                                            uint32_t              *lag_id_cnt_p);
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 
+<a name="l00211"></a>00211 sx_status_t <a class="code" href="sx__api__lag_8h.html#a2df2e28a1a2e44ca970f31c411c51d75">sx_api_lag_port_collector_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00212"></a>00212                                           <span class="keyword">const</span> sx_port_log_id_t    lag_log_port,
+<a name="l00213"></a>00213                                           <span class="keyword">const</span> sx_port_log_id_t    log_port,
+<a name="l00214"></a>00214                                           <span class="keyword">const</span> sx_collector_mode_t collector_mode);
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216 
+<a name="l00235"></a>00235 sx_status_t <a class="code" href="sx__api__lag_8h.html#a6e8d680719a3738da7296c518c8afafd">sx_api_lag_port_collector_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00236"></a>00236                                           <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
+<a name="l00237"></a>00237                                           <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00238"></a>00238                                           sx_collector_mode_t   *collector_mode_p);
+<a name="l00239"></a>00239 
+<a name="l00257"></a>00257 sx_status_t <a class="code" href="sx__api__lag_8h.html#a522103c40cbc1d1d796dc2bf9b605e43">sx_api_lag_port_distributor_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l00258"></a>00258                                             <span class="keyword">const</span> sx_port_log_id_t      lag_log_port,
+<a name="l00259"></a>00259                                             <span class="keyword">const</span> sx_port_log_id_t      log_port,
+<a name="l00260"></a>00260                                             <span class="keyword">const</span> sx_distributor_mode_t distributor_mode);
+<a name="l00261"></a>00261 
+<a name="l00262"></a>00262 
+<a name="l00281"></a>00281 sx_status_t <a class="code" href="sx__api__lag_8h.html#a86f50850b60bbacd44f19603f8ab3fb8">sx_api_lag_port_distributor_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00282"></a>00282                                             <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
+<a name="l00283"></a>00283                                             <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00284"></a>00284                                             sx_distributor_mode_t *distributor_mode_p);
+<a name="l00285"></a>00285 
+<a name="l00300"></a>00300 sx_status_t <a class="code" href="sx__api__lag_8h.html#afd0df407d5f05d7eb18d68fa4df94f07">sx_api_lag_hash_flow_params_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l00301"></a>00301                                             <span class="keyword">const</span> sx_lag_hash_param_t *lag_hash_param_p);
+<a name="l00302"></a>00302 
+<a name="l00303"></a>00303 
+<a name="l00315"></a>00315 sx_status_t <a class="code" href="sx__api__lag_8h.html#a13aa2a1fa69a28c75a491e43927dce1b">sx_api_lag_hash_flow_params_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00316"></a>00316                                             sx_lag_hash_param_t  *lag_hash_param_p);
+<a name="l00317"></a>00317 
+<a name="l00342"></a>00342 sx_status_t <a class="code" href="sx__api__lag_8h.html#a47ec7deec7726fd79ca552e4dc9a400f">sx_api_lag_redirect_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00343"></a>00343                                     <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l00344"></a>00344                                     <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
+<a name="l00345"></a>00345                                     <span class="keyword">const</span> sx_port_log_id_t redirect_lag_log_port);
+<a name="l00346"></a>00346 
+<a name="l00365"></a>00365 sx_status_t <a class="code" href="sx__api__lag_8h.html#afdd675ec7b2b4ed4b1eb19dd22c1df11">sx_api_lag_redirect_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00366"></a>00366                                     <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
+<a name="l00367"></a>00367                                     boolean_t             *is_redirected_p,
+<a name="l00368"></a>00368                                     sx_port_log_id_t      *redirected_lag_log_port_p);
+<a name="l00369"></a>00369 
+<a name="l00387"></a>00387 sx_status_t <a class="code" href="sx__api__lag_8h.html#adcce195ba79880d44aa65dcfb29127c1">sx_api_lag_redirected_lags_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00388"></a>00388                                            <span class="keyword">const</span> sx_port_log_id_t lag_log_port,
+<a name="l00389"></a>00389                                            sx_port_log_id_t      *lag_log_port_list_p,
+<a name="l00390"></a>00390                                            uint32_t              *lag_log_port_cnt_p);
+<a name="l00391"></a>00391 
+<a name="l00423"></a>00423 sx_status_t <a class="code" href="sx__api__lag_8h.html#afd66e5dd0b3c542bad19d96553b6de78">sx_api_lag_distributer_list_set</a>(<span class="keyword">const</span> sx_api_handle_t             handle,
+<a name="l00424"></a>00424                                             <span class="keyword">const</span> sx_access_cmd_t             access_cmd,
+<a name="l00425"></a>00425                                             <span class="keyword">const</span> sx_port_log_id_t            lag_log_port,
+<a name="l00426"></a>00426                                             <span class="keyword">const</span> sx_lag_fine_grain_params_t *params_p,
+<a name="l00427"></a>00427                                             <span class="keyword">const</span> sx_lag_fine_grain_member_t *port_list_p,
+<a name="l00428"></a>00428                                             <span class="keyword">const</span> uint32_t                    port_cnt);
+<a name="l00429"></a>00429 
+<a name="l00445"></a>00445 sx_status_t <a class="code" href="sx__api__lag_8h.html#a09557dd2dc877715b27398cd9f34c638">sx_api_lag_distributer_list_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l00446"></a>00446                                             <span class="keyword">const</span> sx_port_log_id_t      lag_log_port,
+<a name="l00447"></a>00447                                             sx_lag_fine_grain_params_t *params_p,
+<a name="l00448"></a>00448                                             sx_lag_fine_grain_member_t *port_list_p,
+<a name="l00449"></a>00449                                             uint32_t                   *port_cnt_p);
+<a name="l00450"></a>00450 
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_LAG_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -176,6 +185,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:01 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

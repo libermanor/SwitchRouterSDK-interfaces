@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -516,6 +516,80 @@ sx_status_t sx_api_fdb_mc_mac_addr_get(const sx_api_handle_t handle,
                                        const sx_mac_addr_t   group_addr,
                                        sx_port_log_id_t     *log_port_list_p,
                                        uint32_t             *port_cnt_p);
+
+/**
+ *  This function retrieves a list of one or more MC MAC keys (VLAN ID + MC MAC address).
+ *  When in 802.1D mode, instead of providing a vid (VLAN ID) in key_p->vid and filter_p->vid,
+ *  you should provide a bridge_id. In 802.1D mode, returned bridge_id's will be stored in
+ *  key_list_p->vid.
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, swid = valid, key = X, filter = valid/invalid, key_list = X
+ *        key_cnt = 0:
+ *        In this case the API will return the total number of MC MAC keys filtered by the
+ *        filter parameter if present.
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, swid = valid, key = valid/invalid, filter = valid/invalid,
+ *        key_list = valid, key_cnt = 1:
+ *        The MC MAC key will be returned in the key_list along with a key_cnt of 1 in the
+ *        following conditions:
+ *            a) the key exists, a filter is provided and the key matches the filter
+ *            b) the key exists, no filter is provided
+ *        An empty list will be returned with key_cnt = 0 in the following conditions:
+ *            a) the key doesn't exist
+ *            b) the key exists, a filter is provided and the key doesn't match the filter
+ *        A non-NULL key_list pointer must be provided in this case.
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, swid = valid, key = valid/invalid, filter = valid/invalid,
+ *        key_list = valid, key_cnt > 1:
+ *        An key_cnt > 1 will be treated as a key_cnt of 1 and the behavior will be
+ *        same as the earlier GET use cases.
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, swid = X, key = X,
+ *        filter = X, key_list = NULL, key_cnt = 0:
+ *        A zero key_cnt and an empty key_list will be returned.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, key = X, filter = valid/invalid,
+ *        key_list = valid, key_cnt > 0:
+ *        In this case the API will return a list of MC MAC keys (max key_cnt) starting
+ *        with first key of the internal DB and matching the filter if present. The input
+ *        MC MAC key is ignored in this case.
+ *        A non-NULL key_list pointer must be provided in this case.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, key = valid/invalid, filter = valid/invalid,
+ *        key_list = valid, key_cnt > 0:
+ *        In this case the API will return a list of MC MAC keys (max key_cnt) starting with
+ *        the next key after the input key and matching the filter if present.
+ *        A non-NULL key_list pointer must be provided in this case.
+ *
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param [in] handle            - SX-API handle
+ * @param [in] cmd               - GET/GET_FIRST/GET_NEXT
+ * @param [in] swid              - virtual switch partition ID
+ * @param [in] key_p             - MC MAC key (VLAN ID + MC MAC address)
+ * @param [in] filter_p          - specify a filter parameter
+ * @param [out] key_list_p       - return list of MC MAC keys
+ * @param [in,out] key_cnt_p     - [in] number of MC MAC keys to get
+ *                               - [out] number of MC MAC keys returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_mc_mac_addr_iter_get(const sx_api_handle_t         handle,
+                                            const sx_access_cmd_t         cmd,
+                                            const sx_swid_t               swid,
+                                            const sx_fdb_mc_mac_key_t    *key_p,
+                                            const sx_fdb_mc_mac_filter_t *filter_p,
+                                            sx_fdb_mc_mac_key_t          *key_list_p,
+                                            uint32_t                     *key_cnt_p);
+
 
 /**
  * This function adds/deletes MC MAC entries from the FDB.

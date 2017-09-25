@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -107,6 +107,73 @@ sx_status_t sx_api_bridge_set(const sx_api_handle_t handle,
                               sx_bridge_id_t       *bridge_id_p);
 
 /**
+ *  This function retrieves a list of one or more Bridge IDs. This function is not supported
+ *  in 802.1Q mode.
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, bridge_id = X, bridge_id_list = X, bridge_id_cnt = 0:
+ *        In this case the API will return the total number of bridge IDs in the internal DB.
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, bridge_id = valid/invalid, bridge_id_list = valid,
+ *        bridge_id_cnt = 1:
+ *        In this case the API will check if the specified bridge_id exists.
+ *        If it does, the bridge ID will be returned in the bridge_id_list along with
+ *        a bridge_id_cnt of 1.
+ *        If the bridge ID does not exist, an empty list will be returned with
+ *        bridge_id_cnt = 0.
+ *        A non-NULL bridge_id_list pointer must be provided in this case.
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, bridge_id = valid/invalid, bridge_id_list = valid,
+ *        bridge_id_cnt > 1:
+ *        A bridge_id_cnt > 1 will be treated as a bridge_id_cnt of 1 and the behavior will
+ *        be same as the earlier GET use cases.
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, bridge_id = X,
+ *        bridge_id_list = NULL, bridge_id_cnt = 0:
+ *        A zero bridge_id_cnt and an empty bridge_id_list will be returned.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST, bridge_id = X, bridge_id_list = valid,
+ *        bridge_id_cnt > 0:
+ *        In this case the API will return the first bridge_id_cnt bridge IDs starting
+ *        from the head of the database. The total number of elements fetched will be
+ *        returned as bridge_id_cnt. Note: returned bridge_id_cnt may be less than or equal
+ *        to the requested bridge_id_cnt. The input bridge ID is ignored in this case.
+ *        A non-NULL bridge_id_list pointer must be provided in this case.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GETNEXT, bridge_id = valid/invalid, bridge_id_list = valid,
+ *        bridge_id_cnt > 0:
+ *        In this case the API will return the next set of bridge IDs starting from
+ *        the next bridge ID after the specified bridge ID. The total number of elements
+ *        fetched will be returned as the bridge_id_cnt.
+ *        Note: returned bridge_id_cnt may be less than or equal to the requested bridge_id_cnt.
+ *        If no valid next bridge ID exists in the db, an empty list will be returned.
+ *        A non-NULL bridge_id_list pointer must be provided in this case.
+ *
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle               - SX-API handle
+ * @param [in] cmd                 - GET/GET_FIRST/GET_NEXT
+ * @param[in] bridge_id            - bridge ID
+ * @param [in] filter_p            - specify a filter parameter (not supported yet)
+ * @param [out] bridge_id_list_p   - return list of bridge IDs
+ * @param [in,out] bridge_id_cnt_p - [in] number of bridge IDs to get
+ *                                 - [out] number of bridge IDs returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_bridge_iter_get(const sx_api_handle_t     handle,
+                                   const sx_access_cmd_t     cmd,
+                                   const sx_bridge_id_t      bridge_id,
+                                   const sx_bridge_filter_t *filter_p,
+                                   sx_bridge_id_t           *bridge_id_list_p,
+                                   uint32_t                 *bridge_id_cnt_p);
+
+/**
  *  Supported devices: switchX2
  *  This function is used to add a port and vlan to a bridge.
  *  When multiple vlan bridge support is enabled, it is possible to bind different vlans to the same bridge.
@@ -184,6 +251,28 @@ sx_status_t sx_api_bridge_vport_get(const sx_api_handle_t handle,
                                     const sx_bridge_id_t  bridge_id,
                                     sx_port_log_id_t     *bridge_vport_list_p,
                                     uint32_t             *bridge_vport_cnt_p);
+
+/**
+ *  Supported devices: Spectrum
+ *  This function is used to add/del a virtual ports from list to
+ *  corresponding bridge from list.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - ADD/DELETE/DELETE_ALL
+ * @param[in] bridge_id_list - bridge_id list
+ * @param[in] log_port_list - logical virtual port ID list
+ * @param[in] list_cnt - list counter.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if bridge not found in DB
+ * @return SX_STATUS_ERROR if unexpected behaviour occurs
+ */
+sx_status_t sx_api_bridge_vport_multi_set(const sx_api_handle_t   handle,
+                                          const sx_access_cmd_t   cmd,
+                                          const sx_bridge_id_t   *bridge_id_list,
+                                          const sx_port_log_id_t *log_port_list,
+                                          uint32_t                list_cnt);
 
 /**
  *  Supported devices: Spectrum

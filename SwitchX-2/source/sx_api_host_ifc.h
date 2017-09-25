@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -146,6 +146,79 @@ sx_status_t sx_api_host_ifc_trap_group_get(const sx_api_handle_t        handle,
                                            sx_trap_group_attributes_t * trap_group_attributes_p);
 
 /**
+ *  This function retrieves a list of one or more trap group IDs.
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = X,
+ *        trap_group_id_list = X, trap_group_id_cnt = 0:
+ *        In this case the API will return the total number of trap group IDs in the
+ *        internal DB.
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = valid/invalid,
+ *        trap_group_id_list = valid, trap_group_id_cnt = 1:
+ *        In this case the API will check if the specified trap_group_id exists.
+ *        If it does, the trap group ID will be returned in the trap_group_id_list
+ *        along with a trap_group_id_cnt of 1.
+ *        If the trap group ID does not exist, an empty list will be returned with
+ *        trap_group_id_cnt = 0.
+ *        A non-NULL trap_group_id_list pointer must be provided in this case.
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, swid = vaild, trap_group_id = valid/invalid,
+ *        trap_group_id_list = valid, trap_group_id_cnt > 1:
+ *        A trap_group_id_cnt > 1 will be treated as a trap_group_id_cnt of 1 and the
+ *        behavior will be same as the earlier GET use cases.
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, swid = X, trap_group_id = X,
+ *        trap_group_id_list = NULL, trap_group_id_cnt = 0:
+ *        A zero trap_group_id_cnt and an empty trap_group_id_list will be returned.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, trap_group_id = X,
+ *        trap_group_id_list = valid, trap_group_id_cnt > 0:
+ *        In this case the API will return the first trap_group_id_cnt trap group IDs
+ *        starting from the head of the database. The total number of elements fetched
+ *        will be returned as trap_group_id_cnt.
+ *        Note: returned trap_group_id_cnt may be less than or equal to the requested
+ *        trap_group_id_cnt. The input trap group ID is ignored in this case.
+ *        A non-NULL trap_group_id_list pointer must be provided in this case.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, trap_group_id = valid/invalid,
+ *        trap_group_id_list = valid, trap_group_id_cnt > 0:
+ *        In this case the API will return the next set of trap group IDs starting from
+ *        the next trap group ID after the specified trap group ID. The total number of
+ *        elements fetched will be returned as the trap_group_id_cnt.
+ *        Note: returned trap_group_id_cnt may be less than or equal to the requested
+ *        trap_group_id_cnt.
+ *        If no valid next trap group ID exists in the db, an empty list will be returned.
+ *        A non-NULL trap_group_id_list pointer must be provided in this case.
+ *
+ *
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param [in] handle                  - SX-API handle
+ * @param [in] cmd                     - GET/GET_FIRST/GET_NEXT
+ * @param [in] swid                    - switch ID
+ * @param [in] trap_group_id           - trap group ID
+ * @param [in] filter_p                - specify a filter parameter (not supported yet)
+ * @param [out] trap_group_id_list_p   - return list of trap group IDs
+ * @param [in,out] trap_group_id_cnt_p - [in] number of trap group IDs to get
+ *                                     - [out] number of trap group IDs returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_host_ifc_trap_group_iter_get(const sx_api_handle_t         handle,
+                                                const sx_access_cmd_t         cmd,
+                                                const sx_swid_id_t            swid,
+                                                const sx_trap_group_t         trap_group_id,
+                                                const sx_trap_group_filter_t *filter_p,
+                                                sx_trap_group_t              *trap_group_id_list_p,
+                                                uint32_t                     *trap_group_id_cnt_p);
+
+
+/**
  * Configure traps / event properties for each device in the system:
  *       Map Trap ID / Event ID to 1 of the 3 Priority groups: HIGH, MEDIUM, LOW.
  *       Configure trap action (for traps only)
@@ -229,6 +302,50 @@ sx_status_t sx_api_host_ifc_trap_id_register_set(const sx_api_handle_t    handle
                                                  const sx_swid_t          swid,
                                                  const sx_trap_id_t       trap_id,
                                                  const sx_user_channel_t *user_channel_p);
+
+/**
+ * This function get the trap's user channel list according to the swid and trap_id.
+ * The following use case scenarios apply with different input parameters.
+ * 1) SX_ACCESS_CMD_GET
+ *    When *user_channel_cnt_p is not 0, this function returns a list of user channels.
+ *    The returned user_channel_cnt may be less or equal to the requested user_channel_cnt.
+ *    When *user_channel_cnt_p is 0, this function returns the total number of user channels
+ *    configured for the specified trap ID.
+ *    The input user_channel is ignored in this case.
+ *
+ * 2) SX_ACCESS_CMD_GET_FIRST
+ *    In this case the API will return the first set of user channels.
+ *    The returned user_channel_cnt may be less or equal to the requested user_channel_cnt.
+ *    The input user_channel is ignored int this case.
+ *
+ * 3) SX_ACCESS_CMD_GETNEXT
+ *    In this case the API will return the next set of user channels starting from
+ *    the next user channel after the specified user channel.
+ *    The returned user_channel_cnt may be less or equal to the requested user_channel_cnt.
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in]     handle                 - SX-API handle.
+ * @param[in]     cmd                    - GET/GET_FIRST/GET_NEXT
+ * @param[in]     swid                   - Switch ID.
+ * @param[in]     trap_id                - Trap ID.
+ * @param[out]    user_channel           - User channel, as a key to get next entries.
+ * @param[out]    user_channel_list_p    - List of user channels.
+ * @param[in,out] user_channel_cnt_p     - as input: number of user channels requested.
+ *                                         as output: number of user channels returned.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if any input parameters is null
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_host_ifc_trap_id_register_get(const sx_api_handle_t    handle,
+                                                 const sx_access_cmd_t    cmd,
+                                                 const sx_swid_t          swid,
+                                                 const sx_trap_id_t       trap_id,
+                                                 const sx_user_channel_t *user_channel,
+                                                 sx_user_channel_t       *user_channel_list_p,
+                                                 uint32_t                *user_channel_cnt_p);
+
 /**
  * Register / DeRegister Traps (STP , LACP)  or Events (Port up /
  * down , Temperature event) in the driver. Configure the driver
@@ -258,6 +375,49 @@ sx_status_t sx_api_host_ifc_port_vlan_trap_id_register_set(const sx_api_handle_t
                                                            const sx_trap_id_t                trap_id,
                                                            const sx_host_ifc_register_key_t *register_key_p,
                                                            const sx_user_channel_t          *user_channel_p);
+
+/**
+ * This function get the trap's register entry (register key and user channel) list according to the swid and trap_id.
+ * The following use case scenarios apply with different input parameters.
+ * 1) SX_ACCESS_CMD_GET
+ *    When *register_entry_cnt_p is not 0, this function returns a list of register entries.
+ *    The returned register_entry_cnt_p may be less or equal to the requested register_entry_cnt_p.
+ *    When *register_entry_cnt_p is 0, this function returns the total number of register entries
+ *    configured for the specified trap ID.
+ *    The input register entry is ignored in this case.
+ *
+ * 2) SX_ACCESS_CMD_GET_FIRST
+ *    In this case the API will return the first set of register entries.
+ *    The returned register_entry_cnt may be less or equal to the requested register_entry_cnt.
+ *    The input register entry is ignored int this case.
+ *
+ * 3) SX_ACCESS_CMD_GETNEXT
+ *    In this case the API will return the next set of register entries starting from
+ *    the next register entry after the specified register entry.
+ *    The returned register_entry_cnt may be less or equal to the requested register_entry_cnt.
+ * Supported devices: Spectrum.
+ *
+ * @param[in]     handle                 - SX-API handle.
+ * @param[in]     cmd                    - GET/GET_FIRST/GET_NEXT
+ * @param[in]     swid                   - Switch ID.
+ * @param[in]     trap_id                - Trap ID.
+ * @param[out]    register_entry         - Register entry, as a key to get next entries.
+ * @param[out]    register_entry_list_p  - List of register entries.
+ * @param[in,out] register_entry_cnt_p   - as input: number of register entries requested.
+ *                                         as output: number of register entries returned.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if any input parameters is null
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_host_ifc_port_vlan_trap_id_register_get(const sx_api_handle_t                   handle,
+                                                           const sx_access_cmd_t                   cmd,
+                                                           const sx_swid_t                         swid,
+                                                           const sx_trap_id_t                      trap_id,
+                                                           const sx_host_ifc_register_get_entry_t *register_entry,
+                                                           sx_host_ifc_register_get_entry_t       *register_entry_list_p,
+                                                           uint32_t                               *register_entry_cnt_p);
 
 /**
  * This function configures the switch to filter packets received from certain ports/LAGs.
@@ -290,6 +450,50 @@ sx_status_t sx_api_host_ifc_trap_filter_set(const sx_api_handle_t handle,
                                             const sx_trap_id_t    trap_id,
                                             sx_port_log_id_t     *log_port_list_p,
                                             uint32_t             *log_port_cnt_p);
+
+/**
+ * This function get the trap's filter list according to the swid and trap_id.
+ * The following use case scenarios apply with different input parameters.
+ * 1) SX_ACCESS_CMD_GET
+ *    When *log_port_cnt_p is not 0, this function returns a list of logical port IDs.
+ *    The returned log_port_cnt may be less or equal to the requested log_port_cnt.
+ *    When *log_port_cnt_p is 0, this function returns the the total number of ports/LAGs
+ *    configured for the specified trap ID.
+ *    The input log_port_id is ignored in this case.
+ *
+ * 2) SX_ACCESS_CMD_GET_FIRST
+ *    In this case the API will return the first set of logical port IDs.
+ *    The returned log_port_cnt may be less or equal to the requested log_port_cnt.
+ *    The input log_port_id is ignored int this case.
+ *
+ * 3) SX_ACCESS_CMD_GETNEXT
+ *    In this case the API will return the next set of logical port IDs starting from
+ *    the next logical port ID after the specified logical port ID.
+ *    The returned log_port_cnt may be less or equal to the requested log_port_cnt.
+ *
+ * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle            - SX-API handle.
+ * @param[in] cmd               - GET/GET_FIRST/GET_NEXT
+ * @param[in] swid              - Switch ID.
+ * @param[in] trap_id           - Trap ID.
+ * @param[in] log_port_id       - Logical port ID, as a key to get next entries
+ * @param[out] log_port_list    - List of logical ports.
+ * @param[in,out] log_port_num  - as input: number of logical ports requested.
+ *                                as output: number of logical ports returned.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if any input parameters is null
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR if a general error has occurred
+ */
+sx_status_t sx_api_host_ifc_trap_filter_get(const sx_api_handle_t  handle,
+                                            const sx_access_cmd_t  cmd,
+                                            const sx_swid_t        swid,
+                                            const sx_trap_id_t     trap_id,
+                                            const sx_port_log_id_t log_port_id,
+                                            sx_port_log_id_t      *log_port_list_p,
+                                            uint32_t              *log_port_cnt_p);
 
 /**
  *  This function binds/unbinds a policer to a trap priority.

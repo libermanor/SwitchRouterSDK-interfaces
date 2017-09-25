@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -233,6 +233,76 @@ sx_status_t sx_api_tele_histogram_data_get(const sx_api_handle_t         handle,
                                            const sx_access_cmd_t         cmd,
                                            const sx_tele_histogram_key_t key,
                                            sx_tele_histogram_data_t     *histogram_p);
+
+
+/**
+ * Sets the congestion threshold for a specific port and enables a specific TC (in addition to
+ * enabled ones).
+ * Note:
+ * SET command cannot be called on an existing entry. in order to modify, use EDIT.
+ * For port related thresholds: 1. network and LAG ports are supported.
+ * 2. On spectrum, the last threshold that was set on a port will apply to all TC's in the port.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - SET/EDIT/DESTORY.
+ * @param[in] key - threshold key.
+ * @param[in] data - threshold data.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
+ * @return SX_STAUS_ERROR on internal error.
+ */
+sx_status_t sx_api_tele_threshold_set(const sx_api_handle_t          handle,
+                                      const sx_access_cmd_t          cmd,
+                                      const sx_tele_threshold_key_t  key,
+                                      const sx_tele_threshold_data_t data);
+
+/**
+ * Retrieves the congestion threshold for a specific port and the TC's the threshold is configured to.
+ * For port related threshold types, network and LAG ports are supported.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - GET.
+ * @param[in] key - threshold attributes key.
+ * @param[in,out] data - threshold attributes data.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
+ * @return SX_STAUS_ERROR on internal error.
+ */
+sx_status_t sx_api_tele_threshold_get(const sx_api_handle_t         handle,
+                                      const sx_access_cmd_t         cmd,
+                                      const sx_tele_threshold_key_t key,
+                                      sx_tele_threshold_data_t     *data_p);
+
+/**
+ * Retrieves the current threshold congestion state (below / above threshold) for a list of keys.
+ * For port related threshold types, only network ports are supported.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in]  handle - SX-API handle.
+ * @param[in]  cmd - GET.
+ * @param[in]  key_p - list of threshold key.
+ * @param[out] crossed_data_p - list of threshold crossed data.
+ * @param[in]  key_cnt - number of elements in key list and crossed data list.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
+ * @return SX_STAUS_ERROR on internal error.
+ */
+sx_status_t sx_api_tele_threshold_crossed_data_get(const sx_api_handle_t             handle,
+                                                   const sx_access_cmd_t             cmd,
+                                                   const sx_tele_threshold_key_t    *key_p,
+                                                   sx_tele_threshold_crossed_data_t *crossed_data_p,
+                                                   const uint32_t                    key_cnt);
 
 
 #endif /* __SX_API_TELE_H__ */

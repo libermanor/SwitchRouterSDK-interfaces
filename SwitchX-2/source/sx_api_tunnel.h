@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -77,6 +77,8 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
  * @return SX_STATUS_CMD_UNSUPPORTED command is not supported for this api
+ * @return SX_STATUS_ENTRY_NOT_FOUND if any input parameter doesn't exist
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_set(const sx_api_handle_t        handle,
@@ -96,6 +98,7 @@ sx_status_t sx_api_tunnel_set(const sx_api_handle_t        handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_get(const sx_api_handle_t  handle,
@@ -114,6 +117,7 @@ sx_status_t sx_api_tunnel_get(const sx_api_handle_t  handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_counter_get(const sx_api_handle_t handle,
@@ -137,9 +141,12 @@ sx_status_t sx_api_tunnel_counter_get(const sx_api_handle_t handle,
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device.
- * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists.
- * @return SX_STATUS_RESOURCE_IN_USE if key already used for another tunnel.
- * @return SX_STATUS_ERROR general error.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if any input parameter doesn't exist
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if key already used for another tunnel.
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is not initialized
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter exceeds valid range
+ * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_decap_rules_set(const sx_api_handle_t               handle,
                                           const sx_access_cmd_t               cmd,
@@ -153,11 +160,12 @@ sx_status_t sx_api_tunnel_decap_rules_set(const sx_api_handle_t               ha
  *
  * @param[in]  handle         - SX-API handle
  * @param[in]  decap_key_p    - Key to query.
- * @param[out] decap_data_p   - Data assoicated with key.
+ * @param[out] decap_data_p   - Data associated with key.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
  * @return SX_STATUS_ENTRY_NOT_FOUND if key doesn't exists.
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_decap_rules_get(const sx_api_handle_t              handle,
@@ -166,6 +174,9 @@ sx_status_t sx_api_tunnel_decap_rules_get(const sx_api_handle_t              han
 
 /**
  * This API is used to init tunneling module.
+ * Please note that you should set correct parsing depth with
+ * sx_api_port_parsing_depth_set accordingly to tunneling usage
+ * scenarios.
  * Supported devices: Spectrum.
  *
  * @param[in] handle   - SX-API handle
@@ -201,9 +212,12 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * @param[in] map_entries_cnt    - amount of entries in map_entries_p
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel or bridge doesn't exists.
- * @return SX_STATUS_ENTRY_ALREADY_BOUND if tunnel and bridge already bound.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if tunnel and bridge already bound.
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if try to delete more maps than configured for the tunnel
  * @return SX_STATUS_ERROR general error
  * */
 sx_status_t sx_api_tunnel_map_set(const sx_api_handle_t         handle,
@@ -239,7 +253,8 @@ sx_status_t sx_api_tunnel_map_set(const sx_api_handle_t         handle,
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
- * @return SX_STATUS_ENTRY_NOT_FOUND if neighbour was not added.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added.
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
@@ -269,6 +284,7 @@ sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_ttl_set(const sx_api_handle_t       handle,
@@ -289,6 +305,7 @@ sx_status_t sx_api_tunnel_ttl_set(const sx_api_handle_t       handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_ttl_get(const sx_api_handle_t handle,
@@ -315,6 +332,7 @@ sx_status_t sx_api_tunnel_ttl_get(const sx_api_handle_t handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_hash_set(const sx_api_handle_t        handle,
@@ -335,6 +353,7 @@ sx_status_t sx_api_tunnel_hash_set(const sx_api_handle_t        handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_hash_get(const sx_api_handle_t  handle,
@@ -348,6 +367,24 @@ sx_status_t sx_api_tunnel_hash_get(const sx_api_handle_t  handle,
  * User is capable to set a tunnel CoS behaviour per tunnel type.
  * Changes in 1 tunnel will change the CoS behaviour for all tunnels from the same type.
  *
+ * The API configures QoS parameters for encapsulation and decapsulation
+ * flow separately based on value in cos_data_p->param_type.
+ * Next parameters can be configured with the API:
+ *
+ * Whether packet switch priority and color should be preserved or a new one
+ * must be set (cos_data_p->update_priority_color)
+ *      If update_priority_color set to TRUE, new prio and
+ *      color are taken from cos_data_p->prio_color
+ * DSCP rewrite can be disabled/enabled or a value that was set
+ * on packet ingress port can be preserved (cos_data_p->dsc_rewrite)
+ *
+ * If DSCP rewrite is disabled: DSCP value can be depending on cos_data_p->dscp_action
+ *       - on encap can be copied from inner header or set from cos_data_p->dscp_value
+ *       - on decap can be copied from outer or preserved
+ * When dscp_action is copy and there is no IP header - the value
+ * from cos_data_p->dscp_value is used.
+ * ECN mapping on encapsulation or decapsulation
+ *
  * Supported devices: Spectrum.
  * @param[in] handle              - SX-API handle
  * @param[in] tunnel id           - Tunnel ID.
@@ -357,6 +394,7 @@ sx_status_t sx_api_tunnel_hash_get(const sx_api_handle_t  handle,
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device or tunnel type/direction.
  * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_tunnel_cos_set(const sx_api_handle_t       handle,
@@ -377,11 +415,86 @@ sx_status_t sx_api_tunnel_cos_set(const sx_api_handle_t       handle,
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device or tunnel type/direction
  * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_tunnel_cos_get(const sx_api_handle_t handle,
                                   const sx_tunnel_id_t  tunnel_id,
                                   sx_tunnel_cos_data_t *cos_data_p);
+
+/**
+ *  This API retrieves a list of one or more Tunnel IDs.
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, tunnel_id = X, filter = valid/invalid, tunnel_id_list = X,
+ *        tunnel_id_cnt = 0:
+ *        In this case the API will return the total number of tunnel IDs filtered by the filter
+ *        parameter if present.
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, tunnel_id = valid/invalid, filter = valid/invalid,
+ *        tunnel_id_list = valid, tunnel_id_cnt = 1:
+ *        In this case the API will check if the specified tunnel_id exists AND it matches the
+ *        filter if present.
+ *        If it does, the tunnel ID will be returned in the tunnel_id_list along with
+ *        a tunnel_id_cnt of 1.
+ *        If the tunnel ID does not exist, an empty list will be returned with
+ *        tunnel_id_cnt = 0.
+ *        A non-NULL tunnel_id_list pointer must be provided in this case.
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, tunnel_id = valid/invalid, filter = valid/invalid,
+ *        tunnel_id_list = valid, tunnel_id_cnt > 1:
+ *        A tunnel_id_cnt > 1 will be treated as a tunnel_id_cnt of 1 and the behavior will
+ *        be same as the previous GET use cases.
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, tunnel_id = X, filter = X,
+ *        tunnel_id_list = NULL, tunnel_id_cnt = 0:
+ *        A zero tunnel_id_cnt and an empty tunnel_id_list will be returned.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST, tunnel_id = X, tunnel_id_list = valid,
+ *        filter =  valid/invalid, tunnel_id_cnt > 0:
+ *        In this case the API will return the first tunnel_id_cnt tunnel IDs starting
+ *        from the head of the database AND match the filter if present. The total
+ *        number of elements fetched will be returned as tunnel_id_cnt.
+ *        The input tunnel ID is ignored in this case.
+ *        A non-NULL tunnel_id_list pointer must be provided in this case.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GETNEXT, tunnel_id = valid/invalid, filter = valid/invalid,
+ *        tunnel_id_list = valid, tunnel_id_cnt > 0:
+ *        In this case the API will return the next set of tunnel IDs which matches the filter
+ *        if present starting from the next tunnel ID after the specified tunnel ID.
+ *        The total number of elements fetched will be returned as the tunnel_id_cnt.
+ *        If no valid next tunnel ID exists in the db, an empty list will be returned.
+ *        A non-NULL tunnel_id_list pointer must be provided in this case.
+ *
+ *  Two type of filter can be used,
+ *     1) sx_tunnel_type_e: it exactly match the type defined for the tunnels
+ *     2) sx_tunnel_direction_e: if tunnel direction is SX_TUNNEL_DIRECTION_SYMMETRIC, it will
+ *        match any direction(ENCAP/DECAP/SYMMETRIC) of filter, otherwise, it will only match
+ *        the same direction of filter.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle               - SX-API handle
+ * @param [in] cmd                 - GET/GET_FIRST/GET_NEXT
+ * @param[in] tunnel_id            - tunnel ID
+ * @param [in] filter_p            - specify a filter parameter
+ * @param [out] tunnel_id_list_p   - return list of tunnel IDs
+ * @param [in,out] tunnel_id_cnt_p - [in] number of tunnel IDs to get
+ *                                 - [out] number of tunnel IDs returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ERROR for a general error
+ * @return SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized
+ */
+sx_status_t sx_api_tunnel_iter_get(const sx_api_handle_t     handle,
+                                   const sx_access_cmd_t     cmd,
+                                   const sx_tunnel_id_t      tunnel_id,
+                                   const sx_tunnel_filter_t *filter_p,
+                                   sx_tunnel_id_t           *tunnel_id_list_p,
+                                   uint32_t                 *tunnel_id_cnt_p);
 
 
 #endif /* __SX_API_TUNNEL_H__ */

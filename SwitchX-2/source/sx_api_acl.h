@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -381,7 +381,7 @@ sx_status_t sx_api_acl_policy_based_switching_get(const sx_api_handle_t handle,
  *  When EDIT command is used the given range is written into a group of range_index.
  *  When DELETE command is used the given range_index configuration is cleared.
  *  Port range comparison set cannot be deleted if it is applied to an acl rule.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD / EDIT / DELETE
@@ -404,7 +404,7 @@ sx_status_t sx_api_acl_l4_port_range_set(const sx_api_handle_t            handle
 
 /**
  *  This function is used to get a Layer 4 port range comparison set.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] range_id - Port range comparison ID
@@ -426,7 +426,7 @@ sx_status_t sx_api_acl_l4_port_range_get(const sx_api_handle_t        handle,
 
 /**
  *  This function gets a list of ACL L4 Port Range IDs
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  * @param[in] handle - SX-API handle.
  * @param[in] cmd    GET/GET_NEXT/GET_FIRST
  * @param[in] range_id_key -Range ID to use as Key for GET and GET_NEXT commands.
@@ -451,13 +451,64 @@ sx_status_t sx_api_acl_l4_port_range_get(const sx_api_handle_t        handle,
  * @return SX_STATUS_INVALID_HANDLE if handle in invalid
  * @return SX_STATUS_ERROR general error.
  */
-
 sx_status_t sx_api_acl_l4_port_range_iter_get(const sx_api_handle_t             handle,
                                               const sx_access_cmd_t             cmd,
                                               const sx_acl_port_range_id_t      range_id_key,
                                               const sx_acl_port_range_filter_t *range_id_filter_p,
                                               sx_acl_port_range_id_t           *range_id_list_p,
                                               uint32_t                         *range_id_cnt_p);
+
+/**
+ *  This function adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES).
+ *  Use this comparison set for ACL IPv4 IPv6 full key.
+ *  Supported range comparisons: L4 Port, IP Lenght, TTL, Custom Bytes and UTC.
+ *  Note: At a given time no more than 2 Custom Bytes ranges can be used.
+ *  When ADD command is used the given ranges are written into a group and its ID is returned.
+ *  When EDIT command is used the given range is written into a group of range_index.
+ *  When DELETE command is used the given range_index configuration is cleared.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - ADD / EDIT / DELETE
+ * @param[in] range_entry_p - struct for range comparison
+ * @param[in, out] range_id - range comparison ID
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO: Message size error
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error
+ * @return SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation
+ * @return SX_STATUS_RESOURCE_IN_USE if range is in use and cannot be deleted
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
+ * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
+ */
+sx_status_t sx_api_acl_range_set(const sx_api_handle_t       handle,
+                                 const sx_access_cmd_t       cmd,
+                                 const sx_acl_range_entry_t *range_entry_p,
+                                 sx_acl_port_range_id_t     *range_id_p);
+
+/**
+ *  This function is used to get a range comparison set.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] range_id - range comparison ID
+ * @param[out] range_entry_p - struct for range comparison
+ *
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO: Message size error
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error
+ * @return SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
+ * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
+ */
+sx_status_t sx_api_acl_range_get(const sx_api_handle_t        handle,
+                                 const sx_acl_port_range_id_t range_id,
+                                 sx_acl_range_entry_t        *range_entry_p);
 
 /**
  *  This function is used for inserting rules into an ACL
@@ -1075,5 +1126,55 @@ sx_status_t sx_api_acl_custom_bytes_get(sx_api_handle_t                       ha
                                         sx_acl_key_t                         *custom_bytes_set_key_id_p,
                                         sx_acl_custom_bytes_set_attributes_t *custom_bytes_set_attributes_p);
 
+/**
+ *  This function adds/edits/deletes a policy based ILM (PBILM).
+ *  Policy based ILM entry can be later bound to an ACL rule
+ *  in order to specify a mpls ecmp that will encapsulate the packet
+ *  with mpls labels and send it to RIF. It can also send the frame
+ *  to IP or ILM lookup.
+ *  Use CREATE to create a PBILM entry, which can be changed when
+ *  needed by SET. Note that these operations may fail if no HW
+ *  resources are available. Use DESTROY to remove the PBILM.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - CREATE / SET / DESTROY
+ * @param[in] pbilm_entry - struct for PBILM attributes
+ * @param[in,out] pbilm_id - Port range comparison ID
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if element is not found in DB
+ * @return SX_STATUS_NO_RESOURCES if there are no HW resources for PBILM creation
+ * @return SX_STATUS_RESOURCE_IN_USE if the PBILM record is in use
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
+ * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
+ */
+sx_status_t sx_api_acl_policy_based_ilm_set(const sx_api_handle_t              handle,
+                                            const sx_access_cmd_t              cmd,
+                                            const sx_acl_pbilm_entry_t        *pbilm_entry_p,
+                                            sx_acl_pbilm_id_t                 *pbilm_id_p);
+
+/**
+ *  This function is used to get a PBS set or to count ports of
+ *  a PBS set. note that for GET command the pbs_entry should be
+ *  pre-allocated and pbs_entry port_num should be updated to
+ *  maximal port count to get.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] pbilm_id - Policy based ILM entry ID
+ * @param[out] pbilm_entry - struct for Policy ILM
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
+ * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
+ */
+sx_status_t sx_api_acl_policy_based_ilm_get(const sx_api_handle_t    handle,
+                                            const sx_acl_pbilm_id_t  pbilm_id,
+                                            sx_acl_pbilm_entry_t    *pbilm_entry_p);
 
 #endif /* ifndef __SX_API_ACL_H__ */

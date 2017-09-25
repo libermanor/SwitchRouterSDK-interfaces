@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -322,5 +322,45 @@ sx_status_t sx_api_rstp_port_state_set(const sx_api_handle_t           handle,
 sx_status_t sx_api_rstp_port_state_get(const sx_api_handle_t      handle,
                                        const sx_port_log_id_t     log_port,
                                        sx_mstp_inst_port_state_t *port_state_p);
+
+/**
+ *  This function excludes a port from STP and sets forwarding state to all it's vlans.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle        - SX-API handle
+ * @param[in] log_port      - Logical Port ID
+ * @param[in] state         - excluded state NORMAL/FORWARD
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ */
+sx_status_t sx_api_mstp_exclude_port_state_set(const sx_api_handle_t              handle,
+                                               const sx_port_log_id_t             log_port,
+                                               const sx_mstp_exclude_port_state_t port_state);
+
+/**
+ *  This function retrieves exclude state for a port.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * @param[in] handle        - SX-API handle
+ * @param[in] log_port      - Logical Port ID
+ * @param[out] state_p      - excluded state, NORMAL/FORWARD
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ */
+sx_status_t sx_api_mstp_exclude_port_state_get(const sx_api_handle_t         handle,
+                                               const sx_port_log_id_t        log_port,
+                                               sx_mstp_exclude_port_state_t *port_state_p);
 
 #endif /* __SX_API_MSTP_H__ */

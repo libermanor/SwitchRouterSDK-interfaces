@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2015. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -108,7 +108,33 @@ sx_status_t sx_api_span_session_set(const sx_api_handle_t           handle,
 sx_status_t sx_api_span_session_get(const sx_api_handle_t      handle,
                                     const sx_span_session_id_t span_session_id,
                                     sx_span_session_params_t  *span_session_params_p);
+/**
+ *  This function iteratively returns the current SPAN sessions .
+ *  Supported devices: SwitchX, SwitchX-2, Spectrum.
+ *
+ * @param[in] handle               - SX-API handle.
+ * @param[in] cmd                  - supported commands:GET/GET_FIRST/GETNEXT
+ * @param[in] span_session_key_p   - A reference span session id key
+ * @param[in] filter_p             - Return only span sessions that match this filter param if enabled
+ * @param[out] span_session_list_p - return list of span session ids
+ * @param[in,out] span_session_cnt - [in]  number of sessions to get
+ *                                   [out] number of sessions retrieved
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialised
+ *
+ */
 
+sx_status_t sx_api_span_session_iter_get(const sx_api_handle_t       handle,
+                                         const sx_access_cmd_t       cmd,
+                                         const sx_span_session_id_t *span_session_key_p,
+                                         const sx_span_filter_t     *filter_p,
+                                         sx_span_session_id_t       *span_session_list_p,
+                                         uint32_t                   *span_session_cnt_p);
 /**
  *  This function set SPAN session Admin State.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.

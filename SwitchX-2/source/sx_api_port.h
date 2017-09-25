@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -238,7 +238,7 @@ sx_status_t sx_api_port_swid_bind_set(const sx_api_handle_t  handle,
                                       const sx_swid_t        swid);
 
 /**
- *  This API retrieves a logical port's binded SWID.
+ *  This API retrieves a logical port's bound SWID.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle     - SX-API handle
@@ -318,7 +318,7 @@ sx_status_t sx_api_port_mode_get(const sx_api_handle_t  handle,
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical Port ID
- * @param[in] mtu_size - new MTU payload size. SDK adds L2 header size bytes to this value.
+ * @param[in] mtu_size - new MTU size. The MTU size is L2 frame size (payload size + L2 header size).
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
@@ -336,8 +336,8 @@ sx_status_t sx_api_port_mtu_set(const sx_api_handle_t  handle,
  *
  * @param[in] handle           - SX-API handle
  * @param[in] log_port         - logical port ID
- * @param[out] max_mtu_size_p  - maximum MTU supported on this port (payload size)
- * @param[out] oper_mtu_size_p - operational MTU configured on this port (payload size)
+ * @param[out] max_mtu_size_p  - maximum MTU supported on this port (L2 frame size)
+ * @param[out] oper_mtu_size_p - operational MTU configured on this port (L2 frame size)
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
@@ -395,6 +395,7 @@ sx_status_t sx_api_port_speed_get(const sx_api_handle_t       handle,
 
 /**
  * This API retrieves the port's supported capabilities from the SDK.
+ * HW capabilities are not configurable.
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle        - SX-API handle
@@ -412,13 +413,34 @@ sx_status_t sx_api_port_capability_get(const sx_api_handle_t  handle,
                                        const sx_port_log_id_t log_port,
                                        sx_port_capability_t  *capability_p);
 
+/**
+ * This API retrieves the port's supported FEC capabilities from the SDK
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle        - SX-API handle
+ * @param[in] log_port      - logical port ID
+ * @param[out] fec_capability_list_p - List of capabilities and corresponding speeds
+ * @param[in, out] fec_cnt_p - [in] Number of entries to get, [out] Number of entries in returned list
+ * If fec_capability_list is NULL or fec_cnt is 0 returns Count instead
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_fec_capability_get(const sx_api_handle_t     handle,
+                                           const sx_port_log_id_t    log_port,
+                                           sx_port_fec_capability_t *fec_capability_list_p,
+                                           uint32_t                 *fec_cnt_p);
+
 
 /**
  *  This API Retrieves the port's physical address (MAC) from the SDK.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle           - SX-API handle
- * @param[in] log_port         - logical lort ID
+ * @param[in] log_port         - logical Port ID
  * @param[out] port_mac_addr_p - current base MAC address
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -430,6 +452,24 @@ sx_status_t sx_api_port_capability_get(const sx_api_handle_t  handle,
 sx_status_t sx_api_port_phys_addr_get(const sx_api_handle_t  handle,
                                       const sx_port_log_id_t log_port,
                                       sx_mac_addr_t         *port_mac_addr_p);
+
+/**
+ *  This API sets the port's physical address (MAC).
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] log_port         - logical port ID
+ * @param[out] port_mac_addr_p - new MAC address
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_phys_addr_set(const sx_api_handle_t  handle,
+                                      const sx_port_log_id_t log_port,
+                                      const sx_mac_addr_t   *port_mac_addr_p);
 
 /**
  *  This API sets the port's physical loopback.
@@ -734,7 +774,7 @@ sx_status_t sx_api_port_counter_prio_get(const sx_api_handle_t    handle,
  *  This API retrieves the port's traffic class counters.
  *  Note: The API does not support LAG nor VPORT.
  *
- *  For Spectrum device, in UC mode Tx UC octects and
+ *  For Spectrum device, in UC mode Tx UC octets and
  *  Tx UC frames counters are available only for TC ID 0 - 7.
  *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
@@ -761,8 +801,9 @@ sx_status_t sx_api_port_counter_tc_get(const sx_api_handle_t   handle,
  *  When a LAG port is given, the result is the sum of all the
  *  LAG ports counters.
  *
- *  In UC mode Rx Uc octects, Rx UC frames, and Rx discard counters
+ *  In UC mode Rx Uc octets, Rx UC frames, and Rx discard counters
  *  are available only for Buff ID 0 - 7.
+ *  Shared buffer discard counter is not supported on Spectrum.
  *
  *  Supported devices: Spectrum.
  *
@@ -791,7 +832,7 @@ sx_status_t sx_api_port_counter_buff_get(const sx_api_handle_t         handle,
  * @param[in] handle       - SX-API handle
  * @param[in] cmd          - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
  * @param[in] log_port     - logical port ID
- * @param[in] prio_id      - counters priority ID . In Spectrum support only prio_id=0 is suppoted.
+ * @param[in] prio_id      - counters priority ID . In Spectrum only prio_id=0 is supported.
  * @param[out] cntr_perf_p - performance counters entry
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -1363,7 +1404,27 @@ sx_status_t sx_api_port_phy_mode_get(const sx_api_handle_t handle,
 
 /**
  * This API enables to read/clear discard reason
+ *
  * Supported devices: Spectrum
+ *
+ * This release does not support the following causes:
+ * ip_discard:
+ *  sx_port_cause_t packet_to_router_is_not_ip
+ *  sx_port_cause_t dip_is_loopback
+ *  sx_port_cause_t sip_is_in_class
+ *  sx_port_cause_t sip is loopback
+ *  sx_port_cause_t ip header not okay
+ *  sx_port_cause_t ipv4 sip is limited broadcast
+ *  sx_port_cause_t lpm ipv6 miss
+ *  sx_port_cause_t IPv4 dip is limited broadcast
+ *  sx_port_cause_t IPv4 dip is local
+ *  sx_port_cause_t  NVE packet to overlay router
+ *
+ * MPLS_discard:
+ *  sx_port_cause_t outer_label_is_not_valid
+ *  sx_port_cause_t no_IP_after_decap
+ *  sx_port_cause_t expected_Bos_but_pop_did_not_expose_BoS;
+ *  sx_port_cause_t php_decap_and_no_ip_header_or_ip_header_is_not_okay
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] cmd                       - READ/READ_CLEAR
@@ -1381,5 +1442,349 @@ sx_status_t sx_api_port_discard_reason_get(const sx_api_handle_t     handle,
                                            sx_port_discard_reason_t *discard_reason_list_p,
                                            const uint32_t            list_count);
 
+/**
+ *  This API sets the port's forwarding mode (cut-through vs. store-and-forward) in the SDK.
+ *  Note: Port operational forwarding mode will be updated only after port toggling.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle         - SX-API handle
+ * @param[in] log_port       - logical Port ID
+ * @param[in] admin_fwd_mode - new administrative forwarding mode
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_forwarding_mode_set(const sx_api_handle_t           handle,
+                                            const sx_port_log_id_t          log_port,
+                                            const sx_port_forwarding_mode_t admin_fwd_mode);
+
+/**
+ *  This API retrieves the port's forwarding mode (cut-through vs. store-and-forward) from the SDK.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] log_port          - logical port ID
+ * @param[out] admin_fwd_mode_p - administrative forwarding mode configured on this port
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_forwarding_mode_get(const sx_api_handle_t      handle,
+                                            const sx_port_log_id_t     log_port,
+                                            sx_port_forwarding_mode_t *admin_fwd_mode_p);
+
+/**
+ * This API set the chip parsing depth in bytes .
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] parsing_depth     - parsing depth in bytes
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_parsing_depth_set(const sx_api_handle_t handle,
+                                          const uint16_t        parsing_depth);
+
+/**
+ * This API retrieves the chip parsing depth .
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[out] parsing_depth_p - return parsing depth in bytes
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_parsing_depth_get(const sx_api_handle_t handle,
+                                          uint16_t             *parsing_depth_p);
+
+
+/**
+ * This API is used to set Ethertypes globally.
+ * Note that Ethertype 0x8100 will always be configured by default.
+ * This API allows the user to configure additional Ethertypes per function.
+ *
+ * Supported devices: Spectrum
+ * @param[in] handle         - SX-API handle.
+ * @param[in] cmd         -  ADD/DELETE .
+ * @param[in] ether_types_p    - a pointer to struct holding a list of ether_types
+ * @param[in] ether_type_count  - number of Ethertypes being configured (Max 1 in Spectrum)
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any of the parameters are in Error.
+ * @return SX_STATUS_NO_RESOURCES if no resources are available
+ * @return SX_STATUS_ENTRY_NOT_FOUND if a DELETE is called on a non-existent Ethertype
+ * @return SX_STATUS_RESOURCE_IN_USE if a DELETE is called while a resource is in use
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_port_vlan_ethertype_set(const sx_api_handle_t handle,
+                                           const sx_access_cmd_t cmd,
+                                           sx_vlan_ethertype_t  *ether_types_list_p,
+                                           uint32_t              ether_type_count);
+
+/**
+ *  This API gets a list of user configured Ethertypes. Note that
+ *  0x8100 is always configured and will not be retrieved.
+ *  Supported devices: Spectrum
+ *
+ * @param[in] handle         - SX-API handle.
+ * @param[out] ether_types_p    - a pointer to struct to hold the retrieved list
+ * @param[in, out] ether_type_count  - number of Ethertypes being retrieved.
+ *                                    If ether_type_count==0,returns count instead.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any of the parameters are in Error.
+ *  @return SX_STATUS_ERROR for a general error
+ */
+
+sx_status_t sx_api_port_vlan_ethertype_get(const sx_api_handle_t handle,
+                                           sx_vlan_ethertype_t  *ether_types_list_p,
+                                           uint32_t             *ether_type_count_p);
+
+/**
+ * This API is used to set values to the different Bit Error Rate profiles.
+ * Supported devices: Spectrum.
+ *
+ * Min/max values:
+ * |--------------------------------|
+ * |    Monitor     |  Min  |  Max  |
+ * |--------------------------------|
+ * |RS-FEC Pre-FEC  | 1e-9  | 1e-4  |
+ * |--------------------------------|
+ * |FC-FEC PRE-FEC  | 1e-11 | 1e-4  |
+ * |--------------------------------|
+ * |NO-FEC/Post-FEC | 1e-14 | 1e-8  |
+ * |--------------------------------|
+ *
+ * @param[in] handle         - SX-API handle.
+ * @param[in] log_port       - Network port only.
+ * @param[in] fec_profile    - The FEC profile to be used (RS/FC/NO).
+ * @param[in] threshold_data - Threshold values to set.
+ *                             Values of fraction of errors.
+ *                             Final BER monitor threshold should be between 0 and 1.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ERROR general error.
+ */
+
+sx_status_t sx_api_port_ber_threshold_set(const sx_api_handle_t                          handle,
+                                          const sx_port_log_id_t                         log_port,
+                                          const sx_port_ber_fec_profile_e                fec_profile,
+                                          const sx_port_ber_fec_profile_threshold_data_t threshold_data);
+
+/**
+ * This API is used to retrieve values of the different Bit Error Rate profiles.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle            - SX-API handle.
+ * @param[in] log_port          - Network port only.
+ * @param[in] fec_profile       - The FEC profile to retrieve (RS/FC/NO).
+ * @param[out] threshold_data_p - Threshold values.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ERROR general error.
+ */
+
+sx_status_t sx_api_port_ber_threshold_get(const sx_api_handle_t                     handle,
+                                          const sx_port_log_id_t                    log_port,
+                                          const sx_port_ber_fec_profile_e           fec_profile,
+                                          sx_port_ber_fec_profile_threshold_data_t *threshold_data_p);
+
+/**
+ * This API is used to configure the Bit Error Rate Monitor.
+ * It is recommended to use sx_api_port_ber_monitor_operational_get after
+ * configuring this API to retrieve the FEC status that is configured.
+ * This API is orthogonal to the port FEC configuration.
+ * It is recommended to first register to SX_TRAP_ID_BER_MONITOR and then
+ * setting the monitor data so the first event will be the current status.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle       - SX-API handle.
+ * @param[in] log_port     - The port to which to set the monitor.
+ *                           Only network ports are supported.
+ * @param[in] monitor_data - The monitor attributes to configure.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ERROR general error.
+ */
+
+sx_status_t sx_api_port_ber_monitor_set(const sx_api_handle_t            handle,
+                                        const sx_port_log_id_t           log_port,
+                                        const sx_port_ber_monitor_data_t monitor_data);
+
+/**
+ * This API is used to retrieve values configured to the Bit Error Rate Monitor.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle          - SX-API handle.
+ * @param[in] log_port        - The port to which the monitor is configured.
+ *                              Only network ports are supported.
+ * @param[out] monitor_data_p - Structure to hold the desired data.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ERROR general error.
+ */
+sx_status_t sx_api_port_ber_monitor_get(const sx_api_handle_t       handle,
+                                        const sx_port_log_id_t      log_port,
+                                        sx_port_ber_monitor_data_t *monitor_data_p);
+
+/**
+ * This API is used to retrieve the current state of the Bit Error Rate Monitor.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle               - SX-API handle.
+ * @param[in] log_port             - The port to which the monitor is configured.
+ *                                   Only network ports are supported.
+ * @param[out] monitor_oper_data_p - Structure to hold the desired data.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_NO_RESOURCES if cannot allocate resources.
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_port_ber_monitor_operational_get(const sx_api_handle_t            handle,
+                                                    const sx_port_log_id_t           log_port,
+                                                    sx_port_ber_monitor_oper_data_t *monitor_oper_data_p);
+
+/**
+ * SLL is the max lifetime of a frame within the switch after which it is discarded.
+ * This function SETs the sll_max_time in microseconds.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] sll_max_time - The sll duration in micro seconds
+ *                          Min val = 4usec. Max val = 4398046511 usec (or 4398sec)
+ *                          Any value greater than max implies NO SLL i.e packets are never aged & discarded.
+ *                          SDK will round the sll duration to:  (the lowest power of 2 >= sll) * 4.096
+ *                          For e.g. 500000 will be rounded up to 536871
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behaviour occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ *
+ */
+sx_status_t sx_api_port_sll_set(const sx_api_handle_t handle,
+                                const uint64_t        sll_max_time);
+
+/**
+ * SLL is the max lifetime of a frame within the switch after which it is discarded.
+ * This function GETs the system sll_max_time in microseconds.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle          - SX-API handle.
+ * @param[out] sll_max_time_p - The sll duration in micro seconds .
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behaviour occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ *
+ */
+sx_status_t sx_api_port_sll_get(const sx_api_handle_t handle,
+                                uint64_t             *sll_max_time_p);
+/**
+ * HLL is a mechanism that discards packets that are awaiting transmission at the head
+ * of a scheduling group queue. The max duration a packet can wait in the queue is configurable
+ * After a certain number of packets are discarded, this scheduling group may enter the STALL
+ * state if enabled. This function SETs hll_max_time and the hll_stall_cnt for a given port
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle       - SX-API handle.
+ * @param[in] log_port     - the local port. Only Physical ports and LAG Ports are allowed.
+ * @param[in] hll_max_time - The HLL duration in micro seconds.
+ *                           Min val = 4usec. Max val = 2147483usec (or 2sec)
+ *                           Any value greater than max implies infinite HLL(or No HLL)
+ *                           SDK will round the hll time to:  (the lowest power of 2 >= hll) * 4.096
+ *                           For e.g. 10000 will be rounded up to 16777
+ * @param[in] hll_stall_cnt - Number of packets that need to be discarded after which the
+ *                            queue enters stall state.
+ *                            Valid range [0-7]; Default = 7; 0 = Stall Disabled
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ *
+ */
+sx_status_t sx_api_port_hll_set(const sx_api_handle_t  handle,
+                                const sx_port_log_id_t log_port,
+                                const uint32_t         hll_max_time,
+                                const uint32_t         hll_stall_cnt);
+
+/**
+ * HLL is a mechanism that discards packets that are awaiting transmission at the head
+ * of a scheduling group queue. The max duration a packet can wait in the queue is configurable
+ * After a certain number of packets are discarded, this scheduling group may enter the STALL
+ * state if enabled. This function GETs hll_max_time and the hll_stall_cnt for a given port
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle           - SX-API handle.
+ * @param[in] log_port         - the local port. Only Physical ports and LAG Ports are allowed.
+ * @param[out] hll_max_time_p  - The HLL duration in micro seconds rounded up to: ((nearest power of 2) * 4.096)
+ * @param[out] hll_stall_cnt_p - Number of packets that need to be discarded after which the
+ *                               queue enters stall state.
+ *                               Valid range [0-7]; 0 = Stall Disabled
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ *
+ */
+sx_status_t sx_api_port_hll_get(const sx_api_handle_t  handle,
+                                const sx_port_log_id_t log_port,
+                                uint32_t              *hll_max_time_p,
+                                uint32_t              *hll_stall_cnt_p);
+
+/**
+ *  This API sets the options for how the port handles CRCs in the SDK.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle         - SX-API handle
+ * @param[in] log_port       - logical Port ID
+ * @param[in] crc_params     - CRC handling options
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_crc_params_set(const sx_api_handle_t       handle,
+                                       const sx_port_log_id_t      log_port,
+                                       const sx_port_crc_params_t *crc_params_p);
+
+/**
+ *  This API gets the current options for how the port handles CRCs in the SDK.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle         - SX-API handle
+ * @param[in] log_port       - logical Port ID
+ * @param[out] crc_params    - CRC handling options
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_crc_params_get(const sx_api_handle_t  handle,
+                                       const sx_port_log_id_t log_port,
+                                       sx_port_crc_params_t  *crc_params_p);
 
 #endif /* __SX_API_PORT_H__ */

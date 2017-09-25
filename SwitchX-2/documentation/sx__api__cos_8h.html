@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -138,6 +138,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a4a2e87fb1f9db97d1c64195f7aa82bc5">sx_api_cos_redecn_ecn_counter_per_port_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_cntr_t *ecn_counters_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#ae8338f4bdc8406e2fa396e5134497a99">sx_api_cos_redecn_counters_count_marked_set</a> (const sx_api_handle_t handle, const boolean_t enabled)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a9a42dda380830a99c701ebc2dd83827d">sx_api_cos_redecn_counters_count_marked_get</a> (const sx_api_handle_t handle, const boolean_t *enabled_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a83d7aa9d892ccfaec23b8d175604628a">sx_api_cos_buff_consumption_get</a> (const sx_api_handle_t handle, sx_cos_buff_consumption_t *buff_consumption_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a75fb421fa03095f214dbe8f465d9f9d2"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_log_verbosity_level_set" ref="a75fb421fa03095f214dbe8f465d9f9d2" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -1929,11 +1930,11 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets the port buffers size and threshold (Xon/Xoff) according to their types With command SX_ACCESS_CMD_SET and attribute size non-zero, the API allocates the specific port buffer with attribute size (configures specific buffer entry) With command SX_ACCESS_CMD_SET and attribute size zero, the API releases the size of specific port buffer (delete specific buffer entry) With command SX_ACCESS_CMD_DELETE, the API releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port) Supported devices: Spectrum</p>
+<p>This API sets the port buffers size and threshold (Xon/Xoff) according to their types With command SX_ACCESS_CMD_SET and attribute size non-zero, the API allocates the specific port buffer with attribute size (configures specific buffer entry) With command SX_ACCESS_CMD_SET and attribute size zero, the API releases the size of specific port buffer (delete specific buffer entry) With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that received on port_buffer_attr_list_p (set size zero for those ports) With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port) With logical port param we validate if we can allocate mc buffer, for this user should set log_port param with single reserved value MC_LOG_ID defined in sx_port header. Supported devices: Spectrum</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_SET or SX_ACCESS_CMD_DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">port_buffer_attr_list_p</td><td>- pointer to list of port buffers attributes </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">port_buffer_attr_cnt</td><td>- Number of port buffer attributes in the list</td></tr>
@@ -1989,7 +1990,7 @@ SX_STATUS_ERROR general error </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">port_buffer_attr_list_p</td><td>- pointer to list of port buffers attributes </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>port_buffer_attr_list_p - pointer to list of port buffers attributes </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>port_buffer_attr_cnt - Number of port buffer attributes in the list</td></tr>
   </table>
   </dd>
@@ -2044,11 +2045,11 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets the port shared buffers attributes according to their types Supported devices: Spectrum</p>
+<p>This API sets the port shared buffers attributes according to their types With command SX_ACCESS_CMD_SET and attribute max size/alpha non-zero, the API allocates the specific port shared buffer with attribute depending on the mode (configures specific buffer entry) With command SX_ACCESS_CMD_SET and attribute max size/alpha zero, the API releases the size of specific port shared buffer (delete specific buffer entry) With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that received on port_shared_buffer_attr_list_p (set max alpha/size zero for those ports) With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port shared buffers configured on specific logical port (set max alpha/size zero on all buffer entries on logical port) With logical port param we validate if we can allocate mc buffer, for this user should set log_port param with single reserved value MC_LOG_ID defined in sx_port header. Supported devices: Spectrum</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_SET or SX_ACCESS_CMD_DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">port_shared_buffer_attr_list_p</td><td>- pointer to list of port shared buffer attributes </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">port_shared_buffer_attr_cnt</td><td>- Number of port shared buffer attributes in the list</td></tr>
@@ -2104,7 +2105,7 @@ SX_STATUS_ERROR general error </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">port_shared_buffer_attr_list_p</td><td>- pointer to list of port shared buffer attributes </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>port_shared_buffer_attr_list_p - pointer to list of port shared buffer attributes </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>port_shared_buffer_attr_cnt - Number of port shared buffer attributes in the list</td></tr>
   </table>
   </dd>
@@ -4273,7 +4274,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the rate based configuration for RED/ECN Supported devices: Spectrum.</p>
+<p>This function sets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4327,7 +4328,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets the rate based configuration for RED/ECN Supported devices: Spectrum.</p>
+<p>This function gets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4708,6 +4709,46 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a83d7aa9d892ccfaec23b8d175604628a"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_buff_consumption_get" ref="a83d7aa9d892ccfaec23b8d175604628a" args="(const sx_api_handle_t handle, sx_cos_buff_consumption_t *buff_consumption_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_buff_consumption_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_buff_consumption_t *&#160;</td>
+          <td class="paramname"><em>buff_consumption_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to get buffer consumption Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buff_consumption_p</td><td>a pointer to buffer consumption struct</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -4727,6 +4768,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

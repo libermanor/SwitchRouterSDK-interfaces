@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -57,10 +57,12 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a8335bd578d3a91f0346dfa9d1fa9b096">sx_api_bridge_log_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a9522f3f7337df4a6957c2026b2bd0cfd">sx_api_bridge_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a64a8f3e22c4d6a53b5432edfbfab4a1e">sx_api_bridge_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_bridge_id_t *bridge_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a7c1026fba3045a898ad1cc535dc9ccd7">sx_api_bridge_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t bridge_id, const sx_bridge_filter_t *filter_p, sx_bridge_id_t *bridge_id_list_p, uint32_t *bridge_id_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a2bd03f2e6cc04bafeca6ab89d91f905c">sx_api_bridge_port_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t bridge_id, const sx_port_log_id_t log_port, const sx_vlan_id_t vlan, const sx_untagged_member_state_t egress_mode)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a9e40aa8ac09b2090d0bf14515e489f10">sx_api_bridge_port_get</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, sx_bridge_port_t *bridge_port_list_p, uint32_t *bridge_port_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#ab637b1b2d02c5c3807ff90e0dc0b7a26">sx_api_bridge_vport_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t bridge_id, const sx_port_log_id_t log_port)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a32abb8ce6eee61fba5bab2e286c01b46">sx_api_bridge_vport_get</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, sx_port_log_id_t *bridge_vport_list_p, uint32_t *bridge_vport_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a6423c09af9b60ded6ba5f89e763bb109">sx_api_bridge_vport_multi_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t *bridge_id_list, const sx_port_log_id_t *log_port_list, uint32_t list_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a2f600518fa4f5d6c059ae146e64cfeca">sx_api_bridge_counter_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t bridge_id, const sx_flow_counter_id_t flow_counter_id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a2091d5b177d960b08d682df06e430d41">sx_api_bridge_counter_bind_get</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, sx_flow_counter_id_t *flow_counter_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a527d1bfb48e9c09614952586b21f693a">sx_api_bridge_mirror_set</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, const sx_mirror_direction_t mirror_direction, const sx_mirror_mode_t mirror_mode)</td></tr>
@@ -216,6 +218,101 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c1026fba3045a898ad1cc535dc9ccd7"></a><!-- doxytag: member="sx_api_bridge.h::sx_api_bridge_iter_get" ref="a7c1026fba3045a898ad1cc535dc9ccd7" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t bridge_id, const sx_bridge_filter_t *filter_p, sx_bridge_id_t *bridge_id_list_p, uint32_t *bridge_id_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_bridge_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_bridge_id_t&#160;</td>
+          <td class="paramname"><em>bridge_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_bridge_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_bridge_id_t *&#160;</td>
+          <td class="paramname"><em>bridge_id_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>bridge_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves a list of one or more Bridge IDs. This function is not supported in 802.1Q mode. The following use case scenarios apply with different input parameters X = don't-care</p>
+<ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, bridge_id = X, bridge_id_list = X, bridge_id_cnt = 0: In this case the API will return the total number of bridge IDs in the internal DB.</li>
+</ul>
+<ul>
+<li>2) cmd = SX_ACCESS_CMD_GET, bridge_id = valid/invalid, bridge_id_list = valid, bridge_id_cnt = 1: In this case the API will check if the specified bridge_id exists. If it does, the bridge ID will be returned in the bridge_id_list along with a bridge_id_cnt of 1. If the bridge ID does not exist, an empty list will be returned with bridge_id_cnt = 0. A non-NULL bridge_id_list pointer must be provided in this case.</li>
+</ul>
+<ul>
+<li>3) cmd = SX_ACCESS_CMD_GET, bridge_id = valid/invalid, bridge_id_list = valid, bridge_id_cnt &gt; 1: A bridge_id_cnt &gt; 1 will be treated as a bridge_id_cnt of 1 and the behavior will be same as the earlier GET use cases.</li>
+</ul>
+<ul>
+<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, bridge_id = X, bridge_id_list = NULL, bridge_id_cnt = 0: A zero bridge_id_cnt and an empty bridge_id_list will be returned.</li>
+</ul>
+<ul>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, bridge_id = X, bridge_id_list = valid, bridge_id_cnt &gt; 0: In this case the API will return the first bridge_id_cnt bridge IDs starting from the head of the database. The total number of elements fetched will be returned as bridge_id_cnt. Note: returned bridge_id_cnt may be less than or equal to the requested bridge_id_cnt. The input bridge ID is ignored in this case. A non-NULL bridge_id_list pointer must be provided in this case.</li>
+</ul>
+<ul>
+<li>6) cmd = SX_ACCESS_CMD_GETNEXT, bridge_id = valid/invalid, bridge_id_list = valid, bridge_id_cnt &gt; 0: In this case the API will return the next set of bridge IDs starting from the next bridge ID after the specified bridge ID. The total number of elements fetched will be returned as the bridge_id_cnt. Note: returned bridge_id_cnt may be less than or equal to the requested bridge_id_cnt. If no valid next bridge ID exists in the db, an empty list will be returned. A non-NULL bridge_id_list pointer must be provided in this case.</li>
+</ul>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- specify a filter parameter (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bridge_id_list_p</td><td>- return list of bridge IDs </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">bridge_id_cnt_p</td><td>- [in] number of bridge IDs to get</p>
+<ul>
+<li>[out] number of bridge IDs returned</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
@@ -430,6 +527,69 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge_id. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">bridge_vport_list_p</td><td>- a pointer to a sx_port_log_id_t list. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>bridge_vport_cnt_p - size of the bridge_vport_list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if bridge not found in DB </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6423c09af9b60ded6ba5f89e763bb109"></a><!-- doxytag: member="sx_api_bridge.h::sx_api_bridge_vport_multi_set" ref="a6423c09af9b60ded6ba5f89e763bb109" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t *bridge_id_list, const sx_port_log_id_t *log_port_list, uint32_t list_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_bridge_vport_multi_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_bridge_id_t *&#160;</td>
+          <td class="paramname"><em>bridge_id_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t *&#160;</td>
+          <td class="paramname"><em>log_port_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>list_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Supported devices: Spectrum This function is used to add/del a virtual ports from list to corresponding bridge from list.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id_list</td><td>- bridge_id list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_list</td><td>- logical virtual port ID list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">list_cnt</td><td>- list counter.</td></tr>
   </table>
   </dd>
 </dl>
@@ -801,6 +961,6 @@ SX_STATUS_ENTRY_NOT_BOUND if counter isn't bound. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

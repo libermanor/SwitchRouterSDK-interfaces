@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -58,6 +58,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#aa38113c9b253a9c5c06ce9892aaafd18">sx_api_span_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#ae8f1b3e42c839f00a6e9e49d91d99eff">sx_api_span_session_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_params_t *span_session_params_p, sx_span_session_id_t *span_session_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#afe1f42532d3cd03a849ef1cfc644a9f2">sx_api_span_session_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_span_session_params_t *span_session_params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a4c42b7c633027821dce9ead50a2d0e76">sx_api_span_session_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t *span_session_key_p, const sx_span_filter_t *filter_p, sx_span_session_id_t *span_session_list_p, uint32_t *span_session_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a877debbf92f6a98e34284845bb47b639">sx_api_span_session_state_set</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, const boolean_t admin_state)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#acd257a1cc4df583c16facf79c1e7e96b">sx_api_span_session_state_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, boolean_t *admin_state_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#ac5a2b536f54f727a03a6c27c65b68341">sx_api_span_session_analyzer_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_port_log_id_t *analyzer_port_p)</td></tr>
@@ -292,6 +293,80 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 SX_STATUS_ERROR if unexpected behavior occurs </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4c42b7c633027821dce9ead50a2d0e76"></a><!-- doxytag: member="sx_api_span.h::sx_api_span_session_iter_get" ref="a4c42b7c633027821dce9ead50a2d0e76" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t *span_session_key_p, const sx_span_filter_t *filter_p, sx_span_session_id_t *span_session_list_p, uint32_t *span_session_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_session_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_session_id_t *&#160;</td>
+          <td class="paramname"><em>span_session_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_session_id_t *&#160;</td>
+          <td class="paramname"><em>span_session_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>span_session_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function iteratively returns the current SPAN sessions . Supported devices: SwitchX, SwitchX-2, Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- supported commands:GET/GET_FIRST/GETNEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_key_p</td><td>- A reference span session id key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Return only span sessions that match this filter param if enabled </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">span_session_list_p</td><td>- return list of span session ids </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">span_session_cnt</td><td>- [in] number of sessions to get [out] number of sessions retrieved</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
+<dd>
+SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialised </dd></dl>
 
 </div>
 </div>
@@ -1158,6 +1233,6 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

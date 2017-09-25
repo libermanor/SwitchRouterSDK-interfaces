@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2016. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -1312,6 +1312,74 @@ sx_status_t sx_api_router_ecmp_get(const sx_api_handle_t handle,
                                    uint32_t             *next_hop_cnt_p);
 
 /**
+ *  This function returns a list of one or more ECMP container identifiers.
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, ecmp_id = X, ecmp_list = X, ecmp_cnt = 0:
+ *        In this case the API will return the total number of ECMP containers in the
+ *        Internal db.
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, ecmp_id = valid/invalid, ecmp_list = valid,
+ *        ecmp_cnt = 1:
+ *        In this case the API will check if the specified ECMP container ID exists.
+ *        If it does, the ECMP container ID will be returned in the ecmp_list along with
+ *        a ecmp_cnt of 1.
+ *        If the key does not exist, an empty list will be returned with ecmp_cnt = 0.
+ *        A non-NULL ecmp_list pointer must be provided in this case.
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, ecmp_id = valid/invalid, ecmp_list = valid,
+ *        ecmp_cnt > 1:
+ *        An ecmp_cnt > 1 will be treated as a ecmp_cnt of 1 and the behavior will be same
+ *        as the earlier GET use cases.
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, ecmp_id = X
+ *        ecmp_list = NULL, ecmp_cnt = 0:
+ *        A zero ecmp_cnt and an empty ecmp_list will be returned.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST, ecmp_id = X, ecmp_list = valid, ecmp_cnt > 0:
+ *        In this case the API will return the first ecmp_cnt ECMP container IDs starting
+ *        from the head of the database. The total number of elements fetched will be returned
+ *        as ecmp_cnt.  Note: returned ecmp_cnt may be less than or equal to
+ *        the requested ecmp_cnt. The key is ignored in this case.
+ *        A non-NULL ecmp_list pointer must be provided in this case.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GETNEXT, ecmp_id = valid/invalid, ecmp_list = valid,
+ *        ecmp_cnt > 0:
+ *        In this case the API will return the next set of ECMP container IDs starting from
+ *        the next valid ECMP container ID after the specified ECMP container ID. The total
+ *        number of elements fetched will be returned as the ecmp_cnt.
+ *        Note: returned ecmp_cnt may be less than or equal to the requested ecmp_cnt.
+ *        If no valid next ECMP container ID exists in the db, an empty list will be returned.
+ *        A non-NULL ecmp_list pointer must be provided in this case.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param [in] handle           : SX API handle
+ * @param [in] cmd              : GET/GET_FIRST/GET_NEXT
+ * @param [in] ecmp_id          : specify an ECMP container ID
+ * @param [in] filter           : specify a filter parameter (not supported yet)
+ * @param [out] ecmp_list_p     : return list of ECMP container IDs
+ * @param [in,out] ecmp_cnt_p   : [in] number of ECMP container IDs to get
+ *                              : [out] number of ECMP container IDs returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
+ * @return SX_STATUS_PARAM_NULL if an unexpected NULL parameter was passed.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ERROR general error.
+ * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
+ * @return SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialized
+ * @return SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal ECMP DB is not initialized
+ */
+sx_status_t sx_api_router_ecmp_iter_get(const sx_api_handle_t   handle,
+                                        const sx_access_cmd_t   cmd,
+                                        const sx_ecmp_id_t      ecmp_id,
+                                        const sx_ecmp_filter_t *filter_p,
+                                        sx_ecmp_id_t           *ecmp_list_p,
+                                        uint32_t               *ecmp_cnt_p);
+
+/**
  * This function retrieves the EMCP container content, as written on HW(only
  * resolved next hops).
  *  Supported devices: Spectrum.
@@ -1447,6 +1515,7 @@ sx_status_t sx_api_router_ecmp_attributes_get(const sx_api_handle_t handle,
 
 /**
  * This function clone an ECMP container.
+ * Supported devices: Spectrum.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] old_ecmp_id            - Old ID of ECMP container

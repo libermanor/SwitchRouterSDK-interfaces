@@ -708,11 +708,13 @@ sx_status_t sx_api_cos_shared_buff_pool_get(const sx_api_handle_t handle,
  * This API sets the port buffers size and threshold (Xon/Xoff) according to their types
  * With command SX_ACCESS_CMD_SET and attribute size non-zero, the API allocates the specific port buffer with attribute size (configures specific buffer entry)
  * With command SX_ACCESS_CMD_SET and attribute size zero, the API releases the size of specific port buffer (delete specific buffer entry)
- * With command SX_ACCESS_CMD_DELETE, the API releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port)
+ * With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that received on port_buffer_attr_list_p (set size zero for those ports)
+ * With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port)
+ * With logical port param we validate if we can allocate mc buffer, for this user should set log_port param with single reserved value MC_LOG_ID defined in sx_port header.
  * Supported devices: Spectrum
  *
  * @param[in] handle                    - SX-API handle
- * @param[in] cmd                       - CMD SX_ACCESS_CMD_SET or SX_ACCESS_CMD_DELETE
+ * @param[in] cmd                       - CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL
  * @param[in] log_port                  - logical port ID
  * @param[in] port_buffer_attr_list_p   - pointer to list of port buffers attributes
  * @param[in] port_buffer_attr_cnt      - Number of port buffer attributes in the list
@@ -733,7 +735,7 @@ sx_status_t sx_api_cos_port_buff_type_set(const sx_api_handle_t            handl
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] log_port                  - logical port ID
- * @param[out] port_buffer_attr_list_p  - pointer to list of port buffers attributes
+ * @param[in/out] port_buffer_attr_list_p  - pointer to list of port buffers attributes
  * @param[in/out] port_buffer_attr_cnt  - Number of port buffer attributes in the list
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -747,10 +749,15 @@ sx_status_t sx_api_cos_port_buff_type_get(const sx_api_handle_t      handle,
 
 /**
  * This API sets the port shared buffers attributes according to their types
+ * With command SX_ACCESS_CMD_SET and attribute max size/alpha non-zero, the API allocates the specific port shared buffer with attribute depending on the mode (configures specific buffer entry)
+ * With command SX_ACCESS_CMD_SET and attribute max size/alpha zero, the API releases the size of specific port shared buffer (delete specific buffer entry)
+ * With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that received on port_shared_buffer_attr_list_p (set max alpha/size zero for those ports)
+ * With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port shared buffers configured on specific logical port (set max alpha/size zero on all buffer entries on logical port)
+ * With logical port param we validate if we can allocate mc buffer, for this user should set log_port param with single reserved value MC_LOG_ID defined in sx_port header.
  * Supported devices: Spectrum
  *
  * @param[in] handle                            - SX-API handle
- * @param[in] cmd                               - CMD SX_ACCESS_CMD_SET or SX_ACCESS_CMD_DELETE
+ * @param[in] cmd                               - CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL
  * @param[in] log_port                          - logical port ID
  * @param[in] port_shared_buffer_attr_list_p    - pointer to list of port shared buffer attributes
  * @param[in] port_shared_buffer_attr_cnt       - Number of port shared buffer attributes in the list
@@ -771,7 +778,7 @@ sx_status_t sx_api_cos_port_shared_buff_type_set(const sx_api_handle_t          
  *
  * @param[in] handle                            - SX-API handle
  * @param[in] log_port                          - logical port ID
- * @param[out] port_shared_buffer_attr_list_p   - pointer to list of port shared buffer attributes
+ * @param[in/out] port_shared_buffer_attr_list_p   - pointer to list of port shared buffer attributes
  * @param[in/out] port_shared_buffer_attr_cnt   - Number of port shared buffer attributes in the list
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -1546,7 +1553,7 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_get(const sx_api_handle_t         
 
 /**
  * This function sets the rate based configuration for RED/ECN
- * Supported devices: Spectrum.
+ * Supported devices: Currently this API is not supported.
  *
  * @param[in] handle        -  SX-API handle
  * @param[in] enabled        - enable/disable
@@ -1564,7 +1571,7 @@ sx_status_t sx_api_cos_redecn_rate_based_set(const sx_api_handle_t              
 
 /**
  * This function gets the rate based configuration for RED/ECN
- * Supported devices: Spectrum.
+ * Supported devices: Currently this API is not supported.
  *
  * @param[in] handle        -  SX-API handle
  * @param[in] log_port  - egress port to configure
@@ -1707,4 +1714,18 @@ sx_status_t sx_api_cos_redecn_counters_count_marked_get(const sx_api_handle_t ha
                                                         const boolean_t      *enabled_p);
 
 
+/**
+ * This function is used to get buffer consumption
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle SX-API handle
+ * @param[in] buff_consumption_p a pointer to buffer consumption struct
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+
+sx_status_t sx_api_cos_buff_consumption_get(const sx_api_handle_t      handle,
+                                            sx_cos_buff_consumption_t *buff_consumption_p);
 #endif /* __SX_API_COS_H__ */

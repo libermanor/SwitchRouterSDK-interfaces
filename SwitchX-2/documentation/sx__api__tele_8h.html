@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.4000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -62,6 +62,9 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#ad7548dd2daa606dc935b70ee9bb39d80">sx_api_tele_histogram_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_histogram_key_t key, sx_tele_histogram_attributes_data_t *data_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#ab85c3e44bbac64a2948c2746a56af6e8">sx_api_tele_histogram_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_histogram_key_t *hist_key_p, const sx_tele_histogram_filter_t filter, sx_tele_histogram_key_t *hist_list_p, uint32_t *hist_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#afc14029bb31bb2c06b6bd1f5b08e2641">sx_api_tele_histogram_data_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_histogram_key_t key, sx_tele_histogram_data_t *histogram_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#a6c792d188dd3137af8123aaec332300d">sx_api_tele_threshold_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_threshold_key_t key, const sx_tele_threshold_data_t data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#a502255dcba339c9299bbc4896496e6fd">sx_api_tele_threshold_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_threshold_key_t key, sx_tele_threshold_data_t *data_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#aea1e9bca46b6a0dfc016bb6d110ea9c8">sx_api_tele_threshold_crossed_data_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_threshold_key_t *key_p, sx_tele_threshold_crossed_data_t *crossed_data_p, const uint32_t key_cnt)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ad296c2522919d1d0a5e34d6dd0981be1"></a><!-- doxytag: member="sx_api_tele.h::sx_api_tele_log_verbosity_level_set" ref="ad296c2522919d1d0a5e34d6dd0981be1" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -510,6 +513,184 @@ SX_STAUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a6c792d188dd3137af8123aaec332300d"></a><!-- doxytag: member="sx_api_tele.h::sx_api_tele_threshold_set" ref="a6c792d188dd3137af8123aaec332300d" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_threshold_key_t key, const sx_tele_threshold_data_t data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tele_threshold_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tele_threshold_key_t&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tele_threshold_data_t&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sets the congestion threshold for a specific port and enables a specific TC (in addition to enabled ones). Note: SET command cannot be called on an existing entry. in order to modify, use EDIT. For port related thresholds: 1. network and LAG ports are supported. 2. On spectrum, the last threshold that was set on a port will apply to all TC's in the port.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/EDIT/DESTORY. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- threshold key. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>- threshold data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+<dd>
+SX_STAUS_ERROR on internal error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a502255dcba339c9299bbc4896496e6fd"></a><!-- doxytag: member="sx_api_tele.h::sx_api_tele_threshold_get" ref="a502255dcba339c9299bbc4896496e6fd" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_threshold_key_t key, sx_tele_threshold_data_t *data_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tele_threshold_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tele_threshold_key_t&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tele_threshold_data_t *&#160;</td>
+          <td class="paramname"><em>data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Retrieves the congestion threshold for a specific port and the TC's the threshold is configured to. For port related threshold types, network and LAG ports are supported.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- threshold attributes key. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>- threshold attributes data.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+<dd>
+SX_STAUS_ERROR on internal error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aea1e9bca46b6a0dfc016bb6d110ea9c8"></a><!-- doxytag: member="sx_api_tele.h::sx_api_tele_threshold_crossed_data_get" ref="aea1e9bca46b6a0dfc016bb6d110ea9c8" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_threshold_key_t *key_p, sx_tele_threshold_crossed_data_t *crossed_data_p, const uint32_t key_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tele_threshold_crossed_data_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tele_threshold_key_t *&#160;</td>
+          <td class="paramname"><em>key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tele_threshold_crossed_data_t *&#160;</td>
+          <td class="paramname"><em>crossed_data_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>key_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Retrieves the current threshold congestion state (below / above threshold) for a list of keys. For port related threshold types, only network ports are supported.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- list of threshold key. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">crossed_data_p</td><td>- list of threshold crossed data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_cnt</td><td>- number of elements in key list and crossed data list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+<dd>
+SX_STAUS_ERROR on internal error. </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -529,6 +710,6 @@ SX_STAUS_ERROR general error. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Feb 1 2017 20:15:02 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>
