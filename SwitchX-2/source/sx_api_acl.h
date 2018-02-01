@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -196,7 +196,7 @@ sx_status_t sx_api_acl_get(const sx_api_handle_t  handle,
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
- * @return SX_STATUS_PARAM_ERROR if any paramter is in error.
+ * @return SX_STATUS_PARAM_ERROR if any parameter is in error.
  * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  * @return SX_STATUS_INVALID_HANDLE if handle in invalid
  * @return SX_STATUS_ERROR general error.
@@ -294,7 +294,7 @@ sx_status_t sx_api_acl_group_get(const sx_api_handle_t handle,
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
- * @return SX_STATUS_PARAM_ERROR if any paramter is in error.
+ * @return SX_STATUS_PARAM_ERROR if any parameter is in error.
  * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  * @return SX_STATUS_INVALID_HANDLE if handle in invalid
  * @return SX_STATUS_ERROR general error.
@@ -446,7 +446,7 @@ sx_status_t sx_api_acl_l4_port_range_get(const sx_api_handle_t        handle,
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
- * @return SX_STATUS_PARAM_ERROR if any paramter is in error.
+ * @return SX_STATUS_PARAM_ERROR if any parameter is in error.
  * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  * @return SX_STATUS_INVALID_HANDLE if handle in invalid
  * @return SX_STATUS_ERROR general error.
@@ -461,7 +461,7 @@ sx_status_t sx_api_acl_l4_port_range_iter_get(const sx_api_handle_t             
 /**
  *  This function adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES).
  *  Use this comparison set for ACL IPv4 IPv6 full key.
- *  Supported range comparisons: L4 Port, IP Lenght, TTL, Custom Bytes and UTC.
+ *  Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes and UTC.
  *  Note: At a given time no more than 2 Custom Bytes ranges can be used.
  *  When ADD command is used the given ranges are written into a group and its ID is returned.
  *  When EDIT command is used the given range is written into a group of range_index.
@@ -938,8 +938,8 @@ sx_status_t sx_api_acl_flex_rules_get(const sx_api_handle_t    handle,
  *  @return SX_STATUS_SUCCESS           The operation completed successfully
  *  @return SX_STATUS_ENTRY_NOT_FOUND   ACL ID or RIF ID not found in DB
  *  @return SX_STATUS_PARAM_ERROR       Invalid parameter
- *  @return SX_STATUS_CMD_UNSUPPORTED   the given comand is unsupported
- *  @return SX_STATUS_ERROR             The operation cannot be complited
+ *  @return SX_STATUS_CMD_UNSUPPORTED   the given command is unsupported
+ *  @return SX_STATUS_ERROR             The operation cannot be completed
  */
 sx_status_t sx_api_acl_rif_bind_set(const sx_api_handle_t handle,
                                     const sx_access_cmd_t cmd,
@@ -1091,8 +1091,15 @@ sx_status_t sx_api_acl_region_hw_size_get(const sx_api_handle_t    handle,
  * @param[in] cmd - CREATE/DESTROY/EDIT.
  * @param[in] custom_bytes_set_attributes - Specifies extraction points data.
  * @param[in/out] custom_bytes_set_key_id_p - Specifies an array of the custom bytes keys id.
- *  For create a list of usable SDK key id is provided. For destory. Only the first key is used to destory the set.
- * @param[in/out] custom_bytes_set_key_id_cnt_p - Specifies how many custum bytes are expected by the user.
+ *  For CREATE an array of SDK key ids is provided. For destroy only the first key is used to identify the destroyed set.
+ *  For CREATE, if the first key id in list is zero (FLEX_ACL_KEY_INVALID) or any other value, not in interval
+ *  [FLEX_ACL_KEY_CUSTOM_BYTES_START .. FLEX_ACL_KEY_CUSTOM_BYTES_LAST], the custom bytes set is allocated by SW
+ *  as the first free one; if the first key id in the list belongs to interval
+ *  [FLEX_ACL_KEY_CUSTOM_BYTES_START .. FLEX_ACL_KEY_CUSTOM_BYTES_LAST], it identifies the custom bytes set to be
+ *  allocated. If the custom bytes set is already allocated, SW allocates first free set.
+ *  As an example, key ids, which were allocated once and destroyed after that, may be submitted to the CREATE
+ *  operation in order to get the same key ids, in case they are still free.
+ * @param[in/out] custom_bytes_set_key_id_cnt_p - Specifies how many custom bytes are expected by the user.
  *  The counter is updated with :MIN(available number of bytes in allocated set, Requested number of bytes)
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
@@ -1151,10 +1158,10 @@ sx_status_t sx_api_acl_custom_bytes_get(sx_api_handle_t                       ha
  * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
  */
-sx_status_t sx_api_acl_policy_based_ilm_set(const sx_api_handle_t              handle,
-                                            const sx_access_cmd_t              cmd,
-                                            const sx_acl_pbilm_entry_t        *pbilm_entry_p,
-                                            sx_acl_pbilm_id_t                 *pbilm_id_p);
+sx_status_t sx_api_acl_policy_based_ilm_set(const sx_api_handle_t       handle,
+                                            const sx_access_cmd_t       cmd,
+                                            const sx_acl_pbilm_entry_t *pbilm_entry_p,
+                                            sx_acl_pbilm_id_t          *pbilm_id_p);
 
 /**
  *  This function is used to get a PBS set or to count ports of
@@ -1173,8 +1180,8 @@ sx_status_t sx_api_acl_policy_based_ilm_set(const sx_api_handle_t              h
  * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
  * @return SX_STATUS_INVALID_HANDLE: Invalid Handle
  */
-sx_status_t sx_api_acl_policy_based_ilm_get(const sx_api_handle_t    handle,
-                                            const sx_acl_pbilm_id_t  pbilm_id,
-                                            sx_acl_pbilm_entry_t    *pbilm_entry_p);
+sx_status_t sx_api_acl_policy_based_ilm_get(const sx_api_handle_t   handle,
+                                            const sx_acl_pbilm_id_t pbilm_id,
+                                            sx_acl_pbilm_entry_t   *pbilm_entry_p);
 
 #endif /* ifndef __SX_API_ACL_H__ */

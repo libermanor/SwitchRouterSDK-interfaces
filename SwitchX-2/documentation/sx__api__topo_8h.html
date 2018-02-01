@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -197,12 +197,12 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the device s. Each device that is introduced to the system must be configured to the topology library. This API maintains a database that is used by other libraries to receive a device lrrelevant for configuration</p>
+<p>This function sets the device s. Each device that is introduced to the system must be configured to the topology library. This API maintains a database that is used by other libraries to receive a device irrelevant for configuration</p>
 <p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD a new device to topo lib the DELETE delete device from topo lib note that the device should be removed from all forwarding tree prior to that operation change unicast/multicast/flood_tree_hndl_arr; READY device is dreay we can route traffic from/to /via this device please note that trees(unicast/multicast/flood_ must be configured with the new device </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD a new device to topo lib the DELETE delete device from topo lib note that the device should be removed from all forwarding tree prior to that operation change unicast/multicast/flood_tree_hndl_arr; READY device is ready we can route traffic from/to /via this device please note that trees(unicast/multicast/flood_ must be configured with the new device </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dev_info</td><td>- pointer to device info to set</td></tr>
   </table>
   </dd>
@@ -345,7 +345,7 @@ SX_STATUS_PARAM_NULL if null pointer is given </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets forwording tree . Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets forwarding tree . Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -397,7 +397,7 @@ SX_STATUS_MEMORY_ERROR if there's not enough memory </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function reload balance unicasts trafic Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function reload balance unicast traffic Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle [in] tree- all ports that forward traffic via "tree" should replace (chose another tree) possible value specific tree handle/ALL_TREE [in] log_port- rebalance this port possible value port/ALL_PORT</td></tr>
@@ -447,7 +447,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE-create a new multicast tree group DELETE-delete multicast tree group please note that the should be empty GET-get muticast tree group parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE-create a new multicast tree group DELETE-delete multicast tree group please note that the should be empty GET-get multicast tree group parameters </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">sx_topo_lib_tree_t</td><td>- </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">len_p</td><td>- In: Pointer to the input array's length Out: Pointer to the # of updated entries</td></tr>
   </table>
@@ -635,6 +635,6 @@ SX_STATUS_ERROR general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

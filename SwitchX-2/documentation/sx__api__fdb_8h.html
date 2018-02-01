@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -108,6 +108,12 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a29f28553045fe213b7c86c9911a80689">sx_api_fdb_mc_ip_addr_group_get</a> (const sx_api_handle_t handle, const sx_fdb_mc_ip_key_t *mc_fdb_mc_ip_key, sx_fdb_mc_ip_action_t *fdb_mc_ip_action_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a68dbdec283dc6a0e6aed34463e413eb7">sx_api_fdb_mc_ip_addr_group_counter_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mc_ip_key_t *key_p, const sx_flow_counter_id_t counter_id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#af4027bd56cbce6623ad155c5ccd3bc11">sx_api_fdb_mc_ip_addr_group_counter_bind_get</a> (const sx_api_handle_t handle, const sx_fdb_mc_ip_key_t *key_p, sx_flow_counter_id_t *counter_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a01cc956ac3e9e78a816f368f8104bdf7">sx_api_fdb_unreg_mc_flood_mode_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_fdb_unreg_flood_mode_t urmc_flood_mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a38b47bb878ed5f257c93073c8e6a43f5">sx_api_fdb_unreg_mc_flood_mode_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_fdb_unreg_flood_mode_t *urmc_flood_mode_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ac8e3fbbd807c02081b6153fc89f759b3">sx_api_fdb_unreg_mc_flood_ports_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_port_log_id_t *log_port_list_p, const uint32_t port_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ae94842d07542f4a835f7f9d78f1d9043">sx_api_fdb_unreg_mc_flood_ports_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_port_log_id_t *log_port_list_p, uint32_t *port_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#aceaf604e293b33ce3ad10f9f078999df">sx_api_fdb_mc_ip_addr_group_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mc_ip_key_t *key_p, boolean_t *activity_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a49f9f71e8e65e1a8687080d39d4119ef">sx_api_fdb_mc_ip_addr_group_activity_notify</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mc_ip_filter_t *filter_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="aa402a02c1b476045b0bdbfaf4d9e466f"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_log_verbosity_level_set" ref="aa402a02c1b476045b0bdbfaf4d9e466f" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -3333,7 +3339,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function get binded counter to MC IP entry.</p>
+<p>This function get bound counter to MC IP entry.</p>
 <p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -3365,6 +3371,353 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a01cc956ac3e9e78a816f368f8104bdf7"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_unreg_mc_flood_mode_set" ref="a01cc956ac3e9e78a816f368f8104bdf7" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_fdb_unreg_flood_mode_t urmc_flood_mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_unreg_mc_flood_mode_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_vid_t&#160;</td>
+          <td class="paramname"><em>vid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_unreg_flood_mode_t&#160;</td>
+          <td class="paramname"><em>urmc_flood_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API sets unregistered MC flood mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">urmc_flood_mode</td><td>- unregistered MC flood mode: FLOOD / PRUNE</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a38b47bb878ed5f257c93073c8e6a43f5"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_unreg_mc_flood_mode_get" ref="a38b47bb878ed5f257c93073c8e6a43f5" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_fdb_unreg_flood_mode_t *urmc_flood_mode_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_unreg_mc_flood_mode_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_vid_t&#160;</td>
+          <td class="paramname"><em>vid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_fdb_unreg_flood_mode_t *&#160;</td>
+          <td class="paramname"><em>urmc_flood_mode_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves unregistered MC flood mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">urmc_flood_mode_p</td><td>- unregister MC flood mode: FLOOD / PRUNE</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac8e3fbbd807c02081b6153fc89f759b3"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_unreg_mc_flood_ports_set" ref="ac8e3fbbd807c02081b6153fc89f759b3" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_port_log_id_t *log_port_list_p, const uint32_t port_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_unreg_mc_flood_ports_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_vid_t&#160;</td>
+          <td class="paramname"><em>vid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t *&#160;</td>
+          <td class="paramname"><em>log_port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API sets unregistered MC flood ports. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_list_p</td><td>- a pointer to a port list, port may be a LAG or physical port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- size of port list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae94842d07542f4a835f7f9d78f1d9043"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_unreg_mc_flood_ports_get" ref="ae94842d07542f4a835f7f9d78f1d9043" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_port_log_id_t *log_port_list_p, uint32_t *port_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_unreg_mc_flood_ports_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_vid_t&#160;</td>
+          <td class="paramname"><em>vid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_log_id_t *&#160;</td>
+          <td class="paramname"><em>log_port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>port_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This API retrieves unregistered MC flood ports. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">log_port_list_p</td><td>- a pointer to a port list, port can be LAG or physical port </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_cnt_p</td><td>- size of port list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aceaf604e293b33ce3ad10f9f078999df"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_mc_ip_addr_group_activity_get" ref="aceaf604e293b33ce3ad10f9f078999df" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mc_ip_key_t *key_p, boolean_t *activity_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_mc_ip_addr_group_activity_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_mc_ip_key_t *&#160;</td>
+          <td class="paramname"><em>key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boolean_t *&#160;</td>
+          <td class="paramname"><em>activity_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function reads and clears multicast entry activity. Supported devices: Spectrum, Spectrum2</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fdb_mc_key_p</td><td>- mc entry key {fid, source IP address, group address} </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">activity_p</td><td>- activity state.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed </dd>
+<dd>
+SX_STATUS_NOT_FOUND if mc route is not found </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a49f9f71e8e65e1a8687080d39d4119ef"></a><!-- doxytag: member="sx_api_fdb.h::sx_api_fdb_mc_ip_addr_group_activity_notify" ref="a49f9f71e8e65e1a8687080d39d4119ef" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mc_ip_filter_t *filter_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_mc_ip_addr_group_activity_notify </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_mc_ip_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function initiates a notification regarding active mc fdb entries in the system. Supported devices: Spectrum, Spectrum2</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- activity notifier filter</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if parameter is invalid. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if a notification procedure is already running. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -3384,6 +3737,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

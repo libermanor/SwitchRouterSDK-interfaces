@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -438,7 +438,7 @@ sx_status_t sx_api_cos_port_buff_get(const sx_api_handle_t      handle,
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * Note:
- * Untagged frames must use a buffer used by one of the prios.
+ * Untagged frames must use a buffer used by one of the priorities.
  * SwitchX cannot allocate a buffer for untagged frames only.
  *
  * @param[in] handle          - SX-API handle
@@ -670,8 +670,6 @@ sx_status_t sx_api_cos_qcn_general_param_get(const sx_api_handle_t handle,
 
 /**
  * This API sets the pool parameters.
- * User Pool#7 (Egress Pool#3) cannot be deleted as it is bound to CPU port buffers
- * User Pool#4 (Egress Pool#0) can be deleted when all MC buffers are unbinded from this pool
  * Supported devices: Spectrum
  *
  * @param[in] handle              - SX-API handle
@@ -1107,10 +1105,11 @@ sx_status_t sx_api_cos_port_dscp_to_prio_get(const sx_api_handle_t    handle,
  * This function defines rewrite enable option setting of PCP, DEI, DSCP and EXP
  * bits in packet header. The values of rewriting are defined by mapping
  * in the following functions.
+ * The rewrite is defined on an ingress port.
  * Supported devices: Spectrum.
  *
  * @param[in] handle  - SX-API handle
- * @param[in] log_port - logical port ID
+ * @param[in] log_port - ingress logical port ID
  * @param[in] rewrite  - should rewrite PCP/DEI, DSCP, EXP
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -1127,7 +1126,7 @@ sx_status_t sx_api_cos_port_rewrite_enable_set(const sx_api_handle_t         han
  * Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle
- * @param[in] log_port   - logical port ID
+ * @param[in] log_port   - ingress logical port ID
  * @param[out] rewrite_p - should rewrite PCP/DEI, DSCP, EXP
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -1142,11 +1141,11 @@ sx_status_t sx_api_cos_port_rewrite_enable_get(const sx_api_handle_t    handle,
  * This function defines the mapping from switch-priority, color to PCP, DEI for PCP and DEI rewrite,
  * in packet header.
  * The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in
- * sx_api_cos_port_rewrite_enable_set
+ * sx_api_cos_port_rewrite_enable_set.
  * Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle
- * @param[in] log_port - logical port ID
+ * @param[in] log_port - egress logical port ID
  * @param[in] switch_priority_color_p   - a list of switch priorities, and colors
  * @param[in] pcp_dei_p   - a list of PCP's and DEI's
  * @param[in] element_cnt - switch priorities and PCP's, DEI's lists elements count
@@ -1169,7 +1168,7 @@ sx_status_t sx_api_cos_port_prio_to_pcpdei_rewrite_set(const sx_api_handle_t    
  * Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle
- * @param[in] log_port   - logical port ID
+ * @param[in] log_port   - egress logical port ID
  * @param[out] switch_priority_color_p - a list of switch priorities and colors
  * @param[out] pcp_dei_p      - a list of PCP's and DEI's
  * @param[out] element_cnt_p - switch priorities and DSCP lists elements count
@@ -1192,7 +1191,7 @@ sx_status_t sx_api_cos_port_prio_to_pcpdei_rewrite_get(const sx_api_handle_t    
  * Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle
- * @param[in] log_port - logical port ID
+ * @param[in] log_port - egress logical port ID
  * @param[in] switch_priority_color_p   - list of switch priorities, and colors
  * @param[in] dscp_p   - a list of DSCP's
  * @param[in] element_cnt - switch priorities and DSCP's lists elements count
@@ -1214,7 +1213,7 @@ sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_set(const sx_api_handle_t      
  * Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle
- * @param[in] log_port   - logical port ID
+ * @param[in] log_port   - egress logical port ID
  * @param[out] switch_priority_color_p - a list of switch priorities and colors
  * @param[out] dscp_p      - a list of DSCP's
  * @param[out] element_cnt_p - switch priorities and DSCP lists elements count
@@ -1237,7 +1236,7 @@ sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_get(const sx_api_handle_t    ha
  * Supported devices: Spectrum.
  *
  * @param[in] handle                  - SX-API handle
- * @param[in] log_port                - logical port ID
+ * @param[in] log_port                - egress logical port ID
  * @param[in] switch_priority_color_p - list of switch priorities, colors
  * @param[in] ecn_p                   - list of ECN's
  * @param[in] exp_p                   - list of EXP's
@@ -1260,7 +1259,7 @@ sx_status_t sx_api_cos_port_prio_to_exp_rewrite_set(const sx_api_handle_t       
  * Supported devices: Spectrum.
  *
  * @param[in] handle                       - SX-API handle
- * @param[in] log_port                     - logical port ID
+ * @param[in] log_port                     - egress logical port ID
  * @param[out] switch_priority_color_ecn_p - a list of switch priorities, colors
  * @param[out] ecn_p                       - a list of ECN's
  * @param[out] exp_p                       - a list of EXP's
@@ -1276,6 +1275,42 @@ sx_status_t sx_api_cos_port_prio_to_exp_rewrite_get(const sx_api_handle_t    han
                                                     sx_cos_ecn_t            *ecn_p,
                                                     sx_cos_exp_t            *exp_p,
                                                     uint32_t                *element_cnt_p);
+/**
+ * This function sets PTP shaper parameters
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                        - SX-API handle
+ * @param[in] cmd                           - SX_ACCESS_CMD_SET : set new shaper parameters
+ *                                            SX_ACCESS_CMD_DELETE : reset shaper parameters to default
+ * @param[in] port_speed                    - The link speed of the port
+ * @param[in] shaper_params                 - The ptp shaper parameters
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_cos_ets_ptp_shaper_param_set(const sx_api_handle_t          handle,
+                                                const sx_access_cmd_t          cmd,
+                                                sx_cos_ets_ptp_port_speed_e    port_speed,
+                                                sx_cos_ets_ptp_shaper_params_t shaper_params);
+
+/**
+ * This function retrieves PTP shaper parameters
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                        - SX-API handle
+ * @param[in] cmd                           - SX_ACCESS_CMD_GET : retrieve current shaper parameters
+ * @param[in] port_speed                    - The link speed of the port
+ * @param[in] shaper_params                 - The ptp shaper parameters
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_cos_ets_ptp_shaper_param_get(const sx_api_handle_t           handle,
+                                                const sx_access_cmd_t           cmd,
+                                                sx_cos_ets_ptp_port_speed_e     port_speed,
+                                                sx_cos_ets_ptp_shaper_params_t *shaper_params);
 
 /**
  * This function binds a traffic class (TC) to a TC queue and group,

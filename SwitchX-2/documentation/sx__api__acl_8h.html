@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -541,7 +541,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any paramter is in error. </dd>
+SX_STATUS_PARAM_ERROR if any parameter is in error. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
@@ -754,7 +754,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any paramter is in error. </dd>
+SX_STATUS_PARAM_ERROR if any parameter is in error. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
@@ -1099,7 +1099,7 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any paramter is in error. </dd>
+SX_STATUS_PARAM_ERROR if any parameter is in error. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
@@ -1145,7 +1145,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES). Use this comparison set for ACL IPv4 IPv6 full key. Supported range comparisons: L4 Port, IP Lenght, TTL, Custom Bytes and UTC. Note: At a given time no more than 2 Custom Bytes ranges can be used. When ADD command is used the given ranges are written into a group and its ID is returned. When EDIT command is used the given range is written into a group of range_index. When DELETE command is used the given range_index configuration is cleared. Supported devices: Spectrum2.</p>
+<p>This function adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES). Use this comparison set for ACL IPv4 IPv6 full key. Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes and UTC. Note: At a given time no more than 2 Custom Bytes ranges can be used. When ADD command is used the given ranges are written into a group and its ID is returned. When EDIT command is used the given range is written into a group of range_index. When DELETE command is used the given range_index configuration is cleared. Supported devices: Spectrum2.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2217,9 +2217,9 @@ SX_STATUS_ENTRY_NOT_FOUND ACL ID or RIF ID not found in DB </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Invalid parameter </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED the given comand is unsupported </dd>
+SX_STATUS_CMD_UNSUPPORTED the given command is unsupported </dd>
 <dd>
-SX_STATUS_ERROR The operation cannot be complited </dd></dl>
+SX_STATUS_ERROR The operation cannot be completed </dd></dl>
 
 </div>
 </div>
@@ -2600,8 +2600,8 @@ SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if 
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY/EDIT. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">custom_bytes_set_attributes</td><td>- Specifies extraction points data. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>custom_bytes_set_key_id_p - Specifies an array of the custom bytes keys id. For create a list of usable SDK key id is provided. For destory. Only the first key is used to destory the set. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>custom_bytes_set_key_id_cnt_p - Specifies how many custum bytes are expected by the user. The counter is updated with :MIN(available number of bytes in allocated set, Requested number of bytes) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>custom_bytes_set_key_id_p - Specifies an array of the custom bytes keys id. For CREATE an array of SDK key ids is provided. For destroy only the first key is used to identify the destroyed set. For CREATE, if the first key id in list is zero (FLEX_ACL_KEY_INVALID) or any other value, not in interval [FLEX_ACL_KEY_CUSTOM_BYTES_START .. FLEX_ACL_KEY_CUSTOM_BYTES_LAST], the custom bytes set is allocated by SW as the first free one; if the first key id in the list belongs to interval [FLEX_ACL_KEY_CUSTOM_BYTES_START .. FLEX_ACL_KEY_CUSTOM_BYTES_LAST], it identifies the custom bytes set to be allocated. If the custom bytes set is already allocated, SW allocates first free set. As an example, key ids, which were allocated once and destroyed after that, may be submitted to the CREATE operation in order to get the same key ids, in case they are still free. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>custom_bytes_set_key_id_cnt_p - Specifies how many custom bytes are expected by the user. The counter is updated with :MIN(available number of bytes in allocated set, Requested number of bytes) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2801,6 +2801,6 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

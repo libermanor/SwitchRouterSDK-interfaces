@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -181,7 +181,7 @@ sx_status_t sx_api_router_init_set(const sx_api_handle_t              handle,
 
 /**
  *
- * This api deinit's the router block in the sdk.
+ * This api deinitializes the router block in the sdk.
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle.
@@ -415,9 +415,9 @@ sx_status_t sx_api_router_interface_get(const sx_api_handle_t        handle,
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
  * @return SX_STATUS_ERROR general error.
  * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
- * @return SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialised
+ * @return SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialized
  * @return SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails
- * @return SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialised
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized
  */
 sx_status_t sx_api_router_interface_iter_get(const sx_api_handle_t        handle,
                                              const sx_access_cmd_t        cmd,
@@ -509,11 +509,11 @@ sx_status_t sx_api_router_interface_mac_get(const sx_api_handle_t       handle,
                                             uint32_t                  * mac_addr_cnt_p);
 
 /**
- *  This function adds/deletes/delete_all a neighbour
- *  information. The neighbour's information associates an IP
- *  address to a MAC address. The neighbour's IP addresses are
+ *  This function adds/deletes/delete_all a neighbor
+ *  information. The neighbor's information associates an IP
+ *  address to a MAC address. The neighbor's IP addresses are
  *  learned via ARP/ND discovery at the control protocols layer.
- *  The interface that the neighbours are associated with is
+ *  The interface that the neighbors are associated with is
  *  derived from the IP interface configuration.
  *
  *  In SwitchX the Virtual Router Id must be given instead of the Router
@@ -538,14 +538,14 @@ sx_status_t sx_api_router_interface_mac_get(const sx_api_handle_t       handle,
  * @param[in] cmd - ADD/DELETE/DELETE_ALL.
  * @param[in] rif - Spectrum - Router Interface Id, SwitchX - Virtual Router id.
  * @param[in] ip_addr - IP address.
- * @param[in] neigh_data_p - Neighbours information.
+ * @param[in] neigh_data_p - Neighbors information.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
- * @return SX_STATUS_ENTRY_NOT_FOUND if neighbour was not added.
- * @return SX_STATUS_NO_RESOURCES if no neighbour entry is available to create.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added.
+ * @return SX_STATUS_NO_RESOURCES if no neighbor entry is available to create.
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_router_neigh_set(const sx_api_handle_t       handle,
@@ -595,7 +595,7 @@ sx_status_t sx_api_router_neigh_set(const sx_api_handle_t       handle,
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
- * @return SX_STATUS_ENTRY_NOT_FOUND if neighbour was not added.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added.
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_router_neigh_get(const sx_api_handle_t       handle,
@@ -1076,7 +1076,22 @@ sx_status_t sx_api_router_mc_route_activity_get(const sx_api_handle_t     handle
                                                 const sx_router_id_t      vrid,
                                                 const sx_mc_route_key_t * mc_route_key_p,
                                                 boolean_t                *activity_p);
-
+/**
+ * This function initiates a notification regarding active mc routes in the system.
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] cmd       - READ\READ_CLEAR
+ * @param[in] filter_p  - activity notifier filter
+ *
+ * @return SX_STATUS_SUCCESS             if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR         if parameter is invalid.
+ * @return SX_STATUS_RESOURCE_IN_USE     if a notification procedure is already running.
+ * @return SX_STATUS_ERROR               general error.
+ */
+sx_status_t sx_api_router_mc_route_activity_notify(const sx_api_handle_t                       handle,
+                                                   const sx_access_cmd_t                       cmd,
+                                                   const sx_mc_route_activity_notify_filter_t *filter_p);
 /**
  *  This function adds/sets/deletes/deletes-all egress RIFs to/from a previously
  *  configured MC route.
@@ -1459,7 +1474,7 @@ sx_status_t sx_api_router_ecmp_fine_grain_counter_bind_set(const sx_api_handle_t
 
 
 /**
- * This function initiates a notification regarding active neighbours in the system.
+ * This function initiates a notification regarding active neighbors in the system.
  *  Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -98,7 +98,7 @@ sx_status_t sx_api_flow_counter_set(const sx_api_handle_t        handle,
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE: event mode out of range.
  * @return SX_STATUS_MESSAGE_SIZE_ZERO: Message size error.
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error.
- * @return SX_STATUS_COMM_ERROR: Commiunication error - send fail.
+ * @return SX_STATUS_COMM_ERROR: Communication error - send fail.
  * @return SX_STATUS_INVALID_HANDLE: Invalid Handle.
  */
 sx_status_t sx_api_flow_counter_get(const sx_api_handle_t      handle,
@@ -180,7 +180,7 @@ sx_status_t sx_api_flow_counter_iter_get(const sx_api_handle_t      handle,
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE: event mode out of range.
  * @return SX_STATUS_MESSAGE_SIZE_ZERO: Message size error.
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error.
- * @return SX_STATUS_COMM_ERROR: Commiunication error - send fail.
+ * @return SX_STATUS_COMM_ERROR: Communication error - send fail.
  * @return SX_STATUS_INVALID_HANDLE: Invalid Handle.
  * @return SX_STATUS_ENTRY_NOT_FOUND: Clear an invalid counter.
  */

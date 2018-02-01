@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -269,7 +269,7 @@ sx_status_t sx_api_lag_port_distributor_set(const sx_api_handle_t       handle,
  * @param[in] lag_log_port        - a logical port number representing
  *                                  the LAG ports group
  * @param[in] log_port            - logical port number
- * @param[out] distributor_mode_p - distributer mode.
+ * @param[out] distributor_mode_p - distributor mode.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL

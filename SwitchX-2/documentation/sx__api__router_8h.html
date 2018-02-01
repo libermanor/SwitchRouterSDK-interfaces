@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -90,6 +90,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a88d28b1cf1ea8606acaecf5c01c31051">sx_api_router_mc_route_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_mc_route_attributes_t *mc_route_attr_p, const sx_mc_route_data_t *mc_route_data_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a24a37e74c648d6bd3de469df8cbd5b8c">sx_api_router_mc_route_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, sx_mc_route_key_filter_t *filter_p, sx_mc_route_get_entry_t *mc_route_get_entries_list_p, uint32_t *mc_route_get_entries_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ab70bf9ca856f55a88e7dd5a4fe5f77fa">sx_api_router_mc_route_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, boolean_t *activity_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a209bcda3949dca1c76a5e18aa6705255">sx_api_router_mc_route_activity_notify</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mc_route_activity_notify_filter_t *filter_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a49d704b1d7e401edc59dde5aff4bf376">sx_api_router_mc_egress_rif_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_router_interface_t *egress_rif_list_p, const uint32_t egress_rif_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a530c3fdb5083d5c3a8f8e74ee348da69">sx_api_router_mc_egress_rif_get</a> (const sx_api_handle_t handle, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, sx_router_interface_t *egress_rif_list_p, uint32_t *egress_rif_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ad8dbefb60e445f59551a682a9177faa4">sx_api_router_cos_rewrite_pcpdei_enable_set</a> (const sx_api_handle_t handle, const sx_cos_pcp_dei_rewrite_e rewrite_pcp_dei)</td></tr>
@@ -524,7 +525,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE - When calling with bad parameters. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This api deinit's the router block in the sdk. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This api deinitializes the router block in the sdk. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
@@ -983,11 +984,11 @@ SX_STATUS_ERROR general error. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
 <dd>
-SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialised </dd>
+SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialized </dd>
 <dd>
 SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails </dd>
 <dd>
-SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialised </dd></dl>
+SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
 
 </div>
 </div>
@@ -1262,7 +1263,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function adds/deletes/delete_all a neighbour information. The neighbour's information associates an IP address to a MAC address. The neighbour's IP addresses are learned via ARP/ND discovery at the control protocols layer. The interface that the neighbours are associated with is derived from the IP interface configuration.</p>
+<p>This function adds/deletes/delete_all a neighbor information. The neighbor's information associates an IP address to a MAC address. The neighbor's IP addresses are learned via ARP/ND discovery at the control protocols layer. The interface that the neighbors are associated with is derived from the IP interface configuration.</p>
 <p>In SwitchX the Virtual Router Id must be given instead of the Router Interface Index parameter.</p>
 <p>When cmd = DELETE_ALL, all neighbors which match the ip_addr_p-&gt;version and the rif, will be deleted. In SwitchX rif is given in neigh_data_p-&gt;rif parameter. In case rif is rm_resource_global.router_rifs_dontcare, all neighbors, on all rifs, corresponding with the ip_addr_p-&gt;version will be deleted. If ip_addr_p-&gt;version = SX_IP_VERSION_NONE then only IPv4 neighbors will be deleted.</p>
 <p>In case action is SX_ROUTER_ACTION_TRAP_FORWARD/SX_ROUTER_ACTION_TRAP:</p>
@@ -1277,7 +1278,7 @@ SX_STATUS_ERROR general error. </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">rif</td><td>- Spectrum - Router Interface Id, SwitchX - Virtual Router id. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ip_addr</td><td>- IP address. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">neigh_data_p</td><td>- Neighbours information.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">neigh_data_p</td><td>- Neighbors information.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1289,9 +1290,9 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if neighbour was not added. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added. </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if no neighbour entry is available to create. </dd>
+SX_STATUS_NO_RESOURCES if no neighbor entry is available to create. </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
 
@@ -1384,7 +1385,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if neighbour was not added. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added. </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
 
@@ -2415,6 +2416,55 @@ SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a209bcda3949dca1c76a5e18aa6705255"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_route_activity_notify" ref="a209bcda3949dca1c76a5e18aa6705255" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mc_route_activity_notify_filter_t *filter_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_mc_route_activity_notify </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_mc_route_activity_notify_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function initiates a notification regarding active mc routes in the system. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- activity notifier filter</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if parameter is invalid. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if a notification procedure is already running. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a49d704b1d7e401edc59dde5aff4bf376"></a><!-- doxytag: member="sx_api_router.h::sx_api_router_mc_egress_rif_set" ref="a49d704b1d7e401edc59dde5aff4bf376" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_router_interface_t *egress_rif_list_p, const uint32_t egress_rif_cnt)" -->
 <div class="memitem">
 <div class="memproto">
@@ -3285,7 +3335,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function initiates a notification regarding active neighbours in the system. Supported devices: Spectrum.</p>
+<p>This function initiates a notification regarding active neighbors in the system. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3731,6 +3781,6 @@ SX_STATUS_ERROR general error. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

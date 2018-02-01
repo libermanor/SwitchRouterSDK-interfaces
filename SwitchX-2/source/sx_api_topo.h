@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -66,7 +66,7 @@ sx_status_t sx_api_topo_log_verbosity_level_get(const sx_api_handle_t           
  *  This function sets the device s. Each device that is
  *  introduced to the system must be configured to the topology
  *  library. This API maintains a database that is used by other
- *  libraries to receive a device lrrelevant for configuration
+ *  libraries to receive a device irrelevant for configuration
  *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -76,7 +76,7 @@ sx_status_t sx_api_topo_log_verbosity_level_get(const sx_api_handle_t           
  * DELETE delete device from topo lib  note that the device
  * should be removed from all forwarding tree prior to that
  * operation change  unicast/multicast/flood_tree_hndl_arr;
- * READY device is dreay we can route traffic from/to /via this
+ * READY device is ready we can route traffic from/to /via this
  * device please note that trees(unicast/multicast/flood_ must
  * be configured with the new device
  * @param[in] dev_info  - pointer to device info to set
@@ -126,7 +126,7 @@ sx_status_t sx_api_topo_tree_dump(sx_api_handle_t             handle,
                                   sx_topo_lib_dump_db_info_t* dump_info);
 
 /**
- *  This function sets forwording tree .
+ *  This function sets forwarding tree .
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle -   SX-API handle
@@ -149,7 +149,7 @@ sx_status_t sx_api_topo_tree_set(IN sx_api_handle_t         handle,
                                  INOUT sx_topo_lib_tree_t * tree);
 
 /**
- *  This function reload balance unicasts trafic
+ *  This function reload balance unicast traffic
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle - SX-API handle
@@ -182,7 +182,7 @@ sx_status_t sx_api_topo_unicast_reload_balance(IN sx_api_handle_t  handle,
  * CREATE-create a new multicast tree group
  * DELETE-delete  multicast tree group please note that the
  * should be empty
- * GET-get muticast tree group parameters
+ * GET-get multicast tree group parameters
  * @param[in] sx_topo_lib_tree_t -
  * @param[in,out] len_p - In: Pointer to the input array's length
  *                       Out: Pointer to the # of updated entries

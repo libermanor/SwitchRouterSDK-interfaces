@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -78,7 +78,7 @@ sx_status_t sx_api_policer_log_verbosity_level_get(const sx_api_handle_t        
  * @return SX_STATUS_PARAM_ERROR if any of the input parameters is invalid
  * @return SX_STATUS_ERROR general error
  * @return SX_STATUS_NO_RESOURCES if there are no more resources
- * @return SX_STATUS_RESOURCE_IN_USE if trying to destroy a binded policer
+ * @return SX_STATUS_RESOURCE_IN_USE if trying to destroy a bound policer
  * @return SX_STATUS_WRONG_POLICER_TYPE if wrong policer_type was supplied
  */
 sx_status_t sx_api_policer_set(const sx_api_handle_t          handle,

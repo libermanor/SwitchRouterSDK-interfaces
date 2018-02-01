@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -65,7 +65,9 @@ sx_status_t sx_api_span_log_verbosity_level_get(const sx_api_handle_t           
  *  session id. To modify the session attributes, the API should
  *  be called with cmd= EDIT, the session's ID and the new
  *  session's attributes. To delete a SPAN session the API
- *  should be called we cmd = DESTROY.
+ *  should be called we cmd = DESTROY. In Spectrum, EDIT need another
+ *  session resource as interim session, so if all session resource
+ *  are already allocated, EDIT will be failed due to no resource.
  *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -125,7 +127,7 @@ sx_status_t sx_api_span_session_get(const sx_api_handle_t      handle,
  * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
- * @return SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialised
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized
  *
  */
 
@@ -473,5 +475,59 @@ sx_status_t sx_api_span_mirror_tables_set(const sx_api_handle_t      handle,
  */
 sx_status_t sx_api_span_mirror_tables_get(const sx_api_handle_t handle,
                                           sx_span_session_id_t *span_session_id_p);
+
+/**
+ *  This function configures mirroring to a SPAN session of dropped packets.
+ *  SET: Sets the SPAN session to the new settings, overriding current configuration.
+ *  ADD: Add more Drop Reasons to the existing configuration.
+ *  DELETE: Remove Drop Reasons from existing configuration.
+ *  DELETE_ALL: Remove all Drop Reasons from existing configuration.
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - SET / ADD / DELETE / DELETE_ALL
+ * @param[in] span_session_id - SPAN session ID
+ * @param[in] drop_mirroring_attr_p - Drop Mirroring configuration, only valid for SET.
+ * @param[in] drop_reason_list_p - List of Drop Reasons, ignored for DELETE_ALL.
+ * @param[in] drop_reason_cnt - Count of Drop Reasons, ignored for DELETE_ALL.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED if not supported on this device
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_drop_mirror_set(const sx_api_handle_t                handle,
+                                        const sx_access_cmd_t                cmd,
+                                        const sx_span_session_id_t           span_session_id,
+                                        const sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p,
+                                        const sx_span_drop_reason_t         *drop_reason_list_p,
+                                        const uint32_t                       drop_reason_cnt);
+
+/**
+ *  This function retrieves the mirroring session drop reasons configured for router-drop mirroring via
+ *  the trap ids for router drops.
+ *  If drop_reason_list is NULL, the number of drop reasons will be returned in drop_reason_cnt.
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] span_session_id - SPAN session ID
+ * @param[out] drop_mirroring_attr_p - Drop Mirroring configuration
+ * @param[out] drop_reason_list_p - List of Drop Reasons
+ * @param[out] drop_reason_cnt_p - Count of Drop Reasons
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED if not supported on this device
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_drop_mirror_get(const sx_api_handle_t          handle,
+                                        const sx_span_session_id_t     span_session_id,
+                                        sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p,
+                                        sx_span_drop_reason_t         *drop_reason_list_p,
+                                        uint32_t                      *drop_reason_cnt_p);
 
 #endif /* __SX_API_SPAN_H__ */

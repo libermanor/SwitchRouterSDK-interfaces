@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -115,6 +115,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#abf9959e3e1bd332ed05b1a730c7c6278">sx_api_cos_port_prio_to_dscp_rewrite_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_priority_color_t *switch_priority_color_p, sx_cos_dscp_t *dscp_p, uint32_t *element_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a27a0c91e2b13adf08b08870ecfec8403">sx_api_cos_port_prio_to_exp_rewrite_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_priority_color_t *switch_priority_color_p, const sx_cos_ecn_t *ecn_p, const sx_cos_exp_t *exp_p, const uint32_t element_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a863e3cac2b3a227c1926a0a07ecae399">sx_api_cos_port_prio_to_exp_rewrite_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_priority_color_t *switch_priority_color_p, sx_cos_ecn_t *ecn_p, sx_cos_exp_t *exp_p, uint32_t *element_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#af3b03552c4adec65d77c75b0f444fe3e">sx_api_cos_ets_ptp_shaper_param_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_cos_ets_ptp_port_speed_e port_speed, sx_cos_ets_ptp_shaper_params_t shaper_params)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a881775693354cad46401925618fc6c39">sx_api_cos_ets_ptp_shaper_param_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_cos_ets_ptp_port_speed_e port_speed, sx_cos_ets_ptp_shaper_params_t *shaper_params)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a560d97648ef166146b9603d515ff9ffd">sx_api_cos_port_ets_element_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_ets_element_config_t *ets_element_p, const uint32_t element_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#ac65d60cb471257f2f346df953a720d70">sx_api_cos_port_ets_element_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_ets_element_config_t *ets_element_p, uint32_t *element_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a6d337b30a40ea36532ee57783f00b205">sx_api_cos_port_tc_mcaware_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const boolean_t mc_aware)</td></tr>
@@ -1154,7 +1156,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This API sets the port's priority to buffer map in the SDK. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
-<p>Note: Untagged frames must use a buffer used by one of the prios. SwitchX cannot allocate a buffer for untagged frames only.</p>
+<p>Note: Untagged frames must use a buffer used by one of the priorities. SwitchX cannot allocate a buffer for untagged frames only.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1823,7 +1825,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets the pool parameters. User Pool#7 (Egress Pool#3) cannot be deleted as it is bound to CPU port buffers User Pool#4 (Egress Pool#0) can be deleted when all MC buffers are unbinded from this pool Supported devices: Spectrum</p>
+<p>This API sets the pool parameters. Supported devices: Spectrum</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3041,11 +3043,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function defines rewrite enable option setting of PCP, DEI, DSCP and EXP bits in packet header. The values of rewriting are defined by mapping in the following functions. Supported devices: Spectrum.</p>
+<p>This function defines rewrite enable option setting of PCP, DEI, DSCP and EXP bits in packet header. The values of rewriting are defined by mapping in the following functions. The rewrite is defined on an ingress port. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- ingress logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">rewrite</td><td>- should rewrite PCP/DEI, DSCP, EXP</td></tr>
   </table>
   </dd>
@@ -3092,7 +3094,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- ingress logical port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">rewrite_p</td><td>- should rewrite PCP/DEI, DSCP, EXP</td></tr>
   </table>
   </dd>
@@ -3147,11 +3149,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function defines the mapping from switch-priority, color to PCP, DEI for PCP and DEI rewrite, in packet header. The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in sx_api_cos_port_rewrite_enable_set Supported devices: Spectrum.</p>
+<p>This function defines the mapping from switch-priority, color to PCP, DEI for PCP and DEI rewrite, in packet header. The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in sx_api_cos_port_rewrite_enable_set. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities, and colors </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pcp_dei_p</td><td>- a list of PCP's and DEI's </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- switch priorities and PCP's, DEI's lists elements count</td></tr>
@@ -3212,7 +3214,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities and colors </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pcp_dei_p</td><td>- a list of PCP's and DEI's </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">element_cnt_p</td><td>- switch priorities and DSCP lists elements count</td></tr>
@@ -3273,7 +3275,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- list of switch priorities, and colors </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dscp_p</td><td>- a list of DSCP's </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- switch priorities and DSCP's lists elements count</td></tr>
@@ -3334,7 +3336,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities and colors </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">dscp_p</td><td>- a list of DSCP's </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">element_cnt_p</td><td>- switch priorities and DSCP lists elements count</td></tr>
@@ -3401,7 +3403,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- list of switch priorities, colors </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ecn_p</td><td>- list of ECN's </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">exp_p</td><td>- list of EXP's </td></tr>
@@ -3469,11 +3471,119 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_ecn_p</td><td>- a list of switch priorities, colors </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">ecn_p</td><td>- a list of ECN's </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">exp_p</td><td>- a list of EXP's </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">element_cnt_p</td><td>- switch priorities, ECN's and EXP's lists elements count</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af3b03552c4adec65d77c75b0f444fe3e"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_ets_ptp_shaper_param_set" ref="af3b03552c4adec65d77c75b0f444fe3e" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_cos_ets_ptp_port_speed_e port_speed, sx_cos_ets_ptp_shaper_params_t shaper_params)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_ets_ptp_shaper_param_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_ets_ptp_port_speed_e&#160;</td>
+          <td class="paramname"><em>port_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_ets_ptp_shaper_params_t&#160;</td>
+          <td class="paramname"><em>shaper_params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets PTP shaper parameters Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET : set new shaper parameters SX_ACCESS_CMD_DELETE : reset shaper parameters to default </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_speed</td><td>- The link speed of the port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shaper_params</td><td>- The ptp shaper parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a881775693354cad46401925618fc6c39"></a><!-- doxytag: member="sx_api_cos.h::sx_api_cos_ets_ptp_shaper_param_get" ref="a881775693354cad46401925618fc6c39" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_cos_ets_ptp_port_speed_e port_speed, sx_cos_ets_ptp_shaper_params_t *shaper_params)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_ets_ptp_shaper_param_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_ets_ptp_port_speed_e&#160;</td>
+          <td class="paramname"><em>port_speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_ets_ptp_shaper_params_t *&#160;</td>
+          <td class="paramname"><em>shaper_params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves PTP shaper parameters Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET : retrieve current shaper parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_speed</td><td>- The link speed of the port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shaper_params</td><td>- The ptp shaper parameters</td></tr>
   </table>
   </dd>
 </dl>
@@ -4768,6 +4878,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

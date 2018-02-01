@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -222,6 +222,8 @@ sx_status_t sx_api_port_swid_list_get(const sx_api_handle_t handle,
 /**
  *  This API binds/unbinds a logical port to/from a SWID in the SDK.
  *  To unbind a port from a SWID, the SWID field should be SX_SWID_ID_DISABLED.
+ *  Port attributes are being reset during an unbind operation.
+ *  For example, vlan membership and QinQ.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle   - SX-API handle
@@ -473,7 +475,7 @@ sx_status_t sx_api_port_phys_addr_set(const sx_api_handle_t  handle,
 
 /**
  *  This API sets the port's physical loopback.
- *  LAG port or LAG-member port cannot be loopback.
+ *  LAG port cannot be loopback.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle          - SX-API handle
@@ -492,7 +494,7 @@ sx_status_t sx_api_port_phys_loopback_set(const sx_api_handle_t         handle,
 
 /**
  *  This API retrieves the port's physical loopback.
- *  LAG port or LAG member port cannot be loopback.
+ *  LAG port cannot be loopback.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in] handle           - SX-API handle
@@ -1389,7 +1391,7 @@ sx_status_t sx_api_port_phy_mode_set(const sx_api_handle_t     handle,
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
  * @param[in] speed - Phy Speed - 10G/40G/25G/50G/100G
- * @param[out] admin_mode_p  - current port Admin phy mode
+ * @param[out] admin_mode_p  - current port Admin phy mode. Administrative phy mode is per speed (i.e. Speed is required for the administrative value).
  * @param[out] oper_mode_p  - current port Operational phy mode.Operational phy mode is global and not per speed (i.e Speed is don't care for the operational value).
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -1666,7 +1668,7 @@ sx_status_t sx_api_port_ber_monitor_operational_get(const sx_api_handle_t       
  *
  * @param[in] handle - SX-API handle.
  * @param[in] sll_max_time - The sll duration in micro seconds
- *                          Min val = 4usec. Max val = 4398046511 usec (or 4398sec)
+ *                          Min val = 32usec. Max val = 4398046511 usec (or 4398sec)
  *                          Any value greater than max implies NO SLL i.e packets are never aged & discarded.
  *                          SDK will round the sll duration to:  (the lowest power of 2 >= sll) * 4.096
  *                          For e.g. 500000 will be rounded up to 536871
@@ -1786,5 +1788,41 @@ sx_status_t sx_api_port_crc_params_set(const sx_api_handle_t       handle,
 sx_status_t sx_api_port_crc_params_get(const sx_api_handle_t  handle,
                                        const sx_port_log_id_t log_port,
                                        sx_port_crc_params_t  *crc_params_p);
+
+/**
+ * This function sets PTP port parameters
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                        - SX-API handle
+ * @param[in] cmd                           - SX_ACCESS_CMD_EDIT : change grand master port
+ * @param[in] log_port                      - The log port to set
+ * @param[in] port_ptp_params               - The ptp port parameters
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_port_ptp_params_set(const sx_api_handle_t       handle,
+                                       const sx_access_cmd_t       cmd,
+                                       const sx_port_log_id_t      log_port,
+                                       const sx_port_ptp_params_t *port_ptp_params);
+
+/**
+ * This function gets PTP port role
+ * Supported devices: Spectrum.
+ *
+ * @param[in] handle                        - SX-API handle
+ * @param[in] cmd                           - SX_ACCESS_CMD_GET : change grand master port
+ * @param[in] log_port                      - The log port to query
+ * @param[out] port_ptp_params               - The ptp port parameters
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_port_ptp_params_get(const sx_api_handle_t  handle,
+                                       const sx_access_cmd_t  cmd,
+                                       const sx_port_log_id_t log_port,
+                                       sx_port_ptp_params_t  *port_ptp_params_p);
 
 #endif /* __SX_API_PORT_H__ */

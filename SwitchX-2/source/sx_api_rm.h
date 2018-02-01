@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -152,5 +152,71 @@ sx_status_t sx_api_rm_entries_duplication_set(const sx_api_handle_t             
 sx_status_t sx_api_rm_entries_duplication_get(const sx_api_handle_t             handle,
                                               const sx_api_table_type_t         resource,
                                               sx_sdk_table_duplication_param_t *param_p);
+
+
+/**
+ * This API gets the utilization of a logical resource in the SDK.
+ * Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] resource_list - List of resources
+ * @param[in/out] list_count - Size of resource list & size of returned list
+ * @param[out] Utilization list
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameters are invalid
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameters exceed valid range
+ * @return SX_STATUS_UNSUPPORTED if API is not supported for this device
+ * @return SX_STATUS_ERROR general error
+ *
+ */
+sx_status_t sx_api_rm_sdk_table_utilization_get(const sx_api_handle_t          handle,
+                                                sx_api_table_type_t          * resource_list_p,
+                                                uint32_t                      *list_count_p,
+                                                sx_api_rm_table_utilization_t *utilization_list_p);
+
+
+/**
+ * This API gets the utilization of a HW Table in the SDK
+ * Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] hw_type - HW Table type
+ * @param[out] utilization - Utilization in 10th of percentage
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameters are invalid
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameters exceed valid range
+ * @return SX_STATUS_UNSUPPORTED if API is not supported for this device
+ * @return SX_STATUS_ERROR general error
+ *
+ */
+sx_status_t sx_api_rm_hw_utilization_get(const sx_api_handle_t  handle,
+                                         sx_api_hw_table_type_t hw_type,
+                                         uint32_t             * utilization_p);
+
+
+/**
+ * This API retrieves the predicted number of resources that can be added
+ * assuming that no other objects are  added  which may compete for the same
+ * Hardware resource. Note that this number provides the maximum possible and
+ * there is no guarantee that this number will be achievable in practice.
+ *
+ * Supported devices: Spectrum, Spectrum2.
+ * @param[in] handle   - SX-API handle
+ * @param[in] resource - Logical resource
+ * @param[out] free_count_p - Number of free entries of resource provided
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameters are invalid
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameters exceed valid range
+ * @return SX_STATUS_UNSUPPORTED if API is not supported for this device
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_rm_free_entries_by_type_get(const sx_api_handle_t     handle,
+                                               const sx_api_table_type_t resource,
+                                               uint32_t                 *free_cnt_p);
+
 
 #endif /* __SX_API_RM_H__ */

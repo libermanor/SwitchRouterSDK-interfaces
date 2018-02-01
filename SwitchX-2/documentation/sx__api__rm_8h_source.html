@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="sx__api__rm_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
+<a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
 <a name="l00005"></a>00005 <span class="comment"> *    not use this file except in compliance with the License. You may obtain</span>
@@ -103,7 +103,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00153"></a>00153                                               <span class="keyword">const</span> sx_api_table_type_t         resource,
 <a name="l00154"></a>00154                                               sx_sdk_table_duplication_param_t *param_p);
 <a name="l00155"></a>00155 
-<a name="l00156"></a>00156 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_RM_H__ */</span>
+<a name="l00156"></a>00156 
+<a name="l00173"></a>00173 sx_status_t <a class="code" href="sx__api__rm_8h.html#ad9658a5db15cd0394058b6047aac2f6e">sx_api_rm_sdk_table_utilization_get</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00174"></a>00174                                                 sx_api_table_type_t          * resource_list_p,
+<a name="l00175"></a>00175                                                 uint32_t                      *list_count_p,
+<a name="l00176"></a>00176                                                 sx_api_rm_table_utilization_t *utilization_list_p);
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178 
+<a name="l00194"></a>00194 sx_status_t <a class="code" href="sx__api__rm_8h.html#a3e56b1bd497635fffec0354f4f275a40">sx_api_rm_hw_utilization_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00195"></a>00195                                          sx_api_hw_table_type_t hw_type,
+<a name="l00196"></a>00196                                          uint32_t             * utilization_p);
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198 
+<a name="l00217"></a>00217 sx_status_t <a class="code" href="sx__api__rm_8h.html#ab84197f59058f282d793a9ccd7922fc7">sx_api_rm_free_entries_by_type_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00218"></a>00218                                                <span class="keyword">const</span> sx_api_table_type_t resource,
+<a name="l00219"></a>00219                                                uint32_t                 *free_cnt_p);
+<a name="l00220"></a>00220 
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_RM_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -124,6 +141,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

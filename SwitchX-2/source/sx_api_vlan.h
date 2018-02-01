@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -362,7 +362,7 @@ sx_status_t sx_api_vlan_default_vid_set(const sx_api_handle_t handle,
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_ACCESS_CMD_UNSUPPORTED if unsupported access command is requested
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameter exceeds range.
  * @return SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB
  * @return SX_STATUS_NO_MEMORY if problems with memory allocation occur
  * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails
@@ -374,6 +374,8 @@ sx_status_t sx_api_vlan_default_vid_get(const sx_api_handle_t handle,
                                         sx_vid_t             *vid);
 
 /**
+ *  This API is deprecated use sx_api_fdb_unreg_mc_flood_mode_set instead.
+ *
  *  This API sets unregistered MC flood mode.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -396,6 +398,8 @@ sx_status_t sx_api_vlan_unreg_mc_flood_mode_set(const sx_api_handle_t           
                                                 const sx_vlan_unreg_flood_mode_t urmc_flood_mode);
 
 /**
+ *  This API is deprecated use sx_api_fdb_unreg_mc_flood_mode_get instead.
+ *
  *  This API retrieves unregistered MC flood mode.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -418,6 +422,8 @@ sx_status_t sx_api_vlan_unreg_mc_flood_mode_get(const sx_api_handle_t       hand
                                                 sx_vlan_unreg_flood_mode_t *urmc_flood_mode_p);
 
 /**
+ *  This API is deprecated use sx_api_fdb_unreg_mc_flood_ports_set
+ *
  *  This API sets unregistered MC flood ports.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -442,6 +448,8 @@ sx_status_t sx_api_vlan_unreg_mc_flood_ports_set(const sx_api_handle_t   handle,
                                                  const uint32_t          port_cnt);
 
 /**
+ *  This API is deprecated use sx_api_fdb_unreg_mc_flood_ports_get
+ *
  *  This API retrieves unregistered MC flood ports.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *

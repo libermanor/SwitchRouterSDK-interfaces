@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -74,6 +74,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a510318dc29f590c9eb4a40a346b2bd12">sx_api_span_session_counter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t span_session_id, sx_span_counter_set_t *counter_set_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a44e2d0f8f8a3c6fd913a76d4aa8134e3">sx_api_span_mirror_tables_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t span_session_id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a415b9b4cd85267f84850b1e1644716d6">sx_api_span_mirror_tables_get</a> (const sx_api_handle_t handle, sx_span_session_id_t *span_session_id_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a19d0702120697b0b090d5ebc14ae19f8">sx_api_span_drop_mirror_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t span_session_id, const sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p, const sx_span_drop_reason_t *drop_reason_list_p, const uint32_t drop_reason_cnt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#ade344b82d7f21298a1e8b4ea0965476b">sx_api_span_drop_mirror_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p, sx_span_drop_reason_t *drop_reason_list_p, uint32_t *drop_reason_cnt_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a6e00a2fe2b79ec287d487497fc25e658"></a><!-- doxytag: member="sx_api_span.h::sx_api_span_log_verbosity_level_set" ref="a6e00a2fe2b79ec287d487497fc25e658" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -212,7 +214,7 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This function creates a SPAN session and allocate the session id. To modify the session attributes, the API should be called with cmd= EDIT, the session's ID and the new session's attributes. To delete a SPAN session the API should be called we cmd = DESTROY.</p>
+<p>This function creates a SPAN session and allocate the session id. To modify the session attributes, the API should be called with cmd= EDIT, the session's ID and the new session's attributes. To delete a SPAN session the API should be called we cmd = DESTROY. In Spectrum, EDIT need another session resource as interim session, so if all session resource are already allocated, EDIT will be failed due to no resource.</p>
 <p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -366,7 +368,7 @@ SX_STATUS_ERROR if unexpected behavior occurs </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
 <dd>
-SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialised </dd></dl>
+SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized </dd></dl>
 
 </div>
 </div>
@@ -1214,6 +1216,146 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a19d0702120697b0b090d5ebc14ae19f8"></a><!-- doxytag: member="sx_api_span.h::sx_api_span_drop_mirror_set" ref="a19d0702120697b0b090d5ebc14ae19f8" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t span_session_id, const sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p, const sx_span_drop_reason_t *drop_reason_list_p, const uint32_t drop_reason_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_drop_mirror_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_session_id_t&#160;</td>
+          <td class="paramname"><em>span_session_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_drop_mirroring_attr_t *&#160;</td>
+          <td class="paramname"><em>drop_mirroring_attr_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_drop_reason_t *&#160;</td>
+          <td class="paramname"><em>drop_reason_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>drop_reason_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function configures mirroring to a SPAN session of dropped packets. SET: Sets the SPAN session to the new settings, overriding current configuration. ADD: Add more Drop Reasons to the existing configuration. DELETE: Remove Drop Reasons from existing configuration. DELETE_ALL: Remove all Drop Reasons from existing configuration. Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET / ADD / DELETE / DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- SPAN session ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">drop_mirroring_attr_p</td><td>- Drop Mirroring configuration, only valid for SET. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">drop_reason_list_p</td><td>- List of Drop Reasons, ignored for DELETE_ALL. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">drop_reason_cnt</td><td>- Count of Drop Reasons, ignored for DELETE_ALL.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if not supported on this device </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ade344b82d7f21298a1e8b4ea0965476b"></a><!-- doxytag: member="sx_api_span.h::sx_api_span_drop_mirror_get" ref="ade344b82d7f21298a1e8b4ea0965476b" args="(const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p, sx_span_drop_reason_t *drop_reason_list_p, uint32_t *drop_reason_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_drop_mirror_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_session_id_t&#160;</td>
+          <td class="paramname"><em>span_session_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_drop_mirroring_attr_t *&#160;</td>
+          <td class="paramname"><em>drop_mirroring_attr_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_drop_reason_t *&#160;</td>
+          <td class="paramname"><em>drop_reason_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>drop_reason_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function retrieves the mirroring session drop reasons configured for router-drop mirroring via the trap ids for router drops. If drop_reason_list is NULL, the number of drop reasons will be returned in drop_reason_cnt.</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- SPAN session ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">drop_mirroring_attr_p</td><td>- Drop Mirroring configuration </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">drop_reason_list_p</td><td>- List of Drop Reasons </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">drop_reason_cnt_p</td><td>- Count of Drop Reasons</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if not supported on this device </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -1233,6 +1375,6 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

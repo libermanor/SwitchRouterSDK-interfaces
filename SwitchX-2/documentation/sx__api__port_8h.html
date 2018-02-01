@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.6000</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -138,6 +138,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#acb57f0fe402abeb9d42d47ac6a575762">sx_api_port_hll_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, uint32_t *hll_max_time_p, uint32_t *hll_stall_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ac3aec8abde92ea8e8d6fa29b3a598b93">sx_api_port_crc_params_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_crc_params_t *crc_params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a334fed1bc4eeccb5066c6c68fa56016f">sx_api_port_crc_params_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_crc_params_t *crc_params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a52a7bc5480bebf78a68b16cfa7338f9d">sx_api_port_ptp_params_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_ptp_params_t *port_ptp_params)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#aeeaf90f48d243537a9ace172db9c818f">sx_api_port_ptp_params_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_ptp_params_t *port_ptp_params_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ac3457a41837c6780bbf94b56dd2a0cd4"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_log_verbosity_level_set" ref="ac3457a41837c6780bbf94b56dd2a0cd4" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -713,7 +715,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE: SwIDs list length is 0 (zero) </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API binds/unbinds a logical port to/from a SWID in the SDK. To unbind a port from a SWID, the SWID field should be SX_SWID_ID_DISABLED. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API binds/unbinds a logical port to/from a SWID in the SDK. To unbind a port from a SWID, the SWID field should be SX_SWID_ID_DISABLED. Port attributes are being reset during an unbind operation. For example, vlan membership and QinQ. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1400,7 +1402,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets the port's physical loopback. LAG port or LAG-member port cannot be loopback. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API sets the port's physical loopback. LAG port cannot be loopback. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1451,7 +1453,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API retrieves the port's physical loopback. LAG port or LAG member port cannot be loopback. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API retrieves the port's physical loopback. LAG port cannot be loopback. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3831,7 +3833,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>- Phy Speed - 10G/40G/25G/50G/100G </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">admin_mode_p</td><td>- current port Admin phy mode </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">admin_mode_p</td><td>- current port Admin phy mode. Administrative phy mode is per speed (i.e. Speed is required for the administrative value). </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">oper_mode_p</td><td>- current port Operational phy mode.Operational phy mode is global and not per speed (i.e Speed is don't care for the operational value).</td></tr>
   </table>
   </dd>
@@ -4474,7 +4476,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sll_max_time</td><td>- The sll duration in micro seconds Min val = 4usec. Max val = 4398046511 usec (or 4398sec) Any value greater than max implies NO SLL i.e packets are never aged &amp; discarded. SDK will round the sll duration to: (the lowest power of 2 &gt;= sll) * 4.096 For e.g. 500000 will be rounded up to 536871</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sll_max_time</td><td>- The sll duration in micro seconds Min val = 32usec. Max val = 4398046511 usec (or 4398sec) Any value greater than max implies NO SLL i.e packets are never aged &amp; discarded. SDK will round the sll duration to: (the lowest power of 2 &gt;= sll) * 4.096 For e.g. 500000 will be rounded up to 536871</td></tr>
   </table>
   </dd>
 </dl>
@@ -4743,6 +4745,114 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a52a7bc5480bebf78a68b16cfa7338f9d"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_ptp_params_set" ref="a52a7bc5480bebf78a68b16cfa7338f9d" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_ptp_params_t *port_ptp_params)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ptp_params_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_ptp_params_t *&#160;</td>
+          <td class="paramname"><em>port_ptp_params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets PTP port parameters Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_EDIT : change grand master port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- The log port to set </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_ptp_params</td><td>- The ptp port parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aeeaf90f48d243537a9ace172db9c818f"></a><!-- doxytag: member="sx_api_port.h::sx_api_port_ptp_params_get" ref="aeeaf90f48d243537a9ace172db9c818f" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_ptp_params_t *port_ptp_params_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ptp_params_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ptp_params_t *&#160;</td>
+          <td class="paramname"><em>port_ptp_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets PTP port role Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET : change grand master port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- The log port to query </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">port_ptp_params</td><td>- The ptp port parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -4762,6 +4872,6 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Wed Aug 30 2017 17:07:50 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -148,6 +148,7 @@ sx_status_t sx_api_transaction_mode_set(const sx_api_handle_t handle,
  * On SwitchX and SwitchX2, for RIF and VRID objects, the reference count
  * returned will actually be a Boolean value that determines whether or not the
  * object is referenced.
+ * The ECMP objects are not supported on SwitchX, SwitchX2.
  *
  *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum-A1.
  *

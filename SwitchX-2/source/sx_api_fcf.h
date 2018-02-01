@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -60,7 +60,7 @@ sx_status_t sx_api_fcf_init(const sx_api_handle_t handle,
 
 /**
  *
- * This api deinit's the FCF in the sdk.
+ * This api deinitializes the FCF in the sdk.
  * Supported devices: SwitchX, SwitchX2.
  *
  * @param[in] handle - SX-API handle.

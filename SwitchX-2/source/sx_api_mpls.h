@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -62,7 +62,7 @@ sx_status_t sx_api_mpls_log_verbosity_level_get(const sx_api_handle_t           
  * This function initiates the MPLS module in SDK.
  * Supported devices: Spectrum.
  *
- * Must be called after the router module is initialised.
+ * Must be called after the router module is initialized.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] general_params_p - MPLS general parameters
@@ -77,7 +77,7 @@ sx_status_t sx_api_mpls_init_set(const sx_api_handle_t           handle,
  * This function de-initiates the MPLS block in the SDK
  * Supported devices: Spectrum.
  *
- * Must called before the router module is de-initialised.
+ * Must called before the router module is de-initialized.
  *
  * @param[in] handle - SX-API handle.
  *
@@ -197,9 +197,9 @@ sx_status_t sx_api_mpls_in_segment_get(const sx_api_handle_t           handle,
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
  * @return SX_STATUS_ERROR general error.
  * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
- * @return SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialised
+ * @return SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialized
  * @return SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails
- * @return SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialised
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized
  */
 
 sx_status_t sx_api_mpls_in_segment_iter_get(const sx_api_handle_t             handle,
@@ -248,7 +248,7 @@ sx_status_t sx_api_mpls_router_interface_attributes_get(const sx_api_handle_t   
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - BIND/UNBIND
- * @param[in] in_segment_key - in-segment identificator
+ * @param[in] in_segment_key - in-segment identification
  * @param[in] counter_id - A flow counter identifier
  *
  * @return sx_status_t
@@ -264,7 +264,7 @@ sx_status_t sx_api_mpls_ilm_counter_bind_set(const sx_api_handle_t           han
  *
  * @param[in]  handle - SX-API handle
  * @param[in]  cmd - GET
- * @param[in]  in_segment_key_p - in-segment identificator
+ * @param[in]  in_segment_key_p - in-segment identification
  * @param[out] counter_id_p - A flow counter identifier
  *
  * @return sx_status_t

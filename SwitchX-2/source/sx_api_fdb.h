@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -1330,7 +1330,7 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_counter_bind_set(const sx_api_handle_t  
                                                          const sx_flow_counter_id_t counter_id);
 
 /**
- * This function get binded counter to MC IP entry.
+ * This function get bound counter to MC IP entry.
  *
  * Supported devices: Spectrum.
  *
@@ -1352,5 +1352,134 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_counter_bind_set(const sx_api_handle_t  
 sx_status_t sx_api_fdb_mc_ip_addr_group_counter_bind_get(const sx_api_handle_t     handle,
                                                          const sx_fdb_mc_ip_key_t *key_p,
                                                          sx_flow_counter_id_t     *counter_id_p);
+
+/**
+ *  This API sets unregistered MC flood mode.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ *  When in 802.1D mode, instead of providing a vid(Vlan ID),
+ *  you should provide a bridge_id.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] swid              - virtual switch partition ID
+ * @param[in] vid               - VLAN ID
+ * @param[in] urmc_flood_mode   - unregistered MC flood mode: FLOOD / PRUNE
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_unreg_mc_flood_mode_set(const sx_api_handle_t           handle,
+                                               const sx_swid_t                 swid,
+                                               const sx_vid_t                  vid,
+                                               const sx_fdb_unreg_flood_mode_t urmc_flood_mode);
+
+/**
+ *  This API retrieves unregistered MC flood mode.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ *  When in 802.1D mode, instead of providing a vid(Vlan ID),
+ *  you should provide a bridge_id.
+ *
+ * @param[in] handle                 - SX-API handle
+ * @param[in] swid                   - virtual switch partition ID
+ * @param[in] vid                    - VLAN ID
+ * @param[out] urmc_flood_mode_p     - unregister MC flood mode: FLOOD / PRUNE
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_unreg_mc_flood_mode_get(const sx_api_handle_t      handle,
+                                               const sx_swid_t            swid,
+                                               const sx_vid_t             vid,
+                                               sx_fdb_unreg_flood_mode_t *urmc_flood_mode_p);
+
+/**
+ *  This API sets unregistered MC flood ports.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ *  When in 802.1D mode, instead of providing a vid(Vlan ID),
+ *  you should provide a bridge_id.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] swid              - virtual switch partition ID
+ * @param[in] vid               - VLAN ID
+ * @param[in] log_port_list_p   - a pointer to a port list, port may be a LAG or physical port
+ * @param[in] port_cnt          - size of port list
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_unreg_mc_flood_ports_set(const sx_api_handle_t   handle,
+                                                const sx_swid_t         swid,
+                                                const sx_vid_t          vid,
+                                                const sx_port_log_id_t *log_port_list_p,
+                                                const uint32_t          port_cnt);
+
+/**
+ *  This API retrieves unregistered MC flood ports.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ *  When in 802.1D mode, instead of providing a vid(Vlan ID),
+ *  you should provide a bridge_id.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] swid              - virtual switch partition ID
+ * @param[in] vid               - VLAN ID
+ * @param[out] log_port_list_p  - a pointer to a port list, port can be LAG or physical port
+ * @param[in,out] port_cnt_p    - size of port list
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_unreg_mc_flood_ports_get(const sx_api_handle_t handle,
+                                                const sx_swid_t       swid,
+                                                const sx_vid_t        vid,
+                                                sx_port_log_id_t     *log_port_list_p,
+                                                uint32_t             *port_cnt_p);
+
+/**
+ * This function reads and clears multicast entry activity.
+ * Supported devices: Spectrum, Spectrum2
+ *
+ * @param[in] handle        - SX-API handle.
+ * @param[in] cmd           - READ\READ_CLEAR
+ * @param[in] fdb_mc_key_p  - mc entry key
+ *                  {fid, source IP address, group address}
+ * @param[out] activity_p   - activity state.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed
+ * @return SX_STATUS_NOT_FOUND if mc route is not found
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_fdb_mc_ip_addr_group_activity_get(const sx_api_handle_t     handle,
+                                                     const sx_access_cmd_t     cmd,
+                                                     const sx_fdb_mc_ip_key_t *key_p,
+                                                     boolean_t                *activity_p);
+
+/**
+ * This function initiates a notification regarding active mc fdb entries in the system.
+ *  Supported devices: Spectrum, Spectrum2
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] cmd	 - READ\READ_CLEAR
+ * @param[in] filter_p  - activity notifier filter
+ *
+ * @return SX_STATUS_SUCCESS             if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR         if parameter is invalid.
+ * @return SX_STATUS_RESOURCE_IN_USE     if a notification procedure is already running.
+ * @return SX_STATUS_ERROR               general error.
+ */
+sx_status_t sx_api_fdb_mc_ip_addr_group_activity_notify(const sx_api_handle_t        handle,
+                                                        const sx_access_cmd_t        cmd,
+                                                        const sx_fdb_mc_ip_filter_t *filter_p);
 
 #endif /* __SX_API_FDB_H__ */

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2017. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -20,7 +20,7 @@
 #define __SX_API_HOST_IFC_H__
 
 /*
- * Retry macro to be used with interruptible POSIX operations
+ * Retry macro to be used with uninterruptible POSIX operations
  */
 #define POSIX_EINTR_RETRY(ret_value, op) \
     do {                                 \
@@ -163,7 +163,7 @@ sx_status_t sx_api_host_ifc_trap_group_get(const sx_api_handle_t        handle,
  *        trap_group_id_cnt = 0.
  *        A non-NULL trap_group_id_list pointer must be provided in this case.
  *
- *   - 3) cmd = SX_ACCESS_CMD_GET, swid = vaild, trap_group_id = valid/invalid,
+ *   - 3) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = valid/invalid,
  *        trap_group_id_list = valid, trap_group_id_cnt > 1:
  *        A trap_group_id_cnt > 1 will be treated as a trap_group_id_cnt of 1 and the
  *        behavior will be same as the earlier GET use cases.
