@@ -20,6 +20,7 @@
 
 #include <sx/sdk/sx_api.h>
 #include <sx/sdk/sx_cos_redecn.h>
+#include <sx/sdk/sx_strings.h>
 
 /************************************************
  *  API functions
@@ -170,10 +171,13 @@ sx_status_t sx_api_cos_port_prio_ingress_regen_get(const sx_api_handle_t   handl
  *  Priority 6 -> Traffic Class 3;
  *  Priority 7 -> Traffic Class 3;
  *
- *  Spectrum default settings:
- *  for i = [0,7]: switch priority i -> traffic class i.
- *  for i = [8,14]: switch priority i -> traffic class 7.
- *
+ *  Spectrum:
+ *      default settings:
+ *          for i = [0,7]: switch priority i -> traffic class i.
+ *          for i = [8,14]: switch priority i -> traffic class 7.
+ *      Higher TC behavior:
+ *          If a switch priority is mapped to a higher TC X [where 8 <= X <= 15],
+ *          packets sent on TC X will still be counted against TC X-8
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - Add/Delete
@@ -975,8 +979,7 @@ sx_status_t sx_api_cos_port_pcpdei_to_prio_get(const sx_api_handle_t    handle,
 
 /**
  * This function sets the mapping from switch-priority to IEEE priority.
- * This IEEE priority value is used in the switch for several functions:
- * pause flow control, per priority counters and QCN.
+ * This IEEE priority value is used in the switch for pause flow control
  * The device maps the switch-priority into IEEE priority value using
  * device global Switch Priority to IEEE Priority Table (not per port).
  *

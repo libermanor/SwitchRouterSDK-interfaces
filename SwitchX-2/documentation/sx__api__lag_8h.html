@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -64,7 +64,9 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#a522103c40cbc1d1d796dc2bf9b605e43">sx_api_lag_port_distributor_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, const sx_port_log_id_t log_port, const sx_distributor_mode_t distributor_mode)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#a86f50850b60bbacd44f19603f8ab3fb8">sx_api_lag_port_distributor_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, const sx_port_log_id_t log_port, sx_distributor_mode_t *distributor_mode_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#afd0df407d5f05d7eb18d68fa4df94f07">sx_api_lag_hash_flow_params_set</a> (const sx_api_handle_t handle, const sx_lag_hash_param_t *lag_hash_param_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#a8b9e5aa0dbb9ffbee5021e063ba80c2c">sx_api_lag_port_hash_flow_params_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_lag_port_hash_params_t *hash_params_p, const sx_lag_hash_field_enable_t *hash_field_enable_list_p, const uint32_t hash_field_enable_list_cnt, const sx_lag_hash_field_t *hash_field_list_p, const uint32_t hash_field_list_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#a13aa2a1fa69a28c75a491e43927dce1b">sx_api_lag_hash_flow_params_get</a> (const sx_api_handle_t handle, sx_lag_hash_param_t *lag_hash_param_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#ae2ffe0b7f006c56f0b46b73d16370b83">sx_api_lag_port_hash_flow_params_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_lag_port_hash_params_t *lag_hash_params_p, sx_lag_hash_field_enable_t *hash_field_enable_list_p, uint32_t *hash_field_enable_list_cnt_p, sx_lag_hash_field_t *hash_field_list_p, uint32_t *hash_field_list_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#a47ec7deec7726fd79ca552e4dc9a400f">sx_api_lag_redirect_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t lag_log_port, const sx_port_log_id_t redirect_lag_log_port)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#afdd675ec7b2b4ed4b1eb19dd22c1df11">sx_api_lag_redirect_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, boolean_t *is_redirected_p, sx_port_log_id_t *redirected_lag_log_port_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__lag_8h.html#adcce195ba79880d44aa65dcfb29127c1">sx_api_lag_redirected_lags_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t lag_log_port, sx_port_log_id_t *lag_log_port_list_p, uint32_t *lag_log_port_cnt_p)</td></tr>
@@ -708,6 +710,90 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a8b9e5aa0dbb9ffbee5021e063ba80c2c"></a><!-- doxytag: member="sx_api_lag.h::sx_api_lag_port_hash_flow_params_set" ref="a8b9e5aa0dbb9ffbee5021e063ba80c2c" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_lag_port_hash_params_t *hash_params_p, const sx_lag_hash_field_enable_t *hash_field_enable_list_p, const uint32_t hash_field_enable_list_cnt, const sx_lag_hash_field_t *hash_field_list_p, const uint32_t hash_field_list_cnt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_lag_port_hash_flow_params_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_lag_port_hash_params_t *&#160;</td>
+          <td class="paramname"><em>hash_params_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_lag_hash_field_enable_t *&#160;</td>
+          <td class="paramname"><em>hash_field_enable_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>hash_field_enable_list_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_lag_hash_field_t *&#160;</td>
+          <td class="paramname"><em>hash_field_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>hash_field_list_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function sets the ingress port configuration parameters of LAG hash. Once this API is called sx_api_lag_hash_params_set is disabled.</p>
+<p>Command SET replaces existing hash parameters, fields enables and fields with new values. Command ADD adds new fields and fields enables to existing ones. Hash parameters are ignored Command DELETE deletes specific fields and fields enables from the existing ones. Hash parameters are ignored Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de-facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p. LAG hash parameters are configured per ingress port and impact egress LAG.</p>
+<p>Supported devices: Spectrum</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/ ADD/ DELETE. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- log port ID of ingress port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lag_hash_params_p</td><td>- LAG hash configuration parameters. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash_field_enable_list_p</td><td>- Array of enables to be included in the hash calculation (may be NULL if empty) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash_field_enable_list_cnt</td><td>- Number of elements in hash_field_enable_list_p </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash_field_list_p</td><td>- Array of fields to be included in the hash calculation (may be NULL if empty) Note that for Spectrum-1 the custom_bytes are not supported </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash_field_list_cnt</td><td>- Number of elements in hash_field_list_p</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if parameter is incorrectly NULL. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a13aa2a1fa69a28c75a491e43927dce1b"></a><!-- doxytag: member="sx_api_lag.h::sx_api_lag_hash_flow_params_get" ref="a13aa2a1fa69a28c75a491e43927dce1b" args="(const sx_api_handle_t handle, sx_lag_hash_param_t *lag_hash_param_p)" -->
 <div class="memitem">
 <div class="memproto">
@@ -743,6 +829,82 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae2ffe0b7f006c56f0b46b73d16370b83"></a><!-- doxytag: member="sx_api_lag.h::sx_api_lag_port_hash_flow_params_get" ref="ae2ffe0b7f006c56f0b46b73d16370b83" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_lag_port_hash_params_t *lag_hash_params_p, sx_lag_hash_field_enable_t *hash_field_enable_list_p, uint32_t *hash_field_enable_list_cnt_p, sx_lag_hash_field_t *hash_field_list_p, uint32_t *hash_field_list_cnt_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_lag_port_hash_flow_params_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_lag_port_hash_params_t *&#160;</td>
+          <td class="paramname"><em>lag_hash_params_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_lag_hash_field_enable_t *&#160;</td>
+          <td class="paramname"><em>hash_field_enable_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>hash_field_enable_list_cnt_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_lag_hash_field_t *&#160;</td>
+          <td class="paramname"><em>hash_field_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>hash_field_list_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function gets the LAG hash function configuration parameters. if the given number of fields / field enables is 0, the API will only return number of fields / field enables. Once this API is called sx_api_lag_hash_params_get is disable</p>
+<p>Supported devices: Spectrum.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- local port </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lag_hash_params_p</td><td>- LAG hash configuration parameters. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">hash_field_enable_list_p</td><td>- array of enables used in the hash calculation </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>hash_field_enable_list_cnt_p - number of objects in hash_field_list_p </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">hash_field_list_p</td><td>- array of fields used in the hash calculation </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">in/out]</td><td>hash_field_list_cnt_p - number of objects in hash_field_list_p</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
@@ -1087,6 +1249,6 @@ SX_STATUS_PARAM_ERROR - Parameter is invalid. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

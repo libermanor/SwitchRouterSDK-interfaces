@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_init.h Source File</title>
+<title>Mellanox SwitchX SDK API Guide: sdk/sx_lib_host_ifc.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,10 +43,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="headertitle">
-<h1>sdk/sx_api_init.h</h1>  </div>
+<h1>sdk/sx_lib_host_ifc.h</h1>  </div>
 </div>
 <div class="contents">
-<a href="sx__api__init_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a href="sx__lib__host__ifc_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
 <a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
@@ -63,46 +63,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> *</span>
 <a name="l00016"></a>00016 <span class="comment"> */</span>
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;sx/sdk/sx_strings.h&gt;</span>
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef __SX_API_INIT_H__</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_INIT_H__</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="comment">/************************************************</span>
-<a name="l00026"></a>00026 <span class="comment"> *  API functions</span>
-<a name="l00027"></a>00027 <span class="comment"> ***********************************************/</span>
-<a name="l00028"></a>00028 
-<a name="l00042"></a>00042 sx_status_t <a class="code" href="sx__api__init_8h.html#a05dd4f8705dd589f2a3b43b82732f36f">sx_api_system_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00043"></a>00043                                                   <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00044"></a>00044                                                   <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
-<a name="l00045"></a>00045                                                   <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
-<a name="l00046"></a>00046 
-<a name="l00060"></a>00060 sx_status_t <a class="code" href="sx__api__init_8h.html#aa2b8ac5d75ec34032b760789a86f625b">sx_api_system_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00061"></a>00061                                                   <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00062"></a>00062                                                   sx_verbosity_level_t           *module_verbosity_level_p,
-<a name="l00063"></a>00063                                                   sx_verbosity_level_t           *api_verbosity_level_p);
-<a name="l00064"></a>00064 
-<a name="l00081"></a>00081 sx_status_t <a class="code" href="sx__api__init_8h.html#ad24aa2758233109563402d1697253858">sx_api_open</a>(sx_log_cb_t      logging_cb,
-<a name="l00082"></a>00082                         sx_api_handle_t *handle);
-<a name="l00083"></a>00083 
-<a name="l00097"></a>00097 sx_status_t <a class="code" href="sx__api__init_8h.html#ade0336ce78fe95177dd005311e9765a8">sx_api_close</a>(sx_api_handle_t *handle);
-<a name="l00098"></a>00098 
-<a name="l00112"></a>00112 sx_status_t <a class="code" href="sx__api__init_8h.html#a520555e24b03155144e7f49a57ee6757">sx_api_sdk_init_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00113"></a>00113                                 <span class="keyword">const</span> sx_api_sx_sdk_init_t *sdk_init_params_p);
-<a name="l00114"></a>00114 
-<a name="l00129"></a>00129 sx_status_t <a class="code" href="sx__api__init_8h.html#a24bf5f372afe4708cae42d5df1eca0b1">sx_api_sx_sdk_version_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00130"></a>00130                                       sx_api_sx_sdk_versions_t *versions_p);
-<a name="l00131"></a>00131 
-<a name="l00144"></a>00144 sx_status_t <a class="code" href="sx__api__init_8h.html#a56fbf53744ec0aa68cffde1672aee079">sx_api_transaction_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00145"></a>00145                                         <span class="keyword">const</span> sx_access_cmd_t cmd);
-<a name="l00146"></a>00146 
-<a name="l00166"></a>00166 sx_status_t <a class="code" href="sx__api__init_8h.html#a381643064a8af7b94e3ed6ff32e08af2">sx_api_object_refcount_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00167"></a>00167                                        <span class="keyword">const</span> sx_object_id_t *object_id_p,
-<a name="l00168"></a>00168                                        uint32_t             *refcount_p);
-<a name="l00169"></a>00169 
-<a name="l00170"></a>00170 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_INIT_H__ */</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="preprocessor">#ifndef SX_LIB_HOST_IFC_H_</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#define SX_LIB_HOST_IFC_H_</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
+<a name="l00023"></a>00023 
+<a name="l00044"></a>00044 sx_status_t <a class="code" href="sx__lib__host__ifc_8h.html#a72ea2187c02ff5ce97cb8699c1e5c4ec">sx_lib_host_ifc_unicast_ctrl_send</a>(<span class="keyword">const</span> sx_fd_t         * fd_p,
+<a name="l00045"></a>00045                                               <span class="keyword">const</span> <span class="keywordtype">void</span>            * packet_p,
+<a name="l00046"></a>00046                                               <span class="keyword">const</span> uint32_t          packet_size,
+<a name="l00047"></a>00047                                               <span class="keyword">const</span> sx_swid_t         swid,
+<a name="l00048"></a>00048                                               <span class="keyword">const</span> sx_port_log_id_t  egress_log_port,
+<a name="l00049"></a>00049                                               <span class="keyword">const</span> sx_cos_priority_t prio);
+<a name="l00050"></a>00050 
+<a name="l00070"></a>00070 sx_status_t <a class="code" href="sx__lib__host__ifc_8h.html#aa4fd868ed92156135920bd17e15ec5e9">sx_lib_host_ifc_data_send</a>(<span class="keyword">const</span> sx_fd_t          *fd,
+<a name="l00071"></a>00071                                       <span class="keyword">const</span> <span class="keywordtype">void</span>             *packet,
+<a name="l00072"></a>00072                                       <span class="keyword">const</span> uint32_t          packet_size,
+<a name="l00073"></a>00073                                       <span class="keyword">const</span> sx_swid_t         swid,
+<a name="l00074"></a>00074                                       <span class="keyword">const</span> sx_cos_priority_t prio);
+<a name="l00075"></a>00075 
+<a name="l00099"></a>00099 sx_status_t <a class="code" href="sx__lib__host__ifc_8h.html#ae43b3841e7516a353368f08495e0cb82">sx_lib_host_ifc_loopback_ctrl_send</a>(<span class="keyword">const</span> sx_fd_t         *fd,
+<a name="l00100"></a>00100                                                <span class="keyword">const</span> <span class="keywordtype">void</span>            *packet,
+<a name="l00101"></a>00101                                                <span class="keyword">const</span> uint32_t         packet_size,
+<a name="l00102"></a>00102                                                <span class="keyword">const</span> sx_swid_t        swid,
+<a name="l00103"></a>00103                                                <span class="keyword">const</span> sx_trap_id_t     trap_id,
+<a name="l00104"></a>00104                                                <span class="keyword">const</span> sx_port_log_id_t ingress_log_port,
+<a name="l00105"></a>00105                                                <span class="keyword">const</span> boolean_t        is_lag,
+<a name="l00106"></a>00106                                                <span class="keyword">const</span> sx_port_log_id_t ingress_lag_port);
+<a name="l00107"></a>00107 
+<a name="l00132"></a>00132 sx_status_t <a class="code" href="sx__lib__host__ifc_8h.html#a0f07fc8cf2327a799de54a51cc6ee877">sx_lib_host_ifc_recv</a>(<span class="keyword">const</span> sx_fd_t     *fd,
+<a name="l00133"></a>00133                                  <span class="keywordtype">void</span>              *packet,
+<a name="l00134"></a>00134                                  uint32_t          *packet_size,
+<a name="l00135"></a>00135                                  sx_receive_info_t *receive_info);
+<a name="l00136"></a>00136 
+<a name="l00168"></a>00168 sx_status_t <a class="code" href="sx__lib__host__ifc_8h.html#a5544031a1a24829335038ca75556eddc">sx_lib_host_ifc_recv_list</a>(  <span class="keyword">const</span> sx_fd_t     *fd,
+<a name="l00169"></a>00169            sx_packet_info_t  *packet_info_list_p,
+<a name="l00170"></a>00170            uint32_t      *packet_info_list_size_p);
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174 <span class="preprocessor">#endif </span><span class="comment">/* SX_LIB_HOST_IFC_H_ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->

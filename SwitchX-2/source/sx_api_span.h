@@ -19,6 +19,7 @@
 #define __SX_API_SPAN_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 /************************************************
  *  API functions
@@ -68,6 +69,10 @@ sx_status_t sx_api_span_log_verbosity_level_get(const sx_api_handle_t           
  *  should be called we cmd = DESTROY. In Spectrum, EDIT need another
  *  session resource as interim session, so if all session resource
  *  are already allocated, EDIT will be failed due to no resource.
+ *  In case packet with encapsulation header is mirrored to analyzer
+ *  port with size larger than analyzer port MTU, truncation should
+ *  be enabled by user to avoid packet being discarded. User should
+ *  set truncate size = MTU - encapsulation or smaller.
  *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -529,5 +534,51 @@ sx_status_t sx_api_span_drop_mirror_get(const sx_api_handle_t          handle,
                                         sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p,
                                         sx_span_drop_reason_t         *drop_reason_list_p,
                                         uint32_t                      *drop_reason_cnt_p);
+
+/**
+*  This function bind the mirror binding point to span session
+*  with sampling rate.
+*
+*  Supported devices: Spectrum-1, Spectrum-2.
+*
+* @param[in] handle   - SX-API handle
+* @param[in] cmd      - bind/unbind
+* @param[in] key      - bind key
+* @param[in] attr     - bind attribute
+*
+* @return SX_STATUS_SUCCESS if operation completes successfully
+* @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+* @return SX_STATUS_PARAM_NULL if any input parameter is NULL
+* @return SX_STATUS_ACCESS_CMD_UNSUPPORTED if unsupported command is requested
+* @return SX_STATUS_ENTRY_ALREADY_BOUND if requested element is not found in DB
+* @return SX_STATUS_ERROR if unexpected behavior occurs
+* @return SX_STATUS_INVALID_HANDLE if handle is invalid
+*/
+
+sx_status_t sx_api_span_mirror_bind_set(const sx_api_handle_t              handle,
+                                        const sx_access_cmd_t              cmd,
+                                        const sx_span_mirror_bind_key_t   *key_p,
+                                        const sx_span_mirror_bind_attr_t  *attr_p);
+
+/**
+*  This function get the mirror binding attribute
+*
+*  Supported devices: Spectrum-1, Spectrum-2.
+*
+* @param[in] handle    - SX-API handle
+* @param[in] key_p     - bind key
+* @param[out] attr_p   - bind attribute
+*
+* @return SX_STATUS_SUCCESS if operation completes successfully
+* @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+* @return SX_STATUS_PARAM_NULL if any input parameter is NULL
+* @return SX_STATUS_ACCESS_CMD_UNSUPPORTED if unsupported command is requested
+* @return SX_STATUS_ENTRY_NOT_BOUND if requested element is not found in DB
+* @return SX_STATUS_ERROR if unexpected behavior occurs
+* @return SX_STATUS_INVALID_HANDLE if handle is invalid
+*/
+sx_status_t sx_api_span_mirror_bind_get(const sx_api_handle_t            handle,
+                                        const sx_span_mirror_bind_key_t *key_p,
+                                        sx_span_mirror_bind_attr_t      *attr_p);
 
 #endif /* __SX_API_SPAN_H__ */

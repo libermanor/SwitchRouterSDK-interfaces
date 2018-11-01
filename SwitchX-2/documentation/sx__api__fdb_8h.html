@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -152,7 +152,8 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets the log verbosity level of FDB MODULE. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API sets the log verbosity level of FDB MODULE.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -206,7 +207,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API gets the log verbosity level of FDB MODULE. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API gets the log verbosity level of FDB MODULE.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -254,7 +256,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the FDB age time in seconds. Age time is the time after which automatically learned addresses are deleted from the FDB if they receive no traffic. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets the FDB age time in seconds. Age time is the time after which automatically learned addresses are deleted from the FDB if they receive no traffic.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -305,7 +308,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function retrieves the FDB age time in seconds. Age time is the time after which automatically learned addresses are deleted from the FDB if they receive no traffic. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function retrieves the FDB age time in seconds. Age time is the time after which automatically learned addresses are deleted from the FDB if they receive no traffic.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -350,7 +354,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the FDB poll for MAC entries notifications. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets the FDB poll for MAC entries notifications.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -402,7 +407,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the FDB polling interval from HW in 0.1 seconds. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets the FDB polling interval at 0.1 second granularity.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -453,7 +459,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets the FDB polling interval in 0.1 seconds seconds. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function gets the FDB polling interval in 0.1 second granularity.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -518,7 +525,8 @@ SX_STATUS_PARAM_NULL if parameter is NULL. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function adds/deletes UC MAC and UC LAG MAC entries to/from the FDB. In case the operation fails on one entry (or more), an error is returned, mac_list_p stores those entries, and their quantity is stored in data_cnt. If the operation is completed successfully, SUCCESS is returned, and data_cnt_p and mac_list_p are not changed. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function adds/deletes UC MAC and UC LAG MAC entries to/from the FDB. In case the operation fails on one entry (or more), an error is returned, mac_list_p stores those entries, and their quantity is stored in data_cnt. If the operation is completed successfully, SUCCESS is returned, and data_cnt_p and mac_list_p are not changed.</p>
+<p>Supported devices: Spectrum.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID) in mac_list_p-&gt;fid_vid, you should provide a bridge_id.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -618,7 +626,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <li>3) get a list of n&lt;=64 MACs which comes after certain MAC record (it does not have to exist) you should insert MAC+VLAN data in the key variable. data_cnt_p should be equal to n. mac_type is the type you want to receive. key_filter_p is the filter type(s) you want to filter the results by. cmd should be SX_ACCESS_CMD_GETNEXT.</li>
 </ul>
 <p>mac_list_p returns the records info and their quantity in data_cnt_p for all types of requests.</p>
-<p>When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID) in key_p-&gt;fid_vid and fid in key_filter_p-&gt;fid, you should provide a bridge_id. bridge_id's will be stored in mac_list_p-&gt;fid_vid Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID) in key_p-&gt;fid_vid and fid in key_filter_p-&gt;fid, you should provide a bridge_id. bridge_id's will be stored in mac_list_p-&gt;fid_vid</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -678,7 +687,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function counts all MAC entries in the SW FDB table (static and dynamic). Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function counts all MAC entries in the SW FDB table (static and dynamic).</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -731,7 +741,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function retrieves the amount of MACs learned on a port (static and dynamic). Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function retrieves the amount of MACs learned on a port (static and dynamic).</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -791,7 +802,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function retrieves the amount of MACs learned on an FID (static and dynamic).</p>
-<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -855,7 +867,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets/removes the limit on the amount of dynamic MACs learned on a port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets/removes the limit on the amount of dynamic MACs learned on a port.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -913,7 +926,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function retrieves the maximum amount of dynamic MACs that can be learned on a port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function retrieves the maximum amount of dynamic MACs that can be learned on a port.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -981,7 +995,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function sets/removes the limit on the amount of dynamic MACs learned on FID.</p>
-<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1047,7 +1062,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function retrieves the maximum amount of dynamic MACs that can be learned on an FID.</p>
-<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1164,7 +1180,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </li>
 </ul>
 <p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1248,7 +1264,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function retrieves MC MAC entries data. NOTE: The log_port_list_p list contains LAG-port IDs only and does not contain LAG members' logical-port IDs.</p>
-<p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1351,7 +1368,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <ul>
 <li>6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, key = valid/invalid, filter = valid/invalid, key_list = valid, key_cnt &gt; 0: In this case the API will return a list of MC MAC keys (max key_cnt) starting with the next key after the input key and matching the filter if present. A non-NULL key_list pointer must be provided in this case.</li>
 </ul>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1541,7 +1558,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function deletes all FDB table entries on a switch partition. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function deletes all FDB table entries on a switch partition. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1585,7 +1602,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function deletes the FDB table entries that are related to a flushed port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function deletes the FDB table entries that are related to a flushed port.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1636,7 +1654,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function deletes all FDB table entries that were learned on the flushed FID.</p>
-<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1688,7 +1707,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function deletes all FDB table entries that were learned on the flushed FID and port.</p>
-<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1733,7 +1753,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function deletes all FDB MC tables on a switch partition. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function deletes all FDB MC tables on a switch partition.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1784,7 +1805,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function deletes all FDB MC table entries that were learned on the flushed FID on a switch partition.</p>
-<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1851,7 +1873,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <p>When cmd=add This function adds FID to VID mapping record to the selected SWID. When cmd=delete This function deletes FID to VID mapping record from the selected SWID. The DEF_FID value is added to the corresponding VLAN.</p>
 <p>NOTE: This API performs FDB flushing by FID before FID to VID mapping changing</p>
 <p>NOTE: Only independent learning is supported in the current release.</p>
-<p>This function is only valid when in 802.1Q mode. Supported devices: SwitchX, SwitchX2.</p>
+<p>This function is only valid when in 802.1Q mode.</p>
+<p>Supported devices: Not supported.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1907,7 +1930,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div>
 <div class="memdoc">
 <p>This API sets the SWID's learning parameters into the system's DB.</p>
-<p>NOTE: Only independent learning is supported in the current release. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>NOTE: Only independent learning is supported in the current release.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1960,7 +1984,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API retrieves the SWID's learning parameters from the system's DB. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API retrieves the SWID's learning parameters from the system's DB.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2013,7 +2038,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the FDB learning mode per SWID affecting all ports and VLANs in the SWID. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets the FDB learning mode per SWID affecting all ports and VLANs in the SWID.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2068,7 +2094,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function retrieves the FDB learning mode per SWID. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function retrieves the FDB learning mode per SWID.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2129,7 +2156,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets FID's learn mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets FID's learn mode.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2185,7 +2213,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets fid's learn mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function gets fid's learn mode.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2235,7 +2264,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets port's learn mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets port's learn mode.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2284,7 +2314,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets port's learn mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function gets port's learn mode.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2333,7 +2364,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets FDB notify parameters. Note: Only takes effect when controlled learn mode is set. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets FDB notify parameters. Note: Only takes effect when controlled learn mode is set.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2384,7 +2416,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets FDB notify parameters. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function gets FDB notify parameters.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2459,7 +2492,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function is used to block ports from flooding of selected FID. This function is not supported in SwitchX Supported devices: Spectrum.</p>
+<p>This function is used to block ports from flooding of selected FID.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2534,7 +2568,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function is used to retrieve blocked ports from flooding of selected FID. ports count will be updated with the number of blocked ports. passing ports_count 0 and ports_list NULL, will return the number of ports in ports_count. This function is not supported in SwitchX Supported devices: Spectrum.</p>
+<p>This function is used to retrieve blocked ports from flooding of selected FID. ports count will be updated with the number of blocked ports. passing ports_count 0 and ports_list NULL, will return the number of ports in ports_count.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2660,7 +2695,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API is used to get flood control settings for a tunnel Supported devices: Spectrum.</p>
+<p>This API is used to get flood control settings for a tunnel.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2716,7 +2752,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function is used to retrieve flooding counters of the switch This function is not supported in SwitchX Supported devices: Spectrum.</p>
+<p>This function is used to retrieve flooding counters of the switch.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2762,7 +2799,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function is used to clear flooding counters of the switch This function is not supported in SwitchX Supported devices: Spectrum.</p>
+<p>This function is used to clear flooding counters of the switch.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2806,7 +2844,8 @@ SX_STATUS_UNSUPPORTED if flooding counters are not supported in the switch. </dd
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets port's fdb miss protect mode. Supported devices: SwitchX, SwitchX2, SwitchEN.</p>
+<p>This function sets port's fdb miss protect mode.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2857,7 +2896,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets port's fdb miss protect mode. Supported devices: SwitchX, SwitchX2, SwitchEN.</p>
+<p>This function gets port's fdb miss protect mode.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2900,7 +2940,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets port's source miss protection drop counter. Supported devices: SwitchX, SwitchX2, SwitchEN.</p>
+<p>This function sets port's source miss protection drop counter.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2950,7 +2991,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets port's source miss protection drop counter. Supported devices: SwitchX, SwitchX2, SwitchEN.</p>
+<p>This function gets port's source miss protection drop counter.</p>
+<p>Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3282,7 +3324,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- Structure contained the FID/SIP/DIP of the MC group </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- Command: SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- Command: SX_ACCESS_CMD_ADD/SX_ACCESS_CMD_DELETE </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">counter_id</td><td>- counter id for adding/deleting from rule</td></tr>
   </table>
   </dd>
@@ -3407,7 +3449,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets unregistered MC flood mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API sets unregistered MC flood mode.</p>
+<p>Supported devices: Spectrum.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -3464,7 +3507,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API retrieves unregistered MC flood mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API retrieves unregistered MC flood mode.</p>
+<p>Supported devices: Spectrum.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -3527,7 +3571,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets unregistered MC flood ports. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API sets unregistered MC flood ports.</p>
+<p>Supported devices: Spectrum.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -3591,7 +3636,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API retrieves unregistered MC flood ports. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API retrieves unregistered MC flood ports.</p>
+<p>Supported devices: Spectrum.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -3649,7 +3695,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function reads and clears multicast entry activity. Supported devices: Spectrum, Spectrum2</p>
+<p>This function reads and clears multicast entry activity.</p>
+<p>Supported devices: Spectrum, Spectrum2</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -3699,7 +3746,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function initiates a notification regarding active mc fdb entries in the system. Supported devices: Spectrum, Spectrum2</p>
+<p>This function initiates a notification regarding active mc fdb entries in the system.</p>
+<p>Supported devices: Spectrum, Spectrum2</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3737,6 +3785,6 @@ SX_STATUS_ERROR general error. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

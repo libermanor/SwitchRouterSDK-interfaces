@@ -20,6 +20,7 @@
 
 #include <sx/sdk/sx_api.h>
 #include <sx/sdk/sx_acl.h>
+#include <sx/sdk/sx_strings.h>
 
 
 /************************************************

@@ -19,10 +19,11 @@
 #define __SX_API_FLOW_COUNTER_H__sdk
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 /**
  * This function sets the log verbosity level of FLOW COUNTER MODULE
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -40,7 +41,7 @@ sx_status_t sx_api_flow_counter_log_verbosity_level_set(const sx_api_handle_t   
 
 /**
  * This function gets the log verbosity level of FLOW COUNTER MODULE
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -63,7 +64,7 @@ sx_status_t sx_api_flow_counter_log_verbosity_level_get(const sx_api_handle_t   
  *  for destroying an flow counter it is required that the flow
  *  counter is not bound to an ACL and the flow_counter_id should be
  *  provided.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE / DESTROY
@@ -88,7 +89,7 @@ sx_status_t sx_api_flow_counter_set(const sx_api_handle_t        handle,
 
 /**
  *  This function retrieves the Flow Counter.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum.
  *
  * @param[in] handle - SX-API handle
  * @param[in] counter_id - Flow counter ID
@@ -171,7 +172,7 @@ sx_status_t sx_api_flow_counter_iter_get(const sx_api_handle_t      handle,
 
 /**
  *  This function clear a specific Flow Counter.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum.
  *
  * @param[in] handle - SX-API handle
  * @param[in] counter_id - Flow counter ID to clear

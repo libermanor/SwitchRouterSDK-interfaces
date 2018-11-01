@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -223,7 +223,8 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
 </div>
 <div class="memdoc">
 <p>This API is used to create/edit/destroy tunnels.</p>
-<p>When destroying a tunnel, tunnel_attr_p is ignored. By default tunnel is created with TTL 255. Supported devices: Spectrum.</p>
+<p>When destroying a tunnel, tunnel_attr_p is ignored. By default tunnel is created with TTL 255. On Spectrum2 SDK user may configure from which port (ingress or egress) he want to get packet ethertype. By default packet ethertype will be taken from ingress port. To change default logic SDK user should create VxLAN tunnel with ethertype SX_ETHERTYPE_FROM_EGRESS_PORT.</p>
+<p>Supported devices: Spectrum, Spectrum2.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1141,6 +1142,6 @@ SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:26 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

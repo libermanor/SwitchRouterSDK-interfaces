@@ -19,6 +19,7 @@
 #define __SX_API_PORT_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 
 /************************************************
@@ -776,8 +777,10 @@ sx_status_t sx_api_port_counter_prio_get(const sx_api_handle_t    handle,
  *  This API retrieves the port's traffic class counters.
  *  Note: The API does not support LAG nor VPORT.
  *
- *  For Spectrum device, in UC mode Tx UC octets and
- *  Tx UC frames counters are available only for TC ID 0 - 7.
+ *  For Spectrum device:
+ *      * If a switch priority is mapped to any higher TC X [where 8 <= X <= 15],
+ *          then tx_octet and tx_frames will be counted against TC [X - 8]
+ *      * If the port is in MC Aware Mode, valid values of tc_id are [0-7]
  *
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -1223,6 +1226,9 @@ sx_status_t sx_api_port_swid_type_get(const sx_api_handle_t handle,
 
 /**
  *  This API creates a virtual port for port log_port and vlan vid.
+ *  cmd = ADD: create a vport for the given logical port & vlan
+ *  cmd = DELETE: delete the given vport
+ *  cmd = DELETE_ALL: delete all vports from the given logical port
  *  Supported devices: Spectrum
  *
  * @param[in] handle            - SX-API handle.
@@ -1234,7 +1240,7 @@ sx_status_t sx_api_port_swid_type_get(const sx_api_handle_t handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API.
  * @return SX_STATUS_ENTRY_NOT_FOUND if port does not exist OR vport for delete cmd.
- * @return SX_STATUS_PARAM_ERROR if vid is not in the range.
+ * @return SX_STATUS_PARAM_ERROR if vid is not in the range or log_port type is invalid
  * @return SX_STATUS_ENTRY_ALREADY_EXISTS if virtual port already exists.
  * @return SX_STATUS_NO_RESOURCES if there is no more room for vports to be added.
  *
@@ -1824,5 +1830,131 @@ sx_status_t sx_api_port_ptp_params_get(const sx_api_handle_t  handle,
                                        const sx_access_cmd_t  cmd,
                                        const sx_port_log_id_t log_port,
                                        sx_port_ptp_params_t  *port_ptp_params_p);
+
+
+/**
+ *  This API sets the port rate values bitmask only.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] log_port - logical port ID
+ * @param[in] rate_p   - bitmask of new rates to enabled
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_rate_set(const sx_api_handle_t         handle,
+                                 const sx_port_log_id_t        log_port,
+                                 const sx_port_rate_bitmask_t *rate_p);
+
+/**
+ *  This API gets the port operation rate value only.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle        - SX-API handle
+ * @param[in] log_port      - logical port ID
+ * @param[out] oper_rate_p -  operational rate value
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_rate_get(const sx_api_handle_t  handle,
+                                 const sx_port_log_id_t log_port,
+                                 sx_port_rate_e        *oper_rate_p);
+
+/**
+ *  This API gets bitmask of configured port rates values and supported by
+ *  ASIC bitmasks of rates and module types.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] log_port  - logical port ID
+ * @param[out]admin_rate_p - configured by user rate values
+ * @param[out]capab_rate_p - supported rates on ASIC
+ * @param[out]capab_type_p - supported PMD module types on ASIC
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_rate_capability_get(const sx_api_handle_t              handle,
+                                            const sx_port_log_id_t             log_port,
+                                            sx_port_rate_bitmask_t            *admin_rate_p,
+                                            sx_port_rate_bitmask_t            *capab_rate_p,
+                                            sx_port_phy_module_type_bitmask_t *capab_type_p);
+
+/**
+ *  This API sets the Physical Medium Depended (PMD) port type.
+ *  By default all types are enabled, hence this API allows to
+ *  reduce the set of allowed port types.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] module_id - module ID
+ * @param[in] types_p   - new types enabled
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_phy_module_type_set(const sx_api_handle_t                    handle,
+                                            const sx_port_mod_id_t                   module_id,
+                                            const sx_port_phy_module_type_bitmask_t *types_p);
+/**
+ *  This API gets the operational Physical Medium Depended port type.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle       - SX-API handle
+ * @param[in] module_id    - module ID
+ * @param[out] oper_type_p - operational types
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_phy_module_type_get(const sx_api_handle_t      handle,
+                                            const sx_port_mod_id_t     module_id,
+                                            sx_port_phy_module_type_e *oper_type_p);
+
+/**
+ *  This API gets the electrical interface types which hare
+ *  supported by module.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] module_id - module ID
+ * @param[out] capab_port_rate_p - supported by module rate values
+ * @param[out] admin_types_p   - configured by user port types to enable
+ * @param[out] capab_types_p   - supported by module electrical interfaces
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_phy_module_capability_get(const sx_api_handle_t              handle,
+                                                  const sx_port_mod_id_t             module_id,
+                                                  sx_port_rate_bitmask_t            *capab_port_rate_p,
+                                                  sx_port_phy_module_type_bitmask_t *admin_types_p,
+                                                  sx_port_phy_module_type_bitmask_t *capab_types_p);
 
 #endif /* __SX_API_PORT_H__ */

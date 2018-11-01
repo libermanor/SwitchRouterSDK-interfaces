@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,48 +67,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_POLICER_H__</span>
 <a name="l00020"></a>00020 <span class="preprocessor"></span>
 <a name="l00021"></a>00021 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
-<a name="l00022"></a>00022 
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_strings.h&gt;</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">/************************************************</span>
-<a name="l00025"></a>00025 <span class="comment"> *  API functions</span>
-<a name="l00026"></a>00026 <span class="comment"> ***********************************************/</span>
-<a name="l00027"></a>00027 
-<a name="l00041"></a>00041 sx_status_t <a class="code" href="sx__api__policer_8h.html#a09a46af0908d41cea4fa2577d327d991">sx_api_policer_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00042"></a>00042                                                    <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00043"></a>00043                                                    <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
-<a name="l00044"></a>00044                                                    <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
-<a name="l00045"></a>00045 
-<a name="l00059"></a>00059 sx_status_t <a class="code" href="sx__api__policer_8h.html#a2519559b86fcafc3eeed99b1714ef5b9">sx_api_policer_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00060"></a>00060                                                    <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00061"></a>00061                                                    sx_verbosity_level_t           *module_verbosity_level_p,
-<a name="l00062"></a>00062                                                    sx_verbosity_level_t           *api_verbosity_level_p);
-<a name="l00063"></a>00063 
-<a name="l00084"></a>00084 sx_status_t <a class="code" href="sx__api__policer_8h.html#adcc2a822fe0529172fa167e1f13f4870">sx_api_policer_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00085"></a>00085                                <span class="keyword">const</span> sx_access_cmd_t          cmd,
-<a name="l00086"></a>00086                                <span class="keyword">const</span> sx_policer_attributes_t *policer_attr_p,
-<a name="l00087"></a>00087                                sx_policer_id_t               *policer_id_p);
-<a name="l00088"></a>00088 
-<a name="l00101"></a>00101 sx_status_t <a class="code" href="sx__api__policer_8h.html#a30bd7d6d2deee8a6a334099dd32ea182">sx_api_policer_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00102"></a>00102                                <span class="keyword">const</span> sx_policer_id_t    policer_id,
-<a name="l00103"></a>00103                                sx_policer_attributes_t *policer_attr_p);
-<a name="l00104"></a>00104 
-<a name="l00158"></a>00158 sx_status_t <a class="code" href="sx__api__policer_8h.html#a0edc8a3aa8590cadcea2ade693d4a1cc">sx_api_policer_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00159"></a>00159                                     <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l00160"></a>00160                                     <span class="keyword">const</span> sx_policer_id_t   policer_id_key,
-<a name="l00161"></a>00161                                     sx_policer_id_filter_t *policer_id_filter_p,
-<a name="l00162"></a>00162                                     sx_policer_id_t        *policer_id_list_p,
-<a name="l00163"></a>00163                                     uint32_t               *policer_id_cnt_p);
-<a name="l00164"></a>00164 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="comment">/************************************************</span>
+<a name="l00026"></a>00026 <span class="comment"> *  API functions</span>
+<a name="l00027"></a>00027 <span class="comment"> ***********************************************/</span>
+<a name="l00028"></a>00028 
+<a name="l00042"></a>00042 sx_status_t <a class="code" href="sx__api__policer_8h.html#a09a46af0908d41cea4fa2577d327d991">sx_api_policer_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00043"></a>00043                                                    <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00044"></a>00044                                                    <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
+<a name="l00045"></a>00045                                                    <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
+<a name="l00046"></a>00046 
+<a name="l00060"></a>00060 sx_status_t <a class="code" href="sx__api__policer_8h.html#a2519559b86fcafc3eeed99b1714ef5b9">sx_api_policer_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00061"></a>00061                                                    <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00062"></a>00062                                                    sx_verbosity_level_t           *module_verbosity_level_p,
+<a name="l00063"></a>00063                                                    sx_verbosity_level_t           *api_verbosity_level_p);
+<a name="l00064"></a>00064 
+<a name="l00085"></a>00085 sx_status_t <a class="code" href="sx__api__policer_8h.html#adcc2a822fe0529172fa167e1f13f4870">sx_api_policer_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00086"></a>00086                                <span class="keyword">const</span> sx_access_cmd_t          cmd,
+<a name="l00087"></a>00087                                <span class="keyword">const</span> sx_policer_attributes_t *policer_attr_p,
+<a name="l00088"></a>00088                                sx_policer_id_t               *policer_id_p);
+<a name="l00089"></a>00089 
+<a name="l00102"></a>00102 sx_status_t <a class="code" href="sx__api__policer_8h.html#a30bd7d6d2deee8a6a334099dd32ea182">sx_api_policer_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00103"></a>00103                                <span class="keyword">const</span> sx_policer_id_t    policer_id,
+<a name="l00104"></a>00104                                sx_policer_attributes_t *policer_attr_p);
+<a name="l00105"></a>00105 
+<a name="l00159"></a>00159 sx_status_t <a class="code" href="sx__api__policer_8h.html#a0edc8a3aa8590cadcea2ade693d4a1cc">sx_api_policer_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00160"></a>00160                                     <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l00161"></a>00161                                     <span class="keyword">const</span> sx_policer_id_t   policer_id_key,
+<a name="l00162"></a>00162                                     sx_policer_id_filter_t *policer_id_filter_p,
+<a name="l00163"></a>00163                                     sx_policer_id_t        *policer_id_list_p,
+<a name="l00164"></a>00164                                     uint32_t               *policer_id_cnt_p);
 <a name="l00165"></a>00165 
-<a name="l00177"></a>00177 sx_status_t <a class="code" href="sx__api__policer_8h.html#a7b463c9c4df31d60dde5a3c527b24913">sx_api_policer_counters_clear_set</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
-<a name="l00178"></a>00178                                               <span class="keyword">const</span> sx_policer_id_t              policer_id,
-<a name="l00179"></a>00179                                               <span class="keyword">const</span> sx_policer_counters_clear_t *clear_counters_p);
-<a name="l00180"></a>00180 
-<a name="l00193"></a>00193 sx_status_t <a class="code" href="sx__api__policer_8h.html#aa155176e0053484136bcdd9b2105d722">sx_api_policer_counters_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00194"></a>00194                                         <span class="keyword">const</span> sx_policer_id_t  policer_id,
-<a name="l00195"></a>00195                                         sx_policer_counters_t *policer_counters_p);
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_POLICER_H__ */</span>
+<a name="l00166"></a>00166 
+<a name="l00178"></a>00178 sx_status_t <a class="code" href="sx__api__policer_8h.html#a7b463c9c4df31d60dde5a3c527b24913">sx_api_policer_counters_clear_set</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
+<a name="l00179"></a>00179                                               <span class="keyword">const</span> sx_policer_id_t              policer_id,
+<a name="l00180"></a>00180                                               <span class="keyword">const</span> sx_policer_counters_clear_t *clear_counters_p);
+<a name="l00181"></a>00181 
+<a name="l00194"></a>00194 sx_status_t <a class="code" href="sx__api__policer_8h.html#aa155176e0053484136bcdd9b2105d722">sx_api_policer_counters_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00195"></a>00195                                         <span class="keyword">const</span> sx_policer_id_t  policer_id,
+<a name="l00196"></a>00196                                         sx_policer_counters_t *policer_counters_p);
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_POLICER_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -129,6 +130,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:29 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

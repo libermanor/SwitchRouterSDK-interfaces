@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,85 +67,86 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_MSTP_H__</span>
 <a name="l00020"></a>00020 <span class="preprocessor"></span>
 <a name="l00021"></a>00021 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
-<a name="l00022"></a>00022 
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_strings.h&gt;</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">/************************************************</span>
-<a name="l00025"></a>00025 <span class="comment"> *  API functions</span>
-<a name="l00026"></a>00026 <span class="comment"> ***********************************************/</span>
-<a name="l00027"></a>00027 
-<a name="l00041"></a>00041 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a45c4bfa701c68edbb00a9402f65fb765">sx_api_mstp_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00042"></a>00042                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00043"></a>00043                                                 <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
-<a name="l00044"></a>00044                                                 <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
-<a name="l00045"></a>00045 
-<a name="l00059"></a>00059 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ad0a34034507a350da8d857b56c1488fe">sx_api_mstp_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00060"></a>00060                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00061"></a>00061                                                 sx_verbosity_level_t           *module_verbosity_level_p,
-<a name="l00062"></a>00062                                                 sx_verbosity_level_t           *api_verbosity_level_p);
-<a name="l00063"></a>00063 
-<a name="l00084"></a>00084 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a61d696b2954566bc8b1dae2e2e03c55c">sx_api_mstp_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00085"></a>00085                                  <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00086"></a>00086                                  <span class="keyword">const</span> sx_mstp_mode_t  mode);
-<a name="l00087"></a>00087 
-<a name="l00105"></a>00105 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ac19c35dc7909c110222aed7f8bbbaa5a">sx_api_mstp_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00106"></a>00106                                  <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00107"></a>00107                                  sx_mstp_mode_t       *mode_p);
-<a name="l00108"></a>00108 
-<a name="l00127"></a>00127 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a67321015bc5e9256984782bf97fd1f8e">sx_api_mstp_inst_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00128"></a>00128                                  <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l00129"></a>00129                                  <span class="keyword">const</span> sx_swid_t         swid,
-<a name="l00130"></a>00130                                  <span class="keyword">const</span> sx_mstp_inst_id_t inst_id);
-<a name="l00131"></a>00131 
-<a name="l00156"></a>00156 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a9b5643e6da5fbb8e1c6b7d0d6fbb5423">sx_api_mstp_inst_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
-<a name="l00157"></a>00157                                       <span class="keyword">const</span> sx_access_cmd_t        cmd,
-<a name="l00158"></a>00158                                       <span class="keyword">const</span> sx_swid_t              swid,
-<a name="l00159"></a>00159                                       <span class="keyword">const</span> sx_mstp_inst_id_t      inst_key,
-<a name="l00160"></a>00160                                       <span class="keyword">const</span> sx_mstp_inst_filter_t *inst_filter_p,
-<a name="l00161"></a>00161                                       sx_mstp_inst_id_t           *inst_list_p,
-<a name="l00162"></a>00162                                       uint32_t                    *inst_cnt_p);
-<a name="l00163"></a>00163 
-<a name="l00189"></a>00189 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a7c7eaa8597a020c0d4d35da0e0dc741b">sx_api_mstp_inst_vlan_list_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00190"></a>00190                                            <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l00191"></a>00191                                            <span class="keyword">const</span> sx_swid_t         swid,
-<a name="l00192"></a>00192                                            <span class="keyword">const</span> sx_mstp_inst_id_t inst_id,
-<a name="l00193"></a>00193                                            <span class="keyword">const</span> sx_vlan_id_t     *vlan_list_p,
-<a name="l00194"></a>00194                                            <span class="keyword">const</span> uint32_t          vlan_cnt);
-<a name="l00195"></a>00195 
-<a name="l00221"></a>00221 sx_status_t <a class="code" href="sx__api__mstp_8h.html#af945f21cd96e46c79f1462e4e7a3c330">sx_api_mstp_inst_vlan_list_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00222"></a>00222                                            <span class="keyword">const</span> sx_swid_t         swid,
-<a name="l00223"></a>00223                                            <span class="keyword">const</span> sx_mstp_inst_id_t inst_id,
-<a name="l00224"></a>00224                                            sx_vlan_id_t           *vlan_list_p,
-<a name="l00225"></a>00225                                            uint32_t               *vlan_cnt_p);
-<a name="l00226"></a>00226 
-<a name="l00251"></a>00251 sx_status_t <a class="code" href="sx__api__mstp_8h.html#af371998010fe6f816a33d82429576b5d">sx_api_mstp_inst_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00252"></a>00252                                             <span class="keyword">const</span> sx_swid_t                 swid,
-<a name="l00253"></a>00253                                             <span class="keyword">const</span> sx_mstp_inst_id_t         inst_id,
-<a name="l00254"></a>00254                                             <span class="keyword">const</span> sx_port_log_id_t          log_port,
-<a name="l00255"></a>00255                                             <span class="keyword">const</span> sx_mstp_inst_port_state_t port_state);
-<a name="l00256"></a>00256 
-<a name="l00277"></a>00277 sx_status_t <a class="code" href="sx__api__mstp_8h.html#aa9ce8341e5d61c516654fb637925723d">sx_api_mstp_inst_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l00278"></a>00278                                             <span class="keyword">const</span> sx_swid_t            swid,
-<a name="l00279"></a>00279                                             <span class="keyword">const</span> sx_mstp_inst_id_t    inst_id,
-<a name="l00280"></a>00280                                             <span class="keyword">const</span> sx_port_log_id_t     log_port,
-<a name="l00281"></a>00281                                             sx_mstp_inst_port_state_t *port_state_p);
-<a name="l00282"></a>00282 
-<a name="l00302"></a>00302 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ad6091fc2cc6d63a1b66ac0ed258ef8a9">sx_api_rstp_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00303"></a>00303                                        <span class="keyword">const</span> sx_port_log_id_t          log_port,
-<a name="l00304"></a>00304                                        <span class="keyword">const</span> sx_mstp_inst_port_state_t port_state);
-<a name="l00305"></a>00305 
-<a name="l00322"></a>00322 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a50ecddd2f2b9d85b1c071d1a4476fe14">sx_api_rstp_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l00323"></a>00323                                        <span class="keyword">const</span> sx_port_log_id_t     log_port,
-<a name="l00324"></a>00324                                        sx_mstp_inst_port_state_t *port_state_p);
-<a name="l00325"></a>00325 
-<a name="l00342"></a>00342 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a4fabf037b5bdb07a34246aae20440b27">sx_api_mstp_exclude_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
-<a name="l00343"></a>00343                                                <span class="keyword">const</span> sx_port_log_id_t             log_port,
-<a name="l00344"></a>00344                                                <span class="keyword">const</span> sx_mstp_exclude_port_state_t port_state);
-<a name="l00345"></a>00345 
-<a name="l00362"></a>00362 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ac0c2577711d05e3d9b1af7292f1fe8d3">sx_api_mstp_exclude_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
-<a name="l00363"></a>00363                                                <span class="keyword">const</span> sx_port_log_id_t        log_port,
-<a name="l00364"></a>00364                                                sx_mstp_exclude_port_state_t *port_state_p);
-<a name="l00365"></a>00365 
-<a name="l00366"></a>00366 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_MSTP_H__ */</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="comment">/************************************************</span>
+<a name="l00026"></a>00026 <span class="comment"> *  API functions</span>
+<a name="l00027"></a>00027 <span class="comment"> ***********************************************/</span>
+<a name="l00028"></a>00028 
+<a name="l00042"></a>00042 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a45c4bfa701c68edbb00a9402f65fb765">sx_api_mstp_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00043"></a>00043                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00044"></a>00044                                                 <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
+<a name="l00045"></a>00045                                                 <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
+<a name="l00046"></a>00046 
+<a name="l00060"></a>00060 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ad0a34034507a350da8d857b56c1488fe">sx_api_mstp_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00061"></a>00061                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00062"></a>00062                                                 sx_verbosity_level_t           *module_verbosity_level_p,
+<a name="l00063"></a>00063                                                 sx_verbosity_level_t           *api_verbosity_level_p);
+<a name="l00064"></a>00064 
+<a name="l00085"></a>00085 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a61d696b2954566bc8b1dae2e2e03c55c">sx_api_mstp_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00086"></a>00086                                  <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00087"></a>00087                                  <span class="keyword">const</span> sx_mstp_mode_t  mode);
+<a name="l00088"></a>00088 
+<a name="l00106"></a>00106 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ac19c35dc7909c110222aed7f8bbbaa5a">sx_api_mstp_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00107"></a>00107                                  <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00108"></a>00108                                  sx_mstp_mode_t       *mode_p);
+<a name="l00109"></a>00109 
+<a name="l00128"></a>00128 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a67321015bc5e9256984782bf97fd1f8e">sx_api_mstp_inst_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00129"></a>00129                                  <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l00130"></a>00130                                  <span class="keyword">const</span> sx_swid_t         swid,
+<a name="l00131"></a>00131                                  <span class="keyword">const</span> sx_mstp_inst_id_t inst_id);
+<a name="l00132"></a>00132 
+<a name="l00157"></a>00157 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a9b5643e6da5fbb8e1c6b7d0d6fbb5423">sx_api_mstp_inst_iter_get</a>(<span class="keyword">const</span> sx_api_handle_t        handle,
+<a name="l00158"></a>00158                                       <span class="keyword">const</span> sx_access_cmd_t        cmd,
+<a name="l00159"></a>00159                                       <span class="keyword">const</span> sx_swid_t              swid,
+<a name="l00160"></a>00160                                       <span class="keyword">const</span> sx_mstp_inst_id_t      inst_key,
+<a name="l00161"></a>00161                                       <span class="keyword">const</span> sx_mstp_inst_filter_t *inst_filter_p,
+<a name="l00162"></a>00162                                       sx_mstp_inst_id_t           *inst_list_p,
+<a name="l00163"></a>00163                                       uint32_t                    *inst_cnt_p);
+<a name="l00164"></a>00164 
+<a name="l00190"></a>00190 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a7c7eaa8597a020c0d4d35da0e0dc741b">sx_api_mstp_inst_vlan_list_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00191"></a>00191                                            <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l00192"></a>00192                                            <span class="keyword">const</span> sx_swid_t         swid,
+<a name="l00193"></a>00193                                            <span class="keyword">const</span> sx_mstp_inst_id_t inst_id,
+<a name="l00194"></a>00194                                            <span class="keyword">const</span> sx_vlan_id_t     *vlan_list_p,
+<a name="l00195"></a>00195                                            <span class="keyword">const</span> uint32_t          vlan_cnt);
+<a name="l00196"></a>00196 
+<a name="l00222"></a>00222 sx_status_t <a class="code" href="sx__api__mstp_8h.html#af945f21cd96e46c79f1462e4e7a3c330">sx_api_mstp_inst_vlan_list_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00223"></a>00223                                            <span class="keyword">const</span> sx_swid_t         swid,
+<a name="l00224"></a>00224                                            <span class="keyword">const</span> sx_mstp_inst_id_t inst_id,
+<a name="l00225"></a>00225                                            sx_vlan_id_t           *vlan_list_p,
+<a name="l00226"></a>00226                                            uint32_t               *vlan_cnt_p);
+<a name="l00227"></a>00227 
+<a name="l00252"></a>00252 sx_status_t <a class="code" href="sx__api__mstp_8h.html#af371998010fe6f816a33d82429576b5d">sx_api_mstp_inst_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00253"></a>00253                                             <span class="keyword">const</span> sx_swid_t                 swid,
+<a name="l00254"></a>00254                                             <span class="keyword">const</span> sx_mstp_inst_id_t         inst_id,
+<a name="l00255"></a>00255                                             <span class="keyword">const</span> sx_port_log_id_t          log_port,
+<a name="l00256"></a>00256                                             <span class="keyword">const</span> sx_mstp_inst_port_state_t port_state);
+<a name="l00257"></a>00257 
+<a name="l00278"></a>00278 sx_status_t <a class="code" href="sx__api__mstp_8h.html#aa9ce8341e5d61c516654fb637925723d">sx_api_mstp_inst_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l00279"></a>00279                                             <span class="keyword">const</span> sx_swid_t            swid,
+<a name="l00280"></a>00280                                             <span class="keyword">const</span> sx_mstp_inst_id_t    inst_id,
+<a name="l00281"></a>00281                                             <span class="keyword">const</span> sx_port_log_id_t     log_port,
+<a name="l00282"></a>00282                                             sx_mstp_inst_port_state_t *port_state_p);
+<a name="l00283"></a>00283 
+<a name="l00303"></a>00303 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ad6091fc2cc6d63a1b66ac0ed258ef8a9">sx_api_rstp_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00304"></a>00304                                        <span class="keyword">const</span> sx_port_log_id_t          log_port,
+<a name="l00305"></a>00305                                        <span class="keyword">const</span> sx_mstp_inst_port_state_t port_state);
+<a name="l00306"></a>00306 
+<a name="l00323"></a>00323 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a50ecddd2f2b9d85b1c071d1a4476fe14">sx_api_rstp_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l00324"></a>00324                                        <span class="keyword">const</span> sx_port_log_id_t     log_port,
+<a name="l00325"></a>00325                                        sx_mstp_inst_port_state_t *port_state_p);
+<a name="l00326"></a>00326 
+<a name="l00343"></a>00343 sx_status_t <a class="code" href="sx__api__mstp_8h.html#a4fabf037b5bdb07a34246aae20440b27">sx_api_mstp_exclude_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
+<a name="l00344"></a>00344                                                <span class="keyword">const</span> sx_port_log_id_t             log_port,
+<a name="l00345"></a>00345                                                <span class="keyword">const</span> sx_mstp_exclude_port_state_t port_state);
+<a name="l00346"></a>00346 
+<a name="l00363"></a>00363 sx_status_t <a class="code" href="sx__api__mstp_8h.html#ac0c2577711d05e3d9b1af7292f1fe8d3">sx_api_mstp_exclude_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
+<a name="l00364"></a>00364                                                <span class="keyword">const</span> sx_port_log_id_t        log_port,
+<a name="l00365"></a>00365                                                sx_mstp_exclude_port_state_t *port_state_p);
+<a name="l00366"></a>00366 
+<a name="l00367"></a>00367 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_MSTP_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -166,6 +167,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:29 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -19,6 +19,7 @@
 #define __SX_API_VLAN_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 
 /************************************************
@@ -373,109 +374,10 @@ sx_status_t sx_api_vlan_default_vid_get(const sx_api_handle_t handle,
                                         const sx_swid_t       swid,
                                         sx_vid_t             *vid);
 
-/**
- *  This API is deprecated use sx_api_fdb_unreg_mc_flood_mode_set instead.
- *
- *  This API sets unregistered MC flood mode.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
- *
- *  When in 802.1D mode, instead of providing a vid(Vlan ID),
- *  you should provide a bridge_id.
- *
- * @param[in] handle            - SX-API handle
- * @param[in] swid              - virtual switch partition ID
- * @param[in] vid               - VLAN ID
- * @param[in] urmc_flood_mode   - unregistered MC flood mode: FLOOD / PRUNE
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR for a general error
- */
-sx_status_t sx_api_vlan_unreg_mc_flood_mode_set(const sx_api_handle_t            handle,
-                                                const sx_swid_t                  swid,
-                                                const sx_vid_t                   vid,
-                                                const sx_vlan_unreg_flood_mode_t urmc_flood_mode);
-
-/**
- *  This API is deprecated use sx_api_fdb_unreg_mc_flood_mode_get instead.
- *
- *  This API retrieves unregistered MC flood mode.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
- *
- *  When in 802.1D mode, instead of providing a vid(Vlan ID),
- *  you should provide a bridge_id.
- *
- * @param[in] handle                 - SX-API handle
- * @param[in] swid                   - virtual switch partition ID
- * @param[in] vid                    - VLAN ID
- * @param[out] urmc_flood_mode_p     - unregister MC flood mode: FLOOD / PRUNE
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR for a general error
- */
-sx_status_t sx_api_vlan_unreg_mc_flood_mode_get(const sx_api_handle_t       handle,
-                                                const sx_swid_t             swid,
-                                                const sx_vid_t              vid,
-                                                sx_vlan_unreg_flood_mode_t *urmc_flood_mode_p);
-
-/**
- *  This API is deprecated use sx_api_fdb_unreg_mc_flood_ports_set
- *
- *  This API sets unregistered MC flood ports.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
- *
- *  When in 802.1D mode, instead of providing a vid(Vlan ID),
- *  you should provide a bridge_id.
- *
- * @param[in] handle            - SX-API handle
- * @param[in] swid              - virtual switch partition ID
- * @param[in] vid               - VLAN ID
- * @param[in] log_port_list_p   - a pointer to a port list, port may be a LAG or physical port
- * @param[in] port_cnt          - size of port list
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR for a general error
- */
-sx_status_t sx_api_vlan_unreg_mc_flood_ports_set(const sx_api_handle_t   handle,
-                                                 const sx_swid_t         swid,
-                                                 const sx_vid_t          vid,
-                                                 const sx_port_log_id_t *log_port_list_p,
-                                                 const uint32_t          port_cnt);
-
-/**
- *  This API is deprecated use sx_api_fdb_unreg_mc_flood_ports_get
- *
- *  This API retrieves unregistered MC flood ports.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
- *
- *  When in 802.1D mode, instead of providing a vid(Vlan ID),
- *  you should provide a bridge_id.
- *
- * @param[in] handle            - SX-API handle
- * @param[in] swid              - virtual switch partition ID
- * @param[in] vid               - VLAN ID
- * @param[out] log_port_list_p  - a pointer to a port list, port can be LAG or physical port
- * @param[in,out] port_cnt_p    - size of port list
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR for a general error
- */
-sx_status_t sx_api_vlan_unreg_mc_flood_ports_get(const sx_api_handle_t handle,
-                                                 const sx_swid_t       swid,
-                                                 const sx_vid_t        vid,
-                                                 sx_port_log_id_t     *log_port_list_p,
-                                                 uint32_t             *port_cnt_p);
 
 /**
  *  This API sets Q-in-Q mode of port.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  *  This function is only valid when in 802.1Q mode.
  *

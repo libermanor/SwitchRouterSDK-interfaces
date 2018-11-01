@@ -19,6 +19,7 @@
 #define __SX_API_DBG_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 
 /************************************************
@@ -40,5 +41,6 @@
 sx_status_t sx_api_dbg_generate_dump(const sx_api_handle_t handle,
                                      const char           *dump_file_path);
 
+sx_status_t sx_api_dbg_atcam_configure_test(const sx_api_handle_t  handle);
 
 #endif /* __SX_API_DBG_H__ */

@@ -20,6 +20,7 @@
 #define __SX_API_ROUTER_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 /************************************************
  *  API functions
@@ -64,7 +65,7 @@ sx_status_t sx_api_router_log_verbosity_level_get(const sx_api_handle_t         
 /**
  * This function sets the ECMP hash function configuration parameters.
  * If ecmp_hash_params_p->symmetric_hash is TRUE, enabling bits in ecmp_hash_params_p->ecmp_hash
- * bitmask should be in couples, both source and destination.
+ * bitmask should be in couples, both source and destination for SwitchX.
  * This API is disabled once sx_api_router_ecmp_port_hash_params_set is called.
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
@@ -82,10 +83,9 @@ sx_status_t sx_api_router_ecmp_hash_params_set(const sx_api_handle_t            
  * This function sets the ECMP port hash function configuration parameters.
  * Once this API is called sx_api_router_ecmp_hash_params_set is disabled.
  *
- * If ecmp_hash_params_p->symmetric_hash is TRUE, setting fields in hash_field_list_p
- * should be in couples, both source and destination.
  * Each element in hash_field_enable_list_p enables a specific layer field to be
- * included in the hash calculation.
+ * included in the hash calculation according to the de-facto fields of the
+ * parsed packet.
  * Each element in hash_field_list_p represents a different field to
  * be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p.
  *
@@ -280,22 +280,26 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  *  This function adds/modifies/deletes/delete_all a router
  *  interface. A router interface is associated with L2
  *  interface.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2 .
  *
  *  When in 802.1D mode, if ifc_p of type SX_L2_INTERFACE_TYPE_VLAN is provided,
  *  instead of providing ifc.vlan.vlan you should provide a bridge_id.
  *
- *  On Spectrum with command EDIT:
+ *  On Spectrum/Spectrum2 with command EDIT:
  *   - The only applicable RIF type that can be edited in ifc_p is
  *     SX_L2_INTERFACE_TYPE_PORT_VLAN. In this type, the only field that can be
  *     edited is the vlan field.
  *   - The only applicable fields in ifc_attr_p are mtu, multicast_ttl_threshold
  *     and loopback_enable. Other fields may not be edited.
  *
- *  On Spectrum the mac field in ifc_attr_p, is made from 38 bits of common base
+ *  On Spectrum/Spectrum2 with command DELETE/DELETE_ALL:
+ *   - All MACs assigned to this specific interface/interfaces will be deleted , including MACs
+ *     configured by sx_api_router_interface_mac_set()
+ *
+ *  On Spectrum/Spectrum2 the mac field in ifc_attr_p, is made from 38 bits of common base
  *  and only the last 10 bits can be different from one rif to another
  *
- *  On Spectrum the qos_mode field in ifc_attr_p is redundant, instead use the
+ *  On Spectrum/Spectrum2 the qos_mode field in ifc_attr_p is redundant, instead use the
  *  global router qos configuration. the rif must be aligned with the router
  *  global qos mode configured using sx_api_router_cos_prio_update_enable_set,
  *  or use SX_ROUTER_QOS_MODE_NOP to use the router global configured qos mode.

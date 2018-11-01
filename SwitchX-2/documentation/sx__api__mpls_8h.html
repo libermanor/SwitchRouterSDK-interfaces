@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a26b51c8a9d05e4a3f631bdc229a4e49b">sx_api_mpls_deinit_set</a> (const sx_api_handle_t handle)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a82d913298bf96a17efb3f71f08c29b7c">sx_api_mpls_ilm_init_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_ilm_table_id_t ilm_table)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#ad6f48513d8642b3a807a3a2dfaf282e1">sx_api_mpls_in_segment_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, const sx_mpls_in_segment_params_t *in_segment_params_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a1d26fa52ffe1d0b80ee868b52963d12e">sx_api_mpls_in_segment_get</a> (const sx_api_handle_t handle, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t in_segment_params_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#aca4e76da8f962e017698bd0fae3410fa">sx_api_mpls_in_segment_get</a> (const sx_api_handle_t handle, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t *in_segment_params_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a0bc07d1a02a63c9efd33094fdba7feea">sx_api_mpls_in_segment_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_mpls_in_segment_key_t *in_segment_key_p, const sx_in_segment_key_filter_t *filter_p, sx_mpls_in_segment_key_t *in_segment_key_list_p, uint32_t *in_segment_get_entries_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a0f5615b84068a62f8050882a530316c7">sx_api_mpls_router_interface_attributes_set</a> (const sx_api_handle_t handle, const sx_router_interface_t rif, const sx_mpls_router_interface_attr_t rif_mpls_attr)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__mpls_8h.html#a5aad3e252a4f75d7c3909b4d8b38f7d1">sx_api_mpls_router_interface_attributes_get</a> (const sx_api_handle_t handle, const sx_router_interface_t rif, sx_mpls_router_interface_attr_t *rif_mpls_attr_p)</td></tr>
@@ -326,7 +326,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1d26fa52ffe1d0b80ee868b52963d12e"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_in_segment_get" ref="a1d26fa52ffe1d0b80ee868b52963d12e" args="(const sx_api_handle_t handle, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t in_segment_params_p)" -->
+<a class="anchor" id="aca4e76da8f962e017698bd0fae3410fa"></a><!-- doxytag: member="sx_api_mpls.h::sx_api_mpls_in_segment_get" ref="aca4e76da8f962e017698bd0fae3410fa" args="(const sx_api_handle_t handle, const sx_mpls_in_segment_key_t *in_segment_key_p, sx_mpls_in_segment_params_t *in_segment_params_p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -345,7 +345,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sx_mpls_in_segment_params_t&#160;</td>
+          <td class="paramtype">sx_mpls_in_segment_params_t *&#160;</td>
           <td class="paramname"><em>in_segment_params_p</em>&#160;</td>
         </tr>
         <tr>
@@ -675,6 +675,6 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -16,6 +16,7 @@
  */
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 #ifndef __SX_API_INIT_H__
 #define __SX_API_INIT_H__

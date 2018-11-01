@@ -19,6 +19,7 @@
 #define __SX_API_LAG_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 
 /************************************************
@@ -302,6 +303,47 @@ sx_status_t sx_api_lag_hash_flow_params_set(const sx_api_handle_t      handle,
 
 
 /**
+ * This function sets the ingress port configuration parameters of LAG hash.
+ * Once this API is called sx_api_lag_hash_params_set is disabled.
+ *
+ * Command SET replaces existing hash parameters, fields enables and fields with new values.
+ * Command ADD adds new fields and fields enables to existing ones. Hash parameters are ignored
+ * Command DELETE deletes specific fields and fields enables from the existing ones. Hash parameters are ignored
+ * Each element in hash_field_enable_list_p enables a specific layer field to be
+ * included in the hash calculation according to the de-facto fields of the
+ * parsed packet.
+ * Each element in hash_field_list_p represents a different field to
+ * be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p.
+ * LAG hash parameters are configured per ingress port and impact egress LAG.
+ *
+ * Supported devices: Spectrum
+ *
+ * @param[in] handle                     - SX-API handle.
+ * @param[in] cmd                        - SET/ ADD/ DELETE.
+ * @param[in] log_port                   - log port ID of ingress port
+ * @param[in] lag_hash_params_p          - LAG hash configuration parameters.
+ * @param[in] hash_field_enable_list_p   - Array of enables to be included in the hash calculation (may be NULL if empty)
+ * @param[in] hash_field_enable_list_cnt - Number of elements in hash_field_enable_list_p
+ * @param[in] hash_field_list_p          - Array of fields to be included in the hash calculation (may be NULL if empty)
+ *                                         Note that for Spectrum-1 the custom_bytes are not supported
+ * @param[in] hash_field_list_cnt        - Number of elements in hash_field_list_p
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_NULL if parameter is incorrectly NULL.
+ * @return SX_STATUS_ERROR general error.
+ */
+
+sx_status_t sx_api_lag_port_hash_flow_params_set(const sx_api_handle_t             handle,
+                                                 const sx_access_cmd_t             cmd,
+                                                 const sx_port_log_id_t            log_port,
+                                                 const sx_lag_port_hash_params_t  *hash_params_p,
+                                                 const sx_lag_hash_field_enable_t *hash_field_enable_list_p,
+                                                 const uint32_t                    hash_field_enable_list_cnt,
+                                                 const sx_lag_hash_field_t        *hash_field_list_p,
+                                                 const uint32_t                    hash_field_list_cnt);
+
+
+/**
  *  This function retrieves the flow indicators that impact the
  *  LAG hash distribution function.
  *  Supported devices: SwitchX, SwitchX2, Spectrum.
@@ -314,6 +356,34 @@ sx_status_t sx_api_lag_hash_flow_params_set(const sx_api_handle_t      handle,
  */
 sx_status_t sx_api_lag_hash_flow_params_get(const sx_api_handle_t handle,
                                             sx_lag_hash_param_t  *lag_hash_param_p);
+
+/**
+ *  This function gets the LAG hash function configuration parameters.
+ *  if the given number of fields / field enables is 0, the API will only return number of
+ *  fields / field enables.
+ * Once this API is called sx_api_lag_hash_params_get is disable
+ *
+ * Supported devices: Spectrum.
+ *
+ * @param[in]     handle                       - SX-API handle.
+ * @param[in]     log_port                     - local port
+ * @param[out]    lag_hash_params_p            - LAG hash configuration parameters.
+ * @param[out]    hash_field_enable_list_p     - array of enables used in the hash calculation
+ * @param[in/out] hash_field_enable_list_cnt_p - number of objects in hash_field_list_p
+ * @param[out]    hash_field_list_p            - array of fields used in the hash calculation
+ * @param[in/out] hash_field_list_cnt_p        - number of objects in hash_field_list_p
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_ERROR general error.
+ */
+sx_status_t sx_api_lag_port_hash_flow_params_get(const sx_api_handle_t       handle,
+                                                 const sx_port_log_id_t      log_port,
+                                                 sx_lag_port_hash_params_t  *lag_hash_params_p,
+                                                 sx_lag_hash_field_enable_t *hash_field_enable_list_p,
+                                                 uint32_t                   *hash_field_enable_list_cnt_p,
+                                                 sx_lag_hash_field_t        *hash_field_list_p,
+                                                 uint32_t                   *hash_field_list_cnt_p);
 
 /**
  *  This function CREATEs/DESTROYs a redirection between a LAG and a

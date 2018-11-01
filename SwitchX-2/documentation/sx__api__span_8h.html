@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -76,6 +76,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a415b9b4cd85267f84850b1e1644716d6">sx_api_span_mirror_tables_get</a> (const sx_api_handle_t handle, sx_span_session_id_t *span_session_id_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a19d0702120697b0b090d5ebc14ae19f8">sx_api_span_drop_mirror_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t span_session_id, const sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p, const sx_span_drop_reason_t *drop_reason_list_p, const uint32_t drop_reason_cnt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#ade344b82d7f21298a1e8b4ea0965476b">sx_api_span_drop_mirror_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_span_drop_mirroring_attr_t *drop_mirroring_attr_p, sx_span_drop_reason_t *drop_reason_list_p, uint32_t *drop_reason_cnt_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a937799ee5cb9aa37c18bc81871e34aa5">sx_api_span_mirror_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_mirror_bind_key_t *key_p, const sx_span_mirror_bind_attr_t *attr_p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a438716b860c86eb0cf4ffab8bce45c73">sx_api_span_mirror_bind_get</a> (const sx_api_handle_t handle, const sx_span_mirror_bind_key_t *key_p, sx_span_mirror_bind_attr_t *attr_p)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a6e00a2fe2b79ec287d487497fc25e658"></a><!-- doxytag: member="sx_api_span.h::sx_api_span_log_verbosity_level_set" ref="a6e00a2fe2b79ec287d487497fc25e658" args="(const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)" -->
@@ -214,7 +216,7 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This function creates a SPAN session and allocate the session id. To modify the session attributes, the API should be called with cmd= EDIT, the session's ID and the new session's attributes. To delete a SPAN session the API should be called we cmd = DESTROY. In Spectrum, EDIT need another session resource as interim session, so if all session resource are already allocated, EDIT will be failed due to no resource.</p>
+<p>This function creates a SPAN session and allocate the session id. To modify the session attributes, the API should be called with cmd= EDIT, the session's ID and the new session's attributes. To delete a SPAN session the API should be called we cmd = DESTROY. In Spectrum, EDIT need another session resource as interim session, so if all session resource are already allocated, EDIT will be failed due to no resource. In case packet with encapsulation header is mirrored to analyzer port with size larger than analyzer port MTU, truncation should be enabled by user to avoid packet being discarded. User should set truncate size = MTU - encapsulation or smaller.</p>
 <p>Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -1356,6 +1358,125 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a937799ee5cb9aa37c18bc81871e34aa5"></a><!-- doxytag: member="sx_api_span.h::sx_api_span_mirror_bind_set" ref="a937799ee5cb9aa37c18bc81871e34aa5" args="(const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_mirror_bind_key_t *key_p, const sx_span_mirror_bind_attr_t *attr_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_mirror_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_mirror_bind_key_t *&#160;</td>
+          <td class="paramname"><em>key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_mirror_bind_attr_t *&#160;</td>
+          <td class="paramname"><em>attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function bind the mirror binding point to span session with sampling rate.</p>
+<p>Supported devices: Spectrum-1, Spectrum-2.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- bind/unbind </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- bind key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attr</td><td>- bind attribute</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+<dd>
+SX_STATUS_ACCESS_CMD_UNSUPPORTED if unsupported command is requested </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_BOUND if requested element is not found in DB </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a438716b860c86eb0cf4ffab8bce45c73"></a><!-- doxytag: member="sx_api_span.h::sx_api_span_mirror_bind_get" ref="a438716b860c86eb0cf4ffab8bce45c73" args="(const sx_api_handle_t handle, const sx_span_mirror_bind_key_t *key_p, sx_span_mirror_bind_attr_t *attr_p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_mirror_bind_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_mirror_bind_key_t *&#160;</td>
+          <td class="paramname"><em>key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_mirror_bind_attr_t *&#160;</td>
+          <td class="paramname"><em>attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function get the mirror binding attribute</p>
+<p>Supported devices: Spectrum-1, Spectrum-2.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- bind key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">attr_p</td><td>- bind attribute</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+<dd>
+SX_STATUS_ACCESS_CMD_UNSUPPORTED if unsupported command is requested </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_BOUND if requested element is not found in DB </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -1375,6 +1496,6 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

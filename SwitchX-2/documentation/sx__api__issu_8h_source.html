@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_init.h Source File</title>
+<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_issu.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,10 +43,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="headertitle">
-<h1>sdk/sx_api_init.h</h1>  </div>
+<h1>sdk/sx_api_issu.h</h1>  </div>
 </div>
 <div class="contents">
-<a href="sx__api__init_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a href="sx__api__issu_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
 <a name="l00002"></a>00002 <span class="comment"> *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
@@ -63,46 +63,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> *</span>
 <a name="l00016"></a>00016 <span class="comment"> */</span>
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;sx/sdk/sx_strings.h&gt;</span>
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef __SX_API_INIT_H__</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_INIT_H__</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="comment">/************************************************</span>
-<a name="l00026"></a>00026 <span class="comment"> *  API functions</span>
-<a name="l00027"></a>00027 <span class="comment"> ***********************************************/</span>
-<a name="l00028"></a>00028 
-<a name="l00042"></a>00042 sx_status_t <a class="code" href="sx__api__init_8h.html#a05dd4f8705dd589f2a3b43b82732f36f">sx_api_system_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00043"></a>00043                                                   <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00044"></a>00044                                                   <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
-<a name="l00045"></a>00045                                                   <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
-<a name="l00046"></a>00046 
-<a name="l00060"></a>00060 sx_status_t <a class="code" href="sx__api__init_8h.html#aa2b8ac5d75ec34032b760789a86f625b">sx_api_system_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00061"></a>00061                                                   <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00062"></a>00062                                                   sx_verbosity_level_t           *module_verbosity_level_p,
-<a name="l00063"></a>00063                                                   sx_verbosity_level_t           *api_verbosity_level_p);
-<a name="l00064"></a>00064 
-<a name="l00081"></a>00081 sx_status_t <a class="code" href="sx__api__init_8h.html#ad24aa2758233109563402d1697253858">sx_api_open</a>(sx_log_cb_t      logging_cb,
-<a name="l00082"></a>00082                         sx_api_handle_t *handle);
-<a name="l00083"></a>00083 
-<a name="l00097"></a>00097 sx_status_t <a class="code" href="sx__api__init_8h.html#ade0336ce78fe95177dd005311e9765a8">sx_api_close</a>(sx_api_handle_t *handle);
-<a name="l00098"></a>00098 
-<a name="l00112"></a>00112 sx_status_t <a class="code" href="sx__api__init_8h.html#a520555e24b03155144e7f49a57ee6757">sx_api_sdk_init_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00113"></a>00113                                 <span class="keyword">const</span> sx_api_sx_sdk_init_t *sdk_init_params_p);
-<a name="l00114"></a>00114 
-<a name="l00129"></a>00129 sx_status_t <a class="code" href="sx__api__init_8h.html#a24bf5f372afe4708cae42d5df1eca0b1">sx_api_sx_sdk_version_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00130"></a>00130                                       sx_api_sx_sdk_versions_t *versions_p);
-<a name="l00131"></a>00131 
-<a name="l00144"></a>00144 sx_status_t <a class="code" href="sx__api__init_8h.html#a56fbf53744ec0aa68cffde1672aee079">sx_api_transaction_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00145"></a>00145                                         <span class="keyword">const</span> sx_access_cmd_t cmd);
-<a name="l00146"></a>00146 
-<a name="l00166"></a>00166 sx_status_t <a class="code" href="sx__api__init_8h.html#a381643064a8af7b94e3ed6ff32e08af2">sx_api_object_refcount_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00167"></a>00167                                        <span class="keyword">const</span> sx_object_id_t *object_id_p,
-<a name="l00168"></a>00168                                        uint32_t             *refcount_p);
-<a name="l00169"></a>00169 
-<a name="l00170"></a>00170 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_INIT_H__ */</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#ifndef __SX_API_ISSU_H__</span>
+<a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_ISSU_H__</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="comment">/************************************************</span>
+<a name="l00024"></a>00024 <span class="comment"> *  API functions</span>
+<a name="l00025"></a>00025 <span class="comment"> ***********************************************/</span>
+<a name="l00026"></a>00026 
+<a name="l00040"></a>00040 sx_status_t <a class="code" href="sx__api__issu_8h.html#ad09ffbe3dbce00b23a9c8646e43f6525">sx_api_issu_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00041"></a>00041                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00042"></a>00042                                                 <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
+<a name="l00043"></a>00043                                                 <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
+<a name="l00044"></a>00044 
+<a name="l00059"></a>00059 sx_status_t <a class="code" href="sx__api__issu_8h.html#acfa95d22b8e1b6eaa1322e49eac53a84">sx_api_tunnel_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00060"></a>00060                                                   <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00061"></a>00061                                                   sx_verbosity_level_t           *module_verbosity_level_p,
+<a name="l00062"></a>00062                                                   sx_verbosity_level_t           *api_verbosity_level_p);
+<a name="l00074"></a>00074 sx_status_t <a class="code" href="sx__api__issu_8h.html#a72666e92bf9fa8d99a927733e09f9933">sx_api_issu_start_set</a>(<span class="keyword">const</span> sx_api_handle_t handle);
+<a name="l00075"></a>00075 
+<a name="l00086"></a>00086 sx_status_t <a class="code" href="sx__api__issu_8h.html#af328e7d0f52c2a97a20ff8a69f004cb2">sx_api_issu_end_set</a>(<span class="keyword">const</span> sx_api_handle_t handle);
+<a name="l00087"></a>00087 
+<a name="l00102"></a>00102 sx_status_t <a class="code" href="sx__api__issu_8h.html#a0d2a901093f24b6a15d4ea3ba8c14795">sx_api_issu_pause_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00103"></a>00103                                   <span class="keyword">const</span> sx_issu_pause_t *pause_params_p);
+<a name="l00104"></a>00104 
+<a name="l00119"></a>00119 sx_status_t <a class="code" href="sx__api__issu_8h.html#a22cb6076dc8cc21aee4ca13bef8203fb">sx_api_issu_resume_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00120"></a>00120                                    <span class="keyword">const</span> sx_issu_resume_t *resume_params_p);
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_ISSU_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->

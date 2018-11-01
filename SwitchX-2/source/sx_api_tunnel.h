@@ -18,6 +18,7 @@
 #define __SX_API_TUNNEL_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 /************************************************
  *  API functions
@@ -66,7 +67,12 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  *
  * When destroying a tunnel, tunnel_attr_p is ignored.
  * By default tunnel is created with TTL 255.
- * Supported devices: Spectrum.
+ * On Spectrum2 SDK user may configure from which port (ingress or egress) he
+ * want to get packet ethertype.
+ * By default packet ethertype will be taken from ingress port. To change default
+ * logic SDK user should create VxLAN tunnel with ethertype SX_ETHERTYPE_FROM_EGRESS_PORT.
+ *
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] cmd             - CREATE / DESTROY / EDIT

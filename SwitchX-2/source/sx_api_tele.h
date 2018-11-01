@@ -20,6 +20,7 @@
 #define __SX_API_TELE_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 /************************************************
  *  API functions

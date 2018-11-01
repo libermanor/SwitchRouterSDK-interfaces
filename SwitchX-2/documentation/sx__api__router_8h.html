@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -247,7 +247,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the ECMP hash function configuration parameters. If ecmp_hash_params_p-&gt;symmetric_hash is TRUE, enabling bits in ecmp_hash_params_p-&gt;ecmp_hash bitmask should be in couples, both source and destination. This API is disabled once sx_api_router_ecmp_port_hash_params_set is called. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets the ECMP hash function configuration parameters. If ecmp_hash_params_p-&gt;symmetric_hash is TRUE, enabling bits in ecmp_hash_params_p-&gt;ecmp_hash bitmask should be in couples, both source and destination for SwitchX. This API is disabled once sx_api_router_ecmp_port_hash_params_set is called. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -324,7 +324,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 </div>
 <div class="memdoc">
 <p>This function sets the ECMP port hash function configuration parameters. Once this API is called sx_api_router_ecmp_hash_params_set is disabled.</p>
-<p>If ecmp_hash_params_p-&gt;symmetric_hash is TRUE, setting fields in hash_field_list_p should be in couples, both source and destination. Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p.</p>
+<p>Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de-facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p.</p>
 <p>Supported devices: Spectrum</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -784,15 +784,19 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function adds/modifies/deletes/delete_all a router interface. A router interface is associated with L2 interface. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function adds/modifies/deletes/delete_all a router interface. A router interface is associated with L2 interface. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2 .</p>
 <p>When in 802.1D mode, if ifc_p of type SX_L2_INTERFACE_TYPE_VLAN is provided, instead of providing ifc.vlan.vlan you should provide a bridge_id.</p>
-<p>On Spectrum with command EDIT:</p>
+<p>On Spectrum/Spectrum2 with command EDIT:</p>
 <ul>
 <li>The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN. In this type, the only field that can be edited is the vlan field.</li>
 <li>The only applicable fields in ifc_attr_p are mtu, multicast_ttl_threshold and loopback_enable. Other fields may not be edited.</li>
 </ul>
-<p>On Spectrum the mac field in ifc_attr_p, is made from 38 bits of common base and only the last 10 bits can be different from one rif to another</p>
-<p>On Spectrum the qos_mode field in ifc_attr_p is redundant, instead use the global router qos configuration. the rif must be aligned with the router global qos mode configured using sx_api_router_cos_prio_update_enable_set, or use SX_ROUTER_QOS_MODE_NOP to use the router global configured qos mode.</p>
+<p>On Spectrum/Spectrum2 with command DELETE/DELETE_ALL:</p>
+<ul>
+<li>All MACs assigned to this specific interface/interfaces will be deleted , including MACs configured by <a class="el" href="sx__api__router_8h.html#a45fa8aa8bb1a944fc76388b380d32e48">sx_api_router_interface_mac_set()</a></li>
+</ul>
+<p>On Spectrum/Spectrum2 the mac field in ifc_attr_p, is made from 38 bits of common base and only the last 10 bits can be different from one rif to another</p>
+<p>On Spectrum/Spectrum2 the qos_mode field in ifc_attr_p is redundant, instead use the global router qos configuration. the rif must be aligned with the router global qos mode configured using sx_api_router_cos_prio_update_enable_set, or use SX_ROUTER_QOS_MODE_NOP to use the router global configured qos mode.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -3781,6 +3785,6 @@ SX_STATUS_ERROR general error. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

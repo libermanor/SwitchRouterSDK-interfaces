@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -116,7 +116,7 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This function sets the log verbosity level of FLOW COUNTER MODULE Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function sets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -166,7 +166,7 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This function gets the log verbosity level of FLOW COUNTER MODULE Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function gets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -216,7 +216,7 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This function is used to create packets/bytes counter. for creation use command CREATE and supply counter_type. flow_counter_id is returned on successful creation. for destroying an flow counter it is required that the flow counter is not bound to an ACL and the flow_counter_id should be provided. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function is used to create packets/bytes counter. for creation use command CREATE and supply counter_type. flow_counter_id is returned on successful creation. for destroying an flow counter it is required that the flow counter is not bound to an ACL and the flow_counter_id should be provided. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -276,7 +276,7 @@ SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not ex
       </table>
 </div>
 <div class="memdoc">
-<p>This function retrieves the Flow Counter. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function retrieves the Flow Counter. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -416,7 +416,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This function clear a specific Flow Counter. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This function clear a specific Flow Counter. Supported devices: Spectrum.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -459,6 +459,6 @@ SX_STATUS_ENTRY_NOT_FOUND: Clear an invalid counter. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -69,10 +69,6 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#acce5200b9809b58043dfd7e47d3f550f">sx_api_vlan_port_accptd_frm_types_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_vlan_frame_types_t *accptd_frm_types_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#a69b63f65e0cdb3c7cc3d6921b0c01bfa">sx_api_vlan_default_vid_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#a3b16a0fc55a249452147e121b71637a9">sx_api_vlan_default_vid_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, sx_vid_t *vid)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#ac8be9d5bbe7ac966b7f8a8e072e8f772">sx_api_vlan_unreg_mc_flood_mode_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_vlan_unreg_flood_mode_t urmc_flood_mode)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#a4c541364d2855ebc0137407482a1ac4b">sx_api_vlan_unreg_mc_flood_mode_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_vlan_unreg_flood_mode_t *urmc_flood_mode_p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#a182cb39a575b35bd7278e1e780d65b2b">sx_api_vlan_unreg_mc_flood_ports_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_port_log_id_t *log_port_list_p, const uint32_t port_cnt)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#a45814fe64c4958fad665b4eea4433cd3">sx_api_vlan_unreg_mc_flood_ports_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_port_log_id_t *log_port_list_p, uint32_t *port_cnt_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#ab857d0b13c92a60d5fda70968dea10a2">sx_api_vlan_port_qinq_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_qinq_mode_t qinq_mode)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#aa9ec694a73851f1b7e480e649889a26b">sx_api_vlan_port_qinq_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_qinq_mode_t *qinq_mode_p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#abcf72663a766f5e766964fd9a58c07e2">sx_api_vlan_port_qinq_outer_prio_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_qinq_outer_prio_mode_t prio_mode)</td></tr>
@@ -943,252 +939,6 @@ SX_STATUS_PARAM_NULL if parameter is NULL. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ac8be9d5bbe7ac966b7f8a8e072e8f772"></a><!-- doxytag: member="sx_api_vlan.h::sx_api_vlan_unreg_mc_flood_mode_set" ref="ac8be9d5bbe7ac966b7f8a8e072e8f772" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_vlan_unreg_flood_mode_t urmc_flood_mode)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_vlan_unreg_mc_flood_mode_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_vid_t&#160;</td>
-          <td class="paramname"><em>vid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_vlan_unreg_flood_mode_t&#160;</td>
-          <td class="paramname"><em>urmc_flood_mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This API is deprecated use sx_api_fdb_unreg_mc_flood_mode_set instead.</p>
-<p>This API sets unregistered MC flood mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
-<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">urmc_flood_mode</td><td>- unregistered MC flood mode: FLOOD / PRUNE</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a4c541364d2855ebc0137407482a1ac4b"></a><!-- doxytag: member="sx_api_vlan.h::sx_api_vlan_unreg_mc_flood_mode_get" ref="a4c541364d2855ebc0137407482a1ac4b" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_vlan_unreg_flood_mode_t *urmc_flood_mode_p)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_vlan_unreg_mc_flood_mode_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_vid_t&#160;</td>
-          <td class="paramname"><em>vid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_vlan_unreg_flood_mode_t *&#160;</td>
-          <td class="paramname"><em>urmc_flood_mode_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This API is deprecated use sx_api_fdb_unreg_mc_flood_mode_get instead.</p>
-<p>This API retrieves unregistered MC flood mode. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
-<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">urmc_flood_mode_p</td><td>- unregister MC flood mode: FLOOD / PRUNE</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a182cb39a575b35bd7278e1e780d65b2b"></a><!-- doxytag: member="sx_api_vlan.h::sx_api_vlan_unreg_mc_flood_ports_set" ref="a182cb39a575b35bd7278e1e780d65b2b" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, const sx_port_log_id_t *log_port_list_p, const uint32_t port_cnt)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_vlan_unreg_mc_flood_ports_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_vid_t&#160;</td>
-          <td class="paramname"><em>vid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t *&#160;</td>
-          <td class="paramname"><em>log_port_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>port_cnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This API is deprecated use sx_api_fdb_unreg_mc_flood_ports_set</p>
-<p>This API sets unregistered MC flood ports. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
-<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_list_p</td><td>- a pointer to a port list, port may be a LAG or physical port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- size of port list</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a45814fe64c4958fad665b4eea4433cd3"></a><!-- doxytag: member="sx_api_vlan.h::sx_api_vlan_unreg_mc_flood_ports_get" ref="a45814fe64c4958fad665b4eea4433cd3" args="(const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_port_log_id_t *log_port_list_p, uint32_t *port_cnt_p)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_vlan_unreg_mc_flood_ports_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_vid_t&#160;</td>
-          <td class="paramname"><em>vid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_port_log_id_t *&#160;</td>
-          <td class="paramname"><em>log_port_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>port_cnt_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This API is deprecated use sx_api_fdb_unreg_mc_flood_ports_get</p>
-<p>This API retrieves unregistered MC flood ports. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
-<p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">log_port_list_p</td><td>- a pointer to a port list, port can be LAG or physical port </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_cnt_p</td><td>- size of port list</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ab857d0b13c92a60d5fda70968dea10a2"></a><!-- doxytag: member="sx_api_vlan.h::sx_api_vlan_port_qinq_mode_set" ref="ab857d0b13c92a60d5fda70968dea10a2" args="(const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_qinq_mode_t qinq_mode)" -->
 <div class="memitem">
 <div class="memproto">
@@ -1219,7 +969,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>This API sets Q-in-Q mode of port. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>This API sets Q-in-Q mode of port. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.</p>
 <p>This function is only valid when in 802.1Q mode.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -1547,6 +1297,6 @@ SX_STATUS_PARAM_ERROR if vlan_list_p is NULL. </dd></dl>
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:26 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:30 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

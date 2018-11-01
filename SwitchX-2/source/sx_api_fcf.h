@@ -20,6 +20,7 @@
 #define __SX_API_FCF_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 /**
  * This function sets the log verbosity level of FCF MODULE

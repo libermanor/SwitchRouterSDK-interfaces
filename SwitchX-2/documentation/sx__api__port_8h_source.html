@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.7004</span></div>
+   <div id="projectname">Mellanox SwitchX SDK API Guide&#160;<span id="projectnumber">4.2.9100</span></div>
   </td>
   <td>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,416 +67,445 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#define __SX_API_PORT_H__</span>
 <a name="l00020"></a>00020 <span class="preprocessor"></span>
 <a name="l00021"></a>00021 <span class="preprocessor">#include &lt;sx/sdk/sx_api.h&gt;</span>
-<a name="l00022"></a>00022 
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;sx/sdk/sx_strings.h&gt;</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">/************************************************</span>
-<a name="l00025"></a>00025 <span class="comment"> *  API functions</span>
-<a name="l00026"></a>00026 <span class="comment"> ***********************************************/</span>
-<a name="l00027"></a>00027 
-<a name="l00041"></a>00041 sx_status_t <a class="code" href="sx__api__port_8h.html#ac3457a41837c6780bbf94b56dd2a0cd4">sx_api_port_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00042"></a>00042                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00043"></a>00043                                                 <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
-<a name="l00044"></a>00044                                                 <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
-<a name="l00045"></a>00045 
-<a name="l00059"></a>00059 sx_status_t <a class="code" href="sx__api__port_8h.html#aeacb0e86f68ff55169aaf669657a22a1">sx_api_port_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l00060"></a>00060                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
-<a name="l00061"></a>00061                                                 sx_verbosity_level_t           *module_verbosity_level_p,
-<a name="l00062"></a>00062                                                 sx_verbosity_level_t           *api_verbosity_level_p);
-<a name="l00063"></a>00063 
-<a name="l00085"></a>00085 sx_status_t <a class="code" href="sx__api__port_8h.html#a320b05e1b217964e13862e3e20c48b22">sx_api_port_device_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00086"></a>00086                                    <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00087"></a>00087                                    <span class="keyword">const</span> sx_device_id_t  device_id,
-<a name="l00088"></a>00088                                    <span class="keyword">const</span> sx_mac_addr_t  *base_mac_addr_p,
-<a name="l00089"></a>00089                                    sx_port_attributes_t *port_attributes_list_p,
-<a name="l00090"></a>00090                                    <span class="keyword">const</span> uint32_t        port_cnt);
-<a name="l00091"></a>00091 
-<a name="l00107"></a>00107 sx_status_t <a class="code" href="sx__api__port_8h.html#af2183e8bd9f2b4301c20dbc281152eb7">sx_api_port_device_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00108"></a>00108                                    <span class="keyword">const</span> sx_device_id_t  device_id,
-<a name="l00109"></a>00109                                    <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00110"></a>00110                                    sx_port_attributes_t *port_attributes_list_p,
-<a name="l00111"></a>00111                                    uint32_t             *port_cnt_p);
-<a name="l00112"></a>00112 
-<a name="l00126"></a>00126 sx_status_t <a class="code" href="sx__api__port_8h.html#aa2e0b743cdbcbe49a4486ae074352c62">sx_api_port_device_base_mac_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00127"></a>00127                                             <span class="keyword">const</span> sx_device_id_t  device_id,
-<a name="l00128"></a>00128                                             sx_mac_addr_t        *base_mac_addr_p);
-<a name="l00142"></a>00142 sx_status_t <a class="code" href="sx__api__port_8h.html#ad6b5cce473414e8dd0cccff99f607937">sx_api_port_mapping_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00143"></a>00143                                     <span class="keyword">const</span> sx_port_log_id_t  *log_port_list_p,
-<a name="l00144"></a>00144                                     <span class="keyword">const</span> sx_port_mapping_t *port_mapping_list_p,
-<a name="l00145"></a>00145                                     <span class="keyword">const</span> uint32_t           port_cnt);
-<a name="l00146"></a>00146 
-<a name="l00160"></a>00160 sx_status_t <a class="code" href="sx__api__port_8h.html#ab6aac3d1a251bebecea8661d892ae138">sx_api_port_mapping_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00161"></a>00161                                     <span class="keyword">const</span> sx_port_log_id_t *log_port_list_p,
-<a name="l00162"></a>00162                                     sx_port_mapping_t      *port_mapping_list_p,
-<a name="l00163"></a>00163                                     <span class="keyword">const</span> uint32_t          port_cnt);
-<a name="l00164"></a>00164 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="comment">/************************************************</span>
+<a name="l00026"></a>00026 <span class="comment"> *  API functions</span>
+<a name="l00027"></a>00027 <span class="comment"> ***********************************************/</span>
+<a name="l00028"></a>00028 
+<a name="l00042"></a>00042 sx_status_t <a class="code" href="sx__api__port_8h.html#ac3457a41837c6780bbf94b56dd2a0cd4">sx_api_port_log_verbosity_level_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00043"></a>00043                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00044"></a>00044                                                 <span class="keyword">const</span> sx_verbosity_level_t      module_verbosity_level,
+<a name="l00045"></a>00045                                                 <span class="keyword">const</span> sx_verbosity_level_t      api_verbosity_level);
+<a name="l00046"></a>00046 
+<a name="l00060"></a>00060 sx_status_t <a class="code" href="sx__api__port_8h.html#aeacb0e86f68ff55169aaf669657a22a1">sx_api_port_log_verbosity_level_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l00061"></a>00061                                                 <span class="keyword">const</span> sx_log_verbosity_target_t verbosity_target,
+<a name="l00062"></a>00062                                                 sx_verbosity_level_t           *module_verbosity_level_p,
+<a name="l00063"></a>00063                                                 sx_verbosity_level_t           *api_verbosity_level_p);
+<a name="l00064"></a>00064 
+<a name="l00086"></a>00086 sx_status_t <a class="code" href="sx__api__port_8h.html#a320b05e1b217964e13862e3e20c48b22">sx_api_port_device_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00087"></a>00087                                    <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00088"></a>00088                                    <span class="keyword">const</span> sx_device_id_t  device_id,
+<a name="l00089"></a>00089                                    <span class="keyword">const</span> sx_mac_addr_t  *base_mac_addr_p,
+<a name="l00090"></a>00090                                    sx_port_attributes_t *port_attributes_list_p,
+<a name="l00091"></a>00091                                    <span class="keyword">const</span> uint32_t        port_cnt);
+<a name="l00092"></a>00092 
+<a name="l00108"></a>00108 sx_status_t <a class="code" href="sx__api__port_8h.html#af2183e8bd9f2b4301c20dbc281152eb7">sx_api_port_device_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00109"></a>00109                                    <span class="keyword">const</span> sx_device_id_t  device_id,
+<a name="l00110"></a>00110                                    <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00111"></a>00111                                    sx_port_attributes_t *port_attributes_list_p,
+<a name="l00112"></a>00112                                    uint32_t             *port_cnt_p);
+<a name="l00113"></a>00113 
+<a name="l00127"></a>00127 sx_status_t <a class="code" href="sx__api__port_8h.html#aa2e0b743cdbcbe49a4486ae074352c62">sx_api_port_device_base_mac_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00128"></a>00128                                             <span class="keyword">const</span> sx_device_id_t  device_id,
+<a name="l00129"></a>00129                                             sx_mac_addr_t        *base_mac_addr_p);
+<a name="l00143"></a>00143 sx_status_t <a class="code" href="sx__api__port_8h.html#ad6b5cce473414e8dd0cccff99f607937">sx_api_port_mapping_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00144"></a>00144                                     <span class="keyword">const</span> sx_port_log_id_t  *log_port_list_p,
+<a name="l00145"></a>00145                                     <span class="keyword">const</span> sx_port_mapping_t *port_mapping_list_p,
+<a name="l00146"></a>00146                                     <span class="keyword">const</span> uint32_t           port_cnt);
+<a name="l00147"></a>00147 
+<a name="l00161"></a>00161 sx_status_t <a class="code" href="sx__api__port_8h.html#ab6aac3d1a251bebecea8661d892ae138">sx_api_port_mapping_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00162"></a>00162                                     <span class="keyword">const</span> sx_port_log_id_t *log_port_list_p,
+<a name="l00163"></a>00163                                     sx_port_mapping_t      *port_mapping_list_p,
+<a name="l00164"></a>00164                                     <span class="keyword">const</span> uint32_t          port_cnt);
 <a name="l00165"></a>00165 
-<a name="l00179"></a>00179 sx_status_t <a class="code" href="sx__api__port_8h.html#a8547e671b86adfa81b8914bc6d4a7c9a">sx_api_port_device_list_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00180"></a>00180                                         sx_device_info_t     *device_info_list_p,
-<a name="l00181"></a>00181                                         uint32_t             *device_info_cnt_p);
-<a name="l00182"></a>00182 
-<a name="l00198"></a>00198 sx_status_t <a class="code" href="sx__api__port_8h.html#a5ac4e100b0a7e63857956f85f7564371">sx_api_port_swid_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00199"></a>00199                                  <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l00200"></a>00200                                  <span class="keyword">const</span> sx_swid_t       swid);
-<a name="l00201"></a>00201 
-<a name="l00218"></a>00218 sx_status_t <a class="code" href="sx__api__port_8h.html#ae9f581acd6ea7e53fa000614c679a3a2">sx_api_port_swid_list_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00219"></a>00219                                       sx_swid_t            *swid_list_p,
-<a name="l00220"></a>00220                                       uint32_t             *swid_cnt_p);
-<a name="l00221"></a>00221 
-<a name="l00238"></a>00238 sx_status_t <a class="code" href="sx__api__port_8h.html#a18e894e7fd6e658b8f268fefca4fd29b">sx_api_port_swid_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00239"></a>00239                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00240"></a>00240                                       <span class="keyword">const</span> sx_swid_t        swid);
-<a name="l00241"></a>00241 
-<a name="l00256"></a>00256 sx_status_t <a class="code" href="sx__api__port_8h.html#a0b4fbd51ebc7bce4001fd347dd1128e3">sx_api_port_swid_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00257"></a>00257                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00258"></a>00258                                       sx_swid_t             *swid_p);
-<a name="l00259"></a>00259 
-<a name="l00277"></a>00277 sx_status_t <a class="code" href="sx__api__port_8h.html#ad157db98602e015414c58572fb807ce6">sx_api_port_swid_port_list_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l00278"></a>00278                                            <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l00279"></a>00279                                            sx_port_log_id_t     *log_port_list_p,
-<a name="l00280"></a>00280                                            uint32_t             *port_cnt_p);
-<a name="l00281"></a>00281 
-<a name="l00295"></a>00295 sx_status_t <a class="code" href="sx__api__port_8h.html#a76a1283579d3589c1282db08adf9c15f">sx_api_port_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00296"></a>00296                                  <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00297"></a>00297                                  <span class="keyword">const</span> sx_port_mode_t   mode);
-<a name="l00298"></a>00298 
-<a name="l00312"></a>00312 sx_status_t <a class="code" href="sx__api__port_8h.html#a8915383346dfe6d396c27c2f4b02bb61">sx_api_port_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00313"></a>00313                                  <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00314"></a>00314                                  sx_port_mode_t        *mode_p);
-<a name="l00315"></a>00315 
+<a name="l00166"></a>00166 
+<a name="l00180"></a>00180 sx_status_t <a class="code" href="sx__api__port_8h.html#a8547e671b86adfa81b8914bc6d4a7c9a">sx_api_port_device_list_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00181"></a>00181                                         sx_device_info_t     *device_info_list_p,
+<a name="l00182"></a>00182                                         uint32_t             *device_info_cnt_p);
+<a name="l00183"></a>00183 
+<a name="l00199"></a>00199 sx_status_t <a class="code" href="sx__api__port_8h.html#a5ac4e100b0a7e63857956f85f7564371">sx_api_port_swid_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00200"></a>00200                                  <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l00201"></a>00201                                  <span class="keyword">const</span> sx_swid_t       swid);
+<a name="l00202"></a>00202 
+<a name="l00219"></a>00219 sx_status_t <a class="code" href="sx__api__port_8h.html#ae9f581acd6ea7e53fa000614c679a3a2">sx_api_port_swid_list_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00220"></a>00220                                       sx_swid_t            *swid_list_p,
+<a name="l00221"></a>00221                                       uint32_t             *swid_cnt_p);
+<a name="l00222"></a>00222 
+<a name="l00239"></a>00239 sx_status_t <a class="code" href="sx__api__port_8h.html#a18e894e7fd6e658b8f268fefca4fd29b">sx_api_port_swid_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00240"></a>00240                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00241"></a>00241                                       <span class="keyword">const</span> sx_swid_t        swid);
+<a name="l00242"></a>00242 
+<a name="l00257"></a>00257 sx_status_t <a class="code" href="sx__api__port_8h.html#a0b4fbd51ebc7bce4001fd347dd1128e3">sx_api_port_swid_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00258"></a>00258                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00259"></a>00259                                       sx_swid_t             *swid_p);
+<a name="l00260"></a>00260 
+<a name="l00278"></a>00278 sx_status_t <a class="code" href="sx__api__port_8h.html#ad157db98602e015414c58572fb807ce6">sx_api_port_swid_port_list_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l00279"></a>00279                                            <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l00280"></a>00280                                            sx_port_log_id_t     *log_port_list_p,
+<a name="l00281"></a>00281                                            uint32_t             *port_cnt_p);
+<a name="l00282"></a>00282 
+<a name="l00296"></a>00296 sx_status_t <a class="code" href="sx__api__port_8h.html#a76a1283579d3589c1282db08adf9c15f">sx_api_port_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00297"></a>00297                                  <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00298"></a>00298                                  <span class="keyword">const</span> sx_port_mode_t   mode);
+<a name="l00299"></a>00299 
+<a name="l00313"></a>00313 sx_status_t <a class="code" href="sx__api__port_8h.html#a8915383346dfe6d396c27c2f4b02bb61">sx_api_port_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00314"></a>00314                                  <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00315"></a>00315                                  sx_port_mode_t        *mode_p);
 <a name="l00316"></a>00316 
-<a name="l00329"></a>00329 sx_status_t <a class="code" href="sx__api__port_8h.html#a177cc12ea300d6609cfce0d2affecbb7">sx_api_port_mtu_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00330"></a>00330                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00331"></a>00331                                 <span class="keyword">const</span> sx_port_mtu_t    mtu_size);
-<a name="l00332"></a>00332 
+<a name="l00317"></a>00317 
+<a name="l00330"></a>00330 sx_status_t <a class="code" href="sx__api__port_8h.html#a177cc12ea300d6609cfce0d2affecbb7">sx_api_port_mtu_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00331"></a>00331                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00332"></a>00332                                 <span class="keyword">const</span> sx_port_mtu_t    mtu_size);
 <a name="l00333"></a>00333 
-<a name="l00350"></a>00350 sx_status_t <a class="code" href="sx__api__port_8h.html#a30b32059620165e64aea03eeb674ffc0">sx_api_port_mtu_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00351"></a>00351                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00352"></a>00352                                 sx_port_mtu_t         *max_mtu_size_p,
-<a name="l00353"></a>00353                                 sx_port_mtu_t         *oper_mtu_size_p);
-<a name="l00354"></a>00354 
-<a name="l00373"></a>00373 sx_status_t <a class="code" href="sx__api__port_8h.html#a1eb11c6043ef0aaf7941b424c00bb2e9">sx_api_port_speed_admin_set</a>(<span class="keyword">const</span> sx_api_handle_t             handle,
-<a name="l00374"></a>00374                                         <span class="keyword">const</span> sx_port_log_id_t            log_port,
-<a name="l00375"></a>00375                                         <span class="keyword">const</span> sx_port_speed_capability_t *admin_speed_p);
-<a name="l00376"></a>00376 
-<a name="l00393"></a>00393 sx_status_t <a class="code" href="sx__api__port_8h.html#a9903aa3a1fec695b1df5a1afd9cce1fb">sx_api_port_speed_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00394"></a>00394                                   <span class="keyword">const</span> sx_port_log_id_t      log_port,
-<a name="l00395"></a>00395                                   sx_port_speed_capability_t *admin_speed_p,
-<a name="l00396"></a>00396                                   sx_port_oper_speed_t       *oper_speed_p);
-<a name="l00397"></a>00397 
-<a name="l00414"></a>00414 sx_status_t <a class="code" href="sx__api__port_8h.html#ac06ca456bb66a95dbd43b418f4455ce9">sx_api_port_capability_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00415"></a>00415                                        <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00416"></a>00416                                        sx_port_capability_t  *capability_p);
-<a name="l00417"></a>00417 
-<a name="l00434"></a>00434 sx_status_t <a class="code" href="sx__api__port_8h.html#a02d492ab4853f76e8eb11bbe2178cd6f">sx_api_port_fec_capability_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00435"></a>00435                                            <span class="keyword">const</span> sx_port_log_id_t    log_port,
-<a name="l00436"></a>00436                                            sx_port_fec_capability_t *fec_capability_list_p,
-<a name="l00437"></a>00437                                            uint32_t                 *fec_cnt_p);
-<a name="l00438"></a>00438 
+<a name="l00334"></a>00334 
+<a name="l00351"></a>00351 sx_status_t <a class="code" href="sx__api__port_8h.html#a30b32059620165e64aea03eeb674ffc0">sx_api_port_mtu_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00352"></a>00352                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00353"></a>00353                                 sx_port_mtu_t         *max_mtu_size_p,
+<a name="l00354"></a>00354                                 sx_port_mtu_t         *oper_mtu_size_p);
+<a name="l00355"></a>00355 
+<a name="l00374"></a>00374 sx_status_t <a class="code" href="sx__api__port_8h.html#a1eb11c6043ef0aaf7941b424c00bb2e9">sx_api_port_speed_admin_set</a>(<span class="keyword">const</span> sx_api_handle_t             handle,
+<a name="l00375"></a>00375                                         <span class="keyword">const</span> sx_port_log_id_t            log_port,
+<a name="l00376"></a>00376                                         <span class="keyword">const</span> sx_port_speed_capability_t *admin_speed_p);
+<a name="l00377"></a>00377 
+<a name="l00394"></a>00394 sx_status_t <a class="code" href="sx__api__port_8h.html#a9903aa3a1fec695b1df5a1afd9cce1fb">sx_api_port_speed_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l00395"></a>00395                                   <span class="keyword">const</span> sx_port_log_id_t      log_port,
+<a name="l00396"></a>00396                                   sx_port_speed_capability_t *admin_speed_p,
+<a name="l00397"></a>00397                                   sx_port_oper_speed_t       *oper_speed_p);
+<a name="l00398"></a>00398 
+<a name="l00415"></a>00415 sx_status_t <a class="code" href="sx__api__port_8h.html#ac06ca456bb66a95dbd43b418f4455ce9">sx_api_port_capability_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00416"></a>00416                                        <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00417"></a>00417                                        sx_port_capability_t  *capability_p);
+<a name="l00418"></a>00418 
+<a name="l00435"></a>00435 sx_status_t <a class="code" href="sx__api__port_8h.html#a02d492ab4853f76e8eb11bbe2178cd6f">sx_api_port_fec_capability_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00436"></a>00436                                            <span class="keyword">const</span> sx_port_log_id_t    log_port,
+<a name="l00437"></a>00437                                            sx_port_fec_capability_t *fec_capability_list_p,
+<a name="l00438"></a>00438                                            uint32_t                 *fec_cnt_p);
 <a name="l00439"></a>00439 
-<a name="l00454"></a>00454 sx_status_t <a class="code" href="sx__api__port_8h.html#af760dc1277fa07b46d3daa8ac75b5cd7">sx_api_port_phys_addr_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00455"></a>00455                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00456"></a>00456                                       sx_mac_addr_t         *port_mac_addr_p);
-<a name="l00457"></a>00457 
-<a name="l00472"></a>00472 sx_status_t <a class="code" href="sx__api__port_8h.html#ae61ba2b35c7d6d649fdf09ca10e4a613">sx_api_port_phys_addr_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00473"></a>00473                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00474"></a>00474                                       <span class="keyword">const</span> sx_mac_addr_t   *port_mac_addr_p);
-<a name="l00475"></a>00475 
-<a name="l00491"></a>00491 sx_status_t <a class="code" href="sx__api__port_8h.html#a9c41fd0d58d3a1a376b19ea50e21a87d">sx_api_port_phys_loopback_set</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
-<a name="l00492"></a>00492                                           <span class="keyword">const</span> sx_port_log_id_t        log_port,
-<a name="l00493"></a>00493                                           <span class="keyword">const</span> sx_port_phys_loopback_t phys_loopback);
-<a name="l00494"></a>00494 
-<a name="l00510"></a>00510 sx_status_t <a class="code" href="sx__api__port_8h.html#acfda04376fd15f844335a23d60e84cba">sx_api_port_phys_loopback_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00511"></a>00511                                           <span class="keyword">const</span> sx_port_log_id_t   log_port,
-<a name="l00512"></a>00512                                           sx_port_phys_loopback_t *phys_loopback_p);
-<a name="l00513"></a>00513 
+<a name="l00440"></a>00440 
+<a name="l00455"></a>00455 sx_status_t <a class="code" href="sx__api__port_8h.html#af760dc1277fa07b46d3daa8ac75b5cd7">sx_api_port_phys_addr_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00456"></a>00456                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00457"></a>00457                                       sx_mac_addr_t         *port_mac_addr_p);
+<a name="l00458"></a>00458 
+<a name="l00473"></a>00473 sx_status_t <a class="code" href="sx__api__port_8h.html#ae61ba2b35c7d6d649fdf09ca10e4a613">sx_api_port_phys_addr_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00474"></a>00474                                       <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00475"></a>00475                                       <span class="keyword">const</span> sx_mac_addr_t   *port_mac_addr_p);
+<a name="l00476"></a>00476 
+<a name="l00492"></a>00492 sx_status_t <a class="code" href="sx__api__port_8h.html#a9c41fd0d58d3a1a376b19ea50e21a87d">sx_api_port_phys_loopback_set</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
+<a name="l00493"></a>00493                                           <span class="keyword">const</span> sx_port_log_id_t        log_port,
+<a name="l00494"></a>00494                                           <span class="keyword">const</span> sx_port_phys_loopback_t phys_loopback);
+<a name="l00495"></a>00495 
+<a name="l00511"></a>00511 sx_status_t <a class="code" href="sx__api__port_8h.html#acfda04376fd15f844335a23d60e84cba">sx_api_port_phys_loopback_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00512"></a>00512                                           <span class="keyword">const</span> sx_port_log_id_t   log_port,
+<a name="l00513"></a>00513                                           sx_port_phys_loopback_t *phys_loopback_p);
 <a name="l00514"></a>00514 
-<a name="l00529"></a>00529 sx_status_t <a class="code" href="sx__api__port_8h.html#a086e428d40ce1a614e1684f7c1155875">sx_api_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l00530"></a>00530                                   <span class="keyword">const</span> sx_port_log_id_t      log_port,
-<a name="l00531"></a>00531                                   <span class="keyword">const</span> sx_port_admin_state_t admin_state);
-<a name="l00532"></a>00532 
-<a name="l00550"></a>00550 sx_status_t <a class="code" href="sx__api__port_8h.html#a538e5c6c74a875f9f6a29af53b40f6e7">sx_api_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00551"></a>00551                                   <span class="keyword">const</span> sx_port_log_id_t  log_port,
-<a name="l00552"></a>00552                                   sx_port_oper_state_t   *oper_state_p,
-<a name="l00553"></a>00553                                   sx_port_admin_state_t  *admin_state_p,
-<a name="l00554"></a>00554                                   sx_port_module_state_t *module_state_p);
-<a name="l00555"></a>00555 
-<a name="l00576"></a>00576 sx_status_t <a class="code" href="sx__api__port_8h.html#a242ad744d414037daa392640ac9ad43f">sx_api_port_global_fc_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00577"></a>00577                                              <span class="keyword">const</span> sx_port_log_id_t         log_port,
-<a name="l00578"></a>00578                                              <span class="keyword">const</span> sx_port_flow_ctrl_mode_t fc_mode);
-<a name="l00579"></a>00579 
-<a name="l00596"></a>00596 sx_status_t <a class="code" href="sx__api__port_8h.html#a98768602683d64f5763f8db6964d6612">sx_api_port_global_fc_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00597"></a>00597                                              <span class="keyword">const</span> sx_port_log_id_t    log_port,
-<a name="l00598"></a>00598                                              sx_port_flow_ctrl_mode_t *fc_mode_p);
-<a name="l00599"></a>00599 
-<a name="l00621"></a>00621 sx_status_t <a class="code" href="sx__api__port_8h.html#ace8cc503f4eb1d6aa23489ccdcd5fd1e">sx_api_port_pfc_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00622"></a>00622                                        <span class="keyword">const</span> sx_port_log_id_t         log_port,
-<a name="l00623"></a>00623                                        <span class="keyword">const</span> sx_port_flow_ctrl_prio_t pfc_prio,
-<a name="l00624"></a>00624                                        <span class="keyword">const</span> sx_port_flow_ctrl_mode_t fc_mode);
-<a name="l00625"></a>00625 
-<a name="l00643"></a>00643 sx_status_t <a class="code" href="sx__api__port_8h.html#a3a59090e625968bd111b29356454a66f">sx_api_port_pfc_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00644"></a>00644                                        <span class="keyword">const</span> sx_port_log_id_t         log_port,
-<a name="l00645"></a>00645                                        <span class="keyword">const</span> sx_port_flow_ctrl_prio_t pfc_prio,
-<a name="l00646"></a>00646                                        sx_port_flow_ctrl_mode_t      *fc_mode_p);
-<a name="l00647"></a>00647 
-<a name="l00663"></a>00663 sx_status_t <a class="code" href="sx__api__port_8h.html#ab1da148241d2e8b5a7c3061995926d5d">sx_api_port_counter_ieee_802_dot_3_get</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
-<a name="l00664"></a>00664                                                    <span class="keyword">const</span> sx_access_cmd_t          cmd,
-<a name="l00665"></a>00665                                                    <span class="keyword">const</span> sx_port_log_id_t         log_port,
-<a name="l00666"></a>00666                                                    sx_port_cntr_ieee_802_dot_3_t *cntr_ieee_802_dot_3_p);
-<a name="l00667"></a>00667 
-<a name="l00684"></a>00684 sx_status_t <a class="code" href="sx__api__port_8h.html#a3164c4dd6434ee771f6b2e38020bf82c">sx_api_port_counter_rfc_2863_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00685"></a>00685                                              <span class="keyword">const</span> sx_access_cmd_t    cmd,
-<a name="l00686"></a>00686                                              <span class="keyword">const</span> sx_port_log_id_t   log_port,
-<a name="l00687"></a>00687                                              sx_port_cntr_rfc_2863_t *cntr_rfc_2863_p);
-<a name="l00688"></a>00688 
-<a name="l00705"></a>00705 sx_status_t <a class="code" href="sx__api__port_8h.html#ac4d9e0a2e66d1fde42fce0c0ce24e3bb">sx_api_port_counter_rfc_2819_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00706"></a>00706                                              <span class="keyword">const</span> sx_access_cmd_t    cmd,
-<a name="l00707"></a>00707                                              <span class="keyword">const</span> sx_port_log_id_t   log_port,
-<a name="l00708"></a>00708                                              sx_port_cntr_rfc_2819_t *cntr_rfc_2819_p);
-<a name="l00709"></a>00709 
-<a name="l00726"></a>00726 sx_status_t <a class="code" href="sx__api__port_8h.html#af164c75be838e07f152274206ce2b346">sx_api_port_counter_rfc_3635_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00727"></a>00727                                              <span class="keyword">const</span> sx_access_cmd_t    cmd,
-<a name="l00728"></a>00728                                              <span class="keyword">const</span> sx_port_log_id_t   log_port,
-<a name="l00729"></a>00729                                              sx_port_cntr_rfc_3635_t *cntr_rfc_3635_p);
-<a name="l00730"></a>00730 
-<a name="l00747"></a>00747 sx_status_t <a class="code" href="sx__api__port_8h.html#a20cb565fd4a0ebd4916f36ecf7125dec">sx_api_port_counter_cli_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00748"></a>00748                                         <span class="keyword">const</span> sx_access_cmd_t  cmd,
-<a name="l00749"></a>00749                                         <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l00750"></a>00750                                         sx_port_cntr_cli_t    *cntr_cli_p);
-<a name="l00751"></a>00751 
-<a name="l00769"></a>00769 sx_status_t <a class="code" href="sx__api__port_8h.html#a508d4c802af65d7ca579e82f74a97cf2">sx_api_port_counter_prio_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00770"></a>00770                                          <span class="keyword">const</span> sx_access_cmd_t    cmd,
-<a name="l00771"></a>00771                                          <span class="keyword">const</span> sx_port_log_id_t   log_port,
-<a name="l00772"></a>00772                                          <span class="keyword">const</span> sx_cos_ieee_prio_t prio_id,
-<a name="l00773"></a>00773                                          sx_port_cntr_prio_t     *cntr_prio_p);
-<a name="l00774"></a>00774 
-<a name="l00795"></a>00795 sx_status_t <a class="code" href="sx__api__port_8h.html#a48f6e4fc57d5892dba61185154c66446">sx_api_port_counter_tc_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00796"></a>00796                                        <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l00797"></a>00797                                        <span class="keyword">const</span> sx_port_log_id_t  log_port,
-<a name="l00798"></a>00798                                        <span class="keyword">const</span> sx_port_tc_id_t   tc_id,
-<a name="l00799"></a>00799                                        sx_port_traffic_cntr_t *cntr_tc_p);
-<a name="l00800"></a>00800 
-<a name="l00823"></a>00823 sx_status_t <a class="code" href="sx__api__port_8h.html#aa0e6a9a3d90145c303b61bca3541c0c1">sx_api_port_counter_buff_get</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
-<a name="l00824"></a>00824                                          <span class="keyword">const</span> sx_access_cmd_t         cmd,
-<a name="l00825"></a>00825                                          <span class="keyword">const</span> sx_port_log_id_t        log_port,
-<a name="l00826"></a>00826                                          <span class="keyword">const</span> sx_cos_priority_group_t buff_id,
-<a name="l00827"></a>00827                                          sx_port_cntr_buff_t          *cntr_buff_p);
-<a name="l00828"></a>00828 
-<a name="l00849"></a>00849 sx_status_t <a class="code" href="sx__api__port_8h.html#aa5328e02b80e20924b025b3142ca546e">sx_api_port_counter_perf_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00850"></a>00850                                          <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l00851"></a>00851                                          <span class="keyword">const</span> sx_port_log_id_t  log_port,
-<a name="l00852"></a>00852                                          <span class="keyword">const</span> sx_port_prio_id_t prio_id,
-<a name="l00853"></a>00853                                          sx_port_cntr_perf_t    *cntr_perf_p);
-<a name="l00854"></a>00854 
-<a name="l00876"></a>00876 sx_status_t <a class="code" href="sx__api__port_8h.html#a5ea8fac313cd4a57dae8547c4fe676d7">sx_api_port_counter_discard_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l00877"></a>00877                                             <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l00878"></a>00878                                             <span class="keyword">const</span> sx_port_log_id_t  log_port,
-<a name="l00879"></a>00879                                             sx_port_cntr_discard_t *cntr_discard_p);
-<a name="l00880"></a>00880 
-<a name="l00906"></a>00906 sx_status_t <a class="code" href="sx__api__port_8h.html#a4b793ce2927cd10dee9fd39d0acf1e71">sx_api_port_counter_clear_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
-<a name="l00907"></a>00907                                           <span class="keyword">const</span> sx_port_log_id_t   log_port,
-<a name="l00908"></a>00908                                           <span class="keyword">const</span> boolean_t          all_ports,
-<a name="l00909"></a>00909                                           <span class="keyword">const</span> sx_port_cntr_grp_t cntr_grp);
-<a name="l00910"></a>00910 
-<a name="l00927"></a>00927 sx_status_t <a class="code" href="sx__api__port_8h.html#a64f3ed15b0f87c0f5791f4b777aa61e8">sx_api_port_counter_phy_layer_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l00928"></a>00928                                               <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l00929"></a>00929                                               <span class="keyword">const</span> sx_port_log_id_t    log_port,
-<a name="l00930"></a>00930                                               sx_port_cntr_phy_layer_t *cntr_phy_layer_p);
-<a name="l00931"></a>00931 
-<a name="l00945"></a>00945 sx_status_t <a class="code" href="sx__api__port_8h.html#a239e0e4d8fcc7da1525bd29dfc7dda48">sx_api_port_init_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00946"></a>00946                                  <span class="keyword">const</span> sx_port_log_id_t log_port);
-<a name="l00947"></a>00947 
-<a name="l00961"></a>00961 sx_status_t <a class="code" href="sx__api__port_8h.html#af4dbc06a2e2f50266cf07b01dae622a8">sx_api_port_deinit_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l00962"></a>00962                                    <span class="keyword">const</span> sx_port_log_id_t log_port);
-<a name="l00963"></a>00963 
-<a name="l00980"></a>00980 sx_status_t <a class="code" href="sx__api__port_8h.html#a78b976296aff6d5caec1ca9ec085d632">sx_api_port_storm_control_set</a>(<span class="keyword">const</span> sx_api_handle_t                 handle,
-<a name="l00981"></a>00981                                           <span class="keyword">const</span> sx_access_cmd_t                 cmd,
-<a name="l00982"></a>00982                                           <span class="keyword">const</span> sx_port_log_id_t                log_port,
-<a name="l00983"></a>00983                                           <span class="keyword">const</span> sx_port_storm_control_id_t      storm_control_id,
-<a name="l00984"></a>00984                                           <span class="keyword">const</span> sx_port_storm_control_params_t *storm_control_params_p);
-<a name="l00985"></a>00985 
-<a name="l01000"></a>01000 sx_status_t <a class="code" href="sx__api__port_8h.html#af0fd4ac374492bba4dce7fd46ae1d5fd">sx_api_port_storm_control_get</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
-<a name="l01001"></a>01001                                           <span class="keyword">const</span> sx_port_log_id_t           log_port,
-<a name="l01002"></a>01002                                           <span class="keyword">const</span> sx_port_storm_control_id_t storm_control_id,
-<a name="l01003"></a>01003                                           sx_port_storm_control_params_t  *storm_control_params_p);
-<a name="l01004"></a>01004 
-<a name="l01018"></a>01018 sx_status_t <a class="code" href="sx__api__port_8h.html#ab910ad0aeebae07d21c5e686febec8cb">sx_api_port_storm_control_counters_clear_set</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
-<a name="l01019"></a>01019                                                          <span class="keyword">const</span> sx_port_log_id_t             log_port,
-<a name="l01020"></a>01020                                                          <span class="keyword">const</span> sx_port_storm_control_id_t   storm_control_id,
-<a name="l01021"></a>01021                                                          <span class="keyword">const</span> sx_policer_counters_clear_t *clear_counters_p);
-<a name="l01022"></a>01022 
-<a name="l01037"></a>01037 sx_status_t <a class="code" href="sx__api__port_8h.html#a50faf7675404b7b50880be9e94b0c638">sx_api_port_storm_control_counters_get</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
-<a name="l01038"></a>01038                                                    <span class="keyword">const</span> sx_port_log_id_t           log_port,
-<a name="l01039"></a>01039                                                    <span class="keyword">const</span> sx_port_storm_control_id_t storm_control_id,
-<a name="l01040"></a>01040                                                    sx_policer_counters_t           *policer_counters_p);
-<a name="l01041"></a>01041 
-<a name="l01071"></a>01071 sx_status_t <a class="code" href="sx__api__port_8h.html#abfca95b7b61f32a766a334b72477890e">sx_api_port_sflow_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l01072"></a>01072                                   <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l01073"></a>01073                                   <span class="keyword">const</span> sx_port_log_id_t  log_port,
-<a name="l01074"></a>01074                                   sx_port_sflow_params_t *sflow_params_p);
-<a name="l01075"></a>01075 
-<a name="l01076"></a>01076 
-<a name="l01090"></a>01090 sx_status_t <a class="code" href="sx__api__port_8h.html#a00b0a4e788461ae6bb1f20487adeadb6">sx_api_port_sflow_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l01091"></a>01091                                   <span class="keyword">const</span> sx_port_log_id_t  log_port,
-<a name="l01092"></a>01092                                   sx_port_sflow_params_t *sflow_params_p);
-<a name="l01093"></a>01093 
-<a name="l01116"></a>01116 sx_status_t <a class="code" href="sx__api__port_8h.html#a258fa9e727c49b6bd37475942929ed0f">sx_api_port_sflow_statistics_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l01117"></a>01117                                              <span class="keyword">const</span> sx_access_cmd_t       cmd,
-<a name="l01118"></a>01118                                              <span class="keyword">const</span> sx_port_log_id_t      log_port,
-<a name="l01119"></a>01119                                              sx_port_sflow_statistics_t *sflow_stat_p);
-<a name="l01120"></a>01120 
-<a name="l01134"></a>01134 sx_status_t <a class="code" href="sx__api__port_8h.html#a47405313af00dc31c45b8bb570de9229">sx_api_port_loopback_filter_set</a>(<span class="keyword">const</span> sx_api_handle_t                handle,
-<a name="l01135"></a>01135                                             <span class="keyword">const</span> sx_port_log_id_t               log_port,
-<a name="l01136"></a>01136                                             <span class="keyword">const</span> sx_port_loopback_filter_mode_t lbf_mode);
-<a name="l01137"></a>01137 
-<a name="l01151"></a>01151 sx_status_t <a class="code" href="sx__api__port_8h.html#a156c5a50373b95c67fc62207cc368129">sx_api_port_loopback_filter_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l01152"></a>01152                                             <span class="keyword">const</span> sx_port_log_id_t          log_port,
-<a name="l01153"></a>01153                                             sx_port_loopback_filter_mode_t *lbf_mode_p);
-<a name="l01154"></a>01154 
-<a name="l01178"></a>01178 sx_status_t <a class="code" href="sx__api__port_8h.html#acab75e1ae238f36f3ac6c8c038c77c34">sx_api_port_isolate_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
-<a name="l01179"></a>01179                                     <span class="keyword">const</span> sx_access_cmd_t   cmd,
-<a name="l01180"></a>01180                                     <span class="keyword">const</span> sx_port_log_id_t  log_port,
-<a name="l01181"></a>01181                                     <span class="keyword">const</span> sx_port_log_id_t *log_port_list_p,
-<a name="l01182"></a>01182                                     <span class="keyword">const</span> uint32_t          log_port_cnt);
-<a name="l01183"></a>01183 
-<a name="l01203"></a>01203 sx_status_t <a class="code" href="sx__api__port_8h.html#a44340edabf4a592c7b20760837532f3d">sx_api_port_isolate_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01204"></a>01204                                     <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l01205"></a>01205                                     sx_port_log_id_t      *log_port_list_p,
-<a name="l01206"></a>01206                                     uint32_t              *log_port_cnt_p);
-<a name="l01207"></a>01207 
-<a name="l01220"></a>01220 sx_status_t <a class="code" href="sx__api__port_8h.html#ad40cb2f24f0db8d65dec6e1020c814e3">sx_api_port_swid_type_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01221"></a>01221                                       <span class="keyword">const</span> sx_swid_t       swid,
-<a name="l01222"></a>01222                                       sx_swid_type_t       *swid_type_p);
-<a name="l01223"></a>01223 
-<a name="l01242"></a>01242 sx_status_t <a class="code" href="sx__api__port_8h.html#a993301f3abf5d96ab7c5d638ea0a82fe">sx_api_port_vport_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01243"></a>01243                                   <span class="keyword">const</span> sx_access_cmd_t  cmd,
-<a name="l01244"></a>01244                                   <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l01245"></a>01245                                   <span class="keyword">const</span> sx_vlan_id_t     vlan_id,
-<a name="l01246"></a>01246                                   sx_port_log_id_t      *log_vport_p);
-<a name="l01247"></a>01247 
-<a name="l01264"></a>01264 sx_status_t <a class="code" href="sx__api__port_8h.html#abd0cfb324bd833a5e28129c67784da9e">sx_api_port_vport_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01265"></a>01265                                   <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l01266"></a>01266                                   sx_vlan_id_t          *vlan_id_list_p,
-<a name="l01267"></a>01267                                   uint32_t              *vport_vlan_cnt_p);
-<a name="l01268"></a>01268 
-<a name="l01283"></a>01283 sx_status_t <a class="code" href="sx__api__port_8h.html#afced2a9643b69573d9fd4420bad1d3ad">sx_api_port_vport_base_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01284"></a>01284                                        <span class="keyword">const</span> sx_port_log_id_t vport,
-<a name="l01285"></a>01285                                        sx_vlan_id_t          *vlan_id_p,
-<a name="l01286"></a>01286                                        sx_port_log_id_t      *log_port_p);
-<a name="l01287"></a>01287 
-<a name="l01303"></a>01303 sx_status_t <a class="code" href="sx__api__port_8h.html#ae4b08efe8e636733ebce2910ea3f14ef">sx_api_port_vport_counter_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l01304"></a>01304                                                <span class="keyword">const</span> sx_access_cmd_t      cmd,
-<a name="l01305"></a>01305                                                <span class="keyword">const</span> sx_port_log_id_t     virtual_port,
-<a name="l01306"></a>01306                                                <span class="keyword">const</span> sx_flow_counter_id_t flow_counter_id);
-<a name="l01307"></a>01307 
-<a name="l01320"></a>01320 sx_status_t <a class="code" href="sx__api__port_8h.html#a53a335bd4164f0d7b0ec3dd5ef0b4e86">sx_api_port_vport_counter_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01321"></a>01321                                                <span class="keyword">const</span> sx_port_log_id_t virtual_port,
-<a name="l01322"></a>01322                                                sx_flow_counter_id_t  *flow_counter_id_p);
-<a name="l01323"></a>01323 
-<a name="l01340"></a>01340 sx_status_t <a class="code" href="sx__api__port_8h.html#a6e385909330b1a91c195bdfcfccf2ce5">sx_api_port_vport_mirror_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l01341"></a>01341                                          <span class="keyword">const</span> sx_port_log_id_t      virtual_port,
-<a name="l01342"></a>01342                                          <span class="keyword">const</span> sx_mirror_direction_t mirror_direction,
-<a name="l01343"></a>01343                                          <span class="keyword">const</span> sx_mirror_mode_t      mirror_mode);
-<a name="l01344"></a>01344 
-<a name="l01345"></a>01345 
-<a name="l01361"></a>01361 sx_status_t <a class="code" href="sx__api__port_8h.html#afb429aafa04ed85e5067e1c260330cf8">sx_api_port_vport_mirror_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l01362"></a>01362                                          <span class="keyword">const</span> sx_port_log_id_t      virtual_port,
-<a name="l01363"></a>01363                                          <span class="keyword">const</span> sx_mirror_direction_t mirror_direction,
-<a name="l01364"></a>01364                                          sx_mirror_mode_t           *mirror_mode_p);
-<a name="l01365"></a>01365 
-<a name="l01382"></a>01382 sx_status_t <a class="code" href="sx__api__port_8h.html#ae7497db77430915b70638c5643044a66">sx_api_port_phy_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l01383"></a>01383                                      <span class="keyword">const</span> sx_port_log_id_t    log_port,
-<a name="l01384"></a>01384                                      <span class="keyword">const</span> sx_port_phy_speed_t speed,
-<a name="l01385"></a>01385                                      <span class="keyword">const</span> sx_port_phy_mode_t  admin_mode);
-<a name="l01386"></a>01386 
-<a name="l01403"></a>01403 sx_status_t <a class="code" href="sx__api__port_8h.html#af025d901dace3b52c1c96874cdb54250">sx_api_port_phy_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01404"></a>01404                                      <span class="keyword">const</span> sx_port_log_id_t log_port, <span class="keyword">const</span> sx_port_phy_speed_t speed,
-<a name="l01405"></a>01405                                      sx_port_phy_mode_t* admin_mode_p, sx_port_phy_mode_t* oper_mode_p);
-<a name="l01406"></a>01406 
-<a name="l01442"></a>01442 sx_status_t <a class="code" href="sx__api__port_8h.html#a8d7eba93b6d86d73d3f15c6a070d9ee6">sx_api_port_discard_reason_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
-<a name="l01443"></a>01443                                            <span class="keyword">const</span> sx_access_cmd_t     cmd,
-<a name="l01444"></a>01444                                            sx_port_discard_reason_t *discard_reason_list_p,
-<a name="l01445"></a>01445                                            <span class="keyword">const</span> uint32_t            list_count);
-<a name="l01446"></a>01446 
-<a name="l01461"></a>01461 sx_status_t <a class="code" href="sx__api__port_8h.html#afd76c376d228a7132221481c9ac2c52d">sx_api_port_forwarding_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
-<a name="l01462"></a>01462                                             <span class="keyword">const</span> sx_port_log_id_t          log_port,
-<a name="l01463"></a>01463                                             <span class="keyword">const</span> sx_port_forwarding_mode_t admin_fwd_mode);
-<a name="l01464"></a>01464 
-<a name="l01478"></a>01478 sx_status_t <a class="code" href="sx__api__port_8h.html#a6faebd4529a3119a93941b51ff63213c">sx_api_port_forwarding_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
-<a name="l01479"></a>01479                                             <span class="keyword">const</span> sx_port_log_id_t     log_port,
-<a name="l01480"></a>01480                                             sx_port_forwarding_mode_t *admin_fwd_mode_p);
-<a name="l01481"></a>01481 
-<a name="l01493"></a>01493 sx_status_t <a class="code" href="sx__api__port_8h.html#a994472bd0de2e3bbd71a4090a7fb853a">sx_api_port_parsing_depth_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01494"></a>01494                                           <span class="keyword">const</span> uint16_t        parsing_depth);
-<a name="l01495"></a>01495 
-<a name="l01508"></a>01508 sx_status_t <a class="code" href="sx__api__port_8h.html#a7787e441d72b3923373592cedfa66b8f">sx_api_port_parsing_depth_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01509"></a>01509                                           uint16_t             *parsing_depth_p);
-<a name="l01510"></a>01510 
-<a name="l01511"></a>01511 
-<a name="l01530"></a>01530 sx_status_t <a class="code" href="sx__api__port_8h.html#ad81cab6adb1ff0e9e00da8b71a9c0dc7">sx_api_port_vlan_ethertype_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01531"></a>01531                                            <span class="keyword">const</span> sx_access_cmd_t cmd,
-<a name="l01532"></a>01532                                            sx_vlan_ethertype_t  *ether_types_list_p,
-<a name="l01533"></a>01533                                            uint32_t              ether_type_count);
-<a name="l01534"></a>01534 
-<a name="l01550"></a>01550 sx_status_t <a class="code" href="sx__api__port_8h.html#a9e2c1c1165721f2dd979baaad7aa06c8">sx_api_port_vlan_ethertype_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01551"></a>01551                                            sx_vlan_ethertype_t  *ether_types_list_p,
-<a name="l01552"></a>01552                                            uint32_t             *ether_type_count_p);
-<a name="l01553"></a>01553 
-<a name="l01581"></a>01581 sx_status_t <a class="code" href="sx__api__port_8h.html#a5cde445f80ba07b374ec43d429258213">sx_api_port_ber_threshold_set</a>(<span class="keyword">const</span> sx_api_handle_t                          handle,
-<a name="l01582"></a>01582                                           <span class="keyword">const</span> sx_port_log_id_t                         log_port,
-<a name="l01583"></a>01583                                           <span class="keyword">const</span> sx_port_ber_fec_profile_e                fec_profile,
-<a name="l01584"></a>01584                                           <span class="keyword">const</span> sx_port_ber_fec_profile_threshold_data_t threshold_data);
-<a name="l01585"></a>01585 
-<a name="l01600"></a>01600 sx_status_t <a class="code" href="sx__api__port_8h.html#a8f667dd7b660b94b62792c1ae69e5fce">sx_api_port_ber_threshold_get</a>(<span class="keyword">const</span> sx_api_handle_t                     handle,
-<a name="l01601"></a>01601                                           <span class="keyword">const</span> sx_port_log_id_t                    log_port,
-<a name="l01602"></a>01602                                           <span class="keyword">const</span> sx_port_ber_fec_profile_e           fec_profile,
-<a name="l01603"></a>01603                                           sx_port_ber_fec_profile_threshold_data_t *threshold_data_p);
-<a name="l01604"></a>01604 
-<a name="l01624"></a>01624 sx_status_t <a class="code" href="sx__api__port_8h.html#a1b8fe894b0b098f71d6dc7377857f704">sx_api_port_ber_monitor_set</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
-<a name="l01625"></a>01625                                         <span class="keyword">const</span> sx_port_log_id_t           log_port,
-<a name="l01626"></a>01626                                         <span class="keyword">const</span> sx_port_ber_monitor_data_t monitor_data);
-<a name="l01627"></a>01627 
-<a name="l01641"></a>01641 sx_status_t <a class="code" href="sx__api__port_8h.html#a24be4d40087906caa89dd9da0c42bec1">sx_api_port_ber_monitor_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l01642"></a>01642                                         <span class="keyword">const</span> sx_port_log_id_t      log_port,
-<a name="l01643"></a>01643                                         sx_port_ber_monitor_data_t *monitor_data_p);
-<a name="l01644"></a>01644 
-<a name="l01659"></a>01659 sx_status_t <a class="code" href="sx__api__port_8h.html#a90aed399a13799019672e507f020e62e">sx_api_port_ber_monitor_operational_get</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
-<a name="l01660"></a>01660                                                     <span class="keyword">const</span> sx_port_log_id_t           log_port,
-<a name="l01661"></a>01661                                                     sx_port_ber_monitor_oper_data_t *monitor_oper_data_p);
-<a name="l01662"></a>01662 
-<a name="l01682"></a>01682 sx_status_t <a class="code" href="sx__api__port_8h.html#a4862f48efbaf9707fe354b1f5b42f2f8">sx_api_port_sll_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01683"></a>01683                                 <span class="keyword">const</span> uint64_t        sll_max_time);
-<a name="l01684"></a>01684 
-<a name="l01700"></a>01700 sx_status_t <a class="code" href="sx__api__port_8h.html#a47cddb263aaa3520ba641e528f138acc">sx_api_port_sll_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
-<a name="l01701"></a>01701                                 uint64_t             *sll_max_time_p);
-<a name="l01727"></a>01727 sx_status_t <a class="code" href="sx__api__port_8h.html#afd7e583a74d6398fbb03edf451688d1c">sx_api_port_hll_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01728"></a>01728                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l01729"></a>01729                                 <span class="keyword">const</span> uint32_t         hll_max_time,
-<a name="l01730"></a>01730                                 <span class="keyword">const</span> uint32_t         hll_stall_cnt);
-<a name="l01731"></a>01731 
-<a name="l01753"></a>01753 sx_status_t <a class="code" href="sx__api__port_8h.html#acb57f0fe402abeb9d42d47ac6a575762">sx_api_port_hll_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01754"></a>01754                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l01755"></a>01755                                 uint32_t              *hll_max_time_p,
-<a name="l01756"></a>01756                                 uint32_t              *hll_stall_cnt_p);
-<a name="l01757"></a>01757 
-<a name="l01771"></a>01771 sx_status_t <a class="code" href="sx__api__port_8h.html#ac3aec8abde92ea8e8d6fa29b3a598b93">sx_api_port_crc_params_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l01772"></a>01772                                        <span class="keyword">const</span> sx_port_log_id_t      log_port,
-<a name="l01773"></a>01773                                        <span class="keyword">const</span> sx_port_crc_params_t *crc_params_p);
-<a name="l01774"></a>01774 
-<a name="l01788"></a>01788 sx_status_t <a class="code" href="sx__api__port_8h.html#a334fed1bc4eeccb5066c6c68fa56016f">sx_api_port_crc_params_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01789"></a>01789                                        <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l01790"></a>01790                                        sx_port_crc_params_t  *crc_params_p);
-<a name="l01791"></a>01791 
-<a name="l01805"></a>01805 sx_status_t <a class="code" href="sx__api__port_8h.html#a52a7bc5480bebf78a68b16cfa7338f9d">sx_api_port_ptp_params_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
-<a name="l01806"></a>01806                                        <span class="keyword">const</span> sx_access_cmd_t       cmd,
-<a name="l01807"></a>01807                                        <span class="keyword">const</span> sx_port_log_id_t      log_port,
-<a name="l01808"></a>01808                                        <span class="keyword">const</span> sx_port_ptp_params_t *port_ptp_params);
-<a name="l01809"></a>01809 
-<a name="l01823"></a>01823 sx_status_t <a class="code" href="sx__api__port_8h.html#aeeaf90f48d243537a9ace172db9c818f">sx_api_port_ptp_params_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
-<a name="l01824"></a>01824                                        <span class="keyword">const</span> sx_access_cmd_t  cmd,
-<a name="l01825"></a>01825                                        <span class="keyword">const</span> sx_port_log_id_t log_port,
-<a name="l01826"></a>01826                                        sx_port_ptp_params_t  *port_ptp_params_p);
-<a name="l01827"></a>01827 
-<a name="l01828"></a>01828 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_PORT_H__ */</span>
+<a name="l00515"></a>00515 
+<a name="l00530"></a>00530 sx_status_t <a class="code" href="sx__api__port_8h.html#a086e428d40ce1a614e1684f7c1155875">sx_api_port_state_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l00531"></a>00531                                   <span class="keyword">const</span> sx_port_log_id_t      log_port,
+<a name="l00532"></a>00532                                   <span class="keyword">const</span> sx_port_admin_state_t admin_state);
+<a name="l00533"></a>00533 
+<a name="l00551"></a>00551 sx_status_t <a class="code" href="sx__api__port_8h.html#a538e5c6c74a875f9f6a29af53b40f6e7">sx_api_port_state_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00552"></a>00552                                   <span class="keyword">const</span> sx_port_log_id_t  log_port,
+<a name="l00553"></a>00553                                   sx_port_oper_state_t   *oper_state_p,
+<a name="l00554"></a>00554                                   sx_port_admin_state_t  *admin_state_p,
+<a name="l00555"></a>00555                                   sx_port_module_state_t *module_state_p);
+<a name="l00556"></a>00556 
+<a name="l00577"></a>00577 sx_status_t <a class="code" href="sx__api__port_8h.html#a242ad744d414037daa392640ac9ad43f">sx_api_port_global_fc_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00578"></a>00578                                              <span class="keyword">const</span> sx_port_log_id_t         log_port,
+<a name="l00579"></a>00579                                              <span class="keyword">const</span> sx_port_flow_ctrl_mode_t fc_mode);
+<a name="l00580"></a>00580 
+<a name="l00597"></a>00597 sx_status_t <a class="code" href="sx__api__port_8h.html#a98768602683d64f5763f8db6964d6612">sx_api_port_global_fc_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00598"></a>00598                                              <span class="keyword">const</span> sx_port_log_id_t    log_port,
+<a name="l00599"></a>00599                                              sx_port_flow_ctrl_mode_t *fc_mode_p);
+<a name="l00600"></a>00600 
+<a name="l00622"></a>00622 sx_status_t <a class="code" href="sx__api__port_8h.html#ace8cc503f4eb1d6aa23489ccdcd5fd1e">sx_api_port_pfc_enable_set</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00623"></a>00623                                        <span class="keyword">const</span> sx_port_log_id_t         log_port,
+<a name="l00624"></a>00624                                        <span class="keyword">const</span> sx_port_flow_ctrl_prio_t pfc_prio,
+<a name="l00625"></a>00625                                        <span class="keyword">const</span> sx_port_flow_ctrl_mode_t fc_mode);
+<a name="l00626"></a>00626 
+<a name="l00644"></a>00644 sx_status_t <a class="code" href="sx__api__port_8h.html#a3a59090e625968bd111b29356454a66f">sx_api_port_pfc_enable_get</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00645"></a>00645                                        <span class="keyword">const</span> sx_port_log_id_t         log_port,
+<a name="l00646"></a>00646                                        <span class="keyword">const</span> sx_port_flow_ctrl_prio_t pfc_prio,
+<a name="l00647"></a>00647                                        sx_port_flow_ctrl_mode_t      *fc_mode_p);
+<a name="l00648"></a>00648 
+<a name="l00664"></a>00664 sx_status_t <a class="code" href="sx__api__port_8h.html#ab1da148241d2e8b5a7c3061995926d5d">sx_api_port_counter_ieee_802_dot_3_get</a>(<span class="keyword">const</span> sx_api_handle_t          handle,
+<a name="l00665"></a>00665                                                    <span class="keyword">const</span> sx_access_cmd_t          cmd,
+<a name="l00666"></a>00666                                                    <span class="keyword">const</span> sx_port_log_id_t         log_port,
+<a name="l00667"></a>00667                                                    sx_port_cntr_ieee_802_dot_3_t *cntr_ieee_802_dot_3_p);
+<a name="l00668"></a>00668 
+<a name="l00685"></a>00685 sx_status_t <a class="code" href="sx__api__port_8h.html#a3164c4dd6434ee771f6b2e38020bf82c">sx_api_port_counter_rfc_2863_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00686"></a>00686                                              <span class="keyword">const</span> sx_access_cmd_t    cmd,
+<a name="l00687"></a>00687                                              <span class="keyword">const</span> sx_port_log_id_t   log_port,
+<a name="l00688"></a>00688                                              sx_port_cntr_rfc_2863_t *cntr_rfc_2863_p);
+<a name="l00689"></a>00689 
+<a name="l00706"></a>00706 sx_status_t <a class="code" href="sx__api__port_8h.html#ac4d9e0a2e66d1fde42fce0c0ce24e3bb">sx_api_port_counter_rfc_2819_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00707"></a>00707                                              <span class="keyword">const</span> sx_access_cmd_t    cmd,
+<a name="l00708"></a>00708                                              <span class="keyword">const</span> sx_port_log_id_t   log_port,
+<a name="l00709"></a>00709                                              sx_port_cntr_rfc_2819_t *cntr_rfc_2819_p);
+<a name="l00710"></a>00710 
+<a name="l00727"></a>00727 sx_status_t <a class="code" href="sx__api__port_8h.html#af164c75be838e07f152274206ce2b346">sx_api_port_counter_rfc_3635_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00728"></a>00728                                              <span class="keyword">const</span> sx_access_cmd_t    cmd,
+<a name="l00729"></a>00729                                              <span class="keyword">const</span> sx_port_log_id_t   log_port,
+<a name="l00730"></a>00730                                              sx_port_cntr_rfc_3635_t *cntr_rfc_3635_p);
+<a name="l00731"></a>00731 
+<a name="l00748"></a>00748 sx_status_t <a class="code" href="sx__api__port_8h.html#a20cb565fd4a0ebd4916f36ecf7125dec">sx_api_port_counter_cli_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00749"></a>00749                                         <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l00750"></a>00750                                         <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l00751"></a>00751                                         sx_port_cntr_cli_t    *cntr_cli_p);
+<a name="l00752"></a>00752 
+<a name="l00770"></a>00770 sx_status_t <a class="code" href="sx__api__port_8h.html#a508d4c802af65d7ca579e82f74a97cf2">sx_api_port_counter_prio_get</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00771"></a>00771                                          <span class="keyword">const</span> sx_access_cmd_t    cmd,
+<a name="l00772"></a>00772                                          <span class="keyword">const</span> sx_port_log_id_t   log_port,
+<a name="l00773"></a>00773                                          <span class="keyword">const</span> sx_cos_ieee_prio_t prio_id,
+<a name="l00774"></a>00774                                          sx_port_cntr_prio_t     *cntr_prio_p);
+<a name="l00775"></a>00775 
+<a name="l00798"></a>00798 sx_status_t <a class="code" href="sx__api__port_8h.html#a48f6e4fc57d5892dba61185154c66446">sx_api_port_counter_tc_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00799"></a>00799                                        <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l00800"></a>00800                                        <span class="keyword">const</span> sx_port_log_id_t  log_port,
+<a name="l00801"></a>00801                                        <span class="keyword">const</span> sx_port_tc_id_t   tc_id,
+<a name="l00802"></a>00802                                        sx_port_traffic_cntr_t *cntr_tc_p);
+<a name="l00803"></a>00803 
+<a name="l00826"></a>00826 sx_status_t <a class="code" href="sx__api__port_8h.html#aa0e6a9a3d90145c303b61bca3541c0c1">sx_api_port_counter_buff_get</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
+<a name="l00827"></a>00827                                          <span class="keyword">const</span> sx_access_cmd_t         cmd,
+<a name="l00828"></a>00828                                          <span class="keyword">const</span> sx_port_log_id_t        log_port,
+<a name="l00829"></a>00829                                          <span class="keyword">const</span> sx_cos_priority_group_t buff_id,
+<a name="l00830"></a>00830                                          sx_port_cntr_buff_t          *cntr_buff_p);
+<a name="l00831"></a>00831 
+<a name="l00852"></a>00852 sx_status_t <a class="code" href="sx__api__port_8h.html#aa5328e02b80e20924b025b3142ca546e">sx_api_port_counter_perf_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00853"></a>00853                                          <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l00854"></a>00854                                          <span class="keyword">const</span> sx_port_log_id_t  log_port,
+<a name="l00855"></a>00855                                          <span class="keyword">const</span> sx_port_prio_id_t prio_id,
+<a name="l00856"></a>00856                                          sx_port_cntr_perf_t    *cntr_perf_p);
+<a name="l00857"></a>00857 
+<a name="l00879"></a>00879 sx_status_t <a class="code" href="sx__api__port_8h.html#a5ea8fac313cd4a57dae8547c4fe676d7">sx_api_port_counter_discard_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l00880"></a>00880                                             <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l00881"></a>00881                                             <span class="keyword">const</span> sx_port_log_id_t  log_port,
+<a name="l00882"></a>00882                                             sx_port_cntr_discard_t *cntr_discard_p);
+<a name="l00883"></a>00883 
+<a name="l00909"></a>00909 sx_status_t <a class="code" href="sx__api__port_8h.html#a4b793ce2927cd10dee9fd39d0acf1e71">sx_api_port_counter_clear_set</a>(<span class="keyword">const</span> sx_api_handle_t    handle,
+<a name="l00910"></a>00910                                           <span class="keyword">const</span> sx_port_log_id_t   log_port,
+<a name="l00911"></a>00911                                           <span class="keyword">const</span> boolean_t          all_ports,
+<a name="l00912"></a>00912                                           <span class="keyword">const</span> sx_port_cntr_grp_t cntr_grp);
+<a name="l00913"></a>00913 
+<a name="l00930"></a>00930 sx_status_t <a class="code" href="sx__api__port_8h.html#a64f3ed15b0f87c0f5791f4b777aa61e8">sx_api_port_counter_phy_layer_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l00931"></a>00931                                               <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l00932"></a>00932                                               <span class="keyword">const</span> sx_port_log_id_t    log_port,
+<a name="l00933"></a>00933                                               sx_port_cntr_phy_layer_t *cntr_phy_layer_p);
+<a name="l00934"></a>00934 
+<a name="l00948"></a>00948 sx_status_t <a class="code" href="sx__api__port_8h.html#a239e0e4d8fcc7da1525bd29dfc7dda48">sx_api_port_init_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00949"></a>00949                                  <span class="keyword">const</span> sx_port_log_id_t log_port);
+<a name="l00950"></a>00950 
+<a name="l00964"></a>00964 sx_status_t <a class="code" href="sx__api__port_8h.html#af4dbc06a2e2f50266cf07b01dae622a8">sx_api_port_deinit_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l00965"></a>00965                                    <span class="keyword">const</span> sx_port_log_id_t log_port);
+<a name="l00966"></a>00966 
+<a name="l00983"></a>00983 sx_status_t <a class="code" href="sx__api__port_8h.html#a78b976296aff6d5caec1ca9ec085d632">sx_api_port_storm_control_set</a>(<span class="keyword">const</span> sx_api_handle_t                 handle,
+<a name="l00984"></a>00984                                           <span class="keyword">const</span> sx_access_cmd_t                 cmd,
+<a name="l00985"></a>00985                                           <span class="keyword">const</span> sx_port_log_id_t                log_port,
+<a name="l00986"></a>00986                                           <span class="keyword">const</span> sx_port_storm_control_id_t      storm_control_id,
+<a name="l00987"></a>00987                                           <span class="keyword">const</span> sx_port_storm_control_params_t *storm_control_params_p);
+<a name="l00988"></a>00988 
+<a name="l01003"></a>01003 sx_status_t <a class="code" href="sx__api__port_8h.html#af0fd4ac374492bba4dce7fd46ae1d5fd">sx_api_port_storm_control_get</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
+<a name="l01004"></a>01004                                           <span class="keyword">const</span> sx_port_log_id_t           log_port,
+<a name="l01005"></a>01005                                           <span class="keyword">const</span> sx_port_storm_control_id_t storm_control_id,
+<a name="l01006"></a>01006                                           sx_port_storm_control_params_t  *storm_control_params_p);
+<a name="l01007"></a>01007 
+<a name="l01021"></a>01021 sx_status_t <a class="code" href="sx__api__port_8h.html#ab910ad0aeebae07d21c5e686febec8cb">sx_api_port_storm_control_counters_clear_set</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
+<a name="l01022"></a>01022                                                          <span class="keyword">const</span> sx_port_log_id_t             log_port,
+<a name="l01023"></a>01023                                                          <span class="keyword">const</span> sx_port_storm_control_id_t   storm_control_id,
+<a name="l01024"></a>01024                                                          <span class="keyword">const</span> sx_policer_counters_clear_t *clear_counters_p);
+<a name="l01025"></a>01025 
+<a name="l01040"></a>01040 sx_status_t <a class="code" href="sx__api__port_8h.html#a50faf7675404b7b50880be9e94b0c638">sx_api_port_storm_control_counters_get</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
+<a name="l01041"></a>01041                                                    <span class="keyword">const</span> sx_port_log_id_t           log_port,
+<a name="l01042"></a>01042                                                    <span class="keyword">const</span> sx_port_storm_control_id_t storm_control_id,
+<a name="l01043"></a>01043                                                    sx_policer_counters_t           *policer_counters_p);
+<a name="l01044"></a>01044 
+<a name="l01074"></a>01074 sx_status_t <a class="code" href="sx__api__port_8h.html#abfca95b7b61f32a766a334b72477890e">sx_api_port_sflow_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l01075"></a>01075                                   <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l01076"></a>01076                                   <span class="keyword">const</span> sx_port_log_id_t  log_port,
+<a name="l01077"></a>01077                                   sx_port_sflow_params_t *sflow_params_p);
+<a name="l01078"></a>01078 
+<a name="l01079"></a>01079 
+<a name="l01093"></a>01093 sx_status_t <a class="code" href="sx__api__port_8h.html#a00b0a4e788461ae6bb1f20487adeadb6">sx_api_port_sflow_get</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l01094"></a>01094                                   <span class="keyword">const</span> sx_port_log_id_t  log_port,
+<a name="l01095"></a>01095                                   sx_port_sflow_params_t *sflow_params_p);
+<a name="l01096"></a>01096 
+<a name="l01119"></a>01119 sx_status_t <a class="code" href="sx__api__port_8h.html#a258fa9e727c49b6bd37475942929ed0f">sx_api_port_sflow_statistics_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01120"></a>01120                                              <span class="keyword">const</span> sx_access_cmd_t       cmd,
+<a name="l01121"></a>01121                                              <span class="keyword">const</span> sx_port_log_id_t      log_port,
+<a name="l01122"></a>01122                                              sx_port_sflow_statistics_t *sflow_stat_p);
+<a name="l01123"></a>01123 
+<a name="l01137"></a>01137 sx_status_t <a class="code" href="sx__api__port_8h.html#a47405313af00dc31c45b8bb570de9229">sx_api_port_loopback_filter_set</a>(<span class="keyword">const</span> sx_api_handle_t                handle,
+<a name="l01138"></a>01138                                             <span class="keyword">const</span> sx_port_log_id_t               log_port,
+<a name="l01139"></a>01139                                             <span class="keyword">const</span> sx_port_loopback_filter_mode_t lbf_mode);
+<a name="l01140"></a>01140 
+<a name="l01154"></a>01154 sx_status_t <a class="code" href="sx__api__port_8h.html#a156c5a50373b95c67fc62207cc368129">sx_api_port_loopback_filter_get</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l01155"></a>01155                                             <span class="keyword">const</span> sx_port_log_id_t          log_port,
+<a name="l01156"></a>01156                                             sx_port_loopback_filter_mode_t *lbf_mode_p);
+<a name="l01157"></a>01157 
+<a name="l01181"></a>01181 sx_status_t <a class="code" href="sx__api__port_8h.html#acab75e1ae238f36f3ac6c8c038c77c34">sx_api_port_isolate_set</a>(<span class="keyword">const</span> sx_api_handle_t   handle,
+<a name="l01182"></a>01182                                     <span class="keyword">const</span> sx_access_cmd_t   cmd,
+<a name="l01183"></a>01183                                     <span class="keyword">const</span> sx_port_log_id_t  log_port,
+<a name="l01184"></a>01184                                     <span class="keyword">const</span> sx_port_log_id_t *log_port_list_p,
+<a name="l01185"></a>01185                                     <span class="keyword">const</span> uint32_t          log_port_cnt);
+<a name="l01186"></a>01186 
+<a name="l01206"></a>01206 sx_status_t <a class="code" href="sx__api__port_8h.html#a44340edabf4a592c7b20760837532f3d">sx_api_port_isolate_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01207"></a>01207                                     <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01208"></a>01208                                     sx_port_log_id_t      *log_port_list_p,
+<a name="l01209"></a>01209                                     uint32_t              *log_port_cnt_p);
+<a name="l01210"></a>01210 
+<a name="l01223"></a>01223 sx_status_t <a class="code" href="sx__api__port_8h.html#ad40cb2f24f0db8d65dec6e1020c814e3">sx_api_port_swid_type_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01224"></a>01224                                       <span class="keyword">const</span> sx_swid_t       swid,
+<a name="l01225"></a>01225                                       sx_swid_type_t       *swid_type_p);
+<a name="l01226"></a>01226 
+<a name="l01248"></a>01248 sx_status_t <a class="code" href="sx__api__port_8h.html#a993301f3abf5d96ab7c5d638ea0a82fe">sx_api_port_vport_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01249"></a>01249                                   <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l01250"></a>01250                                   <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01251"></a>01251                                   <span class="keyword">const</span> sx_vlan_id_t     vlan_id,
+<a name="l01252"></a>01252                                   sx_port_log_id_t      *log_vport_p);
+<a name="l01253"></a>01253 
+<a name="l01270"></a>01270 sx_status_t <a class="code" href="sx__api__port_8h.html#abd0cfb324bd833a5e28129c67784da9e">sx_api_port_vport_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01271"></a>01271                                   <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01272"></a>01272                                   sx_vlan_id_t          *vlan_id_list_p,
+<a name="l01273"></a>01273                                   uint32_t              *vport_vlan_cnt_p);
+<a name="l01274"></a>01274 
+<a name="l01289"></a>01289 sx_status_t <a class="code" href="sx__api__port_8h.html#afced2a9643b69573d9fd4420bad1d3ad">sx_api_port_vport_base_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01290"></a>01290                                        <span class="keyword">const</span> sx_port_log_id_t vport,
+<a name="l01291"></a>01291                                        sx_vlan_id_t          *vlan_id_p,
+<a name="l01292"></a>01292                                        sx_port_log_id_t      *log_port_p);
+<a name="l01293"></a>01293 
+<a name="l01309"></a>01309 sx_status_t <a class="code" href="sx__api__port_8h.html#ae4b08efe8e636733ebce2910ea3f14ef">sx_api_port_vport_counter_bind_set</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l01310"></a>01310                                                <span class="keyword">const</span> sx_access_cmd_t      cmd,
+<a name="l01311"></a>01311                                                <span class="keyword">const</span> sx_port_log_id_t     virtual_port,
+<a name="l01312"></a>01312                                                <span class="keyword">const</span> sx_flow_counter_id_t flow_counter_id);
+<a name="l01313"></a>01313 
+<a name="l01326"></a>01326 sx_status_t <a class="code" href="sx__api__port_8h.html#a53a335bd4164f0d7b0ec3dd5ef0b4e86">sx_api_port_vport_counter_bind_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01327"></a>01327                                                <span class="keyword">const</span> sx_port_log_id_t virtual_port,
+<a name="l01328"></a>01328                                                sx_flow_counter_id_t  *flow_counter_id_p);
+<a name="l01329"></a>01329 
+<a name="l01346"></a>01346 sx_status_t <a class="code" href="sx__api__port_8h.html#a6e385909330b1a91c195bdfcfccf2ce5">sx_api_port_vport_mirror_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01347"></a>01347                                          <span class="keyword">const</span> sx_port_log_id_t      virtual_port,
+<a name="l01348"></a>01348                                          <span class="keyword">const</span> sx_mirror_direction_t mirror_direction,
+<a name="l01349"></a>01349                                          <span class="keyword">const</span> sx_mirror_mode_t      mirror_mode);
+<a name="l01350"></a>01350 
+<a name="l01351"></a>01351 
+<a name="l01367"></a>01367 sx_status_t <a class="code" href="sx__api__port_8h.html#afb429aafa04ed85e5067e1c260330cf8">sx_api_port_vport_mirror_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01368"></a>01368                                          <span class="keyword">const</span> sx_port_log_id_t      virtual_port,
+<a name="l01369"></a>01369                                          <span class="keyword">const</span> sx_mirror_direction_t mirror_direction,
+<a name="l01370"></a>01370                                          sx_mirror_mode_t           *mirror_mode_p);
+<a name="l01371"></a>01371 
+<a name="l01388"></a>01388 sx_status_t <a class="code" href="sx__api__port_8h.html#ae7497db77430915b70638c5643044a66">sx_api_port_phy_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l01389"></a>01389                                      <span class="keyword">const</span> sx_port_log_id_t    log_port,
+<a name="l01390"></a>01390                                      <span class="keyword">const</span> sx_port_phy_speed_t speed,
+<a name="l01391"></a>01391                                      <span class="keyword">const</span> sx_port_phy_mode_t  admin_mode);
+<a name="l01392"></a>01392 
+<a name="l01409"></a>01409 sx_status_t <a class="code" href="sx__api__port_8h.html#af025d901dace3b52c1c96874cdb54250">sx_api_port_phy_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01410"></a>01410                                      <span class="keyword">const</span> sx_port_log_id_t log_port, <span class="keyword">const</span> sx_port_phy_speed_t speed,
+<a name="l01411"></a>01411                                      sx_port_phy_mode_t* admin_mode_p, sx_port_phy_mode_t* oper_mode_p);
+<a name="l01412"></a>01412 
+<a name="l01448"></a>01448 sx_status_t <a class="code" href="sx__api__port_8h.html#a8d7eba93b6d86d73d3f15c6a070d9ee6">sx_api_port_discard_reason_get</a>(<span class="keyword">const</span> sx_api_handle_t     handle,
+<a name="l01449"></a>01449                                            <span class="keyword">const</span> sx_access_cmd_t     cmd,
+<a name="l01450"></a>01450                                            sx_port_discard_reason_t *discard_reason_list_p,
+<a name="l01451"></a>01451                                            <span class="keyword">const</span> uint32_t            list_count);
+<a name="l01452"></a>01452 
+<a name="l01467"></a>01467 sx_status_t <a class="code" href="sx__api__port_8h.html#afd76c376d228a7132221481c9ac2c52d">sx_api_port_forwarding_mode_set</a>(<span class="keyword">const</span> sx_api_handle_t           handle,
+<a name="l01468"></a>01468                                             <span class="keyword">const</span> sx_port_log_id_t          log_port,
+<a name="l01469"></a>01469                                             <span class="keyword">const</span> sx_port_forwarding_mode_t admin_fwd_mode);
+<a name="l01470"></a>01470 
+<a name="l01484"></a>01484 sx_status_t <a class="code" href="sx__api__port_8h.html#a6faebd4529a3119a93941b51ff63213c">sx_api_port_forwarding_mode_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l01485"></a>01485                                             <span class="keyword">const</span> sx_port_log_id_t     log_port,
+<a name="l01486"></a>01486                                             sx_port_forwarding_mode_t *admin_fwd_mode_p);
+<a name="l01487"></a>01487 
+<a name="l01499"></a>01499 sx_status_t <a class="code" href="sx__api__port_8h.html#a994472bd0de2e3bbd71a4090a7fb853a">sx_api_port_parsing_depth_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01500"></a>01500                                           <span class="keyword">const</span> uint16_t        parsing_depth);
+<a name="l01501"></a>01501 
+<a name="l01514"></a>01514 sx_status_t <a class="code" href="sx__api__port_8h.html#a7787e441d72b3923373592cedfa66b8f">sx_api_port_parsing_depth_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01515"></a>01515                                           uint16_t             *parsing_depth_p);
+<a name="l01516"></a>01516 
+<a name="l01517"></a>01517 
+<a name="l01536"></a>01536 sx_status_t <a class="code" href="sx__api__port_8h.html#ad81cab6adb1ff0e9e00da8b71a9c0dc7">sx_api_port_vlan_ethertype_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01537"></a>01537                                            <span class="keyword">const</span> sx_access_cmd_t cmd,
+<a name="l01538"></a>01538                                            sx_vlan_ethertype_t  *ether_types_list_p,
+<a name="l01539"></a>01539                                            uint32_t              ether_type_count);
+<a name="l01540"></a>01540 
+<a name="l01556"></a>01556 sx_status_t <a class="code" href="sx__api__port_8h.html#a9e2c1c1165721f2dd979baaad7aa06c8">sx_api_port_vlan_ethertype_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01557"></a>01557                                            sx_vlan_ethertype_t  *ether_types_list_p,
+<a name="l01558"></a>01558                                            uint32_t             *ether_type_count_p);
+<a name="l01559"></a>01559 
+<a name="l01587"></a>01587 sx_status_t <a class="code" href="sx__api__port_8h.html#a5cde445f80ba07b374ec43d429258213">sx_api_port_ber_threshold_set</a>(<span class="keyword">const</span> sx_api_handle_t                          handle,
+<a name="l01588"></a>01588                                           <span class="keyword">const</span> sx_port_log_id_t                         log_port,
+<a name="l01589"></a>01589                                           <span class="keyword">const</span> sx_port_ber_fec_profile_e                fec_profile,
+<a name="l01590"></a>01590                                           <span class="keyword">const</span> sx_port_ber_fec_profile_threshold_data_t threshold_data);
+<a name="l01591"></a>01591 
+<a name="l01606"></a>01606 sx_status_t <a class="code" href="sx__api__port_8h.html#a8f667dd7b660b94b62792c1ae69e5fce">sx_api_port_ber_threshold_get</a>(<span class="keyword">const</span> sx_api_handle_t                     handle,
+<a name="l01607"></a>01607                                           <span class="keyword">const</span> sx_port_log_id_t                    log_port,
+<a name="l01608"></a>01608                                           <span class="keyword">const</span> sx_port_ber_fec_profile_e           fec_profile,
+<a name="l01609"></a>01609                                           sx_port_ber_fec_profile_threshold_data_t *threshold_data_p);
+<a name="l01610"></a>01610 
+<a name="l01630"></a>01630 sx_status_t <a class="code" href="sx__api__port_8h.html#a1b8fe894b0b098f71d6dc7377857f704">sx_api_port_ber_monitor_set</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
+<a name="l01631"></a>01631                                         <span class="keyword">const</span> sx_port_log_id_t           log_port,
+<a name="l01632"></a>01632                                         <span class="keyword">const</span> sx_port_ber_monitor_data_t monitor_data);
+<a name="l01633"></a>01633 
+<a name="l01647"></a>01647 sx_status_t <a class="code" href="sx__api__port_8h.html#a24be4d40087906caa89dd9da0c42bec1">sx_api_port_ber_monitor_get</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01648"></a>01648                                         <span class="keyword">const</span> sx_port_log_id_t      log_port,
+<a name="l01649"></a>01649                                         sx_port_ber_monitor_data_t *monitor_data_p);
+<a name="l01650"></a>01650 
+<a name="l01665"></a>01665 sx_status_t <a class="code" href="sx__api__port_8h.html#a90aed399a13799019672e507f020e62e">sx_api_port_ber_monitor_operational_get</a>(<span class="keyword">const</span> sx_api_handle_t            handle,
+<a name="l01666"></a>01666                                                     <span class="keyword">const</span> sx_port_log_id_t           log_port,
+<a name="l01667"></a>01667                                                     sx_port_ber_monitor_oper_data_t *monitor_oper_data_p);
+<a name="l01668"></a>01668 
+<a name="l01688"></a>01688 sx_status_t <a class="code" href="sx__api__port_8h.html#a4862f48efbaf9707fe354b1f5b42f2f8">sx_api_port_sll_set</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01689"></a>01689                                 <span class="keyword">const</span> uint64_t        sll_max_time);
+<a name="l01690"></a>01690 
+<a name="l01706"></a>01706 sx_status_t <a class="code" href="sx__api__port_8h.html#a47cddb263aaa3520ba641e528f138acc">sx_api_port_sll_get</a>(<span class="keyword">const</span> sx_api_handle_t handle,
+<a name="l01707"></a>01707                                 uint64_t             *sll_max_time_p);
+<a name="l01733"></a>01733 sx_status_t <a class="code" href="sx__api__port_8h.html#afd7e583a74d6398fbb03edf451688d1c">sx_api_port_hll_set</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01734"></a>01734                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01735"></a>01735                                 <span class="keyword">const</span> uint32_t         hll_max_time,
+<a name="l01736"></a>01736                                 <span class="keyword">const</span> uint32_t         hll_stall_cnt);
+<a name="l01737"></a>01737 
+<a name="l01759"></a>01759 sx_status_t <a class="code" href="sx__api__port_8h.html#acb57f0fe402abeb9d42d47ac6a575762">sx_api_port_hll_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01760"></a>01760                                 <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01761"></a>01761                                 uint32_t              *hll_max_time_p,
+<a name="l01762"></a>01762                                 uint32_t              *hll_stall_cnt_p);
+<a name="l01763"></a>01763 
+<a name="l01777"></a>01777 sx_status_t <a class="code" href="sx__api__port_8h.html#ac3aec8abde92ea8e8d6fa29b3a598b93">sx_api_port_crc_params_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01778"></a>01778                                        <span class="keyword">const</span> sx_port_log_id_t      log_port,
+<a name="l01779"></a>01779                                        <span class="keyword">const</span> sx_port_crc_params_t *crc_params_p);
+<a name="l01780"></a>01780 
+<a name="l01794"></a>01794 sx_status_t <a class="code" href="sx__api__port_8h.html#a334fed1bc4eeccb5066c6c68fa56016f">sx_api_port_crc_params_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01795"></a>01795                                        <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01796"></a>01796                                        sx_port_crc_params_t  *crc_params_p);
+<a name="l01797"></a>01797 
+<a name="l01811"></a>01811 sx_status_t <a class="code" href="sx__api__port_8h.html#a52a7bc5480bebf78a68b16cfa7338f9d">sx_api_port_ptp_params_set</a>(<span class="keyword">const</span> sx_api_handle_t       handle,
+<a name="l01812"></a>01812                                        <span class="keyword">const</span> sx_access_cmd_t       cmd,
+<a name="l01813"></a>01813                                        <span class="keyword">const</span> sx_port_log_id_t      log_port,
+<a name="l01814"></a>01814                                        <span class="keyword">const</span> sx_port_ptp_params_t *port_ptp_params);
+<a name="l01815"></a>01815 
+<a name="l01829"></a>01829 sx_status_t <a class="code" href="sx__api__port_8h.html#aeeaf90f48d243537a9ace172db9c818f">sx_api_port_ptp_params_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01830"></a>01830                                        <span class="keyword">const</span> sx_access_cmd_t  cmd,
+<a name="l01831"></a>01831                                        <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01832"></a>01832                                        sx_port_ptp_params_t  *port_ptp_params_p);
+<a name="l01833"></a>01833 
+<a name="l01834"></a>01834 
+<a name="l01850"></a>01850 sx_status_t <a class="code" href="sx__api__port_8h.html#a1be5b8079fbe1762eed212b34e62e2a5">sx_api_port_rate_set</a>(<span class="keyword">const</span> sx_api_handle_t         handle,
+<a name="l01851"></a>01851                                  <span class="keyword">const</span> sx_port_log_id_t        log_port,
+<a name="l01852"></a>01852                                  <span class="keyword">const</span> sx_port_rate_bitmask_t *rate_p);
+<a name="l01853"></a>01853 
+<a name="l01869"></a>01869 sx_status_t <a class="code" href="sx__api__port_8h.html#a61c4e5338295697462b413b1733d0046">sx_api_port_rate_get</a>(<span class="keyword">const</span> sx_api_handle_t  handle,
+<a name="l01870"></a>01870                                  <span class="keyword">const</span> sx_port_log_id_t log_port,
+<a name="l01871"></a>01871                                  sx_port_rate_e        *oper_rate_p);
+<a name="l01872"></a>01872 
+<a name="l01891"></a>01891 sx_status_t <a class="code" href="sx__api__port_8h.html#a5b28a7dcc2cbcf04e5a6f7f28e86c5ff">sx_api_port_rate_capability_get</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
+<a name="l01892"></a>01892                                             <span class="keyword">const</span> sx_port_log_id_t             log_port,
+<a name="l01893"></a>01893                                             sx_port_rate_bitmask_t            *admin_rate_p,
+<a name="l01894"></a>01894                                             sx_port_rate_bitmask_t            *capab_rate_p,
+<a name="l01895"></a>01895                                             sx_port_phy_module_type_bitmask_t *capab_type_p);
+<a name="l01896"></a>01896 
+<a name="l01914"></a>01914 sx_status_t <a class="code" href="sx__api__port_8h.html#abaec84cf187507e8c3c9385ddf0d992c">sx_api_port_phy_module_type_set</a>(<span class="keyword">const</span> sx_api_handle_t                    handle,
+<a name="l01915"></a>01915                                             <span class="keyword">const</span> sx_port_mod_id_t                   module_id,
+<a name="l01916"></a>01916                                             <span class="keyword">const</span> sx_port_phy_module_type_bitmask_t *types_p);
+<a name="l01932"></a>01932 sx_status_t <a class="code" href="sx__api__port_8h.html#a17980b0e1c0b2b46e569ef3810bafdc0">sx_api_port_phy_module_type_get</a>(<span class="keyword">const</span> sx_api_handle_t      handle,
+<a name="l01933"></a>01933                                             <span class="keyword">const</span> sx_port_mod_id_t     module_id,
+<a name="l01934"></a>01934                                             sx_port_phy_module_type_e *oper_type_p);
+<a name="l01935"></a>01935 
+<a name="l01954"></a>01954 sx_status_t <a class="code" href="sx__api__port_8h.html#a05778ea8b7fbb076b1a4df37ac78e549">sx_api_port_phy_module_capability_get</a>(<span class="keyword">const</span> sx_api_handle_t              handle,
+<a name="l01955"></a>01955                                                   <span class="keyword">const</span> sx_port_mod_id_t             module_id,
+<a name="l01956"></a>01956                                                   sx_port_rate_bitmask_t            *capab_port_rate_p,
+<a name="l01957"></a>01957                                                   sx_port_phy_module_type_bitmask_t *admin_types_p,
+<a name="l01958"></a>01958                                                   sx_port_phy_module_type_bitmask_t *capab_types_p);
+<a name="l01959"></a>01959 
+<a name="l01960"></a>01960 <span class="preprocessor">#endif </span><span class="comment">/* __SX_API_PORT_H__ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -497,6 +526,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <html><head></head>
 <body>
 <hr class="footer">
-<address class="footer"><small>Generated on Fri Jan 26 2018 10:07:25 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
+<address class="footer"><small>Generated on Mon Oct 15 2018 23:24:29 by Mellanox Technologies LTD <a href="http://www.mellanox.com" target="_blank"> <img src="Mellanoxlogo.gif" alt="Mellanox" border="0" height="41" width="51"></a></small></address>
 
 </body></html>

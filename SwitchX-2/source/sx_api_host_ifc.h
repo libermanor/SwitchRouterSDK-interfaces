@@ -28,6 +28,7 @@
     } while (((ret_value) == -1) && (errno == EINTR))
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 /**
  * This function sets the log verbosity level of HOST INTERFACE MODULE
@@ -103,6 +104,11 @@ sx_status_t sx_api_host_ifc_close(const sx_api_handle_t handle,
  * Create / Edit a trap group
  *   Allows creating a new trap group with certain attributes,
  *   and editing an existing trap group with new attributes.
+ *
+ * On Edit :
+ * Changing Monitor trap group (attribute is_monitor 1) to
+ * regular trap group and vice versa are not allowed.
+ *
  * Supported devices: SwitchX, SwitchX2, Spectrum.
  *
  * @param[in]     handle             - SX-API handle.

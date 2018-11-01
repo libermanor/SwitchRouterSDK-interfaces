@@ -19,6 +19,7 @@
 
 #include <sx/sdk/sx_api.h>
 #include <sx/sdk/sx_mpls.h>
+#include <sx/sdk/sx_strings.h>
 
 /************************************************
  *  API functions
@@ -138,7 +139,7 @@ sx_status_t sx_api_mpls_in_segment_set(const sx_api_handle_t              handle
 
 sx_status_t sx_api_mpls_in_segment_get(const sx_api_handle_t           handle,
                                        const sx_mpls_in_segment_key_t *in_segment_key_p,
-                                       sx_mpls_in_segment_params_t     in_segment_params_p);
+                                       sx_mpls_in_segment_params_t    *in_segment_params_p);
 
 /**
  *  This function returns a list of one or more in segment key identifiers.

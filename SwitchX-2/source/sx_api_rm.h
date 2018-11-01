@@ -19,6 +19,7 @@
 #define __SX_API_RM_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_strings.h>
 
 
 /***********************************************
@@ -28,7 +29,8 @@
 /**
  *
  *  This API is not supported in the current release.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ *  Supported devices: Spectrum.
  *
  *  This function set the lower and upper thresholds of an sdk resource.
  *
@@ -50,7 +52,8 @@ sx_status_t sx_api_rm_sdk_table_thresholds_set(const sx_api_handle_t            
 /**
  *
  * This API is not supported in the current release.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * Supported devices: Spectrum.
  *
  *  This function get the lower and upper thresholds of an sdk resource.
  *
@@ -70,7 +73,8 @@ sx_status_t sx_api_rm_sdk_table_thresholds_get(const sx_api_handle_t        hand
 /**
  *
  * This API is not supported in the current release.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ * Supported devices: Spectrum.
  *
  *  This function set the lower and upper thresholds of an hw resource.
  *
@@ -93,7 +97,8 @@ sx_status_t sx_api_rm_hw_table_thresholds_set(const sx_api_handle_t             
 /**
  *
  *  This API is not supported in the current release.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *
+ *  Supported devices: Spectrum.
  *
  *  This function get the lower and upper thresholds of an hw resource.
  *
@@ -115,12 +120,14 @@ sx_status_t sx_api_rm_hw_table_thresholds_get(const sx_api_handle_t        handl
  * in the central database, by configuring the number of entry duplication.
  * Such configuration allows to increase the data access bandwidth and general performance
  * of the database, for case when multiple requests want to get access to the same data entry.
+ * Please note the following:
+ * - configuration is allowed only prior any device was added to the system.
+ *
  * Supported devices: Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] resource - resource type
- * @param[in] param_p  - parameters to set the number of data
- *       entry duplication per resource type
+ * @param[in] param_p  - parameters to set the number of data entry duplication per resource type
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters are invalid
@@ -135,6 +142,7 @@ sx_status_t sx_api_rm_entries_duplication_set(const sx_api_handle_t             
 
 /**
  * This API gets the number of entry duplication per specified table type.
+ *
  * Supported devices: Spectrum2.
  *
  * @param[in] handle   - SX-API handle
@@ -156,6 +164,7 @@ sx_status_t sx_api_rm_entries_duplication_get(const sx_api_handle_t             
 
 /**
  * This API gets the utilization of a logical resource in the SDK.
+ *
  * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
@@ -177,7 +186,8 @@ sx_status_t sx_api_rm_sdk_table_utilization_get(const sx_api_handle_t          h
 
 
 /**
- * This API gets the utilization of a HW Table in the SDK
+ * This API gets the utilization of a HW Table in the SDK.
+ *
  * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
