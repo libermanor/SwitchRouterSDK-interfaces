@@ -1,6 +1,6 @@
-Switch Interfaces
-==================
+Switch/Router SDK Interfaces
+====================================
 
-This repository contains API and documentation for
-Switch ASIC family developed by Mellanox Technologies.
+This repository contains API and documentation for the 
+Switch/Router ASIC family developed by Mellanox Technologies Ltd.
 
