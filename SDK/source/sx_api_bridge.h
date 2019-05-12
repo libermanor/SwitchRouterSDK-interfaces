@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -60,7 +60,7 @@
 
 /**
  * This API sets the log verbosity level of BRIDGE MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum , Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -78,7 +78,7 @@ sx_status_t sx_api_bridge_log_verbosity_level_set(const sx_api_handle_t         
 
 /**
  * This API gets the log verbosity level of BRIDGE MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum , Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -97,7 +97,7 @@ sx_status_t sx_api_bridge_log_verbosity_level_get(const sx_api_handle_t         
 /**
  *  This function is used to create/destroy a bridge.
  *  This function is supported in 802.1D mode only.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum , Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE/DESTROY
@@ -151,7 +151,7 @@ sx_status_t sx_api_bridge_set(const sx_api_handle_t handle,
  *        A non-NULL bridge_id_list pointer must be provided in this case.
  *
  *
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum , Spectrum2.
  *
  * @param[in] handle               - SX-API handle
  * @param [in] cmd                 - GET/GET_FIRST/GET_NEXT
@@ -183,6 +183,8 @@ sx_status_t sx_api_bridge_iter_get(const sx_api_handle_t     handle,
  *  This function is supported in 802.1D mode only.
  *  Supported devices: SwitchX, SwitchX2.
  *
+ * \deprecated This API is deprecated and will be removed in the future.
+ * 
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE/DELETE_PORT
  * @param[in] bridge_id - bridge_id.
@@ -204,6 +206,8 @@ sx_status_t sx_api_bridge_port_set(const sx_api_handle_t            handle,
  *  This function is supported in 802.1D mode only.
  *  Supported devices: SwitchX, SwitchX2.
  *
+ * \deprecated This API is deprecated and will be removed in the future.
+ *
  * @param[in] handle - SX-API handle
  * @param[in] bridge_id - bridge_id.
  * @param[out] bridge_port_list_p log_port - a pointer to a bridge_port list.
@@ -215,7 +219,7 @@ sx_status_t sx_api_bridge_port_get(const sx_api_handle_t handle,
                                    uint32_t             *bridge_port_cnt_p);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function is used to add a virtual port to a bridge.
  *
  * @param[in] handle - SX-API handle
@@ -234,7 +238,7 @@ sx_status_t sx_api_bridge_vport_set(const sx_api_handle_t  handle,
                                     const sx_port_log_id_t log_port);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function is used to get a list of all virtual ports associated with a bridge.
  *  When using bridge_vport_cnt_p == 0, the number of existing entries will be returned.
  *
@@ -254,7 +258,7 @@ sx_status_t sx_api_bridge_vport_get(const sx_api_handle_t handle,
                                     uint32_t             *bridge_vport_cnt_p);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function is used to add/del a virtual ports from list to
  *  corresponding bridge from list.
  *
@@ -276,7 +280,7 @@ sx_status_t sx_api_bridge_vport_multi_set(const sx_api_handle_t   handle,
                                           uint32_t                list_cnt);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function is used to bind/unbind a flow counter to a bridge.
  *
  * @param[in] handle - SX-API handle
@@ -295,7 +299,7 @@ sx_status_t sx_api_bridge_counter_bind_set(const sx_api_handle_t      handle,
                                            const sx_flow_counter_id_t flow_counter_id);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function is used to get the flow counter bound to the bridge.
  *  When no counter is bound to the bridge,
  *  flow_counter_id_p will be set to SX_FLOW_COUNTER_ID_INVALID.
@@ -314,7 +318,7 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
                                            sx_flow_counter_id_t* flow_counter_id_p);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function sets the mirroring mode for a bridge.
  *   Currently only ingress direction is supported.
  *
@@ -334,7 +338,7 @@ sx_status_t sx_api_bridge_mirror_set(const sx_api_handle_t       handle,
                                      const sx_mirror_mode_t      mirror_mode);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function gets the mirroring mode for a bridge by direction and bridge ID
  *  Currently only ingress direction is supported.
  *
@@ -355,15 +359,15 @@ sx_status_t sx_api_bridge_mirror_get(const sx_api_handle_t       handle,
 
 /**
  *  This API bind counter for tunnel mapped to the bridge
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * For ENCAP_UC and ENCAP_MC counters this operation can be performed only when FDB doesn't
  * contain any entries for tunnel in fid
- * counters can be bind only if mapping bridge to tunnel is configured
+ * counters can be bind only if mapping bridge/VLAN to tunnel is configured
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] cmd               - SX_ACCESS_CMD_BIND/SX_ACCESS_CMD_UNBIND.
- * @param[in] bridge_id         - bridge_id on which tunnel mapped.
+ * @param[in] bridge_id         - bridge_id/vlan_id on which tunnel mapped.
  * @param[in] attr_p            - counter attributes (type, tunnel_id)
  * @param[in] counter_d         - flow counter ID which will be bound
  *
@@ -375,7 +379,6 @@ sx_status_t sx_api_bridge_mirror_get(const sx_api_handle_t       handle,
  * @return SX_STATUS_ENTRY_ALREADY_BOUND if counter already bound.
  *
  */
-
 sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t                  handle,
                                                   const sx_access_cmd_t                  cmd,
                                                   const sx_bridge_id_t                   bridge_id,
@@ -384,10 +387,10 @@ sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t         
 
 /**
  *  This API get flow counter for tunnel mapped to the bridge
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle.
- * @param[in] bridge_id         - bridge_id on which tunnel mapped.
+ * @param[in] bridge_id         - bridge_id/vlan_id on which tunnel mapped.
  * @param[in] attr_p            - counter attributes (type, tunnel_id)
  * @param[out] counter_id_p     - pointer to flow counter ID. Returns bound counter_id
  *
@@ -397,7 +400,6 @@ sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t         
  * @return SX_STATUS_ENTRY_NOT_BOUND if counter isn't bound.
  *
  */
-
 sx_status_t sx_api_bridge_tunnel_counter_bind_get(const sx_api_handle_t                  handle,
                                                   const sx_bridge_id_t                   bridge_id,
                                                   const sx_bridge_tunnel_counter_attr_t *counter_attr_p,

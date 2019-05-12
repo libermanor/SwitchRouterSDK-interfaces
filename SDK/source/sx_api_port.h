@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,7 +28,7 @@
 
 /**
  * This API sets the log verbosity level of PORT MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_port_log_verbosity_level_set(const sx_api_handle_t           
 
 /**
  * This API gets the log verbosity level of PORT MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -67,7 +67,7 @@ sx_status_t sx_api_port_log_verbosity_level_get(const sx_api_handle_t           
  *  A device may have a different port width when using a single/double/quad lanes to provide 10/20/40GE.
  *  The mapping is done between the local port identifier and the module (cage) identifier that hosts this port.
  *  The SDK maps the device's local ports to (unique) logical ports that represent the SDK's ports.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                     - SX-API handle
  * @param[in] cmd                        - ADD/DELETE
@@ -93,7 +93,7 @@ sx_status_t sx_api_port_device_set(const sx_api_handle_t handle,
 /**
  *  This API retrieves a device information (port lists) from the SDK.
  *  If all optional output buffers are NULL, this API retrieves the number of ports.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                  - SX-API handle
  * @param[in] device_id               - device ID
@@ -114,7 +114,7 @@ sx_status_t sx_api_port_device_get(const sx_api_handle_t handle,
 /**
  *  This API retrieves a device base MAC from the SDK.
  *  The base MAC is used as a base address for the ports MAC.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] device_id        - device ID
@@ -129,7 +129,7 @@ sx_status_t sx_api_port_device_base_mac_get(const sx_api_handle_t handle,
                                             sx_mac_addr_t        *base_mac_addr_p);
 /**
  *  This API sets a ports mapping.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] log_port_list_p       - list of local ports
@@ -147,7 +147,7 @@ sx_status_t sx_api_port_mapping_set(const sx_api_handle_t    handle,
 
 /**
  *  This API retrieves logical port ID mapping from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] log_port_list_p       - list of local ports
@@ -167,7 +167,7 @@ sx_status_t sx_api_port_mapping_get(const sx_api_handle_t   handle,
 /**
  *  This API retrieves the devices info list from the SDK.
  *  If optional output buffer is NULL, this API  retrieves the number of devices.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[out] device_info_list_p   - list of device info entries
@@ -184,7 +184,7 @@ sx_status_t sx_api_port_device_list_get(const sx_api_handle_t handle,
 /**
  *  This API adds/deletes a SWID to/from the SDK.
  *  A SWID which has bound ports cannot be deleted.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] cmd     - ADD/DELETE
@@ -203,7 +203,7 @@ sx_status_t sx_api_port_swid_set(const sx_api_handle_t handle,
 /**
  *  This API retrieves all SWIDs lists from the SDK.
  *  If optional output buffer is NULL, this API retrieves the number of SWIDs.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[out] swid_list_p   - array of SWIDs
@@ -225,7 +225,7 @@ sx_status_t sx_api_port_swid_list_get(const sx_api_handle_t handle,
  *  To unbind a port from a SWID, the SWID field should be SX_SWID_ID_DISABLED.
  *  Port attributes are being reset during an unbind operation.
  *  For example, vlan membership and QinQ.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -242,7 +242,7 @@ sx_status_t sx_api_port_swid_bind_set(const sx_api_handle_t  handle,
 
 /**
  *  This API retrieves a logical port's bound SWID.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] log_port   - logical port ID
@@ -261,7 +261,7 @@ sx_status_t sx_api_port_swid_bind_get(const sx_api_handle_t  handle,
 /**
  *  This API retrieves the SwID's ports list.
  *  If optional output buffer is NULL - this API simply retrieves the number of Ports.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] swid           - switch ID
@@ -317,7 +317,7 @@ sx_status_t sx_api_port_mode_get(const sx_api_handle_t  handle,
 
 /**
  *  This API sets the port MTU size in the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical Port ID
@@ -335,7 +335,7 @@ sx_status_t sx_api_port_mtu_set(const sx_api_handle_t  handle,
 /**
  *  This API retrieves the port MTU size from the SDK.
  *  Note: for Ethernet, maximum MTU and operational MTU are the same.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] log_port         - logical port ID
@@ -358,7 +358,7 @@ sx_status_t sx_api_port_mtu_get(const sx_api_handle_t  handle,
  *  It enables the application to set the port enabled mode(s).
  *  When the link is up, the current active protocol is retrieved (after SET).
  *  When the link is down, the supported protocols are retrieved (after SET).
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port ID
@@ -377,7 +377,7 @@ sx_status_t sx_api_port_speed_admin_set(const sx_api_handle_t             handle
 
 /**
  * This API retrieves the port's admin and operational speed from the SDK.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] log_port       - logical port ID
@@ -399,7 +399,7 @@ sx_status_t sx_api_port_speed_get(const sx_api_handle_t       handle,
 /**
  * This API retrieves the port's supported capabilities from the SDK.
  * HW capabilities are not configurable.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port ID
@@ -418,7 +418,7 @@ sx_status_t sx_api_port_capability_get(const sx_api_handle_t  handle,
 
 /**
  * This API retrieves the port's supported FEC capabilities from the SDK
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port ID
@@ -440,7 +440,7 @@ sx_status_t sx_api_port_fec_capability_get(const sx_api_handle_t     handle,
 
 /**
  *  This API Retrieves the port's physical address (MAC) from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] log_port         - logical Port ID
@@ -458,7 +458,7 @@ sx_status_t sx_api_port_phys_addr_get(const sx_api_handle_t  handle,
 
 /**
  *  This API sets the port's physical address (MAC).
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] log_port         - logical port ID
@@ -477,7 +477,7 @@ sx_status_t sx_api_port_phys_addr_set(const sx_api_handle_t  handle,
 /**
  *  This API sets the port's physical loopback.
  *  LAG port cannot be loopback.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] log_port        - logical port ID
@@ -496,7 +496,7 @@ sx_status_t sx_api_port_phys_loopback_set(const sx_api_handle_t         handle,
 /**
  *  This API retrieves the port's physical loopback.
  *  LAG port cannot be loopback.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] log_port         - logical port ID
@@ -515,7 +515,7 @@ sx_status_t sx_api_port_phys_loopback_get(const sx_api_handle_t    handle,
 
 /**
  *  This API sets the port administrative state in the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] log_port    - logical port ID
@@ -533,7 +533,7 @@ sx_status_t sx_api_port_state_set(const sx_api_handle_t       handle,
 
 /**
  *  This API retrieves the port's administrative, operational & module state from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] log_port        - logical port ID
@@ -557,7 +557,7 @@ sx_status_t sx_api_port_state_get(const sx_api_handle_t   handle,
 /**
  *  This API sets the port flow control pause configuration.
  *  ENUM sets the mode of both RX & TX with one of 4 possible EN/DIS combinations.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  *  NOTE: When changing the port flow control configuration between the following states
  *  GLOBAL ON/GLOBAL OFF/PFC} the port administrative and operation state must be down.
@@ -581,7 +581,7 @@ sx_status_t sx_api_port_global_fc_enable_set(const sx_api_handle_t          hand
 /**
  *  This API retrieves the port flow control pause configuration from the SDK.
  *  ENUM gets the mode of both RX & TX with one of 4 possible EN/DIS combinations.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] log_port   - logical port ID (whose flow control configuration to retrieve)
@@ -601,7 +601,7 @@ sx_status_t sx_api_port_global_fc_enable_get(const sx_api_handle_t     handle,
 /**
  *  This API sets the port priority flow control (PFC) configuration.
  *  ENUM sets the mode of both RX & TX with one of 4 possible EN/DIS combinations.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  *  NOTE: When changing the port flow control configuration between the following states
  *  {GLOBAL ON/GLOBAL OFF/PFC} the port administrative and operation state must be down.
@@ -627,7 +627,7 @@ sx_status_t sx_api_port_pfc_enable_set(const sx_api_handle_t          handle,
 /**
  *  This API retrieves the port priority flow control (PFC) configuration the SDK.
  *  ENUM gets the mode of both RX & TX with one of 4 possible EN/DIS combinations.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] log_port   - port ID
@@ -648,7 +648,7 @@ sx_status_t sx_api_port_pfc_enable_get(const sx_api_handle_t          handle,
 
 /**
  *  This API retrieves the port IEEE 802.3 counters from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] cmd                    - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -668,7 +668,7 @@ sx_status_t sx_api_port_counter_ieee_802_dot_3_get(const sx_api_handle_t        
 
 /**
  *  This API retrieves the port RFC 2863 counters from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -689,7 +689,7 @@ sx_status_t sx_api_port_counter_rfc_2863_get(const sx_api_handle_t    handle,
 
 /**
  *  This API retrieves the port RFC 2819 counters from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -710,7 +710,7 @@ sx_status_t sx_api_port_counter_rfc_2819_get(const sx_api_handle_t    handle,
 
 /**
  *  This API retrieves the port RFC 3635 counters from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -731,7 +731,7 @@ sx_status_t sx_api_port_counter_rfc_3635_get(const sx_api_handle_t    handle,
 
 /**
  *  This API retrieves the port CLI counters from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -754,7 +754,7 @@ sx_status_t sx_api_port_counter_cli_get(const sx_api_handle_t  handle,
  *  This API retrieves the port priority counters from the SDK.
  *  When a LAG port is given, the result is the sum of all the
  *  LAG ports counters.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] cmd          - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -782,7 +782,7 @@ sx_status_t sx_api_port_counter_prio_get(const sx_api_handle_t    handle,
  *          then tx_octet and tx_frames will be counted against TC [X - 8]
  *      * If the port is in MC Aware Mode, valid values of tc_id are [0-7]
  *
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -810,7 +810,7 @@ sx_status_t sx_api_port_counter_tc_get(const sx_api_handle_t   handle,
  *  are available only for Buff ID 0 - 7.
  *  Shared buffer discard counter is not supported on Spectrum.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle       - SX-API handle
  * @param[in]  cmd          - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -832,7 +832,7 @@ sx_status_t sx_api_port_counter_buff_get(const sx_api_handle_t         handle,
 /**
  *  This API Retrieves the extended port counters from the SDK.
  *  Note: This API does not support LAG.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] cmd          - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -862,7 +862,7 @@ sx_status_t sx_api_port_counter_perf_get(const sx_api_handle_t   handle,
  *   1. Read the discard counters (set the cmd to SX_ACCESS_CMD_READ)
  *   2. Read and clear the discard counters (set the cmd to SX_ACCESS_CMD_READ_CLEAR)
  *
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] cmd             - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -893,7 +893,7 @@ sx_status_t sx_api_port_counter_discard_get(const sx_api_handle_t   handle,
  *      option a. clear specific counter group (set the group in cntr_grp)
  *      option b. clear all counter groups (set cntr_grp = SX_PORT_CNTR_GRP_ALL)
  *
- *   Supported devices: SwitchX, SwitchX2, Spectrum.
+ *   Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] log_port       - logical port ID.
@@ -913,7 +913,7 @@ sx_status_t sx_api_port_counter_clear_set(const sx_api_handle_t    handle,
 
 /**
  *  This API retrieves the port Physical Layer counters from the SDK.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -934,7 +934,7 @@ sx_status_t sx_api_port_counter_phy_layer_get(const sx_api_handle_t     handle,
 
 /**
  *  This API initializes the port in the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -950,7 +950,7 @@ sx_status_t sx_api_port_init_set(const sx_api_handle_t  handle,
 
 /**
  *  This API de-initializes the port in the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -966,7 +966,7 @@ sx_status_t sx_api_port_deinit_set(const sx_api_handle_t  handle,
 
 /**
  *  This API sets storm control parameters of a port.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] cmd                    - SX_ACCESS_CMD_ADD, SX_ACCESS_CMD_EDIT, SX_ACCESS_CMD_DELETE
@@ -988,7 +988,7 @@ sx_status_t sx_api_port_storm_control_set(const sx_api_handle_t                 
 
 /**
  *  This API retrieves storm control parameters of a port.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                  - SX-API handle
  * @param[in] log_port                - logical port ID
@@ -1007,7 +1007,7 @@ sx_status_t sx_api_port_storm_control_get(const sx_api_handle_t            handl
 
 /**
  * This function clears storm control counters values.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * @param[in] handle            - SX-API handle
  * @param[in] log_port          - logical port ID
  * @param[in] storm_control_id  - Storm Control ID
@@ -1025,7 +1025,7 @@ sx_status_t sx_api_port_storm_control_counters_clear_set(const sx_api_handle_t  
 
 /**
  * This function retrieves storm control counters values.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] log_port            - logical port ID
@@ -1051,7 +1051,7 @@ sx_status_t sx_api_port_storm_control_counters_get(const sx_api_handle_t        
  *  The API returns the sFlow params configured in practice.Deviation is returned in percentage.
  *  It is highly recommended to always check the deviation value returned (SwitchX, SwitchX2 only).
  *
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] cmd                 - access command (ADD/DELETE/EDIT)
@@ -1079,7 +1079,7 @@ sx_status_t sx_api_port_sflow_set(const sx_api_handle_t   handle,
 
 /**
  *  This API gets the ports sFlow state.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] log_port        - logical port ID
@@ -1123,7 +1123,7 @@ sx_status_t sx_api_port_sflow_statistics_get(const sx_api_handle_t       handle,
 
 /**
  *  This API controls loopback filter state of the port.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -1140,7 +1140,7 @@ sx_status_t sx_api_port_loopback_filter_set(const sx_api_handle_t               
 
 /**
  *  This API retrieves the loopback filter state of the port.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - logical port ID
@@ -1164,7 +1164,7 @@ sx_status_t sx_api_port_loopback_filter_get(const sx_api_handle_t           hand
  *   Delete - remove ports from isolation group
  *   Delete All - empty isolation group
  *
- *   Supported devices: SwitchX, SwitchX2, Spectrum.
+ *   Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - SET/ADD/DELETE/DELETE_ALL
@@ -1189,7 +1189,7 @@ sx_status_t sx_api_port_isolate_set(const sx_api_handle_t   handle,
  *  traffic should not be transmitted to log_port).
  *  Use log_port_cnt_p=0 to retrieve only the size of isolation group.
  *
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] log_port            - logical port ID
@@ -1209,9 +1209,45 @@ sx_status_t sx_api_port_isolate_get(const sx_api_handle_t  handle,
                                     uint32_t              *log_port_cnt_p);
 
 /**
+ *  This function defines port isolation mode: whether pass or filter frames, which went through the router.
+ *  This API is added for backward compatibility and from the performance considerations.
+ *  In case pass_routed_frames is True, frame performance penalty is possible.
+ *  pass_routed_frames=True relates to the physical ports and not to the internal tunnel ports.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle              - SX-API handle
+ * @param[in] port_isolate_mode_p - port isolate mode
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_ERROR if requested element is not found in the DB
+ * @return SX_STATUS_PARAM_ERROR if a parameters exceeds its range
+ */
+sx_status_t sx_api_port_isolate_mode_set(const sx_api_handle_t         handle,
+                                         const sx_port_isolate_mode_t *port_isolate_mode_p);
+
+
+/**
+ *  This function retrieves port isolation mode.
+ *
+ *  Supported devices: Spectrum.
+ *
+ * @param[in] handle              - SX-API handle
+ * @param[out] port_isolate_mode_p - port isolate mode
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ */
+
+sx_status_t sx_api_port_isolate_mode_get(const sx_api_handle_t   handle,
+                                         sx_port_isolate_mode_t *port_isolate_mode_p);
+
+/**
  *  This API returns the SWID type as it was configured in the
  *  profile, at SDK init time.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param swid          - switch partition ID
@@ -1229,7 +1265,7 @@ sx_status_t sx_api_port_swid_type_get(const sx_api_handle_t handle,
  *  cmd = ADD: create a vport for the given logical port & vlan
  *  cmd = DELETE: delete the given vport
  *  cmd = DELETE_ALL: delete all vports from the given logical port
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] cmd               - ADD/DELETE/DELETE_ALL.
@@ -1253,7 +1289,7 @@ sx_status_t sx_api_port_vport_set(const sx_api_handle_t  handle,
 
 /**
  *  This API returns the vport vlans created over the port.
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle.
  * @param[in] log_port              - Port or LAG.
@@ -1274,7 +1310,7 @@ sx_status_t sx_api_port_vport_get(const sx_api_handle_t  handle,
 
 /**
  *  This API returns the base port and vlan properties for a given vport.
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle.
  * @param[in] vport         - Vport logical ID.
@@ -1293,7 +1329,7 @@ sx_status_t sx_api_port_vport_base_get(const sx_api_handle_t  handle,
 
 /**
  *  This API binds a flow counter to a virtual port.
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] cmd               - BIND/UNBIND.
@@ -1313,7 +1349,7 @@ sx_status_t sx_api_port_vport_counter_bind_set(const sx_api_handle_t      handle
 
 /**
  *  This API retrieves the flow counter bound to the virtual port.
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle.
  * @param[in] virtual_port          - Logical port representing the virtual port.
@@ -1328,7 +1364,7 @@ sx_status_t sx_api_port_vport_counter_bind_get(const sx_api_handle_t  handle,
                                                sx_flow_counter_id_t  *flow_counter_id_p);
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function sets the mirroring state for a virtual port.
  *  Currently only ingress direction is supported.
  *
@@ -1350,7 +1386,7 @@ sx_status_t sx_api_port_vport_mirror_set(const sx_api_handle_t       handle,
 
 
 /**
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *  This function gets the mirroring mode for a virtual port by direction.
  *  Currently only ingress direction is supported.
  *
@@ -1371,7 +1407,7 @@ sx_status_t sx_api_port_vport_mirror_get(const sx_api_handle_t       handle,
 
 /**
  *  This API sets the port's phy mode in the SDK.
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -1392,7 +1428,7 @@ sx_status_t sx_api_port_phy_mode_set(const sx_api_handle_t     handle,
 
 /**
  *  This API retrieves the port's phy mode from the SDK.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -1413,7 +1449,7 @@ sx_status_t sx_api_port_phy_mode_get(const sx_api_handle_t handle,
 /**
  * This API enables to read/clear discard reason
  *
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * This release does not support the following causes:
  * ip_discard:
@@ -1453,7 +1489,7 @@ sx_status_t sx_api_port_discard_reason_get(const sx_api_handle_t     handle,
 /**
  *  This API sets the port's forwarding mode (cut-through vs. store-and-forward) in the SDK.
  *  Note: Port operational forwarding mode will be updated only after port toggling.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] log_port       - logical Port ID
@@ -1470,7 +1506,7 @@ sx_status_t sx_api_port_forwarding_mode_set(const sx_api_handle_t           hand
 
 /**
  *  This API retrieves the port's forwarding mode (cut-through vs. store-and-forward) from the SDK.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] log_port          - logical port ID
@@ -1487,7 +1523,7 @@ sx_status_t sx_api_port_forwarding_mode_get(const sx_api_handle_t      handle,
 
 /**
  * This API set the chip parsing depth in bytes .
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] parsing_depth     - parsing depth in bytes
@@ -1501,7 +1537,7 @@ sx_status_t sx_api_port_parsing_depth_set(const sx_api_handle_t handle,
 
 /**
  * This API retrieves the chip parsing depth .
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[out] parsing_depth_p - return parsing depth in bytes
@@ -1520,7 +1556,7 @@ sx_status_t sx_api_port_parsing_depth_get(const sx_api_handle_t handle,
  * Note that Ethertype 0x8100 will always be configured by default.
  * This API allows the user to configure additional Ethertypes per function.
  *
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  * @param[in] handle         - SX-API handle.
  * @param[in] cmd         -  ADD/DELETE .
  * @param[in] ether_types_p    - a pointer to struct holding a list of ether_types
@@ -1541,7 +1577,7 @@ sx_status_t sx_api_port_vlan_ethertype_set(const sx_api_handle_t handle,
 /**
  *  This API gets a list of user configured Ethertypes. Note that
  *  0x8100 is always configured and will not be retrieved.
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle.
  * @param[out] ether_types_p    - a pointer to struct to hold the retrieved list
@@ -1670,7 +1706,7 @@ sx_status_t sx_api_port_ber_monitor_operational_get(const sx_api_handle_t       
  * SLL is the max lifetime of a frame within the switch after which it is discarded.
  * This function SETs the sll_max_time in microseconds.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] sll_max_time - The sll duration in micro seconds
@@ -1692,7 +1728,7 @@ sx_status_t sx_api_port_sll_set(const sx_api_handle_t handle,
  * SLL is the max lifetime of a frame within the switch after which it is discarded.
  * This function GETs the system sll_max_time in microseconds.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle.
  * @param[out] sll_max_time_p - The sll duration in micro seconds .
@@ -1711,7 +1747,7 @@ sx_status_t sx_api_port_sll_get(const sx_api_handle_t handle,
  * After a certain number of packets are discarded, this scheduling group may enter the STALL
  * state if enabled. This function SETs hll_max_time and the hll_stall_cnt for a given port
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle.
  * @param[in] log_port     - the local port. Only Physical ports and LAG Ports are allowed.
@@ -1741,7 +1777,7 @@ sx_status_t sx_api_port_hll_set(const sx_api_handle_t  handle,
  * After a certain number of packets are discarded, this scheduling group may enter the STALL
  * state if enabled. This function GETs hll_max_time and the hll_stall_cnt for a given port
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle.
  * @param[in] log_port         - the local port. Only Physical ports and LAG Ports are allowed.
@@ -1763,7 +1799,7 @@ sx_status_t sx_api_port_hll_get(const sx_api_handle_t  handle,
 
 /**
  *  This API sets the options for how the port handles CRCs in the SDK.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] log_port       - logical Port ID
@@ -1780,7 +1816,7 @@ sx_status_t sx_api_port_crc_params_set(const sx_api_handle_t       handle,
 
 /**
  *  This API gets the current options for how the port handles CRCs in the SDK.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] log_port       - logical Port ID
@@ -1797,7 +1833,7 @@ sx_status_t sx_api_port_crc_params_get(const sx_api_handle_t  handle,
 
 /**
  * This function sets PTP port parameters
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] cmd                           - SX_ACCESS_CMD_EDIT : change grand master port
@@ -1815,7 +1851,7 @@ sx_status_t sx_api_port_ptp_params_set(const sx_api_handle_t       handle,
 
 /**
  * This function gets PTP port role
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] cmd                           - SX_ACCESS_CMD_GET : change grand master port
@@ -1833,7 +1869,10 @@ sx_status_t sx_api_port_ptp_params_get(const sx_api_handle_t  handle,
 
 
 /**
- *  This API sets the port rate values bitmask only.
+ *  This API sets the port rate values bitmask only (speed value and not physical
+ *  connector type).
+ *  Note that this API is mutually exclusive with sx_api_port_admin_set, so per
+ *  single SDK life cycle only one of them can be used.
  *  Supported devices: Spectrum2.
  *
  * @param[in] handle   - SX-API handle

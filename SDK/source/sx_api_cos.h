@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,7 +28,7 @@
 
 /**
  * This API sets the log verbosity level of COS MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_cos_log_verbosity_level_set(const sx_api_handle_t           h
 
 /**
  * This API gets the log verbosity level of COS MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -67,8 +67,7 @@ sx_status_t sx_api_cos_log_verbosity_level_get(const sx_api_handle_t           h
  * Used for "trust port" configuration or for packets with the relevant
  * priority field is unavailable.
  * Not supported per VPORT.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
- * In SwitchX the function sets the default switch-priority and the default PCP together.
+ * Supported devices: Spectrum, Spectrum2.
  * In Spectrum the function sets the default switch-priority.
  *
  * @param[in] handle       - SX-API handle
@@ -87,7 +86,7 @@ sx_status_t sx_api_cos_port_default_prio_set(const sx_api_handle_t   handle,
 
 /**
  * This function retrieves the default port switch priority value.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle          - SX-API handle
  * @param[in]  log_port        - logical port ID
@@ -106,8 +105,8 @@ sx_status_t sx_api_cos_port_default_prio_get(const sx_api_handle_t  handle,
  * This function sets the port ingress priority map values.
  * Packets arriving to 'log_port' with the priority (PCP) 'source_priority'
  * are handled according to the switch-priority 'regenerated_priority'.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
- * For Spectrum recommended to use sx_api_cos_port_pcpdei_to_prio_set.
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_pcpdei_to_prio_set
  *
  * @param[in] handle               - SX-API handle
  * @param[in] log_port             - logical port ID
@@ -127,9 +126,8 @@ sx_status_t sx_api_cos_port_prio_ingress_regen_set(const sx_api_handle_t   handl
 
 /**
  * This function retrieves the port ingress priority regen values.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
- * For Spectrum recommended to use sx_api_cos_port_pcpdei_to_prio_get.
- *
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_pcpdei_to_prio_get
  * @param[in]  handle            - SX-API handle
  * @param[in]  log_port          - logical port ID
  * @param[in]  source_priority   - original priority (PCP)
@@ -158,18 +156,9 @@ sx_status_t sx_api_cos_port_prio_ingress_regen_get(const sx_api_handle_t   handl
  *  Each packet is dequeued on the egress port based on its
  *  traffic class.
  *
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  *  Note: Multiple priorities can be mapped to a single TC.
- *  SwitchX default settings:
- *  Priority 0 -> Traffic Class 0;
- *  Priority 1 -> Traffic Class 0;
- *  Priority 2 -> Traffic Class 1;
- *  Priority 3 -> Traffic Class 1;
- *  Priority 4 -> Traffic Class 2;
- *  Priority 5 -> Traffic Class 2;
- *  Priority 6 -> Traffic Class 3;
- *  Priority 7 -> Traffic Class 3;
  *
  *  Spectrum:
  *      default settings:
@@ -200,7 +189,7 @@ sx_status_t sx_api_cos_port_tc_prio_map_set(const sx_api_handle_t        handle,
 /**
  *  This function retrieves the traffic class of a specific
  *  switch priority.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle          - SX-API handle
  * @param[in]  log_port        - logical port ID
@@ -217,8 +206,8 @@ sx_status_t sx_api_cos_port_tc_prio_map_get(const sx_api_handle_t   handle,
                                             sx_cos_traffic_class_t *traffic_class_p);
 
 /**
- * This function sets the port trust level value. SwitchX
- * assigns the user priority based on the following modes:
+ * This function sets the port trust level value.
+ * Assigns the user priority based on the following modes:
  * Trust port user priority - ignore packets priority and assign
  * priority based on the port configuration.
  * Trust packet user priority/Trust L2 - tagged L2 packets are assigned with
@@ -230,7 +219,7 @@ sx_status_t sx_api_cos_port_tc_prio_map_get(const sx_api_handle_t   handle,
  * DSCP to UP mapping. Else, tagged L2 packets are assigned with
  * packets priority, untagged packets are assigned with port's priority.
  * In Spectrum for MPLS packets EXP field is used instead of DSCP.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] log_port    - logical port id
@@ -250,7 +239,7 @@ sx_status_t sx_api_cos_port_trust_set(const sx_api_handle_t      handle,
 
 /**
  * This function retrieves the port trust level value.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle        - SX-API handle
  * @param[in]  log_port      - logical port id
@@ -273,8 +262,8 @@ sx_status_t sx_api_cos_port_trust_get(const sx_api_handle_t  handle,
  * This table is used when the port trust mode is set to 'L3'.
  * The configuration is global.
  *
- * The mapping from dscp to prio is global on SwitchX.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_dscp_to_prio_set
  *
  * @param[in] handle     - SX-API handle
  * @param[in] dscp       - DSCP [0..63]
@@ -293,7 +282,8 @@ sx_status_t sx_api_cos_ip_dscp_to_prio_set(const sx_api_handle_t   handle,
  *
  * This function retrieves the map between DSCP and switch priority.
  *
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_dscp_to_prio_get
  *
  * @param[in]  handle           - SX-API handle
  * @param[in]  dscp             - DSCP [0..63]
@@ -313,8 +303,8 @@ sx_status_t sx_api_cos_ip_dscp_to_prio_get(const sx_api_handle_t handle,
  * This function binds a traffic class (TC) to a TC group,
  * sets MAX bandwidth allocation (%), and sets MAX bandwidth
  * allowed for the TC.
- * For Spectrum it is recommended to use sx_api_cos_port_ets_element_set.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_ets_element_set
  *
  * @param[in]  handle          - SX-API handle
  * @param[in]  log_port        - logical port
@@ -332,7 +322,8 @@ sx_status_t sx_api_cos_port_ets_set(const sx_api_handle_t            handle,
 
 /**
  * This function retrieves the traffic class (TC) group for TC.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_ets_element_get
  *
  * @param[in]  handle         - SX-API handle
  * @param[in]  log_port       - logical port
@@ -353,7 +344,8 @@ sx_status_t sx_api_cos_port_ets_get(const sx_api_handle_t      handle,
 /**
  * This function sets the ETS a general configuration of a log port.
  * For Spectrum it is recommended to use sx_api_cos_port_ets_element_set.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_ets_element_set
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port ID
@@ -370,7 +362,8 @@ sx_status_t sx_api_cos_port_ets_general_configuration_set(const sx_api_handle_t 
 
 /**
  * This function retrieves the ETS general configuration of log port.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_ets_element_get
  *
  * @param[in] handle         - SX-API handle
  * @param[in] log_port       - logical port ID
@@ -393,14 +386,16 @@ sx_status_t sx_api_cos_port_ets_general_configuration_get(const sx_api_handle_t 
  * On global pause mode, only a single buffer (buffer 1) can be configured.
  * All traffic goes to buffer 1
  * Buffer 0 must be used for lossy traffic (no pause should be used).
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ *
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_buff_type_set
  *
  * @param[in] handle          - SX-API handle
  * @param[in] cmd             - CMD SX_ACCESS_CMD_SET or SX_ACCESS_CMD_DELETE
- * @param[in] log_port        - logical port ID
- * @param[in] xof_timer_value - SwitchX pause frame: Pause timer
- * @param[in] xof_refresh     - send pause frame interval
- * @param[in] buffer_list_p  - array of 8 buffer parameters structures
+ * @param[in] log_port        - Logical port ID
+ * @param[in] xof_timer_value - Pause frame: Pause timer
+ * @param[in] xof_refresh     - Send pause frame interval
+ * @param[in] buffer_list_p   - An array of 8 buffer parameters structures
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -417,14 +412,16 @@ sx_status_t sx_api_cos_port_buff_set(const sx_api_handle_t            handle,
 
 /**
  * This API retrieves the port's buffer management control from the SDK.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
+ *
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_cos_port_buff_type_get
  *
  * @param[in]  handle              - SX-API handle
  * @param[in]  log_port            - logical port ID
- * @param[out] xof_timer_value_p   - pause timer field
- * @param[out] xof_refresh_p       - send pause frame interval
- * @param[out] total_buffer_size_p - total packet buffer array available for the port
- * @param[out] buffer_list_p       - array of 8 buffer parameters structures
+ * @param[out] xof_timer_value_p   - Pause timer field
+ * @param[out] xof_refresh_p       - Send pause frame interval
+ * @param[out] total_buffer_size_p - Total packet buffer array available for the port
+ * @param[out] buffer_list_p       - An array of 8 buffer parameters structures
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -439,16 +436,15 @@ sx_status_t sx_api_cos_port_buff_get(const sx_api_handle_t      handle,
 
 /**
  * This API sets the port's priority to buffer map in the SDK.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * Note:
  * Untagged frames must use a buffer used by one of the priorities.
- * SwitchX cannot allocate a buffer for untagged frames only.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] cmd             - access command SX_ACCESS_CMD_SET
  * @param[in] log_port        - logical port ID
- * @param[in] prio_to_buff_p  - mapping between a priority and the buffer
+ * @param[in] prio_to_buff_p  - mapping of switch priorities to PG buffers
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -462,11 +458,11 @@ sx_status_t sx_api_cos_port_prio_buff_map_set(const sx_api_handle_t    handle,
 
 /**
  * This API retrieves the port's priority to buffer mapping from the SDK.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] log_port        - logical port ID
- * @param[out] prio_to_buff_p - mapping between a priority and the buffer
+ * @param[out] prio_to_buff_p - mapping of switch priorities to PG buffers
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -478,7 +474,8 @@ sx_status_t sx_api_cos_port_prio_buff_map_get(const sx_api_handle_t    handle,
 
 /**
  * This API sets the port priority QCN mode (interior / interior ready).
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] log_port          - logical port ID
@@ -496,7 +493,8 @@ sx_status_t sx_api_cos_qcn_port_prio_mode_set(const sx_api_handle_t        handl
 
 /**
  *  This API retrieves the port priority QCN mode (interior / interior ready).
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] log_port          - logical port ID
@@ -514,7 +512,8 @@ sx_status_t sx_api_cos_qcn_port_prio_mode_get(const sx_api_handle_t   handle,
 
 /**
  * This API enable / disable the port priority QCN.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] log_port          - logical port ID
@@ -534,7 +533,8 @@ sx_status_t sx_api_cos_qcn_port_prio_enable_set(const sx_api_handle_t   handle,
 
 /**
  *  This API retrieves the port priority QCN configuration.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] log_port          - logical port ID
@@ -554,7 +554,8 @@ sx_status_t sx_api_cos_qcn_port_prio_enable_get(const sx_api_handle_t   handle,
 
 /**
  * This API retrieves the CPID (Congestion Point Identifier) value per priority per port.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - logical port ID
@@ -572,7 +573,8 @@ sx_status_t sx_api_cos_qcn_port_prio_cpid_get(const sx_api_handle_t   handle,
 
 /**
  * This API create / destroy a QCN profile ID according to params.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - CREATE / EDIT / DESTROY
@@ -590,7 +592,8 @@ sx_status_t sx_api_cos_qcn_profile_set(const sx_api_handle_t              handle
 
 /**
  * This API retrieves the QCN profile params per profile ID.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] profile_id    - profile ID
@@ -606,7 +609,8 @@ sx_status_t sx_api_cos_qcn_profile_get(const sx_api_handle_t         handle,
 
 /**
  * This API bind / unbind port to / from QCN profile ID.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - BIND / UNBIND
@@ -624,7 +628,8 @@ sx_status_t sx_api_cos_qcn_port_profile_bind_set(const sx_api_handle_t         h
 
 /**
  * This API retrieves the profile ID bound to a given port.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port ID
@@ -640,7 +645,8 @@ sx_status_t sx_api_cos_qcn_port_profile_bind_get(const sx_api_handle_t    handle
 
 /**
  * This API sets the QCN general parameters.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] swid     - switch ID
@@ -657,7 +663,8 @@ sx_status_t sx_api_cos_qcn_general_param_set(const sx_api_handle_t      handle,
 
 /**
  * This API retrieves the QCN general parameters.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not supported.
+ * \deprecated This API is deprecated and will be removed in the future.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] swid      - switch ID
@@ -674,7 +681,7 @@ sx_status_t sx_api_cos_qcn_general_param_get(const sx_api_handle_t handle,
 
 /**
  * This API sets the pool parameters.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] cmd                 - CMD SX_ACCESS_CMD_CREATE /SX_ACCESS_CMD_DESTROY/ SX_ACCESS_CMD_EDIT
@@ -692,7 +699,7 @@ sx_status_t sx_api_cos_shared_buff_pool_set(const sx_api_handle_t handle,
 
 /**
  * This API gets the Pool parameters.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] pool_id             - Pool ID
@@ -713,7 +720,7 @@ sx_status_t sx_api_cos_shared_buff_pool_get(const sx_api_handle_t handle,
  * With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that received on port_buffer_attr_list_p (set size zero for those ports)
  * With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port)
  * With logical port param we validate if we can allocate mc buffer, for this user should set log_port param with single reserved value MC_LOG_ID defined in sx_port header.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] cmd                       - CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL
@@ -733,7 +740,7 @@ sx_status_t sx_api_cos_port_buff_type_set(const sx_api_handle_t            handl
 
 /**
  * This API gets the port buffers size and threshold (Xon/Xoff) according to their types
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] log_port                  - logical port ID
@@ -756,7 +763,7 @@ sx_status_t sx_api_cos_port_buff_type_get(const sx_api_handle_t      handle,
  * With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that received on port_shared_buffer_attr_list_p (set max alpha/size zero for those ports)
  * With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port shared buffers configured on specific logical port (set max alpha/size zero on all buffer entries on logical port)
  * With logical port param we validate if we can allocate mc buffer, for this user should set log_port param with single reserved value MC_LOG_ID defined in sx_port header.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                            - SX-API handle
  * @param[in] cmd                               - CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL
@@ -776,7 +783,7 @@ sx_status_t sx_api_cos_port_shared_buff_type_set(const sx_api_handle_t          
 
 /**
  * This API gets the port shared buffers attributes according to their types
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                            - SX-API handle
  * @param[in] log_port                          - logical port ID
@@ -794,7 +801,7 @@ sx_status_t sx_api_cos_port_shared_buff_type_get(const sx_api_handle_t          
 
 /**
  * This API gets the buffer status.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[out] status   - the buffer global status
@@ -808,7 +815,7 @@ sx_status_t sx_api_cos_buff_status_get(const sx_api_handle_t handle,
 
 /**
  * This API returns the list of initialized pools
- * Supported devices: SwitchEN
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in/out] pool_cnt   - the number of pools in the list
@@ -824,7 +831,7 @@ sx_status_t sx_api_cos_pools_list_get(const sx_api_handle_t handle,
 
 /**
  * This API gets the port buffers occupancy parameters.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] cmd                    - CMD SX_ACCESS_CMD_READ /SX_ACCESS_CMD_READ_CLEAR
@@ -846,7 +853,7 @@ sx_status_t sx_api_cos_port_buff_type_statistic_get(const sx_api_handle_t       
 
 /**
  * This API gets the port pools occupancy parameters.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] cmd                - SX_ACCESS_CMD_READ /SX_ACCESS_CMD_READ_CLEAR
@@ -868,7 +875,7 @@ sx_status_t sx_api_cos_pool_statistic_get(const sx_api_handle_t               ha
  * This function sets the port default color value. Used for "trust port"
  * configuration or for packets with the relevant priority field is unavailable.
  * Not supported per VPORT.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle      - SX-API handle
  * @param[in]  log_port    - logical port ID
@@ -884,7 +891,7 @@ sx_status_t sx_api_cos_port_default_color_set(const sx_api_handle_t  handle,
 
 /**
  * This function retrieves the default port color value.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * Not supported per VPORT.
  *
  * @param[in]  handle     - SX-API handle
@@ -902,9 +909,8 @@ sx_status_t sx_api_cos_port_default_color_get(const sx_api_handle_t  handle,
 /**
  * This API sets the default PCP,DEI for arriving untagged packets.
  * Not supported per VPORT.
- * In SwitchX the default switch prio will be used as default PCP.
  * See sx_api_cos_port_default_prio_set.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle      - SX-API handle
  * @param[in]  log_port    - logical port ID
@@ -920,7 +926,7 @@ sx_status_t sx_api_cos_port_default_pcpdei_set(const sx_api_handle_t  handle,
 
 /**
  * This function retrieves the default PCP,DEI for arriving untagged packets.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * Not supported per VPORT.
  *
  * @param[in]  handle     - SX-API handle
@@ -938,8 +944,7 @@ sx_status_t sx_api_cos_port_default_pcpdei_get(const sx_api_handle_t  handle,
 /**
  * This function sets the mapping from PCP,DEI to switch-priority and color.
  * This table is used when the port trust mode is set to 'trust L2'.
- * In SwitchX the mapping from PCP to switch prio is PCP[i]->Switch prio[i].
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -959,13 +964,13 @@ sx_status_t sx_api_cos_port_pcpdei_to_prio_set(const sx_api_handle_t          ha
 
 /**
  * This function retrieves the mapping from PCP,DEI to switch-priority and color.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
  * @param[out] pcp_dei_p  - a list of PCP's and DEI's
  * @param[out] switch_priority_color_p - a list of switch priorities and colors
- * @param[out] element_cnt_p - num of elements in PCP, DEI and Switch Prio lists
+ * @param[in/out] element_cnt_p - num of elements in PCP, DEI and Switch Prio lists
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -983,7 +988,7 @@ sx_status_t sx_api_cos_port_pcpdei_to_prio_get(const sx_api_handle_t    handle,
  * The device maps the switch-priority into IEEE priority value using
  * device global Switch Priority to IEEE Priority Table (not per port).
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] switch_priority_p - a list of switch priorities
@@ -1001,12 +1006,12 @@ sx_status_t sx_api_cos_prio_to_ieeeprio_set(const sx_api_handle_t     handle,
 
 /**
  * This function retrieves the mapping from switch-priority to IEEE priority.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle             - SX-API handle
  * @param[out] switch_priority_p - switch priorities list
  * @param[out] ieee_priority_p   - IEEE priorities list
- * @param[out] element_cnt_p   - num of elements in switch priorities and ieee priorities lists
+ * @param[in/out] element_cnt_p   - num of elements in switch priorities and ieee priorities lists
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1020,7 +1025,7 @@ sx_status_t sx_api_cos_prio_to_ieeeprio_get(const sx_api_handle_t handle,
 /**
  * This function sets the mapping from EXP to switch-priority, color and ECN value.
  * This table is used for MPLS packets when the port trust mode is set to 'L3'
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
@@ -1042,14 +1047,14 @@ sx_status_t sx_api_cos_port_exp_to_prio_set(const sx_api_handle_t          handl
 
 /**
  * This function retrieves the mapping from EXP to switch-priority, color and ECN value.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - logical port ID
  * @param[out] exp_p           - a list of EXP's
  * @param[out] switch_priority_color_p -  an array of switch priorities and colors
  * @param[out] ecn_p           - a list of ECN's
- * @param[out] element_cnt_p - num of elements in EXP's and switch priorities lists
+ * @param[in/out] element_cnt_p - num of elements in EXP's and switch priorities lists
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1066,7 +1071,7 @@ sx_status_t sx_api_cos_port_exp_to_prio_get(const sx_api_handle_t    handle,
  * This function sets the mapping from DSCP to switch-priority and color.
  * This table is used when the port trust mode is set to 'L3'.
  * The mapping from DSCP to switch prio is per port only in Spectrum.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] log_port              - logical port ID
@@ -1086,13 +1091,13 @@ sx_status_t sx_api_cos_port_dscp_to_prio_set(const sx_api_handle_t          hand
 
 /**
  * This function retrieves the mapping from DSCP to switch-priority and color.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle               - SX-API handle
  * @param[in] log_port             - logical port ID
  * @param[out] dscp_p              - a list of DSCP's
  * @param[out] switch_priority_color_p   - a list of switch priorities and colors
- * @param[out] element_cnt_p  - num of elements in DSCP's and switch priorities lists
+ * @param[in/out] element_cnt_p  - num of elements in DSCP's and switch priorities lists
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1109,7 +1114,7 @@ sx_status_t sx_api_cos_port_dscp_to_prio_get(const sx_api_handle_t    handle,
  * bits in packet header. The values of rewriting are defined by mapping
  * in the following functions.
  * The rewrite is defined on an ingress port.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] log_port - ingress logical port ID
@@ -1126,7 +1131,7 @@ sx_status_t sx_api_cos_port_rewrite_enable_set(const sx_api_handle_t         han
 /**
  * This function retrieves rewrite enable option setting of PCP, DEI, DSCP and EXP
  * bits in packet header.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port   - ingress logical port ID
@@ -1145,7 +1150,7 @@ sx_status_t sx_api_cos_port_rewrite_enable_get(const sx_api_handle_t    handle,
  * in packet header.
  * The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in
  * sx_api_cos_port_rewrite_enable_set.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port - egress logical port ID
@@ -1168,13 +1173,13 @@ sx_status_t sx_api_cos_port_prio_to_pcpdei_rewrite_set(const sx_api_handle_t    
 /**
  * This function retrieves the mapping from switch-priority, color to PCP, DEI for PCP and DEI
  * rewrite, in packet header.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port   - egress logical port ID
  * @param[out] switch_priority_color_p - a list of switch priorities and colors
  * @param[out] pcp_dei_p      - a list of PCP's and DEI's
- * @param[out] element_cnt_p - switch priorities and DSCP lists elements count
+ * @param[in/out] element_cnt_p - switch priorities and DSCP lists elements count
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1191,7 +1196,7 @@ sx_status_t sx_api_cos_port_prio_to_pcpdei_rewrite_get(const sx_api_handle_t    
  * in packet header.
  * The mapping will change the DSCP values only if DSCP rewrite was enabled in
  * sx_api_cos_port_rewrite_enable_set
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port - egress logical port ID
@@ -1213,13 +1218,13 @@ sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_set(const sx_api_handle_t      
 /**
  * This function retrieves the mapping from switch-priority, color to DSCP, for DSCP
  * rewrite, in packet header.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port   - egress logical port ID
  * @param[out] switch_priority_color_p - a list of switch priorities and colors
  * @param[out] dscp_p      - a list of DSCP's
- * @param[out] element_cnt_p - switch priorities and DSCP lists elements count
+ * @param[in/out] element_cnt_p - switch priorities and DSCP lists elements count
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1236,7 +1241,7 @@ sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_get(const sx_api_handle_t    ha
  * in packet header.
  * The mapping will change the EXP values only if EXP rewrite was enabled in
  * sx_api_cos_port_rewrite_enable_set
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                  - SX-API handle
  * @param[in] log_port                - egress logical port ID
@@ -1259,14 +1264,14 @@ sx_status_t sx_api_cos_port_prio_to_exp_rewrite_set(const sx_api_handle_t       
 
 /**
  * This function retrieves rewriting of EXP bits setting.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                       - SX-API handle
  * @param[in] log_port                     - egress logical port ID
  * @param[out] switch_priority_color_ecn_p - a list of switch priorities, colors
  * @param[out] ecn_p                       - a list of ECN's
  * @param[out] exp_p                       - a list of EXP's
- * @param[out] element_cnt_p               - switch priorities, ECN's and EXP's lists elements count
+ * @param[in/out] element_cnt_p               - switch priorities, ECN's and EXP's lists elements count
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1318,7 +1323,7 @@ sx_status_t sx_api_cos_ets_ptp_shaper_param_get(const sx_api_handle_t           
 /**
  * This function binds a traffic class (TC) to a TC queue and group,
  * and sets shapers and rate-based ECN threshold.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd - SX_ACCESS_CMD_CREATE: create a queuing structure
@@ -1341,7 +1346,7 @@ sx_status_t sx_api_cos_port_ets_element_set(const sx_api_handle_t              h
 
 /**
  * This function retrieves all elements of the queuing system.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle             - SX-API handle
  * @param[in]  log_port           - egress port ID
@@ -1362,7 +1367,7 @@ sx_status_t sx_api_cos_port_ets_element_get(const sx_api_handle_t        handle,
  * If mc_aware==TRUE then the MC traffic will be mapped to the higher TC's (8-15)
  * and the UC traffic will be mapped to the lower TC's (0-7).
  * If there is a mapping configured to TC 8-15 the function will return SX_STATUS_ERROR
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - egress port ID
@@ -1378,7 +1383,7 @@ sx_status_t sx_api_cos_port_tc_mcaware_set(const sx_api_handle_t  handle,
 
 /**
  * This function retrieves the port MC awareness mode.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port - egress port ID
@@ -1394,12 +1399,12 @@ sx_status_t sx_api_cos_port_tc_mcaware_get(const sx_api_handle_t  handle,
 
 /**
  * This API sets the log verbosity level of REDECN MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
- * @param[in] module_verbosity_level   - BRIDGE module verbosity level
- * @param[in] api_verbosity_level      - BRIDGE API verbosity level
+ * @param[in] module_verbosity_level   - module verbosity level
+ * @param[in] api_verbosity_level      - API verbosity level
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1412,12 +1417,12 @@ sx_status_t sx_api_cos_redecn_verbosity_level_set(const sx_api_handle_t         
 
 /**
  * This API gets the log verbosity level of REDECN MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
- * @param[out] module_verbosity_level_p - BRIDGE module verbosity level
- * @param[out] api_verbosity_level_p    - BRIDGE API verbosity level
+ * @param[out] module_verbosity_level_p - module verbosity level
+ * @param[out] api_verbosity_level_p    - API verbosity level
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1462,7 +1467,7 @@ sx_status_t sx_api_cos_redecn_general_param_get(const sx_api_handle_t   handle,
 
 /**
  * This function creates a single RED/ECN profile
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]       handle -            SX-API handle
  * @param[in]       cmd -                       SX_ACCESS_CMD_ADD - create a new profile - profile_p is the output
@@ -1485,7 +1490,7 @@ sx_status_t sx_api_cos_redecn_profile_set(const sx_api_handle_t                 
 
 /**
  * This function gets RED/ECN profile configuration for given profile
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]   handle -        SX-API handle
  * @param[in]   profile -       redecn profile to get
@@ -1503,7 +1508,7 @@ sx_status_t sx_api_cos_redecn_profile_get(const sx_api_handle_t               ha
 
 /**
  * This function enables/disables RED and ECN for traffic classes
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle -                          SX-API handle
  * @param[in] log_port -                egress port to set
@@ -1524,12 +1529,12 @@ sx_status_t sx_api_cos_redecn_tc_enable_set(const sx_api_handle_t               
 
 /**
  * This function gets RED and ECN enabled parameters of a traffic class
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] log_port - egress port to query
  * @param[in] traffic_class - traffic class to get
- * @param[in] params_p - enable parameters
+ * @param[out] params_p - enable parameters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1628,7 +1633,7 @@ sx_status_t sx_api_cos_redecn_rate_based_get(const sx_api_handle_t              
 
 /**
  * This function sets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    -  SX-API handle
  * @param[in] cmd   - SX_ACCESS_CMD_ADD or SX_ACCESS_CMD_DELETE
@@ -1647,7 +1652,7 @@ sx_status_t sx_api_cos_redecn_mirroring_set(const sx_api_handle_t      handle,
 
 /**
  * This function gets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]   handle                  - SX-API handle
  * @param[out]  ingress_port_p  -               port to test
@@ -1663,7 +1668,7 @@ sx_status_t sx_api_cos_redecn_mirroring_get(const sx_api_handle_t  handle,
 
 /**
  *  This function get the RED/ECN counter for a specific egress_port
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        -  SX-API handle
  * @param[in] cmd           - SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR
@@ -1683,7 +1688,7 @@ sx_status_t sx_api_cos_redecn_counters_get(const sx_api_handle_t          handle
 /**
  * This function reads the RED drop counter for one or more user provided
  * traffic Classes for a given specific egress_port
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR
@@ -1705,7 +1710,7 @@ sx_status_t sx_api_cos_redecn_red_counter_per_port_tc_get(const sx_api_handle_t 
                                                           sx_port_cntr_t               *red_counter_p);
 /**
  * This function reads the ECN counter for a user specified egress_port
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR
@@ -1754,7 +1759,7 @@ sx_status_t sx_api_cos_redecn_counters_count_marked_get(const sx_api_handle_t ha
 
 /**
  * This function is used to get buffer consumption
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle SX-API handle
  * @param[in] buff_consumption_p a pointer to buffer consumption struct

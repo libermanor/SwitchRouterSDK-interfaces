@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -29,7 +29,7 @@
 
 /**
  * This function sets the log verbosity level of ACL MODULE
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -47,7 +47,7 @@ sx_status_t sx_api_acl_log_verbosity_level_set(const sx_api_handle_t           h
 
 /**
  * This function gets the log verbosity level of ACL MODULE
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -71,7 +71,7 @@ sx_status_t sx_api_acl_log_verbosity_level_get(const sx_api_handle_t           h
  *  region is not bound and the acl_region_id should be
  *  provided. EDIT command is used for resizing an existing ACL
  *  region. acl_region_id and new size should be provided.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE / DESTROY / EDIT
@@ -96,7 +96,7 @@ sx_status_t sx_api_acl_region_set(const sx_api_handle_t      handle,
 
 /**
  *  This function is used to get ACL region properties .
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] region_id - ACL region ID
@@ -125,7 +125,7 @@ sx_status_t sx_api_acl_region_get(const sx_api_handle_t    handle,
  *  it will return an ACL id. DESTROY command may be used when
  *  the ACL is not bound to HW.
  *  Packet sensitive ACL is currently NOT supported.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE / DESTROY
@@ -153,7 +153,7 @@ sx_status_t sx_api_acl_set(const sx_api_handle_t        handle,
  *  given and the function returns ACL attributes : type and a
  *  list of attached regions. the length of the regions list
  *  depends on the ACL type
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] acl_id - ACL ID
@@ -176,7 +176,7 @@ sx_status_t sx_api_acl_get(const sx_api_handle_t  handle,
 
 /**
  *  This function gets a list of valid ACL Ids.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd    GET/GET_NEXT/GET_FIRST
@@ -221,7 +221,7 @@ sx_status_t sx_api_acl_iter_get(const sx_api_handle_t  handle,
  *  be in the same direction as the group). SET Can be also used for editing an ACL group.
  *  DESTROY command will free the list resource. It is allowed only when the ACL list
  *  is not bound in HW.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - CREATE / SET / DESTROY
@@ -250,7 +250,7 @@ sx_status_t sx_api_acl_group_set(const sx_api_handle_t    handle,
  *  This function is used to get ACL group attributes . the ACL
  *  group id is given and the function returns ACL group
  *  attributes : direction and a list of attached ACLs.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] group_id - ACL group ID
@@ -274,7 +274,7 @@ sx_status_t sx_api_acl_group_get(const sx_api_handle_t handle,
 
 /**
  *  This function gets a list of valid ACL Group Ids.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd    GET/GET_NEXT/GET_FIRST
@@ -321,7 +321,7 @@ sx_status_t sx_api_acl_group_iter_get(const sx_api_handle_t  handle,
  *  - unicast entry can have up to 1 port only. Use DELETE
  *  command to clear a PBS record (not allowed when this record
  *  is in use by ACL rules)
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD / ADD_PORTS / DELETE_PORTS / DELETE
@@ -350,7 +350,7 @@ sx_status_t sx_api_acl_policy_based_switching_set(const sx_api_handle_t     hand
  *  a PBS set. note that for GET command the pbs_entry should be
  *  pre-allocated and pbs_entry port_num should be updated to
  *  maximal port count to get.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - COUNT / GET
@@ -377,12 +377,13 @@ sx_status_t sx_api_acl_policy_based_switching_get(const sx_api_handle_t handle,
 
 /**
  *  This function adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES).
- *  Use this comparison set for ACL IPv4 IPv6 full key.
+ *  Supported devices: Spectrum, Spectrum2.
+ *  Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported by Spectrum2.
  *  When ADD command is used the given ranges are written into a group and its ID is returned.
  *  When EDIT command is used the given range is written into a group of range_index.
  *  When DELETE command is used the given range_index configuration is cleared.
  *  Port range comparison set cannot be deleted if it is applied to an acl rule.
- *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD / EDIT / DELETE
@@ -405,7 +406,7 @@ sx_status_t sx_api_acl_l4_port_range_set(const sx_api_handle_t            handle
 
 /**
  *  This function is used to get a Layer 4 port range comparison set.
- *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] range_id - Port range comparison ID
@@ -461,13 +462,13 @@ sx_status_t sx_api_acl_l4_port_range_iter_get(const sx_api_handle_t             
 
 /**
  *  This function adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES).
- *  Use this comparison set for ACL IPv4 IPv6 full key.
+ *  Supported devices: Spectrum2.
  *  Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes and UTC.
+ *  Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported by Spectrum2.
  *  Note: At a given time no more than 2 Custom Bytes ranges can be used.
  *  When ADD command is used the given ranges are written into a group and its ID is returned.
  *  When EDIT command is used the given range is written into a group of range_index.
  *  When DELETE command is used the given range_index configuration is cleared.
- *  Supported devices: Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD / EDIT / DELETE
@@ -512,12 +513,14 @@ sx_status_t sx_api_acl_range_get(const sx_api_handle_t        handle,
                                  sx_acl_range_entry_t        *range_entry_p);
 
 /**
+ *  \deprecated This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_set in its place.
+ *
  *  This function is used for inserting rules into an ACL
  *  region. Inserting rules is allowed before and after bind
  *  operation. Rule is inserted to an explicit offset,
  *  overriding existing rule on that offset. Rules must have the
  *  same key type as the ACL region.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2.
  *
  *  When in 802.1D mode, instead of providing a vid(Vlan ID) in
  *  rules[].key.fields.key_type.vid (if present in the key_type) and
@@ -547,12 +550,14 @@ sx_status_t sx_api_acl_rules_set(const sx_api_handle_t    handle,
                                  const uint32_t           rules_cnt);
 
 /**
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_get in its place.
+ *
  *  This function is used for getting rules of an ACL block.
  *
  *  When in 802.1D mode, instead of receiving a vid(Vlan ID),
  *  on rules[].key.fields.key_type.vid, rules[].mask.fields.key_type.vid and
  *  rules[].action.basic_action.vid, a bridge_id's are provided.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] region_id - ACL region ID
@@ -578,7 +583,7 @@ sx_status_t sx_api_acl_rules_get(const sx_api_handle_t      handle,
 /**
  *  This function is used for getting the activity of a specific rule.
  *  If the region is not bound, activity_p is invalid.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2..
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ / READ_CLEAR
@@ -603,7 +608,7 @@ sx_status_t sx_api_acl_rule_activity_get(const sx_api_handle_t      handle,
  *  Moving a block does not affect search hits, but may override
  *  existing rules if such exist on the new block location.
  *  Non-valid rules within the block are moved as well.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2..
  *
  * @param[in] handle - SX-API handle
  * @param[in] region_id - ACL region ID
@@ -631,7 +636,7 @@ sx_status_t sx_api_acl_rule_block_move_set(const sx_api_handle_t      handle,
  *  port (or LAG). Binding more than one ACL to port may be
  *  achieved by using ACL groups.
  *  Binding may fail if there is no place for the ACL in HW
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2..
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - BIND / UNBIND
@@ -653,7 +658,7 @@ sx_status_t sx_api_acl_port_bind_set(const sx_api_handle_t  handle,
 /**
  *  This function is used to get the ACL ID  of an ACL table or
  *  ACL group which is bound to a specific port
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2..
  *
  * @param[in] handle - SX-API handle
  * @param[in] log_port - logical port ID
@@ -679,7 +684,7 @@ sx_status_t sx_api_acl_port_bind_get(const sx_api_handle_t    handle,
  *  DESTROY command is used to free a vlan group resource
  *
  *  This function is only valid when in 802.1Q mode.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - CREATE / ADD / DELETE / DESTROY
@@ -711,7 +716,7 @@ sx_status_t sx_api_acl_vlan_group_map_set(const sx_api_handle_t handle,
  *  size is then returned as output.
  *
  *  This function is only valid when in 802.1Q mode.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] swid - SWID
@@ -741,7 +746,7 @@ sx_status_t sx_api_acl_vlan_group_map_get(const sx_api_handle_t     handle,
  *
  *  When in 802.1D mode, instead of providing a Vlan group,
  *  you should provide a bridge_id.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - BIND / UNBIND
@@ -766,7 +771,7 @@ sx_status_t sx_api_acl_vlan_group_bind_set(const sx_api_handle_t     handle,
  *
  *  When in 802.1D mode, instead of providing a Vlan group,
  *  you should provide a bridge_id.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] vlan_group - Vlan Group ID
@@ -786,7 +791,7 @@ sx_status_t sx_api_acl_vlan_group_bind_get(const sx_api_handle_t     handle,
 /**
  *  This function returns attributes of the flexible key.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] key_handle            - The handle to flexible key
@@ -804,7 +809,7 @@ sx_status_t sx_api_acl_flex_key_attr_get(const sx_api_handle_t    handle,
  *  The key will be composed from predefined filter blocks of 9B keys by SCP algorithm and it maximum size is bounded to 54B.
  *   Key creation is pure DB operation. The maximum number of keys is equal to the maximum number of regions.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] cmd                       - The access cmd CREATE/DELETE
@@ -827,7 +832,7 @@ sx_status_t sx_api_acl_flex_key_set(const sx_api_handle_t handle,
  *  This function returns list of filters included in the flexible key.
  *  The user is responsible for a memory management of the filters list.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] key_handle            - The handle to flexible key
@@ -856,7 +861,7 @@ sx_status_t sx_api_acl_flex_key_get(const sx_api_handle_t   handle,
  * Also the user can define a custom set of actions for each rule. The function should be called after bind ACL to region.
  * If an offset in offsets array crosses the boundaries of the region allocation the function will fail.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - The access command SET/DELETE
@@ -906,7 +911,7 @@ sx_status_t sx_api_acl_flex_rules_set(const sx_api_handle_t          handle,
  * items, on API return these parameters will contain actual number of items. The offset list should contain offsets of valid rules only.
  *
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] region_id             - ACL region ID received on a region creation
@@ -929,7 +934,7 @@ sx_status_t sx_api_acl_flex_rules_get(const sx_api_handle_t    handle,
 /**
  *  This function is used to bind/unbind ACL or ACL group to RIF
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - The command BIND/UNBIND
@@ -950,7 +955,7 @@ sx_status_t sx_api_acl_rif_bind_set(const sx_api_handle_t handle,
 /**
  *  This function is used to  get ACL or ACL group ID that bound to RIF
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                  - SX-API handle
  * @param[in] rif_id                  - RIF ID
@@ -972,7 +977,7 @@ sx_status_t sx_api_acl_rif_bind_get(const sx_api_handle_t    handle,
  *  next to the first one. Only the head of the list of groups is allowed to be bound to port/VLAN/RIF.
  *  The other linked groups will be bound automatically. An attempt to bind explicitly the other but the head will cause to an error.
  *
- *	Supported devices: Spectrum.
+ *	Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] cmd                       - The command BIND/UNBIND
@@ -991,7 +996,7 @@ sx_status_t sx_api_acl_group_bind_set(sx_api_handle_t       handle,
 /**
  *  This function returns the next ACL group bound to the given one.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] group_id               - The first, parent ACL or ACL group ID that second one will be bound to
@@ -1017,7 +1022,7 @@ sx_status_t sx_api_acl_group_bind_get(sx_api_handle_t handle,
  *        A container may contain at most RM_API_ACL_PORT_LIST_MAX logical ports
  *        A container may contain only Ethernet logical ports and not LAG ports
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - CREATE/SET/DESTROY.
@@ -1043,7 +1048,7 @@ sx_status_t sx_api_acl_port_list_set(const sx_api_handle_t     handle,
  *        If port_list_p is NULL, then port_list_p are not retrieved at all. In this case port_list_cnt
  *        will contain the actual number if ports in the port list
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] port_list_id - specifies the id of the port list to retrieve
@@ -1064,7 +1069,7 @@ sx_status_t sx_api_acl_port_list_get(const sx_api_handle_t       handle,
 
 /**
  *  This function is used to get ACL region HW size .
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] region_id - ACL region ID
@@ -1086,7 +1091,7 @@ sx_status_t sx_api_acl_region_hw_size_get(const sx_api_handle_t    handle,
  * Returned value is key Id from sx_acl_key_t space, which should be used with FLEX_ACL_KEY_CUSTOM_BYTES_BYTE
  * macro. Each custom byte is accessed as a separate ACL key.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - CREATE/DESTROY/EDIT.
@@ -1118,7 +1123,7 @@ sx_status_t sx_api_acl_custom_bytes_set(sx_api_handle_t                         
  *
  * This API returns extraction point parameters of the existing Custom Bytes Set
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] custom_bytes_set_key_id_p - Specifies an array of the custom bytes keys id. Only first item
@@ -1184,5 +1189,28 @@ sx_status_t sx_api_acl_policy_based_ilm_set(const sx_api_handle_t       handle,
 sx_status_t sx_api_acl_policy_based_ilm_get(const sx_api_handle_t   handle,
                                             const sx_acl_pbilm_id_t pbilm_id,
                                             sx_acl_pbilm_entry_t   *pbilm_entry_p);
+
+/**
+ *  This function is used for updating a set of priorities, in range [min_priority, max_priority]
+ *  to priority + priority_change.
+ *  Limitation: The priority can be changed only if there is no other rules between min priority + change  to
+ *  max priority + change (and the opposite if the priority_change < 0 )
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] region_id - ACL region ID
+ * @param[in] min_priority - Minimum priority in the range
+ * @param[in] max_priority - - Maximum priority in the range
+ * @param[in] priority_change - Can be lower/bigger than 0
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB
+ */
+sx_status_t sx_api_acl_flex_rules_priority_set(const sx_api_handle_t             handle,
+                                               const sx_acl_region_id_t          region_id,
+                                               const sx_flex_acl_rule_priority_t min_priority,
+                                               const sx_flex_acl_rule_priority_t max_priority,
+                                               const int32_t                     priority_change);
 
 #endif /* ifndef __SX_API_ACL_H__ */

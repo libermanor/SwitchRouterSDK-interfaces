@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,7 +28,7 @@
 
 /**
  * This function sets the log verbosity level of POLICER MODULE
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_policer_log_verbosity_level_set(const sx_api_handle_t        
 
 /**
  * This function gets the log verbosity level of POLICER MODULE
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -64,7 +64,7 @@ sx_status_t sx_api_policer_log_verbosity_level_get(const sx_api_handle_t        
 
 /**
  * This function creates/destroy/edit a policer in the system.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - SX_ACCESS_CMD_CREATE: create a new policer and returns a policer ID in policer_id_p
@@ -89,7 +89,7 @@ sx_status_t sx_api_policer_set(const sx_api_handle_t          handle,
 
 /**
  * This function gets policer attributes.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] policer_id - policer ID
@@ -105,12 +105,12 @@ sx_status_t sx_api_policer_get(const sx_api_handle_t    handle,
 
 /**
  *  This function retrieves a list of Policer IDs.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd    GET/GET_NEXT/GET_FIRST.
  * @param[in] policer_id_key - Policer ID to use as key.
- * @param[in] polocer_filter_p - Filter to use (not supported yet).
+ * @param[in] policer_filter_p - Filter to use (not supported yet).
  * @param[out] policer_id_list_p - pointer to the list of Policer IDs returned.
  * @param[in,out] policer_id_cnt_p [in] number of entries to retrieve; [out] retrieved  number of entries.
  *
@@ -143,7 +143,7 @@ sx_status_t sx_api_policer_get(const sx_api_handle_t    handle,
  *   - 7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X,
  *        list = Valid, Count > 0:
  *        In this case the API will return the next set of IDs starting from
- *        the next valid counter after the specified key. The total elements fetched
+ *        the next valid policer after the specified key. The total elements fetched
  *        will be returned as the return count. Note: return count may be less
  *        than or equal to the requested count. If no valid next counter exists
  *        in the DB (key = end of list, or invalid key specified, or key too
@@ -166,7 +166,7 @@ sx_status_t sx_api_policer_iter_get(const sx_api_handle_t   handle,
 
 /**
  * This function clears policer counters values.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * @param[in] handle - SX-API handle
  * @param[in] policer_id - policer ID
  * @param[in] clear_counters - which counters to clear
@@ -181,7 +181,7 @@ sx_status_t sx_api_policer_counters_clear_set(const sx_api_handle_t             
 
 /**
  * This function retrieves policer counters values.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] policer_id - policer ID

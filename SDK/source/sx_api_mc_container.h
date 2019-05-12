@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,7 +28,7 @@
 
 /**
  * Sets the log verbosity level of MC_CONTAINER MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_mc_container_log_verbosity_level_set(const sx_api_handle_t   
 
 /**
  * Gets the log verbosity level of MC_CONTAINER MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -75,7 +75,7 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  * Notes: A container in use (e.g. by a multicast route or ACL) cannot be destroyed
  *        A container may contain at most RM_API_ROUTER_RIFS_MAX next hops
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - CREATE/ADD/DELETE/SET/DESTROY/DELETE_ALL.
@@ -104,16 +104,16 @@ sx_status_t sx_api_mc_container_set(const sx_api_handle_t               handle,
  * Command GETNEXT retrieves the next container after container_id_p, its ID, next hops and attributes.
  * Command COUNT returns the number of existing containers, in *next_hop_cnt
  * Notes: *next_hop_cnt should contain the maximum amount of next hops to retrieve.
- *        If rpf_vif_list_p is NULL, then next hops are not retrieved at all.
- *        If *next_hop_cnt is 0, or if rpf_vif_list_p is NULL, then the amount of next hops
+ *        If next_hop_list_p is NULL, then next hops are not retrieved at all.
+ *        If *next_hop_cnt is 0, or if next_hop_list_p is NULL, then the amount of next hops
  *        is returned in *next_hop_cnt
  *        If container_attr is NULL, then attributes are not retrieved.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
- * @param[in] cmd - GET/GETFIRST/GETNEXT/COUNT
- * @param[in] container_id - Specifies a container ID or returns a container ID
+ * @param[in] cmd - GET
+ * @param[in] container_id - Specifies a container ID whose attributes to retrieve
  * @param[out] next_hop_list_p - Returns the list of next hops in the container
  * @param[in,out] next_hop_cnt_p - Specifies the maximum amount of next hops to retrieve,
  *                               and returns the amount of next hops retrieved
@@ -130,5 +130,66 @@ sx_status_t sx_api_mc_container_get(const sx_api_handle_t         handle,
                                     sx_mc_next_hop_t             *next_hop_list_p,
                                     uint32_t                     *next_hop_cnt_p,
                                     sx_mc_container_attributes_t *container_attr_p);
+
+/**
+ *  This function retrieves a list of MC Containers.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd    GET/GET_NEXT/GET_FIRST.
+ * @param[in] container_id_key - Container ID to use as key.
+ * @param[in] container_filter_p - Filter to use (not supported yet).
+ * @param[out] container_id_list_p - pointer to the list of Container IDs returned.
+ * @param[in,out] container_id_cnt_p [in] number of entries to retrieve; [out] retrieved  number of entries.
+ *
+ * The following use case scenarios apply with different input parameters X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, list = X, Count = 0:
+ *        In this case the API will return the total number of containers in the
+ *        Internal DB
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, list = Valid, Count = 1:
+ *        In this case the API will check if the specified key exists. if it does
+ *        the key will be returned in the list along with a count of 1.
+ *        If the key does not exist an empty list will be returned with count = 0
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, list is Valid, Count > 1:
+ *        A count >1 will be treated as a count of 1 and the behaviour will be same
+ *        as earlier GET use cases.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X,
+ *        list = Null, Count = 0:
+ *        For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count
+ *        will return an empty list.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, list = Valid, Count > 0:
+ *        In this case the API will return the first Container IDs starting from
+ *        the head of the database. The total elements fetched will be returned
+ *        as the return count.  Note: return count may be less than or equal to
+ *        the requested count. The key is dont-care but a non-Null return
+ *        list pointer must be provided
+ *
+ *   - 7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X,
+ *        list = Valid, Count > 0:
+ *        In this case the API will return the next set of IDs starting from
+ *        the next valid container after the specified key. The total elements fetched
+ *        will be returned as the return count. Note: return count may be less
+ *        than or equal to the requested count. If no valid next counter exists
+ *        in the DB (key = end of list, or invalid key specified, or key too
+ *        large), an empty list will be returned.
+ *
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid.
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported.
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid.
+ * @return SX_STATUS_ERROR general error.
+ */
+sx_status_t sx_api_mc_container_iter_get(const sx_api_handle_t        handle,
+                                         const sx_access_cmd_t        cmd,
+                                         const sx_mc_container_id_t   container_id_key,
+                                         sx_mc_container_id_filter_t *container_id_filter_p,
+                                         sx_mc_container_id_t        *container_id_list_p,
+                                         uint32_t                    *container_id_cnt_p);
+
 
 #endif /* __SX_API_MC_CONTAINER_H__ */

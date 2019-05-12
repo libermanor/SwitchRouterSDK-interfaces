@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,7 +28,7 @@
 
 /**
  * This function sets the log verbosity level of all modules in SwitchX SDK
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_system_log_verbosity_level_set(const sx_api_handle_t         
 
 /**
  * This function gets the log verbosity level of all modules in SwitchX SDK
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -63,8 +63,43 @@ sx_status_t sx_api_system_log_verbosity_level_get(const sx_api_handle_t         
                                                   sx_verbosity_level_t           *api_verbosity_level_p);
 
 /**
+ * This API allows to enable/disable function enter/leave debugging log messages.
+ * Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle      - SX-API handle
+ * @param[in] attr_p      - target verbosity attributes such as verbosity target
+ *                          API or MODULE and flag whether we want to enable/disable
+ *                          function enter/leave logs for this target.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_system_log_enter_func_severity_set(const sx_api_handle_t                 handle,
+                                                      const sx_log_verbosity_target_attr_t *attr_p);
+
+
+/**
+ * This API gets the configured state for the function enter/leave debugging log messages.
+ * Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle      - SX-API handle
+ * @param[in,out] attr_p  - target verbosity attributes such as verbosity target
+ *                          API or MODULE and flag which indicates whether function
+ *                          enter/leave logs are enabled/disabled for this target.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_system_log_enter_func_severity_get(const sx_api_handle_t           handle,
+                                                      sx_log_verbosity_target_attr_t *attr_p);
+
+/**
  *  This function opens channel to SX-API operations.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] logging_cb - optional log messages callback
  * @param[out] handle - handle that should be used in all
@@ -83,7 +118,7 @@ sx_status_t sx_api_open(sx_log_cb_t      logging_cb,
 
 /**
  *  This function closes channel to SX-API operations.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  *
@@ -98,7 +133,7 @@ sx_status_t sx_api_close(sx_api_handle_t *handle);
 
 /**
  * This function initializes SwitchX SDK.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] sdk_init_params_p - SwitchX SDK init parameters.
@@ -115,7 +150,7 @@ sx_status_t sx_api_sdk_init_set(const sx_api_handle_t       handle,
 /**
  *  This function returns the versions of the various
  *  components of SwitchX SDK package.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[out] versions_p - SwitchX SDK versions.
@@ -131,7 +166,7 @@ sx_status_t sx_api_sx_sdk_version_get(const sx_api_handle_t     handle,
 
 /**
  *  This function is used to enter/exit transaction burst mode.
- *  Supported devices: Spectrum
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ENABLE /DISABLE
@@ -151,7 +186,7 @@ sx_status_t sx_api_transaction_mode_set(const sx_api_handle_t handle,
  * object is referenced.
  * The ECMP objects are not supported on SwitchX, SwitchX2.
  *
- *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum-A1.
+ *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum-A1, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] object_id_p - Object ID

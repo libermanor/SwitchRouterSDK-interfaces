@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -24,7 +24,8 @@
 
 /**
  * This function sets the log verbosity level of FCF MODULE
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not Supported
+ * \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - SET / GET
@@ -44,7 +45,8 @@ sx_status_t sx_api_fcf_log_verbosity_level(sx_api_handle_t           handle,
 
 /**
  * This function Initiates the FCF module in SDK.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not Supported
+ * \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] params - FCF parameters.
@@ -60,9 +62,9 @@ sx_status_t sx_api_fcf_init(const sx_api_handle_t handle,
                             const sx_fcf_param_t *params);
 
 /**
- *
  * This api deinitializes the FCF in the sdk.
- * Supported devices: SwitchX, SwitchX2.
+ * Supported devices: Not Supported
+ * \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  *
@@ -74,12 +76,14 @@ sx_status_t sx_api_fcf_init(const sx_api_handle_t handle,
 sx_status_t sx_api_fcf_deinit(const sx_api_handle_t handle);
 
 /**
+ *
  *  This function adds/modifies/deletes a FCF.
  *  The FCF ID is allocated and returned to the caller when
  *  cmd is ADD, otherwise it is given by the caller. All
  *  v_ports and forwarding rules associated with a FCF must be
  *  deleted and deallocated before the FCF can be deleted as well.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD/EDIT/DELETE.
@@ -103,8 +107,10 @@ sx_status_t sx_api_fcf_set(const sx_api_handle_t      handle,
                            sx_fcf_id_t               *fcf);
 
 /**
+ *
  *  This function gets a FCF information.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd -  get, get_next, get first
@@ -123,9 +129,11 @@ sx_status_t sx_api_fcf_get(const sx_api_handle_t handle,
                            sx_fcf_attributes_t  *fcf_attr);
 
 /**
+ *
  *  This function adds/deletes a v_port from a FCF. If the type if VE_port a MAC should be given.
  *  If the type is VF_port, a mac should not be given as it is calculated by the fabric.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD/DELETE/DELETE_ALL.
@@ -147,12 +155,14 @@ sx_status_t sx_api_fcf_v_port_interface_set(const sx_api_handle_t             ha
                                             sx_fcf_v_port_handle_t          * v_port_handle);
 
 /**
+ *
  *  This function defines the IPL (Ingress Port List) in the SDK.
  *  SET = Discard the previous list and use the given list
  *  DEFAULT = Return all the ports to the IPL (by default, all the ports are in the IPL).
  *  DELETE_ALL = Remove all the ports from the IPL.
  *  In addition, it can also ADD/DELETE ports to/from the IPL.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - DEFAULT/SET/DELETE_ALL/ADD/DELETE.
@@ -176,8 +186,10 @@ sx_status_t sx_api_fcf_ipl_set(const sx_api_handle_t  handle,
                                const length_t         log_port_num);
 
 /**
+ *
  *  This function retrieves the IPL (Ingress Port List) from the SDK.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[out] port_list - List of Logical Ports in the IPL.
@@ -198,8 +210,10 @@ sx_status_t sx_api_fcf_ipl_get(const sx_api_handle_t handle,
                                length_t            * log_port_num);
 
 /**
+ *
  *  This function gets a v_port of a FCF.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd -  get, get_next, get first
@@ -221,9 +235,11 @@ sx_status_t sx_api_fcf_v_port_interface_get(const sx_api_handle_t       handle,
                                             sx_fcf_v_port_attributes_t *v_port_attr);
 
 /**
+ *
  *  This function adds/modifies/deletes a forwarding entry into the forwarding table.
  *  The forwarding entry is composed of sid, sid mask, did, did mask mapped to a V_port
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD/EDIT/DELETE/DELETE_ALL.
@@ -251,9 +267,11 @@ sx_status_t sx_api_fcf_forwarding_set(const sx_api_handle_t        handle,
                                       const sx_fcf_v_port_handle_t v_port_handle);
 
 /**
+ *
  *  This function gets a forwarding entry from the forwarding table.
  *  The forwarding entry is composed of sid, sid mask, did, did mask mapped to a V_port
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] access_cmd -  get, get_next, get first
@@ -281,9 +299,11 @@ sx_status_t sx_api_fcf_forwarding_get(const sx_api_handle_t   handle,
                                       sx_fcf_v_port_handle_t *v_port_handle);
 
 /**
+ *
  *  This function allocates/deallocates a FCF counter. A FCF counter
  *  should be bound later to a FCF v_port.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD/DELETE.
@@ -300,8 +320,10 @@ sx_status_t sx_api_fcf_cntr_alloc_set(const sx_api_handle_t handle,
                                       sx_fcf_cntr_id_t     *cntr);
 
 /**
+ *
  *  This function binds/unbinds a FCF counter to a FCF v_port.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD/DELETE.
@@ -322,8 +344,10 @@ sx_status_t sx_api_fcf_cntr_bind_set(const sx_api_handle_t        handle,
                                      const sx_fcf_v_port_handle_t v_port_handle);
 
 /**
+ *  \deprecated This API is deprecated and will be removed in the future
+ *
  *  This function gets a FCF counter bind of a FCF v_port.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cntr - FCF counter ID.
@@ -341,8 +365,10 @@ sx_status_t sx_api_fcf_cntr_bind_get(const sx_api_handle_t   handle,
                                      sx_fcf_v_port_handle_t *v_port_handle);
 
 /**
+ *
  *  This function gets FCF counter set of a FCF counter.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cntr - FCF counter ID.
@@ -360,8 +386,10 @@ sx_status_t sx_api_fcf_cntr_get(const sx_api_handle_t  handle,
                                 sx_fcf_cntr_set_t     *cntr_set);
 
 /**
+ *
  *  This function clears fcf counter set of a fcf counter.
- *  Supported devices: SwitchX, SwitchX2.
+ *  Supported devices: Not Supported
+ *  \deprecated This API is deprecated and will be removed in the future
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cntr - FCF counter ID.

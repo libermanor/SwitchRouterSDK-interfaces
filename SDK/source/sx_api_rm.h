@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -30,7 +30,7 @@
  *
  *  This API is not supported in the current release.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *  This function set the lower and upper thresholds of an sdk resource.
  *
@@ -53,7 +53,7 @@ sx_status_t sx_api_rm_sdk_table_thresholds_set(const sx_api_handle_t            
  *
  * This API is not supported in the current release.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  *  This function get the lower and upper thresholds of an sdk resource.
  *
@@ -74,7 +74,7 @@ sx_status_t sx_api_rm_sdk_table_thresholds_get(const sx_api_handle_t        hand
  *
  * This API is not supported in the current release.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  *  This function set the lower and upper thresholds of an hw resource.
  *
@@ -98,7 +98,7 @@ sx_status_t sx_api_rm_hw_table_thresholds_set(const sx_api_handle_t             
  *
  *  This API is not supported in the current release.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *  This function get the lower and upper thresholds of an hw resource.
  *

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -19,6 +19,7 @@
 #define __SX_API_DBG_H__
 
 #include <sx/sdk/sx_api.h>
+#include <sx/sdk/sx_dbg.h>
 #include <sx/sdk/sx_strings.h>
 
 
@@ -28,10 +29,10 @@
 
 /**
  * This API generates debug dump of all SDK modules, SX-core and driver.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
- * @param[in] handle              - SX-API handle
- * @param[in] dump_file_path      - full path file name
+ * @param[in] handle              - SX-API handle.
+ * @param[in] dump_file_path      - Full path file name.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
@@ -41,6 +42,19 @@
 sx_status_t sx_api_dbg_generate_dump(const sx_api_handle_t handle,
                                      const char           *dump_file_path);
 
-sx_status_t sx_api_dbg_atcam_configure_test(const sx_api_handle_t  handle);
+
+/**
+ * This API should be used only for debug purposes.
+ * It is used to access internal commands for the ATcam (SPACE) module.
+ * Supported devices: Spectrum2.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] sx_dbg_atcam_cmd_info_t   - One of the supported within atcam module to execute directly
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_dbg_atcam(const sx_api_handle_t handle, sx_dbg_atcam_cmd_info_t* cmd_p);
 
 #endif /* __SX_API_DBG_H__ */

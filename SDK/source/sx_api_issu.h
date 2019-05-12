@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -42,24 +42,6 @@ sx_status_t sx_api_issu_log_verbosity_level_set(const sx_api_handle_t           
                                                 const sx_verbosity_level_t      module_verbosity_level,
                                                 const sx_verbosity_level_t      api_verbosity_level);
 
-/**
- * This API gets the log verbosity level of ISSU MODULE.
- * Supported devices: Spectrum.
- *
- * @param[in]  handle                   - SX-API handle
- * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
- * @param[out] module_verbosity_level_p - ISSU module verbosity level
- * @param[out] api_verbosity_level_p    - ISSU API verbosity level
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_ERROR for a general error
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range.
- */
-sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t           handle,
-                                                  const sx_log_verbosity_target_t verbosity_target,
-                                                  sx_verbosity_level_t           *module_verbosity_level_p,
-                                                  sx_verbosity_level_t           *api_verbosity_level_p);
 /**
  * Used for "fast-fast" boot mode to trigger the preparation for ISSU before
  * SDK shut down. This API also switches the active FW to the new one in case

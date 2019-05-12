@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -26,7 +26,7 @@
 
 /**
  * This API sets the log verbosity level of TUNNEL MODULE.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -45,7 +45,7 @@ sx_status_t sx_api_tunnel_log_verbosity_level_set(const sx_api_handle_t         
 
 /**
  * This API gets the log verbosity level of TUNNEL MODULE.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -95,7 +95,7 @@ sx_status_t sx_api_tunnel_set(const sx_api_handle_t        handle,
 
 /**
  * This API get Tunnels configuration.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] tunnel_id      - Tunnel ID
@@ -113,7 +113,7 @@ sx_status_t sx_api_tunnel_get(const sx_api_handle_t  handle,
 
 /**
  * This API get/clear tunnel counters.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - READ / READ_CLEAR
@@ -138,7 +138,7 @@ sx_status_t sx_api_tunnel_counter_get(const sx_api_handle_t handle,
  * The key provides packet matching mechanism.
  * so each key is mapped to one tunnel.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - CREATE / DESTROY / EDIT
@@ -162,7 +162,7 @@ sx_status_t sx_api_tunnel_decap_rules_set(const sx_api_handle_t               ha
 /**
  * This API is used to get decap rules from decap table.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle         - SX-API handle
  * @param[in]  decap_key_p    - Key to query.
@@ -183,7 +183,7 @@ sx_status_t sx_api_tunnel_decap_rules_get(const sx_api_handle_t              han
  * Please note that you should set correct parsing depth with
  * sx_api_port_parsing_depth_set accordingly to tunneling usage
  * scenarios.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] params_p - pointer to general params structure.
@@ -196,7 +196,7 @@ sx_status_t sx_api_tunnel_init_set(const sx_api_handle_t handle, sx_tunnel_gener
 
 /**
  * This API is used to deinit tunneling module.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  *
@@ -206,10 +206,10 @@ sx_status_t sx_api_tunnel_init_set(const sx_api_handle_t handle, sx_tunnel_gener
 sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
 
 /**
- * This API is used to manage tunnel to bridge mapping.
+ * This API is used to manage tunnel to bridge/VLAN mapping.
  *
  * When using command delete all, map_entries_p is deprecated.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] cmd                - ADD / DELETE / DELETE_ALL
@@ -220,7 +220,7 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
- * @return SX_STATUS_ENTRY_ALREADY_EXISTS if tunnel and bridge already bound.
+ * @return SX_STATUS_ENTRY_ALREADY_EXISTS if tunnel and bridge/VLAN already bound.
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
  * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if try to delete more maps than configured for the tunnel
@@ -232,26 +232,24 @@ sx_status_t sx_api_tunnel_map_set(const sx_api_handle_t         handle,
                                   const sx_tunnel_map_entry_t * map_entries_p,
                                   const uint32_t                map_entries_cnt);
 
-/**
- *  This API gets the tunnel to bridge mapping information.
+/*
+ *  This API gets the tunnel to bridge/VLAN mapping information.
  *
- *
- * The function can receive three types of input:
+ *  The function can receive three types of input:
  *
  *   - 1) cmd SX_ACCESS_CMD_GET_FIRST,
  *        get a list of first n<=1000 map entries of specified tunnel id.
- *
  *
  *   - 2) cmd SX_ACCESS_CMD_GETNEXT,
  *        get a list of n<=1000 next map entries whose value larger
  *        than the given map_entry_key of specified tunnel id.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle.
  * @param[in] cmd                   - GET_FIRST/ GET_NEXT.
  * @param[in] tunnel_id             - Tunnel ID
- * @param[in] map_entry_key        - map entry, as a key to get next entries
+ * @param[in] map_entry_key         - map entry, as a key to get next entries
  * @param[out] map_entries_p        - Array of map entries
  * @param[in,out] map_entries_cnt_p - amount of entries in map_entries_p
  *
@@ -281,7 +279,7 @@ sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
  * 3. For NVE tunnels in encap direction TTL_CMD_SET is
  * supported. Default value is 255.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] tunnel_id     - Tunnel ID
@@ -300,7 +298,7 @@ sx_status_t sx_api_tunnel_ttl_set(const sx_api_handle_t       handle,
 /**
  * This API is used to get tunnel TTL parameters.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] tunnel_id          - Tunnel ID
@@ -329,7 +327,7 @@ sx_status_t sx_api_tunnel_ttl_get(const sx_api_handle_t handle,
  * 3. NVE tunnels support setting a UDP_SPORT. Default value is
  * 0.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] tunnel_id      - Tunnel ID
@@ -348,7 +346,7 @@ sx_status_t sx_api_tunnel_hash_set(const sx_api_handle_t        handle,
 /**
  * This API is used to get tunnel hash parameters.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] tunnel_id       - Tunnel ID
@@ -391,7 +389,7 @@ sx_status_t sx_api_tunnel_hash_get(const sx_api_handle_t  handle,
  * from cos_data_p->dscp_value is used.
  * ECN mapping on encapsulation or decapsulation
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * @param[in] handle              - SX-API handle
  * @param[in] tunnel id           - Tunnel ID.
  * @param[in] cos_data_p          - Pointer to CoS data structure.
@@ -410,7 +408,7 @@ sx_status_t sx_api_tunnel_cos_set(const sx_api_handle_t       handle,
  * This API is used to retrieve CoS data.
  * The user has to fill cos_data_p->param_type to specify the
  * CoS direction they would like to get (ENCAP or DECAP).
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle               - SX-API handle
  * @param[in]  tunnel id            - Tunnel ID.
@@ -478,7 +476,7 @@ sx_status_t sx_api_tunnel_cos_get(const sx_api_handle_t handle,
  *        match any direction(ENCAP/DECAP/SYMMETRIC) of filter, otherwise, it will only match
  *        the same direction of filter.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle               - SX-API handle
  * @param [in] cmd                 - GET/GET_FIRST/GET_NEXT

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of FDB MODULE.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_fdb_log_verbosity_level_set(const sx_api_handle_t           h
 /**
  * This API gets the log verbosity level of FDB MODULE.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -69,7 +69,7 @@ sx_status_t sx_api_fdb_log_verbosity_level_get(const sx_api_handle_t           h
  *  the time after which automatically learned addresses are deleted
  *  from the FDB if they receive no traffic.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] swid       - switch ID
@@ -90,7 +90,7 @@ sx_status_t sx_api_fdb_age_time_set(const sx_api_handle_t   handle,
  *  the time after which automatically learned addresses are deleted
  *  from the FDB if they receive no traffic.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] swid         - switch ID
@@ -109,7 +109,7 @@ sx_status_t sx_api_fdb_age_time_get(const sx_api_handle_t handle,
 /**
  *  This function sets the FDB poll for MAC entries notifications.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] swid     - virtual switch partition ID
@@ -128,7 +128,7 @@ sx_status_t sx_api_fdb_poll_set(const sx_api_handle_t handle,
  *  This function sets the FDB polling interval at 0.1
  *  second granularity.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] swid        - virtual switch partition ID
@@ -148,7 +148,7 @@ sx_status_t sx_api_fdb_polling_interval_set(const sx_api_handle_t           hand
  *  This function gets the FDB polling interval in 0.1 second
  *  granularity.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] swid        - virtual switch partition ID
@@ -172,7 +172,7 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  *  If the operation is completed successfully, SUCCESS is returned, and
  *  data_cnt_p and mac_list_p are not changed.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *  When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID)
  *  in mac_list_p->fid_vid, you should provide a bridge_id.
@@ -229,7 +229,7 @@ sx_status_t sx_api_fdb_uc_mac_addr_set(const sx_api_handle_t        handle,
  *  in key_p->fid_vid and fid in key_filter_p->fid, you should provide a bridge_id.
  *  bridge_id's will be stored in mac_list_p->fid_vid
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *
  * @param[in] handle         - SX-API handle
@@ -262,7 +262,7 @@ sx_status_t sx_api_fdb_uc_mac_addr_get(const sx_api_handle_t              handle
 /**
  * This function counts all MAC entries in the SW FDB table (static and dynamic).
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] swid        - virtual switch partition id
@@ -282,7 +282,7 @@ sx_status_t sx_api_fdb_uc_count_get(const sx_api_handle_t handle,
 /**
  * This function retrieves the amount of MACs learned on a port (static and dynamic).
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] log_port     - logical port ID
@@ -305,7 +305,7 @@ sx_status_t sx_api_fdb_uc_port_count_get(const sx_api_handle_t  handle,
  *  When in 802.1D mode, instead of providing a fid (filtering ID),
  *  you should provide a bridge_id.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] swid         - virtual switch partition ID
@@ -329,7 +329,7 @@ sx_status_t sx_api_fdb_uc_fid_count_get(const sx_api_handle_t handle,
 /**
  * This function sets/removes the limit on the amount of dynamic MACs learned on a port.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] cmd        - SET/DELETE
@@ -354,7 +354,7 @@ sx_status_t sx_api_fdb_uc_limit_port_set(const sx_api_handle_t  handle,
 /**
  * This function retrieves the maximum amount of dynamic MACs that can be learned on a port.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - logical port ID
@@ -378,7 +378,7 @@ sx_status_t sx_api_fdb_uc_limit_port_get(const sx_api_handle_t  handle,
  *  When in 802.1D mode, instead of providing a fid (filtering ID),
  *  you should provide a bridge_id.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - SET/DELETE
@@ -408,7 +408,7 @@ sx_status_t sx_api_fdb_uc_limit_fid_set(const sx_api_handle_t handle,
  *  When in 802.1D mode, instead of providing a fid (filtering ID),
  *  you should provide a bridge_id.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] swid      - virtual switch partition ID
@@ -473,7 +473,7 @@ sx_status_t sx_api_fdb_uc_limit_fid_get(const sx_api_handle_t handle,
  *      When in 802.1D mode, instead of providing a vid (Vlan ID),
  *      you should provide a bridge_id.
  *
- *      Supported devices: Spectrum.
+ *      Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - add/delete/add port/delete port/test
@@ -510,7 +510,7 @@ sx_status_t sx_api_fdb_mc_mac_addr_set(const sx_api_handle_t   handle,
  *  When in 802.1D mode, instead of providing a vid (Vlan ID),
  *  you should provide a bridge_id.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] swid              - virtual switch partition ID
@@ -581,7 +581,7 @@ sx_status_t sx_api_fdb_mc_mac_addr_get(const sx_api_handle_t handle,
  *        A non-NULL key_list pointer must be provided in this case.
  *
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param [in] handle            - SX-API handle
  * @param [in] cmd               - GET/GET_FIRST/GET_NEXT
@@ -616,7 +616,7 @@ sx_status_t sx_api_fdb_mc_mac_addr_iter_get(const sx_api_handle_t         handle
  * When in 802.1D mode, instead of providing a vid (Vlan ID),
  * you should provide a bridge_id.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - add/delete
@@ -647,7 +647,7 @@ sx_status_t sx_api_fdb_mc_mac_addr_group_set(const sx_api_handle_t     handle,
  * When in 802.1D mode, instead of providing a vid (Vlan ID),
  * you should provide a bridge_id.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle             - SX-API handle
  * @param[in]  group_key          - {fid, mac} key for multicast
@@ -670,7 +670,7 @@ sx_status_t sx_api_fdb_mc_mac_addr_group_get(const sx_api_handle_t    handle,
 
 /**
  *  This function deletes all FDB table entries on a switch partition.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - virtual switch partition id
@@ -688,7 +688,7 @@ sx_status_t sx_api_fdb_uc_flush_all_set(const sx_api_handle_t handle,
  *  This function deletes the FDB table entries that are related to
  *  a flushed port.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - logical port.
@@ -709,7 +709,7 @@ sx_status_t sx_api_fdb_uc_flush_port_set(const sx_api_handle_t  handle,
  *  When in 802.1D mode, instead of providing a fid (filtering ID),
  *  you should provide a bridge_id.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - virtual switch partition ID
@@ -732,7 +732,7 @@ sx_status_t sx_api_fdb_uc_flush_fid_set(const sx_api_handle_t handle,
  *  When in 802.1D mode, instead of providing a fid (filtering ID),
  *  you should provide a bridge_id.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - logical port
@@ -751,7 +751,7 @@ sx_status_t sx_api_fdb_uc_flush_port_fid_set(const sx_api_handle_t  handle,
 /**
  *  This function deletes all FDB MC tables on a switch partition.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - virtual switch partition ID
@@ -772,7 +772,7 @@ sx_status_t sx_api_fdb_mc_flush_all_set(const sx_api_handle_t handle,
  *  When in 802.1D mode, instead of providing a fid (filtering ID),
  *  you should provide a bridge_id.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - virtual switch partition ID
@@ -833,7 +833,7 @@ sx_status_t sx_api_fdb_fid_vlan_member_set(const sx_api_handle_t handle,
  *
  *  NOTE: Only independent learning is supported in the current release.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] swid         - switch (virtual) ID (whose parameters to set)
@@ -853,7 +853,7 @@ sx_status_t sx_api_fdb_global_params_set(const sx_api_handle_t     handle,
 /**
  *  This API retrieves the SWID's learning parameters from the system's DB.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] swid            - Switch (virtual) ID (whose parameters to retrieve)
@@ -874,7 +874,7 @@ sx_status_t sx_api_fdb_global_params_get(const sx_api_handle_t handle,
  *  This function sets the FDB learning mode per SWID
  *  affecting all ports and VLANs in the SWID.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] swid         - virtual switch partition ID
@@ -895,7 +895,7 @@ sx_status_t sx_api_fdb_learn_mode_set(const sx_api_handle_t     handle,
 /**
  *  This function retrieves the FDB learning mode per SWID.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] swid          - virtual switch partition ID
@@ -916,7 +916,7 @@ sx_status_t sx_api_fdb_learn_mode_get(const sx_api_handle_t handle,
 /**
  *  This function sets FID's learn mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] swid        - switch ID
@@ -936,7 +936,7 @@ sx_status_t sx_api_fdb_fid_learn_mode_set(const sx_api_handle_t     handle,
 /**
  *  This function gets fid's learn mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] swid          - switch ID
@@ -956,7 +956,7 @@ sx_status_t sx_api_fdb_fid_learn_mode_get(const sx_api_handle_t handle,
 /**
  *  This function sets port's learn mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] log_port    - logical port number
@@ -974,7 +974,7 @@ sx_status_t sx_api_fdb_port_learn_mode_set(const sx_api_handle_t     handle,
 /**
  *  This function gets port's learn mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port number
@@ -993,7 +993,7 @@ sx_status_t sx_api_fdb_port_learn_mode_get(const sx_api_handle_t  handle,
  *  This function sets FDB notify parameters.
  *  Note: Only takes effect when controlled learn mode is set.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] swid              - virtual switch partition ID
@@ -1012,7 +1012,7 @@ sx_status_t sx_api_fdb_notify_params_set(const sx_api_handle_t         handle,
 /**
  *  This function gets FDB notify parameters.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] swid              - virtual switch partition id
@@ -1031,7 +1031,7 @@ sx_status_t sx_api_fdb_notify_params_get(const sx_api_handle_t   handle,
 /**
  * This function is used to block ports from flooding of selected FID.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD_PORTS / DELETE_PORTS / DELETE_ALL_PORTS
@@ -1062,7 +1062,7 @@ sx_status_t sx_api_fdb_flood_control_set(const sx_api_handle_t          handle,
  * ports count will be updated with the number of blocked ports.
  * passing ports_count 0 and ports_list NULL, will return the number of ports in ports_count.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] swid            - virtual switch partition id
@@ -1091,7 +1091,7 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
  * For each tunnel, you can add or remove flooding for specified
  * bridge.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd			 - ADD / DELETE / SET
@@ -1113,7 +1113,7 @@ sx_status_t sx_api_fdb_flood_set(const sx_api_handle_t      handle,
 /**
  * This API is used to get flood control settings for a tunnel.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle         - SX-API handle
  * @param[in]  swid           - virtual switch partition id
@@ -1133,7 +1133,7 @@ sx_status_t sx_api_fdb_flood_get(const sx_api_handle_t  handle,
 /**
  * This function is used to retrieve flooding counters of the switch.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ / READ_CLEAR
@@ -1155,7 +1155,7 @@ sx_status_t sx_api_fdb_flood_counter_get(const sx_api_handle_t       handle,
 /**
  * This function is used to clear flooding counters of the switch.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] swid   - virtual switch partition id
@@ -1168,7 +1168,7 @@ sx_status_t sx_api_fdb_flood_counter_clear(const sx_api_handle_t handle, const s
 /**
  *  This function sets port's fdb miss protect mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] log_port    - logical port number
@@ -1187,7 +1187,7 @@ sx_status_t sx_api_fdb_src_miss_protect_set(const sx_api_handle_t  handle,
 /**
  *  This function gets port's fdb miss protect mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port number
@@ -1205,7 +1205,7 @@ sx_status_t sx_api_fdb_src_miss_protect_get(const sx_api_handle_t  handle,
 /**
  *  This function sets port's source miss protection drop counter.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - CREATE / DESTROY
@@ -1222,7 +1222,7 @@ sx_status_t sx_api_fdb_src_miss_protect_drop_cntr_set(const sx_api_handle_t hand
 /**
  *  This function gets port's source miss protection drop counter.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - GET / GET_AND_CLEAR
@@ -1241,7 +1241,7 @@ sx_status_t sx_api_fdb_src_miss_protect_drop_cntr_get(const sx_api_handle_t hand
 /**
  * This function set the IGMP v3 state.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] cmd                       - Command: Set
@@ -1267,7 +1267,7 @@ sx_status_t sx_api_fdb_igmpv3_state_set(const sx_api_handle_t       handle,
 /**
  * This function get the IGMP v3 state.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] cmd                       - Command: Get
@@ -1294,7 +1294,7 @@ sx_status_t sx_api_fdb_igmpv3_state_get(const sx_api_handle_t  handle,
  * This function set MC IP entries.
  * using multicast container as destination.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - add/delete/delete_all
@@ -1321,7 +1321,7 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_set(const sx_api_handle_t        handle,
  * This function get MC IP entries.
  * using multicast container as destination.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] mc_fdb_mc_ip_key - Structure contained the FID/SIP/DIP of the MC group
@@ -1345,7 +1345,7 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_get(const sx_api_handle_t     handle,
 /**
  * This function set bind counter to MC IP entry.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] key_p            - Structure contained the FID/SIP/DIP of the MC group
@@ -1371,7 +1371,7 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_counter_bind_set(const sx_api_handle_t  
 /**
  * This function get bound counter to MC IP entry.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] key_p            - Structure contained the FID/SIP/DIP of the MC group
@@ -1395,7 +1395,7 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_counter_bind_get(const sx_api_handle_t  
 /**
  *  This API sets unregistered MC flood mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *  When in 802.1D mode, instead of providing a vid(Vlan ID),
  *  you should provide a bridge_id.
@@ -1418,7 +1418,7 @@ sx_status_t sx_api_fdb_unreg_mc_flood_mode_set(const sx_api_handle_t           h
 /**
  *  This API retrieves unregistered MC flood mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *  When in 802.1D mode, instead of providing a vid(Vlan ID),
  *  you should provide a bridge_id.
@@ -1441,7 +1441,7 @@ sx_status_t sx_api_fdb_unreg_mc_flood_mode_get(const sx_api_handle_t      handle
 /**
  *  This API sets unregistered MC flood ports.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *  When in 802.1D mode, instead of providing a vid(Vlan ID),
  *  you should provide a bridge_id.
@@ -1466,7 +1466,7 @@ sx_status_t sx_api_fdb_unreg_mc_flood_ports_set(const sx_api_handle_t   handle,
 /**
  *  This API retrieves unregistered MC flood ports.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  *  When in 802.1D mode, instead of providing a vid(Vlan ID),
  *  you should provide a bridge_id.

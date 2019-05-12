@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,7 +28,7 @@
 
 /**
  *  This function sets the log verbosity level of MSTP MODULE.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_mstp_log_verbosity_level_set(const sx_api_handle_t           
 
 /**
  *  This function gets the log verbosity level of MSTP MODULE.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] verbosity_target          - get verbosity of : API / MODULE / BOTH
@@ -65,7 +65,7 @@ sx_status_t sx_api_mstp_log_verbosity_level_get(const sx_api_handle_t           
 /**
  *  This function sets the switch STP activation mode (RSTP/MSTP/PVRST) on the SDK.
  *  As a result, the mapping between Instance(s) to VLAN(s) is deleted.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - switch ID.
@@ -89,7 +89,7 @@ sx_status_t sx_api_mstp_mode_set(const sx_api_handle_t handle,
 /**
  *  This function retrieves the switch STP activation state (RSTP/MSTP/PVRST)
  *  from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - switch ID
@@ -109,7 +109,7 @@ sx_status_t sx_api_mstp_mode_get(const sx_api_handle_t handle,
 
 /**
  *  This function adds/deletes an MSTP instance to/from the switch in the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] cmd     - ADD/DELETE
@@ -133,7 +133,7 @@ sx_status_t sx_api_mstp_inst_set(const sx_api_handle_t   handle,
 /**
  *  This function gets a list of MSTP instances.
  *  If cmd is GET and inst_list_p is NULL, this function will only return the count.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - GET/GET_FIRST/GET_NEXT
@@ -165,10 +165,8 @@ sx_status_t sx_api_mstp_inst_iter_get(const sx_api_handle_t        handle,
 /**
  *  This function adds/deletes a mapping between a list of VLANs to/from the
  *  MSTP instance in the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
- *  When in 802.1D mode, instead of providing a vlan_id list(list vlan_list_p),
- *  you should provide a bridge_id list.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/DELTE
@@ -198,9 +196,8 @@ sx_status_t sx_api_mstp_inst_vlan_list_set(const sx_api_handle_t   handle,
  *  This function retrieves a list of VLANs in the MSTP instance from the SDK.
  *  If the output list (array) is NULL, only the number of VLANs is retrieved.
  *
- * When in 802.1D mode, instead of receiving a vlan_id list (list vlan_list_p),
- *  you should provide a bridge_id list.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] swid           - switch ID
@@ -229,7 +226,7 @@ sx_status_t sx_api_mstp_inst_vlan_list_get(const sx_api_handle_t   handle,
  *  This function sets the MSTP port state for a given instance in the SDK.
  *
  *  In PVRST mode, instance id equals to vlan id. (In .1D mode instance id equals to bridge id)
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] swid       - switch ID
@@ -259,7 +256,7 @@ sx_status_t sx_api_mstp_inst_port_state_set(const sx_api_handle_t           hand
  *  This function retrieves the MSTP port state for a given instance from the SDK.
  *
  *  In PVRST mode, instance id equals to vlan id. (In .1D mode instance id equals to bridge id)
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] swid          - switch ID
@@ -283,7 +280,7 @@ sx_status_t sx_api_mstp_inst_port_state_get(const sx_api_handle_t      handle,
 
 /**
  *  This function sets the RSTP port state in the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] log_port   - Logical port ID
@@ -306,7 +303,7 @@ sx_status_t sx_api_rstp_port_state_set(const sx_api_handle_t           handle,
 
 /**
  *  This function retrieves the RSTP port state from the SDK.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - Logical Port ID
@@ -326,7 +323,7 @@ sx_status_t sx_api_rstp_port_state_get(const sx_api_handle_t      handle,
 
 /**
  *  This function excludes a port from STP and sets forwarding state to all it's vlans.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - Logical Port ID
@@ -346,7 +343,7 @@ sx_status_t sx_api_mstp_exclude_port_state_set(const sx_api_handle_t            
 
 /**
  *  This function retrieves exclude state for a port.
- *  Supported devices: SwitchX, SwitchX2, Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - Logical Port ID

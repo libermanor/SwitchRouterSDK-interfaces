@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -28,7 +28,7 @@
 
 /**
  * This API sets the log verbosity level of BFD MODULE.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -47,7 +47,7 @@ sx_status_t sx_api_bfd_log_verbosity_level_set(const sx_api_handle_t           h
 
 /**
  * This API gets the log verbosity level of BFD MODULE.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -65,7 +65,7 @@ sx_status_t sx_api_bfd_log_verbosity_level_get(const sx_api_handle_t           h
 
 /**
  * This API is used to initialize BFD module.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] params_p - pointer to init params structure.
@@ -74,12 +74,12 @@ sx_status_t sx_api_bfd_log_verbosity_level_get(const sx_api_handle_t           h
  * @return SX_STATUS_NO_RESOURCES if cannot allocate resources.
  * @return SX_STATUS_ERROR general error
  */
-sx_status_t sx_api_bfd_init_set(const sx_api_handle_t  handle,
-                                 sx_bfd_init_params_t *params_p);
+sx_status_t sx_api_bfd_init_set(const sx_api_handle_t handle,
+                                sx_bfd_init_params_t *params_p);
 
 /**
  * This API is used to deinit BFD module.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle   - SX-API handle
  *
@@ -90,7 +90,7 @@ sx_status_t sx_api_bfd_deinit_set(const sx_api_handle_t handle);
 
 /**
  * This API is used to create/edit/destroy BFD offload for a session.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] cmd                      - command : CREATE / EDIT / DESTROY
@@ -101,15 +101,15 @@ sx_status_t sx_api_bfd_deinit_set(const sx_api_handle_t handle);
  * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
  *         SX_STATUS_ERROR general error
  */
-sx_status_t sx_api_bfd_offload_set(const sx_api_handle_t           handle,
-                                   const sx_access_cmd_t           cmd,
-                                   const sx_bfd_session_params_t  *session_params,
-                                   sx_bfd_session_id_t            *session_id);
+sx_status_t sx_api_bfd_offload_set(const sx_api_handle_t          handle,
+                                   const sx_access_cmd_t          cmd,
+                                   const sx_bfd_session_params_t *session_params,
+                                   sx_bfd_session_id_t           *session_id);
 
 
 /**
  *  This function retrieves a list of BFD session IDs.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd    GET/GET_NEXT/GET_FIRST.
@@ -171,25 +171,24 @@ sx_status_t sx_api_bfd_session_iter_get(const sx_api_handle_t       handle,
 
 /**
  * This API is used to read/clear BFD offload statistics for a session.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] cmd                      - command : READ / READ_CLEAR
  * @param[in] session_type             - command : SX_BFD_ASYNC_ACTIVE_RX / SX_BFD_ASYNC_ACTIVE_TX
  * @param[in] session_id               - BFD session ID
  * @param[out] session_stats           - statistics for the session
- *       Applicaple only for READ/READ_CLEAR commands.
+ *       Applicable only for READ/READ_CLEAR commands.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
  *         SX_STATUS_ERROR general error
  */
-sx_status_t sx_api_bfd_offload_get_stats(const sx_api_handle_t             handle,
-                                         const sx_access_cmd_t             cmd,
-                                         const sx_bfd_session_type_t       session_type,
-                                         sx_bfd_session_id_t              *session_id,
-                                         sx_bfd_offload_stats_t           *session_stats);
-
+sx_status_t sx_api_bfd_offload_get_stats(const sx_api_handle_t       handle,
+                                         const sx_access_cmd_t       cmd,
+                                         const sx_bfd_session_type_t session_type,
+                                         sx_bfd_session_id_t        *session_id,
+                                         sx_bfd_offload_stats_t     *session_stats);
 
 
 #endif /* ifndef __SX_API_BFD_H__ */

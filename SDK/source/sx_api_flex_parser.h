@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2018. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2019. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -27,7 +27,7 @@
  ***********************************************/
 /**
  * This API sets the log verbosity level of FLEX_PARSER MODULE.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_flex_parser_log_verbosity_level_set(const sx_api_handle_t    
 
 /**
  * This API gets the log verbosity level of FLEX_PARSER MODULE.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -68,7 +68,7 @@ sx_status_t sx_api_flex_parser_log_verbosity_level_get(const sx_api_handle_t    
 
 /**
  * Initialize the flex parser API.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * Parameters:
  * @param[in]    handle     - SX-API handle
  * @param[in]    params     - Configuration parameters for the initial state of the flex parser
@@ -88,7 +88,7 @@ sx_status_t sx_api_flex_parser_init_set(const sx_api_handle_t         handle,
 
 /**
  * De-initialize the flex parser API
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * Parameters:
  * @param[in]    handle     - SX-API handle
  *
@@ -107,7 +107,7 @@ sx_status_t sx_api_flex_parser_deinit_set(const sx_api_handle_t handle);
  * Depending on the "To" (next protocol field) definition, the actual size of the value
  * used may be less than 32 bits.
  * Note that some combinations may be unsupported and will return SX_STATUS_UNSUPPORTED
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2.
  * Spectrum supports only Fixed header type.
  * Spectrum supports only transition from UDP to VxLAN with outer encapsulation level
  * Parameters:
@@ -135,7 +135,7 @@ sx_status_t sx_api_flex_parser_transition_set(const sx_api_handle_t             
  * Get the configuration of a transition from a given node in the parse graph.
  * Caller can start at the root and iterate over the results to traverse
  * the entire parse graph.
- * Supported devices: Spectrum
+ * Supported devices: Spectrum, Spectrum2.
  * Spectrum supports only UDP as current header.
  * Parameters:
  * @param [in]  handle     - SX-API handle
