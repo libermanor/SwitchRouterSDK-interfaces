@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.1638</span>
+   &#160;<span id="projectnumber">4.3.2104</span>
    </div>
   </td>
  </tr>
@@ -139,7 +139,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Send a unicast control packet through a specific logical port. Routing and QOS from TX header. Supported devices: Spectrum, Spectrum2.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000046">Deprecated:</a></b></dt><dd>Prio parameter is deprecated and will be removed in the future.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000047">Deprecated:</a></b></dt><dd>Prio parameter is deprecated and will be removed in the future.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">fd</td><td>- File descriptor to send from. </td></tr>
@@ -211,7 +211,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Send a unicast and multicast data packet. Packet forwarding is done according to the HW tables. Supported devices: Spectrum, Spectrum2.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000047">Deprecated:</a></b></dt><dd>Prio parameter is deprecated and will be removed in the future.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000048">Deprecated:</a></b></dt><dd>Prio parameter is deprecated and will be removed in the future.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">fd</td><td>- File descriptor to send from. </td></tr>
@@ -420,7 +420,7 @@ SX_STATUS_NO_MEMORY insufficient packet size, needed size filled in packet_size 
       </table>
 </div><div class="memdoc">
 <p>This API enables the user to receive Traps or Events list. Trap RX : relevant returned information is packet_p and packet_size_p fields of packet_info_list_p. Event RX : relevant returned information is event info.</p>
-<p>Receive info struct is relevant for both traps &amp; events and it contains the logical port in a case the event is port related event , and the ingress port in case of a trap. Read operation is blocking. Supported devices: Spectrum, Spectrum2.</p>
+<p>Receive info struct is relevant for both traps &amp; events and it contains the logical port in a case the event is port related event , and the ingress port in case of a trap. Read operation is blocking. This API internally uses a static memory buffer (around 10MB) to temporarily store and parse the packets, and a lock is used internally to protect the static buffer in case the API is called from multiple threads. Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">fd</td><td>- File descriptor to listen on. </td></tr>
@@ -447,7 +447,7 @@ SX_STATUS_NO_MEMORY insufficient packet size, needed size filled in packet_size 
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 13 2019 00:42:05 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 9 2019 21:54:23 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

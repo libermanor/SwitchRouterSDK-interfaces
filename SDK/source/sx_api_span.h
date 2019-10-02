@@ -567,10 +567,10 @@ sx_status_t sx_api_span_drop_mirror_get(const sx_api_handle_t          handle,
                                         uint32_t                      *drop_reason_cnt_p);
 
 /**
- *  This function bind the mirror binding point to span session
+ *  This function binds the mirror binding point to span session
  *  with sampling rate.
  *
- *  Supported devices: Spectrum-1, Spectrum-2.
+ *  Supported devices: Spectrum, Spectrum.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] cmd      - bind/unbind
@@ -592,9 +592,9 @@ sx_status_t sx_api_span_mirror_bind_set(const sx_api_handle_t             handle
                                         const sx_span_mirror_bind_attr_t *attr_p);
 
 /**
- *  This function get the mirror binding attribute
+ *  This function gets the mirror binding attribute
  *
- *  Supported devices: Spectrum-1, Spectrum-2.
+ *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] key_p     - bind key
@@ -611,5 +611,117 @@ sx_status_t sx_api_span_mirror_bind_set(const sx_api_handle_t             handle
 sx_status_t sx_api_span_mirror_bind_get(const sx_api_handle_t            handle,
                                         const sx_span_mirror_bind_key_t *key_p,
                                         sx_span_mirror_bind_attr_t      *attr_p);
+
+/**
+ *  This function gets the mirror type bound to the SPAN
+ *  session.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle                    - SX-API handle.
+ * @param[in] span_session_id           - SPAN session ID
+ * @param[out] mirror_bind_key_list_p   - array of mirror bind keys
+ * @param[in,out] mirror_bind_key_cnt_p - num of mirror bind keys
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if any input parameter is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ *
+ */
+sx_status_t sx_api_span_session_mirror_bound_get(const sx_api_handle_t      handle,
+                                                 const sx_span_session_id_t span_session_id,
+                                                 sx_span_mirror_bind_key_t *mirror_bind_key_list_p,
+                                                 uint32_t                  *mirror_bind_key_cnt_p);
+
+/**
+ *  This function enables mirroring on mirror object which is
+ *  port TC or port PG or port on different mirror enable type
+ *
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] cmd      - set/delete
+ * @param[in] object_p - mirror enable object
+ * @param[in] attr_p   - mirror enable attribute
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_mirror_enable_set(const sx_api_handle_t                 handle,
+                                          const sx_access_cmd_t                 cmd,
+                                          const sx_span_mirror_enable_object_t *object_p,
+                                          const sx_span_mirror_enable_attr_t   *attr_p);
+
+/**
+ *  This function get the enable attribute for mirror object
+ *
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in]  handle     - SX-API handle
+ * @param[in]  object_p   - mirror enable object
+ * @param[out] attr_p     - mirror enable attribute
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_ENTRY_NOT_FOUND if input object is not found
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if any input parameter is NULL
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_mirror_enable_get(const sx_api_handle_t                 handle,
+                                          const sx_span_mirror_enable_object_t *object_p,
+                                          sx_span_mirror_enable_attr_t         *attr_p);
+
+/**
+ *  This function iteratively returns the objects per object type.
+ *  Supported devices: Spectrum2.
+ *
+ * @param[in] handle               - SX-API handle.
+ * @param[in] cmd                  - supported commands:GET/GET_FIRST/GETNEXT
+ * @param[in] object_key_p         - A reference mirror enable object key
+ * @param[in] filter_p             - Return only enabled object that match this filter param if valid
+ * @param[out] object_list_p       - return list of objects
+ * @param[in,out] object_cnt_p     - [in]  number of objects to get
+ *                                   [out] number of objects retrieved
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if any input parameter is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized
+ */
+sx_status_t sx_api_span_mirror_enable_iter_get(const sx_api_handle_t                handle,
+                                               const sx_access_cmd_t                cmd,
+                                               sx_span_mirror_enable_object_t      *object_key_p,
+                                               sx_span_mirror_enable_iter_filter_t *filter_p,
+                                               sx_span_mirror_enable_object_t      *object_list_p,
+                                               uint32_t                            *object_cnt_p);
+
+/**
+ * Set current UTC time in the device that is used to update timestamp in SPAN headers.
+ * Note - This API should not be used when PTP protocol is active and running.
+ * Note - UTC is also used for updating time stamp for ingress/egress packets to/from CPU.
+ *
+ * Supported devices: Spectrum, Spectrum2.
+ *
+ * Parameters:
+ *     [in]    handle      - SX-API handle
+ *     [in]    cmd         - SX_ACCESS_CMD_SET
+ *     [in]    span_ts     - current UTC time configuration.
+ *
+ * Returns:
+ *     SX_STATUS_SUCCESS if operation completes successfully
+ *     SX_STATUS_PARAM_ERROR if input parameter is invalid
+ *     SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_span_header_time_stamp_set(const sx_api_handle_t   handle,
+                                              const sx_access_cmd_t   cmd,
+                                              sx_span_hdr_ts_config_t span_ts);
 
 #endif /* __SX_API_SPAN_H__ */

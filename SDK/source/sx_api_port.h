@@ -1996,4 +1996,26 @@ sx_status_t sx_api_port_phy_module_capability_get(const sx_api_handle_t         
                                                   sx_port_phy_module_type_bitmask_t *admin_types_p,
                                                   sx_port_phy_module_type_bitmask_t *capab_types_p);
 
+/**
+ *  This API gets port physical information. It returns the port's current operational state and
+ *  how many times the operational state has changed. It also returns the possible reasons if
+ *  the port is down. If the command is SX_ACCESS_CMD_READ_CLEAR, it will clear the port state change
+ *  count after reading it, and it won't clear the port down reason.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in]  handle     - SX-API handle
+ * @param[in]  cmd        - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
+ * @param[in]  log_port   - logical port ID
+ * @param[out] phy_stat_p - port physical information
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_phy_info_get(const sx_api_handle_t  handle,
+                                     const sx_access_cmd_t  cmd,
+                                     const sx_port_log_id_t log_port,
+                                     sx_port_phy_stat_t    *phy_stat_p);
+
 #endif /* __SX_API_PORT_H__ */

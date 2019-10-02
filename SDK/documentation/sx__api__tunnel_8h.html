@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.1638</span>
+   &#160;<span id="projectnumber">4.3.2104</span>
    </div>
   </td>
  </tr>
@@ -268,6 +268,16 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to create/edit/destroy tunnels.</p>
 <p>When destroying a tunnel, tunnel_attr_p is ignored. By default tunnel is created with TTL 255. On Spectrum2 SDK user may configure from which port (ingress or egress) he want to get packet ethertype. By default packet ethertype will be taken from ingress port. To change default logic SDK user should create VxLAN tunnel with ethertype SX_ETHERTYPE_FROM_EGRESS_PORT.</p>
+<p>VxLAN tunnels support the lazy delete feature. If the LAZY_DELETE is OFF and the reference counter of a tunnel is 0, the API call with command DELETE deletes a tunnel, otherwise SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
+<p>If the LAZY_DELETE is ON and the reference counter of a tunnel is not 0, the API call with command DELETE marks a tunnel as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and will generate a notification with the trap id SX_TRAP_ID_OBJECT_DELETED_EVENT and a tunnel id of a tunnel that was deleted.</p>
+<p>The list of objects that increase a reference counter of a NVE tunnel:</p><ol type="1">
+<li>each tunnel map entry;</li>
+<li>each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN;</li>
+<li>each ECMP next hop of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP;</li>
+<li>each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP;</li>
+<li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP;</li>
+<li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP;</li>
+</ol>
 <p>Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -638,7 +648,18 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to manage tunnel to bridge/VLAN mapping.</p>
-<p>When using command delete all, map_entries_p is deprecated. Supported devices: Spectrum, Spectrum2.</p>
+<p>When using command delete all, map_entries_p is deprecated.</p>
+<p>VxLAN tunnel mappings support the lazy delete feature. If the LAZY_DELETE is OFF and the reference counter of a tunnel mapping is 0, the API call with command DELETE deletes a tunnel mapping, otherwise SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
+<p>If the LAZY_DELETE is ON and the reference counter of a tunnel mapping is not 0, the API call with command DELETE marks a tunnel mapping as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel mapping becomes 0, SDK will delete the tunnel mapping and will generate a notification with the trap id SX_TRAP_ID_OBJECT_DELETED_EVENT and a copy of tunnel mapping that was deleted. If the user tries to re-create a tunnel map entry before getting a notification, SDK returns the error SX_STATUS_RESOURCE_IN_USE.</p>
+<p>The list of objects that increase a reference counter of a tunnel map entry:</p><ol type="1">
+<li>a static tunnel UC FDB entry;</li>
+<li>a MC FDB entry (if MC container has a tunnel next hop);</li>
+<li>each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set;</li>
+<li>a flow counter that is bound to tunnel mapping with sx_api_bridge_tunnel_counter_bind_set;</li>
+<li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop);</li>
+</ol>
+<p>The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.</p>
+<p>Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -662,6 +683,8 @@ SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if try to delete more maps than configured for the tunnel </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if the user tries to re-create a tunnel map entry that is marked as deleted </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -716,6 +739,37 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This API gets the tunnel to bridge/VLAN mapping information.</p>
+<p>The function can receive three types of input:</p>
+<ul>
+<li>1) cmd SX_ACCESS_CMD_GET_FIRST, get a list of first n&lt;=1000 map entries of specified tunnel id.</li>
+<li>2) cmd SX_ACCESS_CMD_GETNEXT, get a list of n&lt;=1000 next map entries whose value larger than the given map_entry_key of specified tunnel id.</li>
+</ul>
+<p>Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_FIRST/ GET_NEXT. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map_entry_key</td><td>- map entry, as a key to get next entries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">map_entries_p</td><td>- Array of map entries </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">map_entries_cnt_p</td><td>- amount of entries in map_entries_p</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added. </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
@@ -1147,7 +1201,7 @@ SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 13 2019 00:42:05 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 9 2019 21:54:23 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

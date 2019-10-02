@@ -264,6 +264,8 @@ sx_status_t sx_api_host_ifc_trap_group_iter_get(const sx_api_handle_t         ha
 
 
 /**
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place.
+ *
  * Configure traps / event properties for each device in the system:
  *       Map Trap ID / Event ID to Priority group.
  *       Configure trap action (for traps only).

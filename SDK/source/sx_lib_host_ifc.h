@@ -152,6 +152,9 @@ sx_status_t sx_lib_host_ifc_recv(const sx_fd_t     *fd,
  *       it contains the logical port in a case the event is port related
  *       event , and the ingress port in case of a trap.
  *       Read operation is blocking.
+ * This API internally uses a static memory buffer (around 10MB) to temporarily
+ * store and parse the packets, and a lock is used internally to protect the static
+ * buffer in case the API is called from multiple threads.
  * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in]     fd                      - File descriptor to listen on.

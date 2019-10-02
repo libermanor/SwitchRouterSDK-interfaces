@@ -181,12 +181,8 @@ sx_status_t sx_api_transaction_mode_set(const sx_api_handle_t handle,
 
 /**
  * This API is used to get the reference count of an SDK object.
- * On SwitchX and SwitchX2, for RIF and VRID objects, the reference count
- * returned will actually be a Boolean value that determines whether or not the
- * object is referenced.
- * The ECMP objects are not supported on SwitchX, SwitchX2.
  *
- *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum-A1, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum-A1, Spectrum2.
  *
  * @param[in] handle - SX-API handle
  * @param[in] object_id_p - Object ID

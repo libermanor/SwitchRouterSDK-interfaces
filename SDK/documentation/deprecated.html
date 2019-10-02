@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.1638</span>
+   &#160;<span id="projectnumber">4.3.2104</span>
    </div>
   </td>
  </tr>
@@ -149,8 +149,10 @@ $(function() {
 <dd><a class="anchor" id="_deprecated000034"></a>This API is deprecated and will be removed in the future </dd>
 <dt>Global <a class="el" href="sx__api__fcf_8h.html#af85a14630477c81108d6cc6972d20c58">sx_api_fcf_v_port_interface_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fcf_id_t fcf, const sx_fcf_v_port_attributes_t *v_port_attr, sx_fcf_v_port_handle_t *v_port_handle)</dt>
 <dd><a class="anchor" id="_deprecated000031"></a>This API is deprecated and will be removed in the future </dd>
+<dt>Global <a class="el" href="sx__api__host__ifc_8h.html#a3b99edc2800fa0eb9f5da2084f34673f">sx_api_host_ifc_trap_id_set</a>  (const sx_api_handle_t handle, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_trap_group_t trap_group, const sx_trap_action_t trap_action)</dt>
+<dd><a class="anchor" id="_deprecated000042"></a>This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place. </dd>
 <dt>Global <a class="el" href="sx__api__router_8h.html#ab4c18223f082f72efeb16ef6ab4545c6">sx_api_router_counter_get</a>  (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_counter_id_t counter, sx_router_counter_set_t *counter_set_p)</dt>
-<dd><p class="startdd"><a class="anchor" id="_deprecated000044"></a>in counter_set_p, router_ingress_bad_unicast_packets is deprecated and will be removed in the future. </p>
+<dd><p class="startdd"><a class="anchor" id="_deprecated000045"></a>in counter_set_p, router_ingress_bad_unicast_packets is deprecated and will be removed in the future. </p>
 <p class="interdd">in counter_set_p, router_ingress_bad_multicast_packets is deprecated and will be removed in the future. </p>
 <p class="interdd">in counter_set_p, router_ingress_bad_unicast_bytes is deprecated and will be removed in the future. </p>
 <p class="interdd">in counter_set_p, router_ingress_bad_multicast_bytes is deprecated and will be removed in the future. </p>
@@ -164,24 +166,24 @@ $(function() {
 <p class="enddd">in counter_set_p, router_egress_error_bytes is deprecated and will be removed in the future. </p>
 </dd>
 <dt>Global <a class="el" href="sx__api__router_8h.html#a1ef69aecaf04fa448db5bca24195b338">sx_api_router_init_set</a>  (const sx_api_handle_t handle, const sx_router_general_param_t *general_params_p, const sx_router_resources_param_t *router_resource_p)</dt>
-<dd><p class="startdd"><a class="anchor" id="_deprecated000042"></a>In router_resource_p, max_vlan_router_interfaces is deprecated and will be removed in the future. </p>
+<dd><p class="startdd"><a class="anchor" id="_deprecated000043"></a>In router_resource_p, max_vlan_router_interfaces is deprecated and will be removed in the future. </p>
 <p class="enddd">In router_resource_p, max_port_router_interfaces is deprecated and will be removed in the future. </p>
 </dd>
 <dt>Global <a class="el" href="sx__api__router_8h.html#a88d28b1cf1ea8606acaecf5c01c31051">sx_api_router_mc_route_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_mc_route_attributes_t *mc_route_attr_p, const sx_mc_route_data_t *mc_route_data_p)</dt>
-<dd><a class="anchor" id="_deprecated000045"></a>In mc_router_attr_p, assert_en is deprecated and will be removed. </dd>
+<dd><a class="anchor" id="_deprecated000046"></a>In mc_router_attr_p, assert_en is deprecated and will be removed. </dd>
 <dt>Global <a class="el" href="sx__api__router_8h.html#a717aefbc20f4378e82b1114943384025">sx_api_router_neigh_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_interface_t rif, const sx_ip_addr_t *ip_addr_p, const sx_neigh_data_t *neigh_data_p)</dt>
-<dd><a class="anchor" id="_deprecated000043"></a>In neigh_data_p, rif is deprecated and will be removed in the future. </dd>
+<dd><a class="anchor" id="_deprecated000044"></a>In neigh_data_p, rif is deprecated and will be removed in the future. </dd>
 <dt>Global <a class="el" href="sx__lib__host__ifc_8h.html#aa4fd868ed92156135920bd17e15ec5e9">sx_lib_host_ifc_data_send</a>  (const sx_fd_t *fd, const void *packet, const uint32_t packet_size, const sx_swid_t swid, const sx_cos_priority_t prio)</dt>
-<dd><a class="anchor" id="_deprecated000047"></a>Prio parameter is deprecated and will be removed in the future. </dd>
+<dd><a class="anchor" id="_deprecated000048"></a>Prio parameter is deprecated and will be removed in the future. </dd>
 <dt>Global <a class="el" href="sx__lib__host__ifc_8h.html#a72ea2187c02ff5ce97cb8699c1e5c4ec">sx_lib_host_ifc_unicast_ctrl_send</a>  (const sx_fd_t *fd_p, const void *packet_p, const uint32_t packet_size, const sx_swid_t swid, const sx_port_log_id_t egress_log_port, const sx_cos_priority_t prio)</dt>
-<dd><a class="anchor" id="_deprecated000046"></a>Prio parameter is deprecated and will be removed in the future.</dd>
+<dd><a class="anchor" id="_deprecated000047"></a>Prio parameter is deprecated and will be removed in the future.</dd>
 </dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 13 2019 00:42:05 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 9 2019 21:54:23 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

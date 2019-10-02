@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.1638</span>
+   &#160;<span id="projectnumber">4.3.2104</span>
    </div>
   </td>
  </tr>
@@ -91,12 +91,24 @@ Functions</h2></td></tr>
 <tr class="separator:a21db595169c45f866832b88844cb9f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefb22b1a6ad356f324550aea2c94d93b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aefb22b1a6ad356f324550aea2c94d93b">sx_api_acl_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t acl_id_key, const sx_acl_filter_t *acl_filter_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)</td></tr>
 <tr class="separator:aefb22b1a6ad356f324550aea2c94d93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4067494175b80b6cc7ea878fa47b4857"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a4067494175b80b6cc7ea878fa47b4857">sx_api_acl_attributes_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t acl_id, const sx_acl_attributes_t acl_attributes)</td></tr>
+<tr class="separator:a4067494175b80b6cc7ea878fa47b4857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21919706a7abb3c770bd32182fad035"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab21919706a7abb3c770bd32182fad035">sx_api_acl_attributes_get</a> (const sx_api_handle_t handle, const sx_acl_id_t acl_id, const sx_acl_attributes_t *acl_attributes_p)</td></tr>
+<tr class="separator:ab21919706a7abb3c770bd32182fad035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2813aef5ed638a95b7aec567f96f65"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a2a2813aef5ed638a95b7aec567f96f65">sx_api_acl_global_attributes_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_global_attributes_t global_acl_attributes)</td></tr>
+<tr class="separator:a2a2813aef5ed638a95b7aec567f96f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2379f80cae370b31fc6a90be86c7ee2"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ac2379f80cae370b31fc6a90be86c7ee2">sx_api_acl_global_attributes_get</a> (const sx_api_handle_t handle, const sx_acl_global_attributes_t *global_acl_attributes_p)</td></tr>
+<tr class="separator:ac2379f80cae370b31fc6a90be86c7ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc922fb9cf64214d703db802ca91bf32"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#acc922fb9cf64214d703db802ca91bf32">sx_api_acl_group_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_direction_t acl_direction, const sx_acl_id_t *acl_id_list_p, const uint32_t acl_id_cnt, sx_acl_id_t *group_id_p)</td></tr>
 <tr class="separator:acc922fb9cf64214d703db802ca91bf32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7ecf2ea6914f57c8b24fc288b6aec40"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab7ecf2ea6914f57c8b24fc288b6aec40">sx_api_acl_group_get</a> (const sx_api_handle_t handle, const sx_acl_id_t group_id, sx_acl_direction_t *acl_direction_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)</td></tr>
 <tr class="separator:ab7ecf2ea6914f57c8b24fc288b6aec40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae82c545a8e0bb101aa5c8aa398c109b3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ae82c545a8e0bb101aa5c8aa398c109b3">sx_api_acl_group_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t group_id_key, const sx_acl_filter_t *acl_filter_p, sx_acl_id_t *acl_id_list_p, uint32_t *acl_id_cnt_p)</td></tr>
 <tr class="separator:ae82c545a8e0bb101aa5c8aa398c109b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9bc8fab1341d5a0ac492fae0e918af"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a9f9bc8fab1341d5a0ac492fae0e918af">sx_api_acl_group_attributes_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_id_t acl_group_id, const sx_acl_group_attributes_t *acl_group_attr_p)</td></tr>
+<tr class="separator:a9f9bc8fab1341d5a0ac492fae0e918af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39aa648b81eb847a72fa90b9d30acf02"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a39aa648b81eb847a72fa90b9d30acf02">sx_api_acl_group_attributes_get</a> (const sx_api_handle_t handle, const sx_acl_id_t group_id, const sx_acl_group_attributes_t *acl_group_attr_p)</td></tr>
+<tr class="separator:a39aa648b81eb847a72fa90b9d30acf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7f1841f9e865b353f5dc6742212b4a0"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#af7f1841f9e865b353f5dc6742212b4a0">sx_api_acl_policy_based_switching_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_entry_t *pbs_entry_p, sx_acl_pbs_id_t *pbs_id_p)</td></tr>
 <tr class="separator:af7f1841f9e865b353f5dc6742212b4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d3627a7131f363300617de31f7edc3b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1d3627a7131f363300617de31f7edc3b">sx_api_acl_policy_based_switching_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_id_t pbs_id, sx_acl_pbs_entry_t *pbs_entry_p)</td></tr>
@@ -123,6 +135,8 @@ Functions</h2></td></tr>
 <tr class="separator:a92286cc3f4baf42e3f97ad25c380ffb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9543188e428bed340f419ed050a47277"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a9543188e428bed340f419ed050a47277">sx_api_acl_port_bind_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p)</td></tr>
 <tr class="separator:a9543188e428bed340f419ed050a47277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e4fd8599f3ba687cad34feb6b27d18"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a45e4fd8599f3ba687cad34feb6b27d18">sx_api_acl_port_bindings_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p, uint32_t *acl_cnt_p)</td></tr>
+<tr class="separator:a45e4fd8599f3ba687cad34feb6b27d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cfe4cc96f0de7b65e2a46603fc1b78a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a6cfe4cc96f0de7b65e2a46603fc1b78a">sx_api_acl_vlan_group_map_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_id_t swid, const sx_vlan_id_t *vlan_list_p, const uint32_t vlan_cnt, sx_acl_vlan_group_t *group_id_p)</td></tr>
 <tr class="separator:a6cfe4cc96f0de7b65e2a46603fc1b78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2943e03e105609c89d70865940ddf9c4"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a2943e03e105609c89d70865940ddf9c4">sx_api_acl_vlan_group_map_get</a> (const sx_api_handle_t handle, const sx_swid_id_t swid, const sx_acl_vlan_group_t group_id, sx_vlan_id_t *vlan_list_p, uint32_t *vlan_cnt_p)</td></tr>
@@ -131,6 +145,8 @@ Functions</h2></td></tr>
 <tr class="separator:a3f5727bed5f37c11a2691483d3f368c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab91d548d2e1386edee4e5e4fd6c0813a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ab91d548d2e1386edee4e5e4fd6c0813a">sx_api_acl_vlan_group_bind_get</a> (const sx_api_handle_t handle, const sx_acl_vlan_group_t vlan_group, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p)</td></tr>
 <tr class="separator:ab91d548d2e1386edee4e5e4fd6c0813a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054337bbc5264f55e6d21c126db7a053"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a054337bbc5264f55e6d21c126db7a053">sx_api_acl_vlan_group_bindings_get</a> (const sx_api_handle_t handle, const sx_acl_vlan_group_t vlan_group, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p, uint32_t *acl_cnt_p)</td></tr>
+<tr class="separator:a054337bbc5264f55e6d21c126db7a053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaba4b8d2a4b0e13541c5d2dc33caead5"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aaba4b8d2a4b0e13541c5d2dc33caead5">sx_api_acl_flex_key_attr_get</a> (const sx_api_handle_t handle, const sx_acl_key_type_t key_handle, sx_acl_flex_key_attr_t *key_attr_p)</td></tr>
 <tr class="separator:aaba4b8d2a4b0e13541c5d2dc33caead5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77d6ceeb4c13e21075e9e25eb631976b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a77d6ceeb4c13e21075e9e25eb631976b">sx_api_acl_flex_key_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_key_t *key_list_p, const uint32_t key_count, sx_acl_key_type_t *key_handle_p)</td></tr>
@@ -145,6 +161,8 @@ Functions</h2></td></tr>
 <tr class="separator:a5affcc85683c3ceca56d5b2bfdc81a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82890bcca35387bcad58a4cc8be18c4d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a82890bcca35387bcad58a4cc8be18c4d">sx_api_acl_rif_bind_get</a> (const sx_api_handle_t handle, const sx_rif_id_t rif_id, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p)</td></tr>
 <tr class="separator:a82890bcca35387bcad58a4cc8be18c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af80f84cc17dc40e4eab5181a2af25403"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#af80f84cc17dc40e4eab5181a2af25403">sx_api_acl_rif_bindings_get</a> (const sx_api_handle_t handle, const sx_rif_id_t rif_id, const sx_acl_direction_t acl_direction, sx_acl_id_t *acl_id_p, uint32_t *acl_cnt_p)</td></tr>
+<tr class="separator:af80f84cc17dc40e4eab5181a2af25403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d75e017d9af517108026cd99b68ece9"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a8d75e017d9af517108026cd99b68ece9">sx_api_acl_group_bind_set</a> (sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_acl_id_t group_id, sx_acl_id_t next_group_id)</td></tr>
 <tr class="separator:a8d75e017d9af517108026cd99b68ece9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece9f1a820e5fe724e91b5ae46eac747"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aece9f1a820e5fe724e91b5ae46eac747">sx_api_acl_group_bind_get</a> (sx_api_handle_t handle, sx_acl_id_t group_id, sx_acl_id_t *group_id_p)</td></tr>
@@ -625,6 +643,194 @@ SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
+<a id="a4067494175b80b6cc7ea878fa47b4857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4067494175b80b6cc7ea878fa47b4857">&#9670;&nbsp;</a></span>sx_api_acl_attributes_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_attributes_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>acl_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_attributes_t&#160;</td>
+          <td class="paramname"><em>acl_attributes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to set or change the attributes of an ACL. Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_id</td><td>- ACL ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_attributes</td><td>- ACL attributes .</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
+
+</div>
+</div>
+<a id="ab21919706a7abb3c770bd32182fad035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab21919706a7abb3c770bd32182fad035">&#9670;&nbsp;</a></span>sx_api_acl_attributes_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_attributes_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>acl_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_attributes_t *&#160;</td>
+          <td class="paramname"><em>acl_attributes_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to retrieve the attributes of a given ACL. Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_id</td><td>- ACL ID </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_attributes_p</td><td>- return ACL attributes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_NULL if any input parameter is invalid </dd></dl>
+
+</div>
+</div>
+<a id="a2a2813aef5ed638a95b7aec567f96f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2813aef5ed638a95b7aec567f96f65">&#9670;&nbsp;</a></span>sx_api_acl_global_attributes_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_global_attributes_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_global_attributes_t&#160;</td>
+          <td class="paramname"><em>global_acl_attributes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to set certain global attributes of the ACL Module. Enabling certain functionality may require enabling both the global and individual attributes. Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">global_acl_attributes</td><td>- Global ACL attributes .</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
+
+</div>
+</div>
+<a id="ac2379f80cae370b31fc6a90be86c7ee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2379f80cae370b31fc6a90be86c7ee2">&#9670;&nbsp;</a></span>sx_api_acl_global_attributes_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_global_attributes_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_global_attributes_t *&#160;</td>
+          <td class="paramname"><em>global_acl_attributes_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to retrieve the global attributes of the ACL Module. Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">global_acl_attributes_p</td><td>- return global ACL attributes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_NULL if any input parameter is invalid </dd></dl>
+
+</div>
+</div>
 <a id="acc922fb9cf64214d703db802ca91bf32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc922fb9cf64214d703db802ca91bf32">&#9670;&nbsp;</a></span>sx_api_acl_group_set()</h2>
 
@@ -837,6 +1043,114 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 SX_STATUS_INVALID_HANDLE if handle in invalid </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
+<a id="a9f9bc8fab1341d5a0ac492fae0e918af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f9bc8fab1341d5a0ac492fae0e918af">&#9670;&nbsp;</a></span>sx_api_acl_group_attributes_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_group_attributes_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>acl_group_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_group_attributes_t *&#160;</td>
+          <td class="paramname"><em>acl_group_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to set the attributes of an ACL Group.</p>
+<p>Priority attribute limitations: Priority values range is FLEX_ACL_GROUP_PRIORITY_MIN..FLEX_ACL_GROUP_PRIORITY_MAX. After the ACL group is created by sx_api_acl_group_set API, it is possible to set a priority to the ACL group. The default group priority is FLEX_ACL_GROUP_PRIORITY_DEFAULT. When binding multiple ACL groups to a port, the groups will be ordered according to their priority. Setting priority to a group that is already bound does not take effect on previously bound groups.</p>
+<p>Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_group_id</td><td>- ACL Group ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_group_attr_p</td><td>- ACL group attributes pointer.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a39aa648b81eb847a72fa90b9d30acf02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39aa648b81eb847a72fa90b9d30acf02">&#9670;&nbsp;</a></span>sx_api_acl_group_attributes_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_group_attributes_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_id_t&#160;</td>
+          <td class="paramname"><em>group_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_group_attributes_t *&#160;</td>
+          <td class="paramname"><em>acl_group_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to get the attributes of a given ACL Group</p>
+<p>Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_group_id</td><td>- ACL group ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acl_group_attr_p</td><td>- ACL group attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -1612,11 +1926,13 @@ SX_STATUS_SXD_RETURNED_NON_ZERO in case of HW failure </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to bind/unbind ACL or ACL group to a port (or LAG). Binding more than one ACL to port may be achieved by using ACL groups. Binding may fail if there is no place for the ACL in HW Supported devices: Spectrum, Spectrum2..</p>
+<p>This function is used to bind/unbind an ACL or an ACL group to a port (or LAG). Binding more than one ACL to port may be achieved by using ACL groups. BIND command is used for binding a single ACL or a single ACL group to a port. UNBIND command will clear port binding, even if there are multiple ACL groups which are bound to the port. Binding multiple ACL groups to a port is also allowed when using ADD command. In that case the order of group execution is determined by the group priority, set by sx_api_acl_group_attributes_set API. Similarly it is possible to remove an ACL group from multiple ACL groups bound port using the DELETE command.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Binding or adding groups may fail if there are insufficient resources in HW.</p>
+<p>Supported devices: Spectrum, Spectrum2..</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND / UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND / UNBIND / ADD / DELETE </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID to bind </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_id</td><td>- ACL ID given for ACL or ACL group</td></tr>
   </table>
@@ -1673,13 +1989,77 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to get the ACL ID of an ACL table or ACL group which is bound to a specific port Supported devices: Spectrum, Spectrum2..</p>
+<p>This function is used to get the ACL ID of an ACL table or ACL group which is bound to a specific port When multiple groups are bound to a port, this API will return the highest priority group. For multiple bindings it is suggested to use sx_api_acl_port_bindings_get.</p>
+<p>Supported devices: Spectrum, Spectrum2..</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ingress or egress ACL </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">acl_id_p</td><td>- ACL ID of an ACL or ACL group</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if port is not bound </dd></dl>
+
+</div>
+</div>
+<a id="a45e4fd8599f3ba687cad34feb6b27d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45e4fd8599f3ba687cad34feb6b27d18">&#9670;&nbsp;</a></span>sx_api_acl_port_bindings_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_port_bindings_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_direction_t&#160;</td>
+          <td class="paramname"><em>acl_direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t *&#160;</td>
+          <td class="paramname"><em>acl_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>acl_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API allows getting ACL IDs bound to a specific port. Since multiple groups may bound to a port, the caller of this API is responsible of providing an allocated array for getting the ACL IDs.</p>
+<p>If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this port. Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL direction </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_id_p</td><td>- An array of ACL IDs, should be allocated by the caller. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_cnt_p</td><td>- Specifies the maximum amount of ACL IDs to retrieve, and returns the actual number of ACL IDs retrieved.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1867,12 +2247,13 @@ SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to bind/unbind ACL to vlan group. Binding more than one ACL to vlan group is allowed. Binding may fail if there is no place for the ACL in HW</p>
-<p>When in 802.1D mode, instead of providing a Vlan group, you should provide a bridge_id. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function is used to bind/unbind an ACL or an ACL group to a VLAN group. Binding more than one ACL to port may be achieved by using ACL groups. BIND command is used for binding a single ACL or a single ACL group to a VLAN group. UNBIND command will clear the VLAN group binding, even if there are multiple ACL groups which are bound to the VLAN group. Binding multiple ACL groups to a VLAN group is also allowed when using ADD command. In that case the order of group execution is determined by the group priority, set by sx_api_acl_group_attributes_set API. Similarly it is possible to remove an ACL group from multiple ACL groups bound VLAN group using the DELETE command.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Binding or adding groups may fail if there are insufficient resources in HW.</p>
+<p>When in 802.1D mode instead of providing a VLAN group, a bridge_id should be used. Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND / UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND / UNBIND / ADD / DELETE </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vlan_group</td><td>- Vlan Group ID to bind </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_id</td><td>- ACL ID of an ACL or ACL Group</td></tr>
   </table>
@@ -1929,12 +2310,12 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to get the ACL ID of an ACL table or ACL group which is bound to a specific vlan group</p>
-<p>When in 802.1D mode, instead of providing a Vlan group, you should provide a bridge_id. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function is used to get the ACL ID of an ACL table or an ACL group which is bound to a specific VLAN group. When multiple ACLs are bound to the VLAN group, this API will only return the one carrying the highest priority. For multiple bindings it is suggested to use sx_api_acl_vlan_group_bindings_get</p>
+<p>When in 802.1D mode, instead of providing a VLAN group, a bridge_id should be used. Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_group</td><td>- Vlan Group ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_group</td><td>- VLAN Group ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ingress or egress ACL </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">acl_id_p</td><td>- ACL ID of an ACL or ACL Group</td></tr>
   </table>
@@ -1944,7 +2325,71 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd></dl>
 <dd>
 SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if vlan group is not bound </dd></dl>
+SX_STATUS_ENTRY_NOT_FOUND if VLAN group is not bound </dd></dl>
+
+</div>
+</div>
+<a id="a054337bbc5264f55e6d21c126db7a053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054337bbc5264f55e6d21c126db7a053">&#9670;&nbsp;</a></span>sx_api_acl_vlan_group_bindings_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_vlan_group_bindings_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_vlan_group_t&#160;</td>
+          <td class="paramname"><em>vlan_group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_direction_t&#160;</td>
+          <td class="paramname"><em>acl_direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t *&#160;</td>
+          <td class="paramname"><em>acl_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>acl_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API allows getting ACL IDs bound to a specific VLAN group. Since multiple groups may bound to a VLAN group, the caller of this API is responsible of providing an allocated array for getting the ACL IDs.</p>
+<p>If this API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this VLAN group.</p>
+<p>Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_group</td><td>- VLAN group ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL direction </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_id_p</td><td>- An array of ACL IDs, should be allocated by the caller. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_cnt_p</td><td>- Specifies the maximum amount of ACL IDs to retrieve, and returns the actual number of ACL IDs retrieved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if port is not bound </dd></dl>
 
 </div>
 </div>
@@ -2167,8 +2612,10 @@ SX_STATUS_ENTRY_NOT_FOUND the key handle is wrong </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ACL rule is added or removed from a certain ACL region. The user is responsible for memory management - it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API and de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API. This operation configures HW if the ACL is bound to a device. The configured rule is overrides the given offset with the new rule. The flexible ACL allows to the user to define set of filters that are subset of the key assigned to the region. Also the user can define a custom set of actions for each rule. The function should be called after bind ACL to region. If an offset in offsets array crosses the boundaries of the region allocation the function will fail.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>ACL rule is added or removed from a certain ACL region. The user is responsible for memory management - it is necessary to initialize each member of rules_list_p using call to sx_lib_flex_acl_rule_init before calling this API and de-initialize using call to sx_lib_flex_acl_rule_deinit after calling this API. This operation configures HW if the ACL is bound to a device. The configured rule is overrides the given offset with the new rule. The flexible ACL allows to the user to define set of filters that are subset of the key assigned to the region. Also the user can define a custom set of actions for each rule. The function should be called after bind ACL to region. If an offset in offsets array crosses the boundaries of the region allocation the function will fail. Only One of each of the following types of actions will not be allowed within the same rule : </p><h1>SX_FLEX_ACL_ACTION_FORWARD</h1>
+<h1>SX_FLEX_ACL_ACTION_EGRESS_MIRROR or SX_FLEX_ACL_ACTION_MIRROR</h1>
+<h1>SX_FLEX_ACL_ACTION_TRAP or SX_FLEX_ACL_ACTION_TRAP_W_USER_ID</h1>
+<p>multiple Forward or Multiple Mirror or a combination where there is more than 1 of any of the above will return PARAM_ERROR Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2297,14 +2744,15 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to bind/unbind ACL or ACL group to RIF</p>
+<p>This function is used to bind/unbind an ACL or an ACL group to a RIF. Binding more than one ACL to a RIF may be achieved by using ACL groups. BIND command is used for binding a single ACL or a single ACL group to a RIF. UNBIND command will clear RIF binding, even if there are multiple ACL groups which are bound to the RIF. Binding multiple ACL groups to a RIF is also allowed when using ADD command. In that case the order of group execution is determined by the group priority, set by sx_api_acl_group_attributes_set API. Similarly it is possible to remove an ACL group from multiple ACL groups bound RIF, using the DELETE command.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Binding or adding groups may fail if there are insufficient resources in HW.</p>
 <p>Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- The command BIND/UNBIND </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rif_id</td><td>- RIF ID to bind/unbind </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">acl_id</td><td>- ACL or ACL group ID that is going to be bound to RIF</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND/ADD/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_id</td><td>- RIF ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_id</td><td>- ACL or ACL group ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -2357,7 +2805,7 @@ SX_STATUS_ERROR The operation cannot be completed </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to get ACL or ACL group ID that bound to RIF</p>
+<p>This function is used to get ACL or ACL group ID that is bound to the RIF. When multiple ACLs are bound to the RIF, this API will only return the one carrying the highest priority. For multiple bindings it is suggested to use sx_api_acl_rif_bindings_get</p>
 <p>Supported devices: Spectrum, Spectrum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2373,6 +2821,68 @@ SX_STATUS_ERROR The operation cannot be completed </dd></dl>
 SX_STATUS_ENTRY_NOT_FOUND ACL ID or RIF ID not found in DB </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
+
+</div>
+</div>
+<a id="af80f84cc17dc40e4eab5181a2af25403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af80f84cc17dc40e4eab5181a2af25403">&#9670;&nbsp;</a></span>sx_api_acl_rif_bindings_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_rif_bindings_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_rif_id_t&#160;</td>
+          <td class="paramname"><em>rif_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_direction_t&#160;</td>
+          <td class="paramname"><em>acl_direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_id_t *&#160;</td>
+          <td class="paramname"><em>acl_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>acl_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API allows getting ACL IDs bound to a specific RIF. Since multiple groups may bound to a RIF, the caller of this API is responsible of providing a pre-allocated array for getting the ACL IDs. priority group. If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this RIF. Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_id</td><td>- RIF ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL direction </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_id_p</td><td>- An array of ACL IDs, should be allocated by the caller. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_cnt_p</td><td>- Specifies the maximum amount of ACL IDs to retrieve, and returns the actual number of ACL IDs retrieved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if RIF is not bound </dd></dl>
 
 </div>
 </div>
@@ -2955,7 +3465,7 @@ SX_STATUS_ENTRY_NOT_FOUND if ACL element is not found in DB </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 13 2019 00:42:05 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

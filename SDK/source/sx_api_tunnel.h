@@ -72,6 +72,26 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  * By default packet ethertype will be taken from ingress port. To change default
  * logic SDK user should create VxLAN tunnel with ethertype SX_ETHERTYPE_FROM_EGRESS_PORT.
  *
+ * VxLAN tunnels support the lazy delete feature.
+ * If the LAZY_DELETE is OFF and the reference counter of a tunnel is 0,
+ * the API call with command DELETE deletes a tunnel, otherwise
+ * SDK returns SX_STATUS_RESOURCE_IN_USE.
+ *
+ * If the LAZY_DELETE is ON and the reference counter of a tunnel is not 0,
+ * the API call with command DELETE marks a tunnel as deleted, and
+ * SDK returns SX_STATUS_SUCCESS.
+ * Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and
+ * will generate a notification with the trap id SX_TRAP_ID_OBJECT_DELETED_EVENT
+ * and a tunnel id of a tunnel that was deleted.
+ *
+ * The list of objects that increase a reference counter of a NVE tunnel:
+ * 1. each tunnel map entry;
+ * 2. each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN;
+ * 3. each ECMP next hop of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP;
+ * 4. each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP;
+ * 5. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP;
+ * 6. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP;
+ *
  * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle          - SX-API handle
@@ -209,6 +229,30 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * This API is used to manage tunnel to bridge/VLAN mapping.
  *
  * When using command delete all, map_entries_p is deprecated.
+ *
+ * VxLAN tunnel mappings support the lazy delete feature.
+ * If the LAZY_DELETE is OFF and the reference counter of a tunnel mapping is 0,
+ * the API call with command DELETE deletes a tunnel mapping, otherwise
+ * SDK returns SX_STATUS_RESOURCE_IN_USE.
+ *
+ * If the LAZY_DELETE is ON and the reference counter of a tunnel mapping is not 0,
+ * the API call with command DELETE marks a tunnel mapping as deleted, and
+ * SDK returns SX_STATUS_SUCCESS.
+ * Once the reference counter of a tunnel mapping becomes 0, SDK will delete the tunnel
+ * mapping and will generate a notification with the trap id SX_TRAP_ID_OBJECT_DELETED_EVENT
+ * and a copy of tunnel mapping that was deleted.
+ * If the user tries to re-create a tunnel map entry before getting a notification,
+ * SDK returns the error SX_STATUS_RESOURCE_IN_USE.
+ *
+ * The list of objects that increase a reference counter of a tunnel map entry:
+ * 1. a static tunnel UC FDB entry;
+ * 2. a MC FDB entry (if MC container has a tunnel next hop);
+ * 3. each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set;
+ * 4. a flow counter that is bound to tunnel mapping with sx_api_bridge_tunnel_counter_bind_set;
+ * 5. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop);
+ *
+ * The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.
+ *
  * Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle             - SX-API handle
@@ -224,6 +268,7 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
  * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if try to delete more maps than configured for the tunnel
+ * @return SX_STATUS_RESOURCE_IN_USE if the user tries to re-create a tunnel map entry that is marked as deleted
  * @return SX_STATUS_ERROR general error
  * */
 sx_status_t sx_api_tunnel_map_set(const sx_api_handle_t         handle,
@@ -232,7 +277,7 @@ sx_status_t sx_api_tunnel_map_set(const sx_api_handle_t         handle,
                                   const sx_tunnel_map_entry_t * map_entries_p,
                                   const uint32_t                map_entries_cnt);
 
-/*
+/**
  *  This API gets the tunnel to bridge/VLAN mapping information.
  *
  *  The function can receive three types of input:

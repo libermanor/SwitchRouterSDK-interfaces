@@ -325,7 +325,7 @@ sx_status_t sx_api_lag_hash_flow_params_set(const sx_api_handle_t      handle,
  * @param[in] hash_field_enable_list_p   - Array of enables to be included in the hash calculation (may be NULL if empty)
  * @param[in] hash_field_enable_list_cnt - Number of elements in hash_field_enable_list_p
  * @param[in] hash_field_list_p          - Array of fields to be included in the hash calculation (may be NULL if empty)
- *                                         Note that for Spectrum-1 the custom_bytes are not supported
+ *                                         Note that for Spectrum devices, custom_bytes are not supported
  * @param[in] hash_field_list_cnt        - Number of elements in hash_field_list_p
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.

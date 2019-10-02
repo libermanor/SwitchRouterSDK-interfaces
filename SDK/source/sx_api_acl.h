@@ -209,6 +209,73 @@ sx_status_t sx_api_acl_iter_get(const sx_api_handle_t  handle,
                                 const sx_acl_filter_t *acl_filter_p,
                                 sx_acl_id_t           *acl_id_list_p,
                                 uint32_t              *acl_id_cnt_p);
+/**
+ *
+ *  This function is used to set or change the attributes of an ACL.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - SET
+ * @param[in] acl_id - ACL ID
+ * @param[in] acl_attributes - ACL attributes .
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
+ */
+sx_status_t sx_api_acl_attributes_set(const sx_api_handle_t     handle,
+                                      const sx_access_cmd_t     cmd,
+                                      const sx_acl_id_t         acl_id,
+                                      const sx_acl_attributes_t acl_attributes);
+
+/**
+ *
+ *  This function is used to retrieve the attributes of a given ACL.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] acl_id - ACL ID
+ * @param[in,out] acl_attributes_p - return ACL attributes.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_NULL if any input parameter is invalid
+ */
+sx_status_t sx_api_acl_attributes_get(const sx_api_handle_t      handle,
+                                      const sx_acl_id_t          acl_id,
+                                      const sx_acl_attributes_t *acl_attributes_p);
+
+/**
+ *
+ *  This function is used to set certain global attributes of the ACL Module.
+ *  Enabling certain functionality may require enabling both the global and individual
+ *  attributes.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - SET
+ * @param[in] global_acl_attributes - Global ACL attributes .
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
+ */
+sx_status_t sx_api_acl_global_attributes_set(const sx_api_handle_t            handle,
+                                             const sx_access_cmd_t            cmd,
+                                             const sx_acl_global_attributes_t global_acl_attributes);
+
+/**
+ *
+ *  This function is used to retrieve the global attributes of the ACL Module.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[out] global_acl_attributes_p - return global ACL attributes.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_NULL if any input parameter is invalid
+ */
+sx_status_t sx_api_acl_global_attributes_get(const sx_api_handle_t             handle,
+                                             const sx_acl_global_attributes_t *global_acl_attributes_p);
 
 /**
  *
@@ -307,6 +374,56 @@ sx_status_t sx_api_acl_group_iter_get(const sx_api_handle_t  handle,
                                       const sx_acl_filter_t *acl_filter_p,
                                       sx_acl_id_t           *acl_id_list_p,
                                       uint32_t              *acl_id_cnt_p);
+
+/**
+ *
+ *  This function is used to set the attributes of an ACL Group.
+ *
+ *  Priority attribute limitations:
+ *  Priority values range is FLEX_ACL_GROUP_PRIORITY_MIN..FLEX_ACL_GROUP_PRIORITY_MAX.
+ *  After the ACL group is created by sx_api_acl_group_set API, it is possible to set
+ *  a priority to the ACL group. The default group priority is FLEX_ACL_GROUP_PRIORITY_DEFAULT.
+ *  When binding multiple ACL groups to a port, the groups will be ordered according to their priority.
+ *  Setting priority to a group that is already bound does not take effect on previously
+ *  bound groups.
+ *
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - SET
+ * @param[in] acl_group_id - ACL Group ID
+ * @param[in] acl_group_attr_p -  ACL group attributes pointer.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
+ * @return SX_STATUS_ERROR general error
+ *
+ */
+sx_status_t sx_api_acl_group_attributes_set(const sx_api_handle_t            handle,
+                                            const sx_access_cmd_t            cmd,
+                                            const sx_acl_id_t                acl_group_id,
+                                            const sx_acl_group_attributes_t *acl_group_attr_p);
+
+/**
+ *
+ *  This function is used to get the attributes of a given ACL Group
+ *
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] acl_group_id - ACL group ID
+ * @param[out] acl_group_attr_p - ACL group attributes
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR general error
+ *
+ */
+sx_status_t sx_api_acl_group_attributes_get(const sx_api_handle_t            handle,
+                                            const sx_acl_id_t                group_id,
+                                            const sx_acl_group_attributes_t *acl_group_attr_p);
+
 
 /**
  *  This function adds/edits/deletes a policy based switching
@@ -632,14 +749,24 @@ sx_status_t sx_api_acl_rule_block_move_set(const sx_api_handle_t      handle,
                                            const sx_acl_rule_offset_t new_block_start);
 
 /**
- *  This function is used to bind/unbind ACL or ACL group to a
- *  port (or LAG). Binding more than one ACL to port may be
- *  achieved by using ACL groups.
- *  Binding may fail if there is no place for the ACL in HW
+ *  This function is used to bind/unbind an ACL or an ACL group to a
+ *  port (or LAG). Binding more than one ACL to port may be achieved by using
+ *  ACL groups.
+ *  BIND command is used for binding a single ACL or a single ACL group to a port.
+ *  UNBIND command will clear port binding, even if there are multiple ACL groups
+ *  which are bound to the port.
+ *  Binding multiple ACL groups to a port is also allowed when using ADD command.
+ *  In that case the order of group execution is determined by the group priority,
+ *  set by sx_api_acl_group_attributes_set API. Similarly it is possible to remove
+ *  an ACL group from multiple ACL groups bound port using the DELETE command.
+ *
+ *  Note: ADD and DELETE commands support binding of ACL groups only.
+ *        Binding or adding groups may fail if there are insufficient resources in HW.
+ *
  *  Supported devices: Spectrum, Spectrum2..
  *
  * @param[in] handle - SX-API handle
- * @param[in] cmd - BIND / UNBIND
+ * @param[in] cmd - BIND / UNBIND / ADD / DELETE
  * @param[in] log_port - logical port ID to bind
  * @param[in] acl_id - ACL ID given for ACL or ACL group
  *
@@ -658,6 +785,9 @@ sx_status_t sx_api_acl_port_bind_set(const sx_api_handle_t  handle,
 /**
  *  This function is used to get the ACL ID  of an ACL table or
  *  ACL group which is bound to a specific port
+ *  When multiple groups are bound to a port, this API will return the highest
+ *  priority group. For multiple bindings it is suggested to use sx_api_acl_port_bindings_get.
+ *
  *  Supported devices: Spectrum, Spectrum2..
  *
  * @param[in] handle - SX-API handle
@@ -673,6 +803,33 @@ sx_status_t sx_api_acl_port_bind_get(const sx_api_handle_t    handle,
                                      const sx_port_log_id_t   log_port,
                                      const sx_acl_direction_t acl_direction,
                                      sx_acl_id_t             *acl_id_p);
+
+/**
+ *  This API allows getting ACL IDs bound to a specific port.
+ *  Since multiple groups may bound to a port, the caller of this API
+ *  is responsible of providing an allocated array for getting the ACL IDs.
+ *
+ *  If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it
+ *  will return the actual number of ACL IDs bound to this port.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] log_port - logical port ID
+ * @param[in] acl_direction - ACL direction
+ * @param[in,out] acl_id_p - An array of ACL IDs, should be allocated by the caller.
+ * @param[in,out] acl_cnt_p - Specifies the maximum amount of ACL IDs to retrieve,
+ *                            and returns the actual number of ACL IDs retrieved.
+ *
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if port is not bound
+ */
+sx_status_t sx_api_acl_port_bindings_get(const sx_api_handle_t    handle,
+                                         const sx_port_log_id_t   log_port,
+                                         const sx_acl_direction_t acl_direction,
+                                         sx_acl_id_t             *acl_id_p,
+                                         uint32_t                *acl_cnt_p);
 
 /**
  *  This function is used for controlling mapping of vlans into
@@ -740,16 +897,24 @@ sx_status_t sx_api_acl_vlan_group_map_get(const sx_api_handle_t     handle,
                                           uint32_t                 *vlan_cnt_p);
 
 /**
- *  This function is used to bind/unbind ACL to vlan group.
- *  Binding more than one ACL to vlan group is allowed. Binding
- *  may fail if there is no place for the ACL in HW
+ *  This function is used to bind/unbind an ACL or an ACL group to a VLAN group.
+ *  Binding more than one ACL to port may be achieved by using ACL groups.
+ *  BIND command is used for binding a single ACL or a single ACL group to a VLAN group.
+ *  UNBIND command will clear the VLAN group binding, even if there are multiple ACL groups
+ *  which are bound to the VLAN group.
+ *  Binding multiple ACL groups to a VLAN group is also allowed when using ADD command.
+ *  In that case the order of group execution is determined by the group priority,
+ *  set by sx_api_acl_group_attributes_set API. Similarly it is possible to remove
+ *  an ACL group from multiple ACL groups bound VLAN group using the DELETE command.
  *
- *  When in 802.1D mode, instead of providing a Vlan group,
- *  you should provide a bridge_id.
+ *  Note: ADD and DELETE commands support binding of ACL groups only.
+ *        Binding or adding groups may fail if there are insufficient resources in HW.
+ *
+ *  When in 802.1D mode instead of providing a VLAN group, a bridge_id should be used.
  *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
- * @param[in] cmd - BIND / UNBIND
+ * @param[in] cmd - BIND / UNBIND / ADD / DELETE
  * @param[in] vlan_group - Vlan Group ID to bind
  * @param[in] acl_id - ACL ID of an ACL or ACL Group
  *
@@ -766,27 +931,56 @@ sx_status_t sx_api_acl_vlan_group_bind_set(const sx_api_handle_t     handle,
                                            const sx_acl_id_t         acl_id);
 
 /**
- *  This function is used to get the ACL ID  of an ACL table or
- *  ACL group which is bound to a specific vlan group
+ *  This function is used to get the ACL ID of an ACL table or
+ *  an ACL group which is bound to a specific VLAN group.
+ *  When multiple ACLs are bound to the VLAN group, this API will only return the one
+ *  carrying the highest priority. For multiple bindings it is suggested to use
+ *  sx_api_acl_vlan_group_bindings_get
  *
- *  When in 802.1D mode, instead of providing a Vlan group,
- *  you should provide a bridge_id.
+ *  When in 802.1D mode, instead of providing a VLAN group, a bridge_id should be used.
  *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle - SX-API handle
- * @param[in] vlan_group - Vlan Group ID
+ * @param[in] vlan_group - VLAN Group ID
  * @param[in] acl_direction - ingress or egress ACL
  * @param[out] acl_id_p - ACL ID of an ACL or ACL Group
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
- *  @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
+ * @return SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input
  *  parameter is invalid
- *  @return SX_STATUS_ENTRY_NOT_FOUND if vlan group is not bound
+ * @return SX_STATUS_ENTRY_NOT_FOUND if VLAN group is not bound
  */
 sx_status_t sx_api_acl_vlan_group_bind_get(const sx_api_handle_t     handle,
                                            const sx_acl_vlan_group_t vlan_group,
                                            const sx_acl_direction_t  acl_direction,
                                            sx_acl_id_t              *acl_id_p);
+
+/**
+ *  This API allows getting ACL IDs bound to a specific VLAN group.
+ *  Since multiple groups may bound to a VLAN group, the caller of this API
+ *  is responsible of providing an allocated array for getting the ACL IDs.
+ *
+ *  If this API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it
+ *  will return the actual number of ACL IDs bound to this VLAN group.
+ *
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] vlan_group - VLAN group ID
+ * @param[in] acl_direction - ACL direction
+ * @param[in,out] acl_id_p - An array of ACL IDs, should be allocated by the caller.
+ * @param[in,out] acl_cnt_p - Specifies the maximum amount of ACL IDs to retrieve,
+ *                            and returns the actual number of ACL IDs retrieved.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if port is not bound
+ */
+sx_status_t sx_api_acl_vlan_group_bindings_get(const sx_api_handle_t     handle,
+                                               const sx_acl_vlan_group_t vlan_group,
+                                               const sx_acl_direction_t  acl_direction,
+                                               sx_acl_id_t              *acl_id_p,
+                                               uint32_t                 *acl_cnt_p);
 
 /**
  *  This function returns attributes of the flexible key.
@@ -860,7 +1054,11 @@ sx_status_t sx_api_acl_flex_key_get(const sx_api_handle_t   handle,
  * The flexible ACL allows to the user to define set of filters that are subset of the key assigned to the region.
  * Also the user can define a custom set of actions for each rule. The function should be called after bind ACL to region.
  * If an offset in offsets array crosses the boundaries of the region allocation the function will fail.
- *
+ * Only One of each of the following types of actions will not be allowed within the same rule :
+ *      # SX_FLEX_ACL_ACTION_FORWARD
+ *      # SX_FLEX_ACL_ACTION_EGRESS_MIRROR or SX_FLEX_ACL_ACTION_MIRROR
+ *      # SX_FLEX_ACL_ACTION_TRAP or SX_FLEX_ACL_ACTION_TRAP_W_USER_ID
+ * multiple Forward or Multiple Mirror or a combination where there is more than 1 of any of the above will return PARAM_ERROR
  *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
@@ -932,14 +1130,25 @@ sx_status_t sx_api_acl_flex_rules_get(const sx_api_handle_t    handle,
 
 
 /**
- *  This function is used to bind/unbind ACL or ACL group to RIF
+ *  This function is used to bind/unbind an ACL or an ACL group to a RIF.
+ *  Binding more than one ACL to a RIF may be achieved by using ACL groups.
+ *  BIND command is used for binding a single ACL or a single ACL group to a RIF.
+ *  UNBIND command will clear RIF binding, even if there are multiple ACL groups
+ *  which are bound to the RIF.
+ *  Binding multiple ACL groups to a RIF is also allowed when using ADD command.
+ *  In that case the order of group execution is determined by the group priority,
+ *  set by sx_api_acl_group_attributes_set API. Similarly it is possible to remove
+ *  an ACL group from multiple ACL groups bound RIF, using the DELETE command.
+ *
+ *  Note: ADD and DELETE commands support binding of ACL groups only.
+ *        Binding or adding groups may fail if there are insufficient resources in HW.
  *
  *  Supported devices: Spectrum, Spectrum2.
  *
  * @param[in] handle                - SX-API handle
- * @param[in] cmd                   - The command BIND/UNBIND
- * @param[in] rif_id                - RIF ID to bind/unbind
- * @param[in] acl_id                - ACL or ACL group ID that is going to be bound to RIF
+ * @param[in] cmd                   - BIND/UNBIND/ADD/DELETE
+ * @param[in] rif_id                - RIF ID
+ * @param[in] acl_id                - ACL or ACL group ID
  *
  *  @return SX_STATUS_SUCCESS           The operation completed successfully
  *  @return SX_STATUS_ENTRY_NOT_FOUND   ACL ID or RIF ID not found in DB
@@ -953,7 +1162,10 @@ sx_status_t sx_api_acl_rif_bind_set(const sx_api_handle_t handle,
                                     const sx_acl_id_t     acl_id);
 
 /**
- *  This function is used to  get ACL or ACL group ID that bound to RIF
+ *  This function is used to get ACL or ACL group ID that is bound to the RIF.
+ *  When multiple ACLs are bound to the RIF, this API will only return the one
+ *  carrying the highest priority. For multiple bindings it is suggested to use
+ *  sx_api_acl_rif_bindings_get
  *
  * Supported devices: Spectrum, Spectrum2.
  *
@@ -970,6 +1182,33 @@ sx_status_t sx_api_acl_rif_bind_get(const sx_api_handle_t    handle,
                                     const sx_rif_id_t        rif_id,
                                     const sx_acl_direction_t acl_direction,
                                     sx_acl_id_t             *acl_id_p);
+
+/**
+ *  This API allows getting ACL IDs bound to a specific RIF.
+ *  Since multiple groups may bound to a RIF, the caller of this API
+ *  is responsible of providing a pre-allocated array for getting the ACL IDs.
+ *  priority group.
+ *  If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it
+ *  will return the actual number of ACL IDs bound to this RIF.
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] rif_id - RIF ID
+ * @param[in] acl_direction - ACL direction
+ * @param[in,out] acl_id_p - An array of ACL IDs, should be allocated by the caller.
+ * @param[in,out] acl_cnt_p - Specifies the maximum amount of ACL IDs to retrieve,
+ *                            and returns the actual number of ACL IDs retrieved.
+ *
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if RIF is not bound
+ */
+sx_status_t sx_api_acl_rif_bindings_get(const sx_api_handle_t    handle,
+                                        const sx_rif_id_t        rif_id,
+                                        const sx_acl_direction_t acl_direction,
+                                        sx_acl_id_t             *acl_id_p,
+                                        uint32_t                *acl_cnt_p);
 
 /**
  * On ACL module initialization the user can choose the parallel ACL search type. This function is used to support this feature.
@@ -1212,5 +1451,6 @@ sx_status_t sx_api_acl_flex_rules_priority_set(const sx_api_handle_t            
                                                const sx_flex_acl_rule_priority_t min_priority,
                                                const sx_flex_acl_rule_priority_t max_priority,
                                                const int32_t                     priority_change);
+
 
 #endif /* ifndef __SX_API_ACL_H__ */

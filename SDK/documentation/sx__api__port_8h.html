@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.1638</span>
+   &#160;<span id="projectnumber">4.3.2104</span>
    </div>
   </td>
  </tr>
@@ -265,6 +265,8 @@ Functions</h2></td></tr>
 <tr class="separator:a17980b0e1c0b2b46e569ef3810bafdc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05778ea8b7fbb076b1a4df37ac78e549"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a05778ea8b7fbb076b1a4df37ac78e549">sx_api_port_phy_module_capability_get</a> (const sx_api_handle_t handle, const sx_port_mod_id_t module_id, sx_port_rate_bitmask_t *capab_port_rate_p, sx_port_phy_module_type_bitmask_t *admin_types_p, sx_port_phy_module_type_bitmask_t *capab_types_p)</td></tr>
 <tr class="separator:a05778ea8b7fbb076b1a4df37ac78e549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac447cfed9c216d18f58c9825624b2bdb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ac447cfed9c216d18f58c9825624b2bdb">sx_api_port_phy_info_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_phy_stat_t *phy_stat_p)</td></tr>
+<tr class="separator:ac447cfed9c216d18f58c9825624b2bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac3457a41837c6780bbf94b56dd2a0cd4"></a>
@@ -5494,11 +5496,68 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 
 </div>
 </div>
+<a id="ac447cfed9c216d18f58c9825624b2bdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac447cfed9c216d18f58c9825624b2bdb">&#9670;&nbsp;</a></span>sx_api_port_phy_info_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_phy_info_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_phy_stat_t *&#160;</td>
+          <td class="paramname"><em>phy_stat_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets port physical information. It returns the port's current operational state and how many times the operational state has changed. It also returns the possible reasons if the port is down. If the command is SX_ACCESS_CMD_READ_CLEAR, it will clear the port state change count after reading it, and it won't clear the port down reason. Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">phy_stat_p</td><td>- port physical information</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 13 2019 00:42:05 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 9 2019 21:54:23 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -25,5 +25,6 @@ var searchData=
   ['sx_5fapi_5ftopo_2eh',['sx_api_topo.h',['../sx__api__topo_8h.html',1,'']]],
   ['sx_5fapi_5ftunnel_2eh',['sx_api_tunnel.h',['../sx__api__tunnel_8h.html',1,'']]],
   ['sx_5fapi_5fvlan_2eh',['sx_api_vlan.h',['../sx__api__vlan_8h.html',1,'']]],
+  ['sx_5flib_5fadviser_2eh',['sx_lib_adviser.h',['../sx__lib__adviser_8h.html',1,'']]],
   ['sx_5flib_5fhost_5fifc_2eh',['sx_lib_host_ifc.h',['../sx__lib__host__ifc_8h.html',1,'']]]
 ];
