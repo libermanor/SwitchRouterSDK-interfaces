@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -152,7 +152,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of LAG MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the log verbosity level of LAG MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -207,7 +207,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of LAG MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the log verbosity level of LAG MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -279,7 +279,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <li>All ports must be deleted from a LAG port groups before the group is destroyed.</li>
 <li>Creating a LAG group and adding ports to it in the same api call is not supported.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -299,7 +299,13 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in the DB </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if provided cmd is unsupported </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED - is ISSU is in progress </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE - when reference count is non-zero during delete operation </dd></dl>
 
 </div>
 </div>
@@ -347,7 +353,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function retrieves an existing LAG ports group from the SDK.</p>
-<p>Note: If the output ports list is NULL, only the number of ports in the LAG is retrieved. Supported devices: Spectrum, Spectrum2.</p>
+<p>Note: If the output ports list is NULL, only the number of ports in the LAG is retrieved. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -433,7 +439,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
 <li>5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, lag_id = X, lag_id_list = valid, lag_id_cnt &gt; 0: In this case the API will return the first lag_id_cnt LAG IDs starting from the head of the database. The total number of elements fetched will be returned as lag_id_cnt. Note: returned lag_id_cnt may be less than or equal to the requested lag_id_cnt. The input LAG ID is ignored in this case. A non-NULL lag_id_list pointer must be provided in this case.</li>
 <li>6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, lag_id = valid/invalid, lag_id_list = valid, lag_id_cnt &gt; 0: In this case the API will return the next set of LAG IDs starting from the next LAG ID after the specified LAG ID. The total number of elements fetched will be returned as the lag_id_cnt. Note: returned lag_id_cnt may be less than or equal to the requested lag_id_cnt. If no valid next LAG ID exists in the db, an empty list will be returned. A non-NULL lag_id_list pointer must be provided in this case.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -502,7 +508,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function enables/disables collection on a specific LAG port. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function enables/disables collection on a specific LAG port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -520,7 +526,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
+SX_STATUS_NO_MEMORY - if system has no more available free memory </dd></dl>
 
 </div>
 </div>
@@ -561,7 +567,7 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns information whether collection is enabled or disabled on a specific port in a LAG port. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function returns information whether collection is enabled or disabled on a specific port in a LAG port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -620,7 +626,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function enables/disables distribution on a specific LAG port. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function enables/disables distribution on a specific LAG port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -638,9 +644,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
 <dd>
 SX_STATUS_ENTRY_ALREADY_EXISTS if requested element is already exists </dd>
 <dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
+SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd></dl>
 
 </div>
 </div>
@@ -681,7 +685,7 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns information whether distribution is enabled or disabled on a specific port in a LAG port. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function returns information whether distribution is enabled or disabled on a specific port in a LAG port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -728,7 +732,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function configures the flow indicators that impact the LAG hash distribution function. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function configures the flow indicators that impact the LAG hash distribution function. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -809,9 +813,9 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the ingress port configuration parameters of LAG hash. Once this API is called sx_api_lag_hash_params_set is disabled.</p>
-<p>Command SET replaces existing hash parameters, fields enables and fields with new values. Command ADD adds new fields and fields enables to existing ones. Hash parameters are ignored Command DELETE deletes specific fields and fields enables from the existing ones. Hash parameters are ignored Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de-facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p. LAG hash parameters are configured per ingress port and impact egress LAG.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the ingress port configuration parameters of LAG hash. Once this API is called sx_api_lag_hash_flow_params_set is disabled.</p>
+<p>Command SET replaces existing hash parameters, field enables and fields with new values. Command ADD adds new fields and fields enables to existing ones. Hash parameters are ignored Command DELETE deletes specific fields and fields enables from the existing ones. Hash parameters are ignored Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de-facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p. NOTE:LAG hash parameters are configured per ingress port and impact egress LAG.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -829,7 +833,9 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
 <dd>
 SX_STATUS_PARAM_NULL if parameter is incorrectly NULL. </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd></dl>
+SX_STATUS_ERROR general error. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR - if a parameter has an invalid value </dd></dl>
 
 </div>
 </div>
@@ -858,17 +864,19 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the flow indicators that impact the LAG hash distribution function. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves the flow indicators that impact the LAG hash distribution function. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">lag_hash_param_p</td><td>- hash parameters to be retrieved</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lag_hash_param_p</td><td>- hash parameters retrieved</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd></dl>
+SX_STATUS_UNSUPPORTED if per port API has already been invoked. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 
 </div>
 </div>
@@ -927,8 +935,8 @@ SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the LAG hash function configuration parameters. if the given number of fields / field enables is 0, the API will only return number of fields / field enables. Once this API is called sx_api_lag_hash_params_get is disable</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the given port's LAG hash function configuration parameters. If the given number of fields / field enables is 0, the API will only return the number of fields / field enables. Once this API is called sx_api_lag_hash_flow_params_get is disabled</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -945,7 +953,11 @@ SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd></dl>
 <dd>
 SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd></dl>
+SX_STATUS_PARAM_ERROR if any of the cnt parameters has an invalid value. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if lag is not found </dd></dl>
 
 </div>
 </div>
@@ -989,7 +1001,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <p>This function CREATEs/DESTROYs a redirection between a LAG and a destination LAG. Redirection doesn't align LAG configuration, only TX traffic.</p>
 <p>Note:</p><ul>
 <li>Redirect operation is valid only between 2 LAGs. Cannot create chain of redirected LAGs.</li>
-<li>Redirect is L2 action, and not valid for Router Port. Supported devices: Spectrum, Spectrum2.</li>
+<li>Redirect is L2 action, and not valid for Router Port. Supported devices: Spectrum, Spectrum2, Spectrum3.</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1051,13 +1063,13 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns information whether a given LAG is redirected. If so, the redirected LAG logical ID is return. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function returns information whether a given LAG is redirected. If so, the redirected LAG logical ID is returned. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">lag_log_port</td><td>- LAG logical ID. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">is_redirected_p</td><td>- is lag_port redirected. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">redirected_lag_log_port_p</td><td>- the LAG logical ID which lag_log_port point to. Valid when the LAG is redirected.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">redirected_lag_log_port_p</td><td>- the LAG logical ID which lag_log_port points to when the LAG is redirected.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1110,7 +1122,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns all LAGs redirected to the given LAG. Call this API with lag_log_port_list_p=NULL will set to lag_log_port_cnt_p the number of LAG redirected to lag_port. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function returns all the LAGs that are redirected to the given LAG. Calling this API with lag_log_port_list_p=NULL will return the number of LAGs redirected to lag_port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1124,7 +1136,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+SX_STATUS_PARAM_NULL if a lag_log_port_cnt_p is NULL </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
@@ -1181,13 +1193,13 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets a fine grained LAG distribution list. Lag distribution will be according to the given port list with relative weight.</p>
+<p>This function sets/deletes a fine grained LAG distribution list. Lag distribution will be according to the given port list with relative weight.</p>
 <p>Note:</p><ul>
 <li>Setting the distribution list is optional and only affects unicast traffic.</li>
 <li>In case the distribution list is not set the hash will be done according to the LAG member ports.</li>
 <li>Port may be not a LAG member.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -1255,7 +1267,7 @@ SX_STATUS_CMD_UNSUPPORTED - Access Command isn't supported. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function retrieves a fine grained LAG distribution list and the fine grain lag parameters.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -1278,7 +1290,7 @@ SX_STATUS_PARAM_ERROR - Parameter is invalid. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

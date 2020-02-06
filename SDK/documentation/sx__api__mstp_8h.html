@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -144,7 +144,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of MSTP MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the log verbosity level of MSTP MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -199,7 +199,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of MSTP MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the log verbosity level of MSTP MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -248,7 +248,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the switch STP activation mode (RSTP/MSTP/PVRST) on the SDK. As a result, the mapping between Instance(s) to VLAN(s) is deleted. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the switch STP activation mode (RSTP/MSTP/PVRST) on the SDK. As a result, the mapping between Instance(s) to VLAN(s) is deleted. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -302,7 +302,7 @@ SX_STATUS_COMM_ERROR if client communication fails </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the switch STP activation state (RSTP/MSTP/PVRST) from the SDK. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves the switch STP activation state (RSTP/MSTP/PVRST) from the SDK. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -364,7 +364,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function adds/deletes an MSTP instance to/from the switch in the SDK. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function adds/deletes an MSTP instance to/from the switch in the SDK. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -447,7 +447,7 @@ SX_STATUS_CMD_UNPERMITTED if using it not in MSTP mode </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets a list of MSTP instances. If cmd is GET and inst_list_p is NULL, this function will only return the count. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets a list of MSTP instances. If cmd is GET and inst_list_p is NULL, this function will only return the count. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -529,11 +529,11 @@ SX_STATUS_CMD_UNPERMITTED if using it not in MSTP mode </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function adds/deletes a mapping between a list of VLANs to/from the MSTP instance in the SDK. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function adds/deletes a mapping between a list of VLANs to/from the MSTP instance in the SDK. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELTE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- switch ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">inst_id</td><td>- MSTP instance ID. Range is &lt;1-1024&gt; </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vlan_list_p</td><td>- list of VLANs to map/unmap </td></tr>
@@ -605,7 +605,7 @@ SX_STATUS_CMD_UNPERMITTED if using it not in MSTP mode </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function retrieves a list of VLANs in the MSTP instance from the SDK. If the output list (array) is NULL, only the number of VLANs is retrieved.</p>
-<p>Supported devices: Spectrum. Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -680,7 +680,7 @@ SX_STATUS_CMD_UNPERMITTED if using it not in MSTP mode </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function sets the MSTP port state for a given instance in the SDK.</p>
-<p>In PVRST mode, instance id equals to vlan id. (In .1D mode instance id equals to bridge id) Supported devices: Spectrum, Spectrum2.</p>
+<p>In PVRST mode, instance id equals to vlan id. (In .1D mode instance id equals to bridge id) Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -751,7 +751,7 @@ SX_STATUS_COMM_ERROR if client communication fails </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function retrieves the MSTP port state for a given instance from the SDK.</p>
-<p>In PVRST mode, instance id equals to vlan id. (In .1D mode instance id equals to bridge id) Supported devices: Spectrum, Spectrum2.</p>
+<p>In PVRST mode, instance id equals to vlan id. (In .1D mode instance id equals to bridge id) Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -809,7 +809,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the RSTP port state in the SDK. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the RSTP port state in the SDK. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -863,7 +863,7 @@ SX_STATUS_COMM_ERROR if client communication fails </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the RSTP port state from the SDK. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves the RSTP port state from the SDK. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -919,7 +919,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function excludes a port from STP and sets forwarding state to all it's vlans. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function excludes a port from STP and sets forwarding state to all it's vlans. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -975,7 +975,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves exclude state for a port. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves exclude state for a port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1004,7 +1004,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

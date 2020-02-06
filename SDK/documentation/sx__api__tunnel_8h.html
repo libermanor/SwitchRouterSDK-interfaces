@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -152,7 +152,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of TUNNEL MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API sets the log verbosity level of TUNNEL MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -209,7 +209,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of TUNNEL MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API gets the log verbosity level of TUNNEL MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -267,10 +267,10 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to create/edit/destroy tunnels.</p>
-<p>When destroying a tunnel, tunnel_attr_p is ignored. By default tunnel is created with TTL 255. On Spectrum2 SDK user may configure from which port (ingress or egress) he want to get packet ethertype. By default packet ethertype will be taken from ingress port. To change default logic SDK user should create VxLAN tunnel with ethertype SX_ETHERTYPE_FROM_EGRESS_PORT.</p>
-<p>VxLAN tunnels support the lazy delete feature. If the LAZY_DELETE is OFF and the reference counter of a tunnel is 0, the API call with command DELETE deletes a tunnel, otherwise SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
-<p>If the LAZY_DELETE is ON and the reference counter of a tunnel is not 0, the API call with command DELETE marks a tunnel as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and will generate a notification with the trap id SX_TRAP_ID_OBJECT_DELETED_EVENT and a tunnel id of a tunnel that was deleted.</p>
-<p>The list of objects that increase a reference counter of a NVE tunnel:</p><ol type="1">
+<p>When destroying a tunnel, tunnel_attr_p is ignored. By default tunnel is created with TTL 255. On Spectrum2, Spectrum3,the SDK user can select the port(ingress or egress) that is used to determine packet ethertype. By default the packet ethertype is taken from ingress port. To change the default behavior, SDK user should create VxLAN tunnel with ethertype SX_ETHERTYPE_FROM_EGRESS_PORT.</p>
+<p>Lazy delete feature is supported for VxLAN tunnels. If the Lazy delete feature is disabled and the reference counter of tunnel is 0, then the API call with DELETE command deletes the tunnel, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
+<p>If the Lazy delete feature is enabled and the reference counter of a tunnel is not 0, the API call with command DELETE marks a tunnel as deleted, and the SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and will generate a notification with the trap id(SX_TRAP_ID_OBJECT_DELETED_EVENT) and the id of tunnel that was deleted.</p>
+<p>Given below is the list of objects that increases the reference counter of a NVE tunnel:</p><ol type="1">
 <li>each tunnel map entry;</li>
 <li>each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN;</li>
 <li>each ECMP next hop of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP;</li>
@@ -278,7 +278,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
 <li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP;</li>
 <li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP;</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -288,15 +288,15 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR if any of the input parameters is invalid </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if the api is not supported for this device </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED command is not supported for this api </dd>
+SX_STATUS_CMD_UNSUPPORTED if the command is not supported by the api </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if any input parameter doesn't exist </dd>
+SX_STATUS_ENTRY_NOT_FOUND if any of the input parameters doesn't exist </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -335,7 +335,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API get Tunnels configuration. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API gets the tunnel configuration. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -393,7 +393,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API get/clear tunnel counters. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API get/clear tunnel counters. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -452,9 +452,9 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to manage decap table rules. The decap table is used to terminate encapsulated packets.</p>
-<p>The key provides packet matching mechanism. so each key is mapped to one tunnel.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to manage rules in the tunnel decap table. The decap table is used to terminate encapsulated packets.</p>
+<p>The decap key provides packet matching mechanism and each key is mapped to one tunnel.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -514,7 +514,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get decap rules from decap table.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -560,7 +560,8 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to init tunneling module. Please note that you should set correct parsing depth with sx_api_port_parsing_depth_set accordingly to tunneling usage scenarios. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to initialize tunneling module. Please note that the correct parsing depth should be set using sx_api_port_parsing_depth_set API for tunneling usage scenarios.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -570,7 +571,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if cannot allocate resources for tunneling. </dd>
+SX_STATUS_NO_RESOURCES if sufficient resources are not available for tunneling. </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -591,7 +592,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to deinit tunneling module. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to de-initialize the tunneling module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -647,11 +648,10 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to manage tunnel to bridge/VLAN mapping.</p>
-<p>When using command delete all, map_entries_p is deprecated.</p>
-<p>VxLAN tunnel mappings support the lazy delete feature. If the LAZY_DELETE is OFF and the reference counter of a tunnel mapping is 0, the API call with command DELETE deletes a tunnel mapping, otherwise SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
-<p>If the LAZY_DELETE is ON and the reference counter of a tunnel mapping is not 0, the API call with command DELETE marks a tunnel mapping as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel mapping becomes 0, SDK will delete the tunnel mapping and will generate a notification with the trap id SX_TRAP_ID_OBJECT_DELETED_EVENT and a copy of tunnel mapping that was deleted. If the user tries to re-create a tunnel map entry before getting a notification, SDK returns the error SX_STATUS_RESOURCE_IN_USE.</p>
-<p>The list of objects that increase a reference counter of a tunnel map entry:</p><ol type="1">
+<p>This API is used to manage the mapping between tunnel and bridge/VLAN. With the DELETE_ALL command, the map_entries_p parameter is ignored.</p>
+<p>Lazy delete feature is supported for VxLAN tunnel mappings. If Lazy delete feature is disabled and the reference counter of the tunnel mapping is 0, then the API call with command DELETE deletes a tunnel mapping, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
+<p>If the Lazy delete feature is enabled and the reference counter of the tunnel mapping is not 0, then the API call with command DELETE marks a tunnel mapping as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of the tunnel mapping becomes 0, SDK will delete the tunnel mapping and will generate a notification with the trap id(SX_TRAP_ID_OBJECT_DELETED_EVENT) and the copy of tunnel mapping that was deleted. If the user tries to re-create a tunnel map entry before a notification is received, then the SDK returns error SX_STATUS_RESOURCE_IN_USE.</p>
+<p>Given below is the list of objects that increases the reference counter of a tunnel map entry:</p><ol type="1">
 <li>a static tunnel UC FDB entry;</li>
 <li>a MC FDB entry (if MC container has a tunnel next hop);</li>
 <li>each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set;</li>
@@ -659,7 +659,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop);</li>
 </ol>
 <p>The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -739,13 +739,9 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the tunnel to bridge/VLAN mapping information.</p>
-<p>The function can receive three types of input:</p>
-<ul>
-<li>1) cmd SX_ACCESS_CMD_GET_FIRST, get a list of first n&lt;=1000 map entries of specified tunnel id.</li>
-<li>2) cmd SX_ACCESS_CMD_GETNEXT, get a list of n&lt;=1000 next map entries whose value larger than the given map_entry_key of specified tunnel id.</li>
-</ul>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This API gets the mapping information between tunnel and bridge/VLAN. This function supports the below commands in the order mentioned below. 1) cmd SX_ACCESS_CMD_GET_FIRST, get a list of first n&lt;=1000 map entries of specified tunnel id.</p>
+<p>2) cmd SX_ACCESS_CMD_GETNEXT, get a list of n&lt;=1000 next map entries whose value larger than the given map_entry_key of specified tunnel id.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -804,13 +800,13 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to set tunnel TTL parameters.</p>
+<p>This API is used to set the tunnel TTL parameters.</p>
 <p>Note for Spectrum:</p><ol type="1">
-<li>TTL behavior and values are shared between all tunnels of the same type.</li>
-<li>For IPinIP tunnels in encap direction TTL_CMD_SET and TTL_CMD_COPY are supported, default value is TTL_CMD_COPY.</li>
-<li>For NVE tunnels in encap direction TTL_CMD_SET is supported. Default value is 255.</li>
+<li>TTL behavior and values are shared between all tunnels of same type.</li>
+<li>IPinIP tunnels supports TTL_CMD_SET and TTL_CMD_COPY in the encap direction, default value is TTL_CMD_COPY.</li>
+<li>NVE tunnels supports TTL_CMD_SET in the encap direction, default TTL value is 255.</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -862,8 +858,8 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to get tunnel TTL parameters.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to get the tunnel TTL parameters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -915,13 +911,13 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to set tunnel hash parameters.</p>
+<p>This API is used to set the tunnel hash parameters.</p>
 <p>Note for Spectrum:</p><ol type="1">
 <li>Hash parameters are shared between all tunnels of the same type.</li>
 <li>IPinIP tunnels support setting an IPV6_FLOW_LABEL. Default value is 0.</li>
 <li>NVE tunnels support setting a UDP_SPORT. Default value is 0.</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -973,13 +969,13 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to get tunnel hash parameters.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to get the tunnel hash parameters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">hash_data_p</td><td>- pointer to tunnel hash data structure, set hash_field_type field for which you want get config.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">hash_data_p</td><td>- pointer to tunnel hash data structure, hash_field_type should be set for retrieving the correct config.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1026,15 +1022,20 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to set tunnel CoS attributes.</p>
-<p>The key is the tunnel id. User is capable to set a tunnel CoS behaviour per tunnel type. Changes in 1 tunnel will change the CoS behaviour for all tunnels from the same type.</p>
-<p>The API configures QoS parameters for encapsulation and decapsulation flow separately based on value in cos_data_p-&gt;param_type. Next parameters can be configured with the API:</p>
-<p>Whether packet switch priority and color should be preserved or a new one must be set (cos_data_p-&gt;update_priority_color) If update_priority_color set to TRUE, new prio and color are taken from cos_data_p-&gt;prio_color DSCP rewrite can be disabled/enabled or a value that was set on packet ingress port can be preserved (cos_data_p-&gt;dsc_rewrite)</p>
-<p>If DSCP rewrite is disabled: DSCP value can be depending on cos_data_p-&gt;dscp_action</p><ul>
-<li>on encap can be copied from inner header or set from cos_data_p-&gt;dscp_value</li>
-<li>on decap can be copied from outer or preserved When dscp_action is copy and there is no IP header - the value from cos_data_p-&gt;dscp_value is used. ECN mapping on encapsulation or decapsulation</li>
+<p>This API is used to set the CoS attributes of tunnel. CoS behaviour applies to all tunnels of a given type. Changes applied to one tunnel will change the CoS behaviour of all tunnels of same type.</p>
+<p>The API configures QoS parameters for encapsulation and decapsulation flow separately based on value in cos_data_p-&gt;param_type.</p>
+<p>Given below are the parameters that can be configured with this API:</p>
+<ol type="1">
+<li>cos_data_p-&gt;update_priority_color - Packet switch priority and color when it is not preserved.</li>
+<li>cos_data_p-&gt;prio_color - New switch priority and color for the packet when cos_data_p-&gt;update_priority_color is set to TRUE.</li>
+<li>cos_data_p-&gt;dsc_rewrite - Action for DSCP rewrite i.e disabled, enabled or preserved to a dscp value that was set on packet ingress port. cos_data_p-&gt;dscp_action - If DSCP rewrite is disabled then DSCP value is dependent on dscp_action.<ul>
+<li>the DSCP value on encap can be copied from inner header or set from cos_data_p-&gt;dscp_value</li>
+<li>the DSCP value on decap can be copied from outer or preserved When dscp_action is copy and if there is no IP header, then the value from cos_data_p-&gt;dscp_value is used.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2. </p><dl class="params"><dt>Parameters</dt><dd>
+</li>
+<li>ECN mapping on encapsulation or decapsulation</li>
+</ol>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel</td><td>id - Tunnel ID. </td></tr>
@@ -1087,7 +1088,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to retrieve CoS data. The user has to fill cos_data_p-&gt;param_type to specify the CoS direction they would like to get (ENCAP or DECAP). Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to retrieve CoS data. CoS data retrieval for ENCAP or DECAP direction can be controlled by cos_data_p-&gt;param_type. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1168,7 +1169,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <li>6) cmd = SX_ACCESS_CMD_GETNEXT, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt &gt; 0: In this case the API will return the next set of tunnel IDs which matches the filter if present starting from the next tunnel ID after the specified tunnel ID. The total number of elements fetched will be returned as the tunnel_id_cnt. If no valid next tunnel ID exists in the db, an empty list will be returned. A non-NULL tunnel_id_list pointer must be provided in this case.</li>
 </ul>
 <p>Two type of filter can be used, 1) sx_tunnel_type_e: it exactly match the type defined for the tunnels 2) sx_tunnel_direction_e: if tunnel direction is SX_TUNNEL_DIRECTION_SYMMETRIC, it will match any direction(ENCAP/DECAP/SYMMETRIC) of filter, otherwise, it will only match the same direction of filter.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1201,7 +1202,7 @@ SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:23 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -149,7 +149,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -200,7 +200,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -251,7 +251,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to create packets/bytes counter. for creation use command CREATE and supply counter_type. flow_counter_id is returned on successful creation. for destroying an flow counter it is required that the flow counter is not bound to an ACL and the flow_counter_id should be provided. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function is used to create packets/bytes counter. for creation use command CREATE and supply counter_type. flow_counter_id is returned on successful creation. for destroying an flow counter it is required that the flow counter is not bound to an ACL and the flow_counter_id should be provided. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -312,7 +312,7 @@ SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not ex
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the Flow Counter. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves the Flow Counter. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -384,7 +384,7 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets a list of Flow counters Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets a list of Flow counters Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -443,7 +443,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function clear a specific Flow Counter. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function clear a specific Flow Counter. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -471,7 +471,7 @@ SX_STATUS_ENTRY_NOT_FOUND: Clear an invalid counter. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

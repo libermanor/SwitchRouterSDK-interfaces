@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -130,7 +130,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of POLICER MODULE Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the log verbosity level of POLICER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -181,7 +181,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of POLICER MODULE Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the log verbosity level of POLICER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -232,7 +232,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function creates/destroy/edit a policer in the system. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function creates/destroys/edits a policer in the system. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -244,7 +244,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if cmd is SX_ACCESS_CMD_DESTROY or any other unsupported command </dd>
+SX_STATUS_CMD_UNSUPPORTED if supplied command is an unsupported one </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any of the input parameters is invalid </dd>
 <dd>
@@ -289,7 +289,7 @@ SX_STATUS_WRONG_POLICER_TYPE if wrong policer_type was supplied </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets policer attributes. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the attributes of the given policer ID. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -302,7 +302,9 @@ SX_STATUS_WRONG_POLICER_TYPE if wrong policer_type was supplied </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any other input error </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested object is not found in DB </dd></dl>
 
 </div>
 </div>
@@ -355,7 +357,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves a list of Policer IDs. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves a list of Policer IDs. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -418,7 +420,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function clears policer counters values. Supported devices: Spectrum, Spectrum2. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This function clears policer counters values. Supported devices: Spectrum, Spectrum2, Spectrum3 </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- policer ID </td></tr>
@@ -465,7 +467,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves policer counters values. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves policer counters values. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -486,7 +488,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

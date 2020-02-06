@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -128,7 +128,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of FLEX_PARSER MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API sets the log verbosity level of FLEX_PARSER MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -183,7 +183,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of FLEX_PARSER MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API gets the log verbosity level of FLEX_PARSER MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -226,7 +226,7 @@ SX_STATUS_PARAM_NULL if an input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize the flex parser API. Supported devices: Spectrum, Spectrum2. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API initializes the flex parser module. Supported devices: Spectrum, Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>- Configuration parameters for the initial state of the flex parser<ul>
@@ -263,7 +263,7 @@ SX_STATUS_ALREADY_INITIALIZED if module is already initialized. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>De-initialize the flex parser API Supported devices: Spectrum, Spectrum2. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API de-initializes the flex parser module. Supported devices: Spectrum, Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
   </table>
@@ -316,12 +316,14 @@ SX_STATUS_UNSUPPORTED if module is not supported by platform. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Configure enable/disable for the transition between two existing flex parser headers in the parse graph. Caller must specify the header to enable the transition "From" and "To" nodes. Depending on the "To" (next protocol field) definition, the actual size of the value used may be less than 32 bits. Note that some combinations may be unsupported and will return SX_STATUS_UNSUPPORTED Supported devices: Spectrum, Spectrum2. Spectrum supports only Fixed header type. Spectrum supports only transition from UDP to VxLAN with outer encapsulation level Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API configures (enables/disables)transition between two existing flex parser headers in the parse graph. Caller must specify the header to enable the transition between "From" and "To" nodes. Depending on the "To" (next protocol field) definition, the actual size of the value used may be less than 32 bits. Note that some combination of flex parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED Supported devices: Spectrum, Spectrum2, Spectrum3. Spectrum supports only</p><ul>
+<li>Fixed header types.</li>
+<li>Transition from UDP to VxLAN with outer encapsulation level. Parameters: <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>- the flex parser header to transition from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>- the flex parser next transition header information Returns: </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>- the flex parser header to transition from(src) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>- the flex parser next transition header information(dest) Returns: </td></tr>
   </table>
   </dd>
 </dl>
@@ -338,6 +340,8 @@ SX_STATUS_NO_RESOURCES if configuration fails due to a lack of HW resources </dd
 SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
+</li>
+</ul>
 
 </div>
 </div>
@@ -378,7 +382,7 @@ SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the configuration of a transition from a given node in the parse graph. Caller can start at the root and iterate over the results to traverse the entire parse graph. Supported devices: Spectrum, Spectrum2. Spectrum supports only UDP as current header. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the configured transition information between given nodes in the parse graph. Caller can start at the root and iterate over the results to traverse the entire parse graph. Supported devices: Spectrum, Spectrum2, Spectrum3. Spectrum supports only UDP as current header. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">curr_ph</td><td>- the current flex parser header to transition from </td></tr>
@@ -405,7 +409,7 @@ SX_STATUS_PARAM_NULL if next_trans_cnt parameter is NULL </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

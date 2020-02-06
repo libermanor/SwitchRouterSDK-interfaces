@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -231,7 +231,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This function initiates the MPLS module in SDK. Supported devices: Spectrum.</p>
-<p>Must be called after the router module is initialized.</p>
+<p>This API can be called only after the router module is initialized.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -258,8 +258,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function de-initiates the MPLS block in the SDK Supported devices: Spectrum.</p>
-<p>Must called before the router module is de-initialized.</p>
+<p>This function de-initializes the MPLS block in the SDK. Supported devices: Spectrum.</p>
+<p>This API must be called before the router module is de-initialized if MPLS block was initialized previously.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
@@ -403,8 +403,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- specify a in segment key </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_params_p</td><td>- list of in segment params</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- specify a in-segment key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_params_p</td><td>- list of in-segment params</td></tr>
   </table>
   </dd>
 </dl>
@@ -461,13 +461,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns a list of one or more in segment key identifiers. The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, in_segment_key_list = X, Count =0: In this case the API will return the total number of in segment keys in the ILM</li>
+<p>This function returns a list of one or more in-segment key identifiers. The following use case scenarios apply with different input parameters X = don't-care</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, in_segment_key_list = X, Count =0: In this case the API will return the total number of in-segment keys in the ILM</li>
 <li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, in_segment_key_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the in_segment_key_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, in_segment_key_list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, in_segment_key_list is Valid, Count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
 <li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, in_segment_key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, in_segment_key_list = Valid, Count &gt; 0: In this case the API will return the first count in segments starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care.</li>
-<li>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, Rif_list = Valid, Count &gt; 0: In this case the API will return the next set of in segments starting from the next valid in segment k after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next in segment exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, in_segment_key_list = Valid, Count &gt; 0: In this case the API will return the first count in-segments starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care.</li>
+<li>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, Rif_list = Valid, Count &gt; 0: In this case the API will return the next set of in-segments starting from the next valid in segment k after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next in-segment exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
 </ul>
 <p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -696,7 +696,7 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

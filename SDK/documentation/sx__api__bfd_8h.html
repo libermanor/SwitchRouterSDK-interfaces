@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -130,7 +130,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of BFD MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API sets the log verbosity level of BFD MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -185,7 +185,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of BFD MODULE. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API gets the log verbosity level of BFD MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -228,7 +228,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to initialize BFD module. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to initialize BFD module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -238,7 +238,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if cannot allocate resources. </dd>
+SX_STATUS_NO_RESOURCES if resource cannot be allocated </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -259,7 +259,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to deinit BFD module. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to deinit BFD module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -309,7 +309,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to create/edit/destroy BFD offload for a session. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to create/edit/destroy BFD offload for a session. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -374,7 +374,7 @@ SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves a list of BFD session IDs. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves a list of BFD session IDs. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -449,14 +449,14 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to read/clear BFD offload statistics for a session. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to read/clear BFD offload statistics for a session. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- command : READ / READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">session_type</td><td>- command : SX_BFD_ASYNC_ACTIVE_RX / SX_BFD_ASYNC_ACTIVE_TX </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">session_id</td><td>- BFD session ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">session_stats</td><td>- statistics for the session Applicable only for READ/READ_CLEAR commands.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">session_stats</td><td>- statistics for the session</td></tr>
   </table>
   </dd>
 </dl>
@@ -470,7 +470,7 @@ SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE if 
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:00 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

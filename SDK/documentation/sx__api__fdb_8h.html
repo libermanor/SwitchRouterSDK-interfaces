@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.2104</span>
+   &#160;<span id="projectnumber">4.3.3260</span>
    </div>
   </td>
  </tr>
@@ -131,6 +131,8 @@ Functions</h2></td></tr>
 <tr class="separator:a6731a3466288aedc59c1235f43c6820a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39c1584e35170d3ed04ef20904a57f6c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a39c1584e35170d3ed04ef20904a57f6c">sx_api_fdb_mc_flush_fid_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_fid_t fid)</td></tr>
 <tr class="separator:a39c1584e35170d3ed04ef20904a57f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae41aa22e9e12b1044e0a3463dc2535ed"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ae41aa22e9e12b1044e0a3463dc2535ed">sx_api_fdb_flush_by_type_set</a> (const sx_api_handle_t handle, const sx_flush_data_t *flush_data_p)</td></tr>
+<tr class="separator:ae41aa22e9e12b1044e0a3463dc2535ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad302ac34a0c93901a8d71c84b830d55e"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ad302ac34a0c93901a8d71c84b830d55e">sx_api_fdb_fid_vlan_member_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_fid_t fid, const sx_vid_t vid)</td></tr>
 <tr class="separator:ad302ac34a0c93901a8d71c84b830d55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3021865defc7ae5cb76077cb049f910d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a3021865defc7ae5cb76077cb049f910d">sx_api_fdb_global_params_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_fdb_learn_ctrl_t learn_ctrl)</td></tr>
@@ -171,8 +173,8 @@ Functions</h2></td></tr>
 <tr class="separator:af051ad00c09fa031624b47294adad966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca4e77d99c8a0a02143ab1b20d5a3fd3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#aca4e77d99c8a0a02143ab1b20d5a3fd3">sx_api_fdb_src_miss_protect_drop_cntr_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd)</td></tr>
 <tr class="separator:aca4e77d99c8a0a02143ab1b20d5a3fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd8c7fe52e1a7a66bb116406820919e3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#acd8c7fe52e1a7a66bb116406820919e3">sx_api_fdb_src_miss_protect_drop_cntr_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, uint64_t *dropped_pkts_cntr)</td></tr>
-<tr class="separator:acd8c7fe52e1a7a66bb116406820919e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c57302e48355d01d518cad33e1bf12d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a2c57302e48355d01d518cad33e1bf12d">sx_api_fdb_src_miss_protect_drop_cntr_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, uint64_t *dropped_pkts_cntr_p)</td></tr>
+<tr class="separator:a2c57302e48355d01d518cad33e1bf12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b07aa93f3c82a70b451f5b9306b3f9b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a1b07aa93f3c82a70b451f5b9306b3f9b">sx_api_fdb_igmpv3_state_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fid_t fid, const sx_fdb_igmpv3_state_t fdb_igmpv3_snooping_state)</td></tr>
 <tr class="separator:a1b07aa93f3c82a70b451f5b9306b3f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae79b1f2b30e2c8b8065a1320779f84b7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ae79b1f2b30e2c8b8065a1320779f84b7">sx_api_fdb_igmpv3_state_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fid_t fid, sx_fdb_igmpv3_state_t *fdb_igmpv3_snooping_state)</td></tr>
@@ -237,7 +239,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of FDB MODULE.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -247,7 +249,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
@@ -293,7 +295,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of FDB MODULE.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -303,7 +305,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
@@ -343,7 +345,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function sets the FDB age time in seconds. Age time is the time after which automatically learned addresses are deleted from the FDB if they receive no traffic.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -352,7 +354,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -396,7 +398,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function retrieves the FDB age time in seconds. Age time is the time after which automatically learned addresses are deleted from the FDB if they receive no traffic.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -405,7 +407,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -442,8 +444,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the FDB poll for MAC entries notifications.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function triggers an FDB poll for MAC entries notifications.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -451,7 +453,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -497,7 +499,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function sets the FDB polling interval at 0.1 second granularity.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -506,7 +508,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -550,7 +552,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function gets the FDB polling interval in 0.1 second granularity.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -559,13 +561,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
@@ -616,20 +616,20 @@ SX_STATUS_PARAM_NULL if parameter is NULL. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function adds/deletes UC MAC and UC LAG MAC entries to/from the FDB. In case the operation fails on one entry (or more), an error is returned, mac_list_p stores those entries, and their quantity is stored in data_cnt. If the operation is completed successfully, SUCCESS is returned, and data_cnt_p and mac_list_p are not changed.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function adds/deletes UC MAC and UC LAG MAC entries to/from the FDB. In case the operation fails on one or more entries, an error is returned, mac_list_p stores those entries, and their quantity is stored in data_cnt. If the operation is completed successfully, SUCCESS is returned, and data_cnt_p and mac_list_p are not changed.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID) in mac_list_p-&gt;fid_vid, you should provide a bridge_id.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">mac_list_p</td><td>- list of MAC record parameters. Upon deletion, entry_type is DONT_CARE </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">mac_list_p</td><td>- list of MAC record parameters. For deletion, entry_type is DONT_CARE </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">data_cnt_p</td><td>- number of MAC records to ADD/DELETE</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -706,21 +706,21 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function reads MAC entries from the SW FDB table, which is an exact copy of the HW DB on any device. The output supports up to SX_FDB_MAX_GET_ENTRIES entries whose default is 64.</p>
+<p>This function reads MAC entries from the SW FDB table, which is an exact copy of the HW DB on any device. The output supports up to SX_FDB_MAX_GET_ENTRIES entries which defaults to 64.</p>
 <p>The function can receive three types of input:</p>
 <ul>
-<li>1) get information for current MAC + vlan - you should insert MAC+VLAN data in the key variable. data_cnt_p should be equal to 1. cmd should be SX_ACCESS_CMD_GET.</li>
+<li>1) get information for the supplied MAC + vlan - you should insert MAC+VLAN data in the key variable. data_cnt_p should be equal to 1. cmd should be SX_ACCESS_CMD_GET.</li>
 <li>2) get a list of first n&lt;=64 MACs - data_cnt_p should be equal to n. mac_type is the type you want to receive. key_filter_p is the filter type(s) you want to filter the results by. cmd should be SX_ACCESS_CMD_GET_FIRST.</li>
 <li>3) get a list of n&lt;=64 MACs which comes after certain MAC record (it does not have to exist) you should insert MAC+VLAN data in the key variable. data_cnt_p should be equal to n. mac_type is the type you want to receive. key_filter_p is the filter type(s) you want to filter the results by. cmd should be SX_ACCESS_CMD_GETNEXT.</li>
 </ul>
 <p>mac_list_p returns the records info and their quantity in data_cnt_p for all types of requests.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID) in key_p-&gt;fid_vid and fid in key_filter_p-&gt;fid, you should provide a bridge_id. bridge_id's will be stored in mac_list_p-&gt;fid_vid</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- get, get_next, get first </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET, GETNEXT, GET_FIRST </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mac_type</td><td>- static, dynamic, all </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- MAC entry with information for search (MAC+FID) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">key_filter_p</td><td>- filter types used on the mac_list_p - FID/MAC/logical port </td></tr>
@@ -729,7 +729,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -777,7 +777,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function counts all MAC entries in the SW FDB table (static and dynamic).</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -786,15 +786,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if the SWID is out of range </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -831,8 +829,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the amount of MACs learned on a port (static and dynamic).</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function retrieves the number of MACs learned on a port (static and dynamic).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -841,17 +839,15 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE for an invalid handle </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR for a general error </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 
 </div>
 </div>
@@ -892,9 +888,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the amount of MACs learned on an FID (static and dynamic).</p>
+<p>This function retrieves the number of MACs learned on an FID (static and dynamic).</p>
 <p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -904,11 +900,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE for an invalid handle </dd>
 <dd>
@@ -960,7 +952,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function sets/removes the limit on the amount of dynamic MACs learned on a port.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -970,11 +962,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE for an invalid handle </dd>
 <dd>
@@ -1020,7 +1008,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function retrieves the maximum amount of dynamic MACs that can be learned on a port.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1029,11 +1017,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE for an invalid handle </dd>
 <dd>
@@ -1090,7 +1074,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This function sets/removes the limit on the amount of dynamic MACs learned on FID.</p>
 <p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1101,11 +1085,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE for an invalid handle </dd>
 <dd>
@@ -1158,7 +1138,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This function retrieves the maximum amount of dynamic MACs that can be learned on an FID.</p>
 <p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1168,11 +1148,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE for an invalid handle </dd>
 <dd>
@@ -1242,7 +1218,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <pre class="fragment"> This function adds/deletes MC MAC entries from the FDB.
- Note: MC entries cannot be created and associated with ports at the same time.
+ Note: MC entries cannot be created and associated with ports at the same time
+ i.e the MC entry needs to be created first before adding ports.
 
  Note: The log_port_list_p list should not contain the
         logical port items which are specified as an Ethernet
@@ -1260,7 +1237,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
  - deletes MC group from MCDB
  - returns pgi into the pool
 
- When Edit (add_port) command is requested this function performs
+ When ADD_PORTS command is used this function performs
  the following:
  - updates the MC DB for adding logical ports and LAG ports
  - for each leaf device:
@@ -1271,7 +1248,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
    - adds local ports to FDB MC ID records (if FDB look-up
      by MC ID is allowed on leaf devices)
 
- When Edit (delete_port) command is requested this function performs
+ When DELETE_PORTS command is used this function performs
  the following:
  - updates MC DB for deleting logical ports and LAG ports
  - for each leaf device:
@@ -1284,11 +1261,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
  When in 802.1D mode, instead of providing a vid (Vlan ID),
  you should provide a bridge_id.
 
- Supported devices: Spectrum, Spectrum2.
+ Supported devices: Spectrum, Spectrum2, Spectrum3.
 </pre><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- add/delete/add port/delete port/test </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- add/delete/add port/delete port </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- filtering DB ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">group_addr</td><td>- MAC group address </td></tr>
@@ -1297,7 +1274,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -1368,9 +1345,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves MC MAC entries data. NOTE: The log_port_list_p list contains LAG-port IDs only and does not contain LAG members' logical-port IDs.</p>
+<p>This function retrieves MC MAC entries data. User is responsible for memory management of retrieved list. If the log_port_list_p is NULL or port_cnt is 0, the API retrieves the count of MC MAC entries for the vid. NOTE: If LAG ports are being supplied, the log_port_list_p list should contain only LAG-port IDs and not LAG members logical-port IDs.</p>
 <p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1382,7 +1359,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -1463,7 +1440,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <li>5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, key = X, filter = valid/invalid, key_list = valid, key_cnt &gt; 0: In this case the API will return a list of MC MAC keys (max key_cnt) starting with first key of the internal DB and matching the filter if present. The input MC MAC key is ignored in this case. A non-NULL key_list pointer must be provided in this case.</li>
 <li>6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, key = valid/invalid, filter = valid/invalid, key_list = valid, key_cnt &gt; 0: In this case the API will return a list of MC MAC keys (max key_cnt) starting with the next key after the input key and matching the filter if present. A non-NULL key_list pointer must be provided in this case.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1479,7 +1456,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -1532,9 +1509,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function adds/deletes MC MAC entries from the FDB. using multicast container as destination.</p>
+<p>This function adds/deletes FDB MC MAC entries from/to a Multicast container. Note: The Multicast container should have already been created.</p>
 <p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1544,7 +1521,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -1597,9 +1574,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get MC MAC entries from the FDB. using multicast container as destination.</p>
+<p>This function gets FDB MC MAC entries from a multicast container.</p>
 <p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1608,7 +1585,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -1655,7 +1632,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function deletes all FDB table entries on a switch partition. Supported devices: Spectrum, Spectrum2.</p>
+<p>This function deletes all learned (Dynamic) FDB table entries on a switch partition Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1663,13 +1640,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -1700,8 +1673,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function deletes the FDB table entries that are related to a flushed port.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function deletes the FDB table entries that were learned on a port</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1709,13 +1682,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -1752,9 +1721,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function deletes all FDB table entries that were learned on the flushed FID.</p>
+<p>This function deletes all FDB table entries that were learned on a FID.</p>
 <p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1763,7 +1732,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -1808,7 +1777,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This function deletes all FDB table entries that were learned on the flushed FID and port.</p>
 <p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1817,7 +1786,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -1855,7 +1824,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function deletes all FDB MC tables on a switch partition.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1863,13 +1832,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -1908,7 +1875,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This function deletes all FDB MC table entries that were learned on the flushed FID on a switch partition.</p>
 <p>When in 802.1D mode, instead of providing a fid (filtering ID), you should provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1917,11 +1884,57 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="ae41aa22e9e12b1044e0a3463dc2535ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae41aa22e9e12b1044e0a3463dc2535ed">&#9670;&nbsp;</a></span>sx_api_fdb_flush_by_type_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_flush_by_type_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flush_data_t *&#160;</td>
+          <td class="paramname"><em>flush_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function deletes dynamic FDB table entries according to the provided flush type and parameters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flush_data</td><td>- struct including the type and</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if a parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
@@ -1988,7 +2001,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -2035,7 +2048,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the SWID's learning parameters into the system's DB.</p>
 <p>NOTE: Only independent learning is supported in the current release.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2044,7 +2057,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -2090,7 +2103,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the SWID's learning parameters from the system's DB.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2099,7 +2112,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -2145,7 +2158,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function sets the FDB learning mode per SWID affecting all ports and VLANs in the SWID.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2154,13 +2167,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
-<dd>
-SX_STATUS_NO_MEMORY if memory allocation fails </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
@@ -2202,7 +2213,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function retrieves the FDB learning mode per SWID.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2211,13 +2222,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
-<dd>
-SX_STATUS_NO_MEMORY if memory allocation fails </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
@@ -2264,8 +2273,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets FID's learn mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets a FID's learn mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2275,11 +2284,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -2322,8 +2331,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets fid's learn mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets a fid's learn mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2333,11 +2342,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -2374,8 +2381,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets port's learn mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets a port's learn mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2384,11 +2391,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -2425,8 +2432,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets port's learn mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets a port's learn mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2435,11 +2442,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -2477,22 +2482,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function sets FDB notify parameters. Note: Only takes effect when controlled learn mode is set.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">notify_params_p</td><td>- new notify params</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">notify_params_p</td><td>- new notify parameters</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+SX_STATUS_PARAM_NULL if any parameters are NULL </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -2530,7 +2535,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function gets FDB notify parameters.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2539,13 +2544,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+SX_STATUS_PARAM_NULL if any parameters are NULL </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -2606,12 +2611,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to block ports from flooding of selected FID.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function is used to block ports from flooding a selected FID.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD_PORTS / DELETE_PORTS / DELETE_ALL_PORTS </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD_PORTS / DELETE_PORTS / REPLACE_ALL_PORTS/ DELETE_ALL_PORTS </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition id </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">fid</td><td>- VID/Bridge-ID to apply blocking list </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>- Flood type to control. </td></tr>
@@ -2620,7 +2625,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
@@ -2683,8 +2688,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to retrieve blocked ports from flooding of selected FID. ports count will be updated with the number of blocked ports. passing ports_count 0 and ports_list NULL, will return the number of ports in ports_count.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function is used to retrieve the list of ports on which flood control has been enabled. ports count will be updated with the number of blocked ports. If ports_count is non-zero user is responsible for memory management of ports_list. Passing ports_count as 0 and ports_list NULL will return a count of the number of ports.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2696,7 +2701,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_UNSUPPORTED if flood control is not supported in the switch. </dd>
 <dd>
@@ -2752,7 +2757,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to manage flood control for tunnels. Configuration from this API extends config from sx_api_fdb_flood_control_set for tunnel support. For each tunnel, you can add or remove flooding for specified bridge.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2763,7 +2768,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if tunnel or fid doesn't exists. </dd>
 <dd>
@@ -2813,7 +2818,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get flood control settings for a tunnel.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2823,7 +2828,7 @@ SX_STATUS_ERROR general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if flooding vector not set </dd>
 <dd>
@@ -2871,23 +2876,23 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function is used to retrieve flooding counters of the switch.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ / READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition id </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counters</td><td>- counters struct to retrieve information to</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counters</td><td>- counters struct to store retrieved information</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_UNSUPPORTED if flooding counters are not supported in the switch. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command provided is not supported. </dd>
 <dd>
-SX_STATUS_PARAM_NULL if counters is null </dd>
+SX_STATUS_PARAM_NULL if counters are null </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -2919,7 +2924,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function is used to clear flooding counters of the switch.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2927,7 +2932,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_UNSUPPORTED if flooding counters are not supported in the switch. </dd></dl>
 
@@ -2964,21 +2969,19 @@ SX_STATUS_UNSUPPORTED if flooding counters are not supported in the switch. </dd
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets port's fdb miss protect mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets port's fdb miss protect mode. When enabled the SMAC will not be learned and will be used for a security lookup on the packet.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3. Note: Not supported in 802.1D mode</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>- enable smac miss port protection</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>- enable/disable smac miss port protection</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
@@ -3017,17 +3020,17 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets port's fdb miss protect mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets port's fdb smac miss protect mode status.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3. Note: Not supported in 802.1D mode</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">enable_p</td><td>- port's fdb miss protection enabled</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">enable_p</td><td>- port's fdb miss protection status</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
@@ -3062,8 +3065,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets port's source miss protection drop counter.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets up FDB source miss protection drop counter.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3. Note: Not supported in 802.1D mode</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3071,11 +3074,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
@@ -3083,8 +3082,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 
 </div>
 </div>
-<a id="acd8c7fe52e1a7a66bb116406820919e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd8c7fe52e1a7a66bb116406820919e3">&#9670;&nbsp;</a></span>sx_api_fdb_src_miss_protect_drop_cntr_get()</h2>
+<a id="a2c57302e48355d01d518cad33e1bf12d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c57302e48355d01d518cad33e1bf12d">&#9670;&nbsp;</a></span>sx_api_fdb_src_miss_protect_drop_cntr_get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3105,7 +3104,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint64_t *&#160;</td>
-          <td class="paramname"><em>dropped_pkts_cntr</em>&#160;</td>
+          <td class="paramname"><em>dropped_pkts_cntr_p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3114,23 +3113,21 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets port's source miss protection drop counter.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the FDB source miss protection drop counters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3. Note: Not supported in 802.1D mode</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET / GET_AND_CLEAR </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">dropped_pkts_cntr</td><td>- port's source miss protection</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dropped_pkts_cntr_p</td><td>- port's source miss protection packet counter</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
+<dd>
+SX_STATUS_PARAM_NULL if dropped_pkts_cntr is null </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 
@@ -3173,18 +3170,18 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function set the IGMP v3 state.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets the IGMP v3 state.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- Command: Set </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">fid</td><td>- FID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">fdb_igmpv3_snooping_state</td><td>- Enable/ Disable</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -3192,15 +3189,13 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
-<dd>
 SX_STATUS_NO_MEMORY if memory allocation fails </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if snooping is already enabled </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3243,8 +3238,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get the IGMP v3 state.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the IGMP v3 state.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3254,7 +3249,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -3264,13 +3259,9 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
-SX_STATUS_NO_MEMORY if memory allocation fails </dd>
-<dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3313,18 +3304,18 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function set MC IP entries. using multicast container as destination.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function sets MC IP entries using a multicast container as the destination.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- add/delete/delete_all </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_fdb_mc_ip_key</td><td>- Structure contained the FID/SIP/DIP of the MC group </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">fdb_mc_ip_action</td><td>- Structure contained Action/Container ID/ Trap</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_fdb_mc_ip_key</td><td>- Structure containing the FID/SIP/DIP of the MC group </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fdb_mc_ip_action</td><td>- Structure containing Action/Container ID/Trap</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -3377,21 +3368,19 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get MC IP entries. using multicast container as destination.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets MC IP entries using a multicast container as destination.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_fdb_mc_ip_key</td><td>- Structure contained the FID/SIP/DIP of the MC group </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">fdb_mc_ip_action</td><td>- Pointer to a Structure contained Action/Container ID/ Trap</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_fdb_mc_ip_key</td><td>- Structure containing the FID/SIP/DIP of the MC group </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">fdb_mc_ip_action</td><td>- Pointer to a Structure containing Action/Container ID/Trap</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
@@ -3402,8 +3391,6 @@ SX_STATUS_NO_MEMORY if memory allocation fails </dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3446,18 +3433,18 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function set bind counter to MC IP entry.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function binds a flow counter to a MC IP Entry.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- Structure contained the FID/SIP/DIP of the MC group </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- Structure containing the FID/SIP/DIP of the MC group </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- Command: SX_ACCESS_CMD_ADD/SX_ACCESS_CMD_DELETE </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">counter_id</td><td>- counter id for adding/deleting from rule</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
@@ -3473,7 +3460,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 <dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if counter is already added </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3510,21 +3497,19 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get bound counter to MC IP entry.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This function gets the flow counter bound to an MC IP entry.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- Structure contained the FID/SIP/DIP of the MC group </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id</td><td>- Pinter to counter</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- Structure containing the FID/SIP/DIP of the MC group </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id</td><td>- Pointer to counter</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd>
 <dd>
@@ -3535,8 +3520,6 @@ SX_STATUS_NO_MEMORY if memory allocation fails </dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3579,8 +3562,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets unregistered MC flood mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This API sets the unregistered MC flood mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3591,7 +3574,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
@@ -3638,8 +3621,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves unregistered MC flood mode.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>This API retrieves the unregistered MC flood mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3650,11 +3633,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3704,7 +3689,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets unregistered MC flood ports.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3716,11 +3701,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3770,7 +3757,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves unregistered MC flood ports.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID), you should provide a bridge_id.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3782,11 +3769,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3829,8 +3818,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function reads and clears multicast entry activity.</p>
-<p>Supported devices: Spectrum, Spectrum2</p>
+<p>This function reads and/or clears activity on a specified multicast IP Entry.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -3840,11 +3829,15 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully. </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if Key parameters exceed allowed range </dd>
 <dd>
-SX_STATUS_NOT_FOUND if mc route is not found </dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if mc route is not found </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -3882,7 +3875,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function initiates a notification regarding active mc fdb entries in the system.</p>
-<p>Supported devices: Spectrum, Spectrum2</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3891,7 +3884,9 @@ SX_STATUS_ERROR general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if parameter is invalid. </dd>
 <dd>
@@ -3905,7 +3900,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 9 2019 21:54:22 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
