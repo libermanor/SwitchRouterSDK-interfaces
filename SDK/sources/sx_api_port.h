@@ -1133,6 +1133,11 @@ sx_status_t sx_api_port_sflow_statistics_get(const sx_api_handle_t       handle,
 
 /**
  *  This API controls loopback filter state of the port.
+ *  Note:
+ *     On Spectrum2, the loopback filter can be configured on the NVE port,
+ *     the filter affects only UC traffic – MC & flooding are not affected.
+ *     The filter can be configured on the NVE port only when
+ *     there is connected NVE tunnel in the system.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
@@ -1150,6 +1155,11 @@ sx_status_t sx_api_port_loopback_filter_set(const sx_api_handle_t               
 
 /**
  *  This API retrieves the loopback filter state of the port.
+ *  Note:
+ *     On Spectrum2, the API can retrieve the state of the loopback filter
+ *     on the NVE port.
+ *     The API can retrieve the state of the loopback filter
+ *     on the NVE port only when there is connected NVE tunnel in the system.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle    - SX-API handle
@@ -1609,7 +1619,7 @@ sx_status_t sx_api_port_vlan_ethertype_get(const sx_api_handle_t handle,
 
 /**
  * This API is used to set values to the different Bit Error Rate profiles.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * Min/max values:
  * |--------------------------------|
@@ -1641,7 +1651,7 @@ sx_status_t sx_api_port_ber_threshold_set(const sx_api_handle_t                 
 
 /**
  * This API is used to retrieve values of the different Bit Error Rate profiles.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] log_port          - Network port only.
@@ -1665,7 +1675,7 @@ sx_status_t sx_api_port_ber_threshold_get(const sx_api_handle_t                 
  * This API is orthogonal to the port FEC configuration.
  * It is recommended to first register to SX_TRAP_ID_BER_MONITOR and then
  * setting the monitor data so the first event will be the current status.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle       - SX-API handle.
  * @param[in] log_port     - The port to which to set the monitor.
@@ -1683,7 +1693,7 @@ sx_status_t sx_api_port_ber_monitor_set(const sx_api_handle_t            handle,
 
 /**
  * This API is used to retrieve values configured to the Bit Error Rate Monitor.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle          - SX-API handle.
  * @param[in] log_port        - The port to which the monitor is configured.
@@ -1700,7 +1710,7 @@ sx_status_t sx_api_port_ber_monitor_get(const sx_api_handle_t       handle,
 
 /**
  * This API is used to retrieve the current state of the Bit Error Rate Monitor.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle               - SX-API handle.
  * @param[in] log_port             - The port to which the monitor is configured.

@@ -431,6 +431,8 @@ var searchData=
   ['sx_5fapi_5frouter_5fecmp_5fiter_5fget',['sx_api_router_ecmp_iter_get',['../sx__api__router_8h.html#a866dedd655aa7313be54227fe54ec57e',1,'sx_api_router.h']]],
   ['sx_5fapi_5frouter_5fecmp_5fport_5fhash_5fparams_5fget',['sx_api_router_ecmp_port_hash_params_get',['../sx__api__router_8h.html#a9240dce50ddf1d16f2fee274487bd107',1,'sx_api_router.h']]],
   ['sx_5fapi_5frouter_5fecmp_5fport_5fhash_5fparams_5fset',['sx_api_router_ecmp_port_hash_params_set',['../sx__api__router_8h.html#a745c179a22cc63568a0cc1fa3375cd35',1,'sx_api_router.h']]],
+  ['sx_5fapi_5frouter_5fecmp_5fredirect_5fget',['sx_api_router_ecmp_redirect_get',['../sx__api__router_8h.html#ac706ced1172271936ca0ec91f1f1fd13',1,'sx_api_router.h']]],
+  ['sx_5fapi_5frouter_5fecmp_5fredirect_5fset',['sx_api_router_ecmp_redirect_set',['../sx__api__router_8h.html#aed7c89711216cab09b505dc134c03fd3',1,'sx_api_router.h']]],
   ['sx_5fapi_5frouter_5fecmp_5fset',['sx_api_router_ecmp_set',['../sx__api__router_8h.html#abd1c22691400cdcd80424831ff6bc942',1,'sx_api_router.h']]],
   ['sx_5fapi_5frouter_5fget',['sx_api_router_get',['../sx__api__router_8h.html#a2c3deff6c205855116423b65854ddaff',1,'sx_api_router.h']]],
   ['sx_5fapi_5frouter_5finit_5fset',['sx_api_router_init_set',['../sx__api__router_8h.html#a1ef69aecaf04fa448db5bca24195b338',1,'sx_api_router.h']]],
@@ -568,14 +570,5 @@ var searchData=
   ['sx_5fapi_5fvlan_5fport_5fqinq_5fouter_5fprio_5fmode_5fset',['sx_api_vlan_port_qinq_outer_prio_mode_set',['../sx__api__vlan_8h.html#abcf72663a766f5e766964fd9a58c07e2',1,'sx_api_vlan.h']]],
   ['sx_5fapi_5fvlan_5fports_5fget',['sx_api_vlan_ports_get',['../sx__api__vlan_8h.html#ac80375d25edca8f22d5398942027bfdd',1,'sx_api_vlan.h']]],
   ['sx_5fapi_5fvlan_5fports_5fset',['sx_api_vlan_ports_set',['../sx__api__vlan_8h.html#afb0d34de6a2a947270fa84d2b5aba2db',1,'sx_api_vlan.h']]],
-  ['sx_5fapi_5fvlan_5fset',['sx_api_vlan_set',['../sx__api__vlan_8h.html#afd40bd8590718aaff2bc26ecf3ca7c39',1,'sx_api_vlan.h']]],
-  ['sx_5flib_5fadviser_5fdeinit',['sx_lib_adviser_deinit',['../sx__lib__adviser_8h.html#ab2976239e41146abd056a70ef7685f38',1,'sx_lib_adviser.h']]],
-  ['sx_5flib_5fadviser_5fevent_5fderegister',['sx_lib_adviser_event_deregister',['../sx__lib__adviser_8h.html#a5a208aeee34c74e11b4456f8bf14f6a9',1,'sx_lib_adviser.h']]],
-  ['sx_5flib_5fadviser_5fevent_5fregister',['sx_lib_adviser_event_register',['../sx__lib__adviser_8h.html#a6066c196d9b2cc3584bee469d25a575e',1,'sx_lib_adviser.h']]],
-  ['sx_5flib_5fadviser_5finit',['sx_lib_adviser_init',['../sx__lib__adviser_8h.html#af066ca82b7cfea2f042ae79108950da5',1,'sx_lib_adviser.h']]],
-  ['sx_5flib_5fhost_5fifc_5fdata_5fsend',['sx_lib_host_ifc_data_send',['../sx__lib__host__ifc_8h.html#aa4fd868ed92156135920bd17e15ec5e9',1,'sx_lib_host_ifc.h']]],
-  ['sx_5flib_5fhost_5fifc_5floopback_5fctrl_5fsend',['sx_lib_host_ifc_loopback_ctrl_send',['../sx__lib__host__ifc_8h.html#ae43b3841e7516a353368f08495e0cb82',1,'sx_lib_host_ifc.h']]],
-  ['sx_5flib_5fhost_5fifc_5frecv',['sx_lib_host_ifc_recv',['../sx__lib__host__ifc_8h.html#a0f07fc8cf2327a799de54a51cc6ee877',1,'sx_lib_host_ifc.h']]],
-  ['sx_5flib_5fhost_5fifc_5frecv_5flist',['sx_lib_host_ifc_recv_list',['../sx__lib__host__ifc_8h.html#a5544031a1a24829335038ca75556eddc',1,'sx_lib_host_ifc.h']]],
-  ['sx_5flib_5fhost_5fifc_5funicast_5fctrl_5fsend',['sx_lib_host_ifc_unicast_ctrl_send',['../sx__lib__host__ifc_8h.html#a72ea2187c02ff5ce97cb8699c1e5c4ec',1,'sx_lib_host_ifc.h']]]
+  ['sx_5fapi_5fvlan_5fset',['sx_api_vlan_set',['../sx__api__vlan_8h.html#afd40bd8590718aaff2bc26ecf3ca7c39',1,'sx_api_vlan.h']]]
 ];

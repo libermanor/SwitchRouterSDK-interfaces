@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.3260</span>
+   &#160;<span id="projectnumber">4.4.0880</span>
    </div>
   </td>
  </tr>
@@ -138,7 +138,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the log verbosity level of TELEMETRY MODULE. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>Sets the log verbosity level of TELEMETRY MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -193,7 +193,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the log verbosity level of TELEMETRY MODULE. Supported devices: SwitchX, SwitchX2, Spectrum.</p>
+<p>Gets the log verbosity level of TELEMETRY MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -236,7 +236,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to initialize telemetry module. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to initialize telemetry module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -267,7 +267,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to deinit telemetry module. Supported devices: Spectrum, Spectrum2.</p>
+<p>This API is used to deinit telemetry module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -318,8 +318,11 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Sets the Histogram attributes. Command SET sets the histogram attributes described on key to attributes_data</p>
-<p>For spectrum: sample time is global, last configured sample time applied to all histograms.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Note: For Spectrum: sample time is global, last configured sample time is applied to all histograms. For latency histograms (supported on Spectrum2 and Spectrum3):</p><ol type="1">
+<li>Histogram attributes must be identical for all TCs of the same port.</li>
+<li>Edit command is not supported. (Destroy all latency histograms on port, than set new configuration).</li>
+</ol>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -377,7 +380,7 @@ SX_STAUS_ERROR on internal error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Retrieves the histogram attributes data that match the key.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -455,7 +458,7 @@ SX_STAUS_ERROR general error. </dd></dl>
 <li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, hist_list = Valid, Count &gt; 0: In this case the API will return the first count histograms starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care. If a filter is specified only those histograms that match the filter will be returned. a non-Null return hist_list pointer must be provided</li>
 <li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid, hist_list = Valid, Count &gt; 0: In this case the API will return the next set of histograms starting from the next valid histogram after the specified key. The total elements fetched will be returned as the return count. If a filter is specified only those histograms that match the filter will be returned. Note: return count may be less than or equal to the requested count. If no valid next histogram exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>: SX API handle </td></tr>
@@ -522,7 +525,7 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
 </div><div class="memdoc">
 <p>Retrieves the histogram data. Where histogram is created, histogram data is being sampled. The occupancy is being sampled according to the attributes configured in sx_api_tele_histogram_set. The relevant bin is being increased according to the current sample occupancy.</p>
 <p>For Spectrum: Bin sampling stop when one of the bins reaches max value by bits according to resource manager variable tele_histogram_data_bin_bits_max.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -582,7 +585,7 @@ SX_STAUS_ERROR general error. </dd></dl>
 <p>Sets the congestion threshold for a specific port and enables a specific TC (in addition to enabled ones). Note: SET command cannot be called on an existing entry. in order to modify, use EDIT. For port related thresholds: 1. network and LAG ports are supported.</p><ol type="1">
 <li>On spectrum, the last threshold that was set on a port will apply to all TC's in the port.</li>
 </ol>
-<p>Supported devices: Spectrum.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -640,7 +643,7 @@ SX_STAUS_ERROR on internal error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Retrieves the congestion threshold for a specific port and the TC's the threshold is configured to. For port related threshold types, network and LAG ports are supported.</p>
-<p>Supported devices: Spectrum.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -704,7 +707,7 @@ SX_STAUS_ERROR on internal error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Retrieves the current threshold congestion state (below / above threshold) for a list of keys. For port related threshold types, only network ports are supported.</p>
-<p>Supported devices: Spectrum.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -729,7 +732,7 @@ SX_STAUS_ERROR on internal error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 5 2020 18:24:13 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -1289,6 +1289,8 @@ sx_status_t sx_api_router_ecmp_set(const sx_api_handle_t handle,
 
 /**
  * This function retrieves an ECMP container content, as defined by the user.
+ * Note:
+ *     This function returns next hops for a given ECMP ID even if this ECMP is redirected.
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle             - SX-API handle
@@ -1377,6 +1379,9 @@ sx_status_t sx_api_router_ecmp_iter_get(const sx_api_handle_t   handle,
 /**
  *  This function retrieves the ECMP container content, as written to HW(only
  *  resolved next hops are written to HW).
+ *  Note:
+ *      This function will return next hops for a given ECMP ID if this ECMP isn't redirected,
+ *      if the ECMP is redirected, it will return next hops from the destination ECMP.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle             - SX-API handle
@@ -1510,6 +1515,9 @@ sx_status_t sx_api_router_ecmp_attributes_get(const sx_api_handle_t handle,
 
 /**
  * This function clones an ECMP container.
+ * Note:
+ *    ECMP redirect doesn't affect the cloning process - newly cloned container won't be
+ *    redirected even if the original one is redirected.
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                 - SX-API handle
@@ -1642,5 +1650,63 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
                                                     const sx_router_id_t     vrid,
                                                     const sx_mc_route_key_t *mc_route_key_p,
                                                     sx_flow_counter_id_t    *counter_id_p);
+
+/**
+ *  This API CREATEs/DESTROYs redirection between an ECMP(“ecmp”) and a
+ *  destination ECMP(“redirect_ecmp”).
+ *
+ *  Note:
+ *  Only ECMP NVE containers can be redirected;
+ *  ECMP container “ecmp” can be redirected to an ECMP container “redirect_ecmp” only if:
+ *      1. ECMP container “redirect_ecmp” is not in use (the reference counter of ECMP container is equal 0):
+ *         1.1 ex.: there are no FDB entries that point to “redirect_ecmp”;
+ *      2. “redirect_ecmp” is not redirected to any other ECMP and no other container is already redirected to  “redirect_ecmp”.
+ *  Once ECMP container “redirect_ecmp” becomes the master, the user cannot create objects that point to the container “redirect_ecmp” directly.
+ *  ECMP container “redirect_ecmp” cannot be destroyed until redirection stops.
+ *  ECMP container “ecmp” cannot be destroyed until redirection stops.
+ *  Only 1:1 redirection is supported:
+ *      1. Redirection chains are not supported: “A” -> “B” -> “C”;
+ *      2. N:1 redirection is not supported: “A” -> “C” | “B” -> “C”;
+ *
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] cmd                   - CREATE/DESTROY
+ * @param[in] ecmp                  - ECMP ID
+ * @param[in] redirect_ecmp         - ECMP ID which ecmp now
+ *                                    points to. Ignored in DESTROY command.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ */
+sx_status_t sx_api_router_ecmp_redirect_set(const sx_api_handle_t handle,
+                                            const sx_access_cmd_t cmd,
+                                            const sx_ecmp_id_t    ecmp,
+                                            const sx_ecmp_id_t    redirect_ecmp);
+
+/**
+ *  This API returns information whether given ECMP is redirected.
+ *  If given ECMP is redirected, the redirected ECMP ID is returned.
+ *
+ *  Supported devices: Spectrum, Spectrum2.
+ *
+ * @param[in] handle                     - SX-API handle.
+ * @param[in] ecmp                       - ECMP ID.
+ * @param[out] is_redirected_p           - is ECMP_port redirected.
+ * @param[out] redirected_ecmp_p         - the ECMP ID to point to when the ECMP is redirected.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB
+ */
+sx_status_t sx_api_router_ecmp_redirect_get(const sx_api_handle_t handle,
+                                            const sx_ecmp_id_t    ecmp,
+                                            boolean_t            *is_redirected_p,
+                                            sx_ecmp_id_t         *redirected_ecmp_p);
 
 #endif /* __SX_API_ROUTER_H__ */

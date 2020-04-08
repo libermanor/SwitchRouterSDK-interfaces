@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.3260</span>
+   &#160;<span id="projectnumber">4.4.0880</span>
    </div>
   </td>
  </tr>
@@ -3293,7 +3293,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API controls loopback filter state of the port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API controls loopback filter state of the port. Note: On Spectrum2, the loopback filter can be configured on the NVE port, the filter affects only UC traffic – MC &amp; flooding are not affected. The filter can be configured on the NVE port only when there is connected NVE tunnel in the system. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3343,7 +3343,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the loopback filter state of the port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the loopback filter state of the port. Note: On Spectrum2, the API can retrieve the state of the loopback filter on the NVE port. The API can retrieve the state of the loopback filter on the NVE port only when there is connected NVE tunnel in the system. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4526,7 +4526,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to set values to the different Bit Error Rate profiles. Supported devices: Spectrum.</p>
+<p>This API is used to set values to the different Bit Error Rate profiles. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>Min/max values: |-----------------------------&mdash;| | Monitor | Min | Max | |-----------------------------&mdash;| |RS-FEC Pre-FEC | 1e-9 | 1e-4 | |-----------------------------&mdash;| |FC-FEC PRE-FEC | 1e-11 | 1e-4 | |-----------------------------&mdash;| |NO-FEC/Post-FEC | 1e-14 | 1e-8 | |-----------------------------&mdash;|</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4582,7 +4582,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to retrieve values of the different Bit Error Rate profiles. Supported devices: Spectrum.</p>
+<p>This API is used to retrieve values of the different Bit Error Rate profiles. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -4631,7 +4631,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to configure the Bit Error Rate Monitor. It is recommended to use sx_api_port_ber_monitor_operational_get after configuring this API to retrieve the FEC status that is configured. This API is orthogonal to the port FEC configuration. It is recommended to first register to SX_TRAP_ID_BER_MONITOR and then setting the monitor data so the first event will be the current status. Supported devices: Spectrum.</p>
+<p>This API is used to configure the Bit Error Rate Monitor. It is recommended to use sx_api_port_ber_monitor_operational_get after configuring this API to retrieve the FEC status that is configured. This API is orthogonal to the port FEC configuration. It is recommended to first register to SX_TRAP_ID_BER_MONITOR and then setting the monitor data so the first event will be the current status. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -4679,7 +4679,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to retrieve values configured to the Bit Error Rate Monitor. Supported devices: Spectrum.</p>
+<p>This API is used to retrieve values configured to the Bit Error Rate Monitor. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -4727,7 +4727,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to retrieve the current state of the Bit Error Rate Monitor. Supported devices: Spectrum.</p>
+<p>This API is used to retrieve the current state of the Bit Error Rate Monitor. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -5560,7 +5560,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 5 2020 18:24:13 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

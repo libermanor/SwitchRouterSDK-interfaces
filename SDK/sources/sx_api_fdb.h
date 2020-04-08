@@ -170,6 +170,11 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  *  If the operation is completed successfully, SUCCESS is returned, and
  *  data_cnt_p and mac_list_p are not changed.
  *
+ *  Note:
+ *      Ageable UC FDB entries that point to a ECMP NVE container are not supported:
+ *          If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER,
+ *          sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE.
+ *
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  *  When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID)
@@ -956,7 +961,9 @@ sx_status_t sx_api_fdb_fid_learn_mode_get(const sx_api_handle_t handle,
 
 /**
  *  This function sets a port's learn mode.
- *
+ *  Note:
+ *     The learn mode on the NVE port can be configured only when
+ *     there is connected NVE tunnel in the system.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle      - SX-API handle
@@ -974,7 +981,9 @@ sx_status_t sx_api_fdb_port_learn_mode_set(const sx_api_handle_t     handle,
 
 /**
  *  This function gets a port's learn mode.
- *
+ *  Note:
+ *     The API can retrieve the learn mode on the NVE port only
+ *     when there is a connected NVE tunnel in the system.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle
@@ -1092,13 +1101,16 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
  * For each tunnel, you can add or remove flooding for specified
  * bridge.
  *
+ * The MC container that is pointed by the parameter "flood_vector" can be bound to a given FID
+ * only if the FID is equal to a FID from the attributes of MC container.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd			 - ADD / DELETE / SET
  * @param[in] swid           - virtual switch partition id
  * @param[in] fid            - FID
- * @param[in] flood_vector   - MC Container contains Flooding vector as ecmp object for head replication.
+ * @param[in] flood_vector   - MC container, which next-hops are used to flood through a tunnel.
  *
  * @return SX_STATUS_SUCCESS if the operation completes successfully
  * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel or fid doesn't exists.

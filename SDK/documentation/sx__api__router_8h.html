@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.3.3260</span>
+   &#160;<span id="projectnumber">4.4.0880</span>
    </div>
   </td>
  </tr>
@@ -195,6 +195,10 @@ Functions</h2></td></tr>
 <tr class="separator:a6a4327a03b23e683f531b359fa569ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a450a42c80363d8802247f85c77fae63d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a450a42c80363d8802247f85c77fae63d">sx_api_router_mc_route_counter_bind_get</a> (const sx_api_handle_t handle, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, sx_flow_counter_id_t *counter_id_p)</td></tr>
 <tr class="separator:a450a42c80363d8802247f85c77fae63d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed7c89711216cab09b505dc134c03fd3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#aed7c89711216cab09b505dc134c03fd3">sx_api_router_ecmp_redirect_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_ecmp_id_t ecmp, const sx_ecmp_id_t redirect_ecmp)</td></tr>
+<tr class="separator:aed7c89711216cab09b505dc134c03fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac706ced1172271936ca0ec91f1f1fd13"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ac706ced1172271936ca0ec91f1f1fd13">sx_api_router_ecmp_redirect_get</a> (const sx_api_handle_t handle, const sx_ecmp_id_t ecmp, boolean_t *is_redirected_p, sx_ecmp_id_t *redirected_ecmp_p)</td></tr>
+<tr class="separator:ac706ced1172271936ca0ec91f1f1fd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a34f17bf4bcc4feeac94a3dad937ac9ef"></a>
@@ -3073,7 +3077,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves an ECMP container content, as defined by the user. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This function retrieves an ECMP container content, as defined by the user. Note: This function returns next hops for a given ECMP ID even if this ECMP is redirected. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3219,7 +3223,7 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal ECMP DB is not initialized </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the ECMP container content, as written to HW(only resolved next hops are written to HW). Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This function retrieves the ECMP container content, as written to HW(only resolved next hops are written to HW). Note: This function will return next hops for a given ECMP ID if this ECMP isn't redirected, if the ECMP is redirected, it will return next hops from the destination ECMP. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3570,7 +3574,7 @@ SX_STATUS_ENTRY_NOT_FOUND if ecmp_id not found. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function clones an ECMP container. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This function clones an ECMP container. Note: ECMP redirect doesn't affect the cloning process - newly cloned container won't be redirected even if the original one is redirected. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3854,11 +3858,139 @@ SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
+<a id="aed7c89711216cab09b505dc134c03fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed7c89711216cab09b505dc134c03fd3">&#9670;&nbsp;</a></span>sx_api_router_ecmp_redirect_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_ecmp_redirect_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_ecmp_id_t&#160;</td>
+          <td class="paramname"><em>ecmp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_ecmp_id_t&#160;</td>
+          <td class="paramname"><em>redirect_ecmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API CREATEs/DESTROYs redirection between an ECMP(“ecmp”) and a destination ECMP(“redirect_ecmp”).</p>
+<p>Note: Only ECMP NVE containers can be redirected; ECMP container “ecmp” can be redirected to an ECMP container “redirect_ecmp” only if:</p><ol type="1">
+<li>ECMP container “redirect_ecmp” is not in use (the reference counter of ECMP container is equal 0): 1.1 ex.: there are no FDB entries that point to “redirect_ecmp”;</li>
+<li>“redirect_ecmp” is not redirected to any other ECMP and no other container is already redirected to “redirect_ecmp”. Once ECMP container “redirect_ecmp” becomes the master, the user cannot create objects that point to the container “redirect_ecmp” directly. ECMP container “redirect_ecmp” cannot be destroyed until redirection stops. ECMP container “ecmp” cannot be destroyed until redirection stops. Only 1:1 redirection is supported:</li>
+</ol>
+<ol type="1">
+<li>Redirection chains are not supported: “A” -&gt; “B” -&gt; “C”;</li>
+<li>N:1 redirection is not supported: “A” -&gt; “C” | “B” -&gt; “C”;</li>
+</ol>
+<p>Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ecmp</td><td>- ECMP ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">redirect_ecmp</td><td>- ECMP ID which ecmp now points to. Ignored in DESTROY command.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
+
+</div>
+</div>
+<a id="ac706ced1172271936ca0ec91f1f1fd13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac706ced1172271936ca0ec91f1f1fd13">&#9670;&nbsp;</a></span>sx_api_router_ecmp_redirect_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_ecmp_redirect_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_ecmp_id_t&#160;</td>
+          <td class="paramname"><em>ecmp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boolean_t *&#160;</td>
+          <td class="paramname"><em>is_redirected_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_ecmp_id_t *&#160;</td>
+          <td class="paramname"><em>redirected_ecmp_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API returns information whether given ECMP is redirected. If given ECMP is redirected, the redirected ECMP ID is returned.</p>
+<p>Supported devices: Spectrum, Spectrum2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ecmp</td><td>- ECMP ID. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">is_redirected_p</td><td>- is ECMP_port redirected. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">redirected_ecmp_p</td><td>- the ECMP ID to point to when the ECMP is redirected.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2020 19:42:01 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 5 2020 18:24:13 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

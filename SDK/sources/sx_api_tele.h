@@ -28,7 +28,7 @@
 
 /**
  * Sets the log verbosity level of TELEMETRY MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_tele_log_verbosity_level_set(const sx_api_handle_t           
 
 /**
  * Gets the log verbosity level of TELEMETRY MODULE.
- * Supported devices: SwitchX, SwitchX2, Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -64,7 +64,7 @@ sx_status_t sx_api_tele_log_verbosity_level_get(const sx_api_handle_t           
 
 /**
  * This API is used to initialize telemetry module.
- * Supported devices: Spectrum, Spectrum2.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] params_p - pointer to init params structure.
@@ -78,7 +78,7 @@ sx_status_t sx_api_tele_init_set(const sx_api_handle_t  handle,
 
 /**
  * This API is used to deinit telemetry module.
- * Supported devices: Spectrum, Spectrum2.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
  *
@@ -91,10 +91,15 @@ sx_status_t sx_api_tele_deinit_set(const sx_api_handle_t handle);
  * Sets the Histogram attributes.
  * Command SET sets the histogram attributes described on key to attributes_data
  *
- * For spectrum: sample time is global, last configured sample time applied to
- *     all histograms.
+ * Note:
+ * For Spectrum: sample time is global, last configured sample time is applied
+ *     to all histograms.
+ * For latency histograms (supported on Spectrum2 and Spectrum3):
+ *      1. Histogram attributes must be identical for all TCs of the same port.
+ *      2. Edit command is not supported.
+ *         (Destroy all latency histograms on port, than set new configuration).
  *
- * Supported devices: Spectrum, Spectrum2.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - SET/EDIT/DESTROY.
@@ -114,7 +119,7 @@ sx_status_t sx_api_tele_histogram_set(const sx_api_handle_t                     
 /**
  *  Retrieves the histogram attributes data that match the key.
  *
- * Supported devices: Spectrum, Spectrum2.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - GET
@@ -183,7 +188,7 @@ sx_status_t sx_api_tele_histogram_get(const sx_api_handle_t                handl
  *        key specified, or key too large), an empty list will be returned.
  *
  *
- *  Supported devices: Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param [in] handle           : SX API handle
  * @param [in] cmd              : GET/GET_FIRST/GET_NEXT
@@ -217,7 +222,7 @@ sx_status_t sx_api_tele_histogram_iter_get(const sx_api_handle_t            hand
  *
  * For Spectrum: Bin sampling stop when one of the bins reaches max value by bits according to resource manager variable tele_histogram_data_bin_bits_max.
  *
- * Supported devices: Spectrum, Spectrum2.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
@@ -243,7 +248,7 @@ sx_status_t sx_api_tele_histogram_data_get(const sx_api_handle_t         handle,
  * For port related thresholds: 1. network and LAG ports are supported.
  * 2. On spectrum, the last threshold that was set on a port will apply to all TC's in the port.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - SET/EDIT/DESTROY.
@@ -264,7 +269,7 @@ sx_status_t sx_api_tele_threshold_set(const sx_api_handle_t          handle,
  * Retrieves the congestion threshold for a specific port and the TC's the threshold is configured to.
  * For port related threshold types, network and LAG ports are supported.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - GET.
@@ -285,7 +290,7 @@ sx_status_t sx_api_tele_threshold_get(const sx_api_handle_t         handle,
  * Retrieves the current threshold congestion state (below / above threshold) for a list of keys.
  * For port related threshold types, only network ports are supported.
  *
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle - SX-API handle.
  * @param[in]  cmd - GET.
