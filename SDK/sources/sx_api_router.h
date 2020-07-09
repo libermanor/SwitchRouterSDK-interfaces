@@ -1264,6 +1264,30 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  * Weights will be modified on runtime according to next hops resolution changes.
  * Clearing(set with an empty next hops list), is not allowed in
  * case container is in use by UC route(s).
+ *
+ * Note for ECMP containers of types SX_ECMP_CONTAINER_TYPE_NVE_FLOOD and SX_ECMP_CONTAINER_TYPE_NVE_MC:
+ *   1. The max size of ECMP NVE container is determined:
+ *      - by sx_tunnel_nve_general_params_t.ecmp_max_size value on Spectrum;
+ *      - by min{rm_resources_t.tunnel_nve_group_size_flood_max;sx_router_resources_param_t.max_ecmp_block_size}
+ *        for ECMP NVE FLOOD containers on Spectrum2 and higher;
+ *      - by min{rm_resources_t.tunnel_nve_group_size_mc_max;sx_router_resources_param_t.max_ecmp_block_size}
+ *        for ECMP NVE MC containers on Spectrum2 and higher;
+ *   2. ECMP NVE containers can contain next hops only of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP.
+ *   3. To create an ECMP container of the type SX_ECMP_CONTAINER_TYPE_NVE_FLOOD
+ *      or SX_ECMP_CONTAINER_TYPE_NVE_MC, do the following steps:
+ *         3.1. Create an empty ECMP container using sx_api_router_ecmp_set;
+ *         3.2. Change the type of this ECMP container using sx_api_router_ecmp_attributes_set;
+ *         3.3. Set next hopes to this ECMP container using sx_api_router_ecmp_set;
+ *   4. On Spectrum, all ECMP NVE containers have the same size in HW,
+ *      if an ECMP NVE container has next hops with the total weight less than
+ *      the configured global size (sx_tunnel_nve_general_params_t.ecmp_max_size),
+ *      then next hops will be configured to HW using weighted round robin algorithm.
+ *      For example if the size is configured to be four, and an ECMP NVE container has two following next hops:
+ *        - next hop #A with weight of 1;
+ *        - next hop #B with weight of 2;
+ *      you will get unbalanced ECMP container.
+ *      In the HW, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                 - SX-API handle
@@ -1668,7 +1692,7 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
  *      1. Redirection chains are not supported: “A” -> “B” -> “C”;
  *      2. N:1 redirection is not supported: “A” -> “C” | “B” -> “C”;
  *
- *  Supported devices: Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - CREATE/DESTROY
@@ -1691,7 +1715,7 @@ sx_status_t sx_api_router_ecmp_redirect_set(const sx_api_handle_t handle,
  *  This API returns information whether given ECMP is redirected.
  *  If given ECMP is redirected, the redirected ECMP ID is returned.
  *
- *  Supported devices: Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                     - SX-API handle.
  * @param[in] ecmp                       - ECMP ID.

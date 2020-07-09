@@ -171,9 +171,10 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  *  data_cnt_p and mac_list_p are not changed.
  *
  *  Note:
- *      Ageable UC FDB entries that point to a ECMP NVE container are not supported:
- *          If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER,
- *          sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE.
+ *      If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER:
+ *          - sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE or SX_FDB_UC_REMOTE;
+ *          - sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the next types:
+ *            SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.
  *
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -610,15 +611,16 @@ sx_status_t sx_api_fdb_mc_mac_addr_iter_get(const sx_api_handle_t         handle
  * This function adds/deletes FDB MC MAC entries from/to a Multicast container.
  * Note: The Multicast container should have already been created.
  *
- * When in 802.1D mode, instead of providing a vid (Vlan ID),
- * you should provide a bridge_id.
+ * The MC container from the parameter "data" should have the type SX_MC_CONTAINER_TYPE_BRIDGE_MC.
+ * An FDB MC MAC entry can be created only if the FID from the parameter "group_key" is equal
+ * to the FID from the attributes of the MC container.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle           - SX-API handle
- * @param[in] cmd              - add/delete
+ * @param[in] cmd              - ADD/DELETE
  * @param[in] group_key        - {fid, mac} key for multicast
- * @param[in] data             - fdb data including action and mc container id
+ * @param[in] data             - fdb data including action and MC container ID
  *
  * @return SX_STATUS_SUCCESS if the operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
@@ -639,9 +641,6 @@ sx_status_t sx_api_fdb_mc_mac_addr_group_set(const sx_api_handle_t     handle,
 
 /**
  * This function gets FDB MC MAC entries from a multicast container.
- *
- * When in 802.1D mode, instead of providing a vid (Vlan ID),
- * you should provide a bridge_id.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1101,8 +1100,10 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
  * For each tunnel, you can add or remove flooding for specified
  * bridge.
  *
- * The MC container that is pointed by the parameter "flood_vector" can be bound to a given FID
- * only if the FID is equal to a FID from the attributes of MC container.
+ * The MC container that is pointed by the parameter "flood_vector" should be one of the following types:
+ * SX_MC_CONTAINER_TYPE_NVE_FLOOD or SX_MC_CONTAINER_TYPE_BRIDGE_MC.
+ * An MC container of the type SX_MC_CONTAINER_TYPE_NVE_FLOOD or SX_MC_CONTAINER_TYPE_BRIDGE_MC container can be bound to
+ * a given FID only if the FID is equal to a FID from the attributes of the MC container.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

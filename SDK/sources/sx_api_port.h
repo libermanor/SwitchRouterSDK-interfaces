@@ -943,6 +943,60 @@ sx_status_t sx_api_port_counter_phy_layer_get(const sx_api_handle_t     handle,
                                               sx_port_cntr_phy_layer_t *cntr_phy_layer_p);
 
 /**
+ *  This API retrieves the port Physical Layer Statistic counters.
+ *  Note the following:
+ *  - This API is capable to return counters for 400Gb (8x lanes) port
+ *  - For non 400Gb ports (not 8x lanes) counters will be returned only for used lanes
+ *  - When link_side is external retrieved data will depend on the current FEC mode and
+ *    API's phy_raw_errors counters may represent counters for NO FEC, FC FEC, or RS FEC modes:
+ *     NO FEC - edpl_bip_errors
+ *     FC FEC - fc_fec_corrected_blocks
+ *     RS FEc - rs_fec_corrected_symbols
+ *  - When link_side is Near or Far retrieved data will represent corrected symbols for USR ZL FEC mode.
+ *
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle      - SX-API handle
+ * @param[in] cmd         - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
+ * @param[in] log_port    - logical port ID
+ * @param[in] link_side   - which side of logical port to query
+ * @param[out] cntr_p     - Physical Statistical Layer counters entry
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ */
+sx_status_t sx_api_port_counter_phy_layer_statistics_get(const sx_api_handle_t                handle,
+                                                         const sx_access_cmd_t                cmd,
+                                                         const sx_port_log_id_t               log_port,
+                                                         const sx_port_phys_link_side_t       link_side,
+                                                         sx_port_cntr_phy_layer_statistics_t *cntr_p);
+
+
+/**
+ *  This API retrieves the port Physical Internal Link Layer counters.
+ *  Supported devices: Spectrum3.
+ *
+ * @param[in] handle      - SX-API handle
+ * @param[in] cmd         - SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR
+ * @param[in] log_port    - logical port ID
+ * @param[in] link_side   - which side of logical port to query, supported only Near or Far types
+ * @param[out] cntr_p     - Physical Internal Link Layer counters entry
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ERROR if operation completes with failure
+ */
+sx_status_t sx_api_port_counter_phy_layer_internal_link_get(const sx_api_handle_t                   handle,
+                                                            const sx_access_cmd_t                   cmd,
+                                                            const sx_port_log_id_t                  log_port,
+                                                            const sx_port_phys_link_side_t          link_side,
+                                                            sx_port_cntr_phy_layer_internal_link_t *cntr_p);
+
+/**
  *  This API initializes the port in the SDK.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1106,7 +1160,7 @@ sx_status_t sx_api_port_sflow_get(const sx_api_handle_t   handle,
 
 /**
  *  This API retrieves the number of dropped packets from logical port or LAG.
- *  Supported devices: devices with dedicated HW for sflow sampling (currently Spectrum).
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  *  Packed dropped counter accumulates:
  *   - packets dropped due to lack of host CPU RX buffer resources;
@@ -1133,11 +1187,12 @@ sx_status_t sx_api_port_sflow_statistics_get(const sx_api_handle_t       handle,
 
 /**
  *  This API controls loopback filter state of the port.
- *  Note:
- *     On Spectrum2, the loopback filter can be configured on the NVE port,
- *     the filter affects only UC traffic – MC & flooding are not affected.
- *     The filter can be configured on the NVE port only when
- *     there is connected NVE tunnel in the system.
+ *
+ *  Note for the NVE port:
+ *     Changing of the state of the loopback filter is not supported on Spectrum.
+ *     Changing of the state affects only UC traffic - MC and flooding are always filtered.
+ *     The state of the filter can be changed only when there is connected NVE tunnel in the system.
+ *
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
@@ -1146,7 +1201,6 @@ sx_status_t sx_api_port_sflow_statistics_get(const sx_api_handle_t       handle,
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_ERROR for a general error
  */
 sx_status_t sx_api_port_loopback_filter_set(const sx_api_handle_t                handle,
@@ -1234,7 +1288,7 @@ sx_status_t sx_api_port_isolate_get(const sx_api_handle_t  handle,
  *  In case pass_routed_frames is True, frame performance penalty is possible.
  *  pass_routed_frames=True relates to the physical ports and not to the internal tunnel ports.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] port_isolate_mode_p - port isolate mode
@@ -1252,7 +1306,7 @@ sx_status_t sx_api_port_isolate_mode_set(const sx_api_handle_t         handle,
 /**
  *  This function retrieves port isolation mode.
  *
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle              - SX-API handle
  * @param[out] port_isolate_mode_p - port isolate mode
@@ -1980,7 +2034,7 @@ sx_status_t sx_api_port_phy_module_type_set(const sx_api_handle_t               
                                             const sx_port_mod_id_t                   module_id,
                                             const sx_port_phy_module_type_bitmask_t *types_p);
 /**
- *  This API gets the operational Physical Medium Depended port type.
+ *  This API gets the operational Physical Medium Dependent port type.
  *  Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle       - SX-API handle

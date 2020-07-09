@@ -309,5 +309,32 @@ sx_status_t sx_api_tele_threshold_crossed_data_get(const sx_api_handle_t        
                                                    sx_tele_threshold_crossed_data_t *crossed_data_p,
                                                    const uint32_t                    key_cnt);
 
+/**
+ * Sets the attributes of telemetry module.
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle -      SX-API handle
+ * @param[in] attributes -  Telemetry module attributes struct
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_tele_attributes_set(const sx_api_handle_t  handle,
+                                       const sx_tele_attrib_t attributes);
+
+/**
+ * Retrieves the attributes of telemetry module.
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle -      SX-API handle
+ * @param[out] attributes_p -  Telemetry module attributes pointer
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_tele_attributes_get(const sx_api_handle_t handle,
+                                       sx_tele_attrib_t     *attributes_p);
 
 #endif /* __SX_API_TELE_H__ */

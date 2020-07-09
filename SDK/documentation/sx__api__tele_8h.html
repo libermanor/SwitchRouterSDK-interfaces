@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.0904</span>
+   &#160;<span id="projectnumber">4.4.1000</span>
    </div>
   </td>
  </tr>
@@ -99,6 +99,10 @@ Functions</h2></td></tr>
 <tr class="separator:a502255dcba339c9299bbc4896496e6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea1e9bca46b6a0dfc016bb6d110ea9c8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#aea1e9bca46b6a0dfc016bb6d110ea9c8">sx_api_tele_threshold_crossed_data_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tele_threshold_key_t *key_p, sx_tele_threshold_crossed_data_t *crossed_data_p, const uint32_t key_cnt)</td></tr>
 <tr class="separator:aea1e9bca46b6a0dfc016bb6d110ea9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7084f69f911c46a333a58061b715080"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#ac7084f69f911c46a333a58061b715080">sx_api_tele_attributes_set</a> (const sx_api_handle_t handle, const sx_tele_attrib_t attributes)</td></tr>
+<tr class="separator:ac7084f69f911c46a333a58061b715080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6905b666b5c09b471fa26849f710b4a0"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tele_8h.html#a6905b666b5c09b471fa26849f710b4a0">sx_api_tele_attributes_get</a> (const sx_api_handle_t handle, sx_tele_attrib_t *attributes_p)</td></tr>
+<tr class="separator:a6905b666b5c09b471fa26849f710b4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ad296c2522919d1d0a5e34d6dd0981be1"></a>
@@ -728,11 +732,93 @@ SX_STAUS_ERROR on internal error. </dd></dl>
 
 </div>
 </div>
+<a id="ac7084f69f911c46a333a58061b715080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7084f69f911c46a333a58061b715080">&#9670;&nbsp;</a></span>sx_api_tele_attributes_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tele_attributes_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tele_attrib_t&#160;</td>
+          <td class="paramname"><em>attributes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the attributes of telemetry module. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attributes</td><td>- Telemetry module attributes struct</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="a6905b666b5c09b471fa26849f710b4a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6905b666b5c09b471fa26849f710b4a0">&#9670;&nbsp;</a></span>sx_api_tele_attributes_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tele_attributes_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tele_attrib_t *&#160;</td>
+          <td class="paramname"><em>attributes_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Retrieves the attributes of telemetry module. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">attributes_p</td><td>- Telemetry module attributes pointer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2020 17:17:59 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2020 01:46:33 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

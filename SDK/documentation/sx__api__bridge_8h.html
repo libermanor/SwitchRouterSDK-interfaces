@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.0904</span>
+   &#160;<span id="projectnumber">4.4.1000</span>
    </div>
   </td>
  </tr>
@@ -784,8 +784,9 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. This API binds/un-binds a counter to/from a tunnel mapped to the bridge</p>
-<p>For ENCAP_UC and ENCAP_MC counters this operation can be performed only when FDB doesn't contain any entries for tunnel in fid counters can be bound only if the bridge/VLAN to tunnel mapping is configured</p>
+<p>This API binds/un-binds a counter to/from a tunnel mapped to the bridge</p>
+<p>For ENCAP_UC and ENCAP_MC counters this operation can be performed only when FDB doesn't contain any entries for tunnel in fid. When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion of related VNI mapping is completed and VNI mapping delete notification is sent. Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -798,15 +799,15 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API. </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel or tunnel mapping do not exist. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel or tunnel mapping does not exist. </dd>
 <dd>
 SX_STATUS_ENTRY_ALREADY_BOUND if counter already bound. </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_BOUND if specified counter is not bound </dd></dl>
+SX_STATUS_ENTRY_NOT_BOUND if specified counter is not bound. </dd></dl>
 
 </div>
 </div>
@@ -847,7 +848,8 @@ SX_STATUS_ENTRY_NOT_BOUND if specified counter is not bound </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. This API gets flow counter for tunnel mapped to the bridge</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets flow counter for tunnel mapped to the bridge</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -871,7 +873,7 @@ SX_STATUS_ENTRY_NOT_BOUND if counter isn't bound. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2020 17:17:59 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2020 01:46:33 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -26,7 +26,7 @@
 
 /**
  * This API sets the log verbosity level of PTP MODULE.
- * Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -43,7 +43,7 @@ sx_status_t sx_api_ptp_log_verbosity_level_set(const sx_api_handle_t           h
 
 /**
  * This API gets the log verbosity level of PTP MODULE.
- * Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH

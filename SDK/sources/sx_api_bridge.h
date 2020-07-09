@@ -316,12 +316,16 @@ sx_status_t sx_api_bridge_mirror_get(const sx_api_handle_t       handle,
                                      sx_mirror_mode_t           *mirror_mode_p);
 
 /**
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
  * This API binds/un-binds a counter to/from a tunnel mapped to the bridge
  *
  * For ENCAP_UC and ENCAP_MC counters this operation can be performed only when FDB doesn't
- * contain any entries for tunnel in fid
- * counters can be bound only if the bridge/VLAN to tunnel mapping is configured
+ * contain any entries for tunnel in fid.
+ * When Lazy Delete mode is enabled, flow counters will be automatically unbounded
+ * once the deletion of related VNI mapping is completed and VNI mapping delete
+ * notification is sent.
+ * Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] cmd               - SX_ACCESS_CMD_BIND/SX_ACCESS_CMD_UNBIND.
@@ -331,11 +335,11 @@ sx_status_t sx_api_bridge_mirror_get(const sx_api_handle_t       handle,
  *
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
- * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid.
  * @return SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API.
- * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel or tunnel mapping do not exist.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel or tunnel mapping does not exist.
  * @return SX_STATUS_ENTRY_ALREADY_BOUND if counter already bound.
- * @return SX_STATUS_ENTRY_NOT_BOUND if specified counter is not bound
+ * @return SX_STATUS_ENTRY_NOT_BOUND if specified counter is not bound.
  *
  */
 sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t                  handle,
@@ -346,6 +350,7 @@ sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t         
 
 /**
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
  *  This API gets flow counter for tunnel mapped to the bridge
  *
  * @param[in] handle            - SX-API handle.

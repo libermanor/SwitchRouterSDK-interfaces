@@ -75,6 +75,20 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  * Notes: A container in use (e.g. by a multicast route or ACL) cannot be destroyed.
  *        A container may contain at most RM_API_ROUTER_RIFS_MAX next hops
  *
+ * Note for MC containers of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type:
+ *     An MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple
+ *     next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of
+ *     the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of
+ *     the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *     A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of
+ *     the SX_ECMP_CONTAINER_TYPE_NVE_MC type only.
+ * Note for MC containers of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type:
+ *     An MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can contain either multiple
+ *     next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of
+ *     the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *     A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of
+ *     the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
@@ -86,6 +100,7 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_PARAM_NULL if any input parameter is a NULL pointer.
  * @return SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist.
  * @return SX_STATUS_NO_RESOURCES if there are no resources for the operation.
  * @return SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed.

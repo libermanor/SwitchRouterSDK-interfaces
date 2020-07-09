@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.0904</span>
+   &#160;<span id="projectnumber">4.4.1000</span>
    </div>
   </td>
  </tr>
@@ -3013,7 +3013,23 @@ SX_STATUS_PARAM_NULL if parameter is NULL. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function creates/modifies/destroys an ECMP container, according to cmd.</p>
-<p>SX_ACCESS_CMD_CREATE - by providing a next hops list, the command creates an ECMP container. Container content is formed as a subset of the resolved next hops. Returned Next hops weights are adjusted to the proper weights as written on HW. This command returns the containers next hops as written on HW, list count and new container ID. SX_ACCESS_CMD_SET - Modifies the contents of an existing ECMP container, specified by *ecmp_id_p. If *next_hop_cnt_p is zero, SET cmd empties the container. SX_ACCESS_CMD_DESTROY - by providing a container ID, the command removes all next hops from the existing given container, destroying the container as well. The container ID is invalid until reassigned on container creation. This command returns list count 0 Weights will be modified on runtime according to next hops resolution changes. Clearing(set with an empty next hops list), is not allowed in case container is in use by UC route(s). Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>SX_ACCESS_CMD_CREATE - by providing a next hops list, the command creates an ECMP container. Container content is formed as a subset of the resolved next hops. Returned Next hops weights are adjusted to the proper weights as written on HW. This command returns the containers next hops as written on HW, list count and new container ID. SX_ACCESS_CMD_SET - Modifies the contents of an existing ECMP container, specified by *ecmp_id_p. If *next_hop_cnt_p is zero, SET cmd empties the container. SX_ACCESS_CMD_DESTROY - by providing a container ID, the command removes all next hops from the existing given container, destroying the container as well. The container ID is invalid until reassigned on container creation. This command returns list count 0 Weights will be modified on runtime according to next hops resolution changes. Clearing(set with an empty next hops list), is not allowed in case container is in use by UC route(s).</p>
+<p>Note for ECMP containers of types SX_ECMP_CONTAINER_TYPE_NVE_FLOOD and SX_ECMP_CONTAINER_TYPE_NVE_MC:</p><ol type="1">
+<li>The max size of ECMP NVE container is determined:<ul>
+<li>by sx_tunnel_nve_general_params_t.ecmp_max_size value on Spectrum;</li>
+<li>by min{rm_resources_t.tunnel_nve_group_size_flood_max;sx_router_resources_param_t.max_ecmp_block_size} for ECMP NVE FLOOD containers on Spectrum2 and higher;</li>
+<li>by min{rm_resources_t.tunnel_nve_group_size_mc_max;sx_router_resources_param_t.max_ecmp_block_size} for ECMP NVE MC containers on Spectrum2 and higher;</li>
+</ul>
+</li>
+<li>ECMP NVE containers can contain next hops only of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP.</li>
+<li>To create an ECMP container of the type SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC, do the following steps: 3.1. Create an empty ECMP container using sx_api_router_ecmp_set; 3.2. Change the type of this ECMP container using sx_api_router_ecmp_attributes_set; 3.3. Set next hopes to this ECMP container using sx_api_router_ecmp_set;</li>
+<li>On Spectrum, all ECMP NVE containers have the same size in HW, if an ECMP NVE container has next hops with the total weight less than the configured global size (sx_tunnel_nve_general_params_t.ecmp_max_size), then next hops will be configured to HW using weighted round robin algorithm. For example if the size is configured to be four, and an ECMP NVE container has two following next hops:<ul>
+<li>next hop #A with weight of 1;</li>
+<li>next hop #B with weight of 2; you will get unbalanced ECMP container. In the HW, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.</li>
+</ul>
+</li>
+</ol>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3904,7 +3920,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <li>Redirection chains are not supported: “A” -&gt; “B” -&gt; “C”;</li>
 <li>N:1 redirection is not supported: “A” -&gt; “C” | “B” -&gt; “C”;</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3964,7 +3980,7 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns information whether given ECMP is redirected. If given ECMP is redirected, the redirected ECMP ID is returned.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -3990,7 +4006,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2020 17:17:59 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2020 01:46:33 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

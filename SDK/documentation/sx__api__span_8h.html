@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.0904</span>
+   &#160;<span id="projectnumber">4.4.1000</span>
    </div>
   </td>
  </tr>
@@ -137,6 +137,10 @@ Functions</h2></td></tr>
 <tr class="separator:a9c786ce9b091ae76bcef9aaf23e8e732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01fa01745fa289a95a082a344ca610ba"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a01fa01745fa289a95a082a344ca610ba">sx_api_span_header_time_stamp_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_span_hdr_ts_config_t span_ts)</td></tr>
 <tr class="separator:a01fa01745fa289a95a082a344ca610ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af773d8d323fe4a3e289adeee9c50c6cc"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#af773d8d323fe4a3e289adeee9c50c6cc">sx_api_span_session_policer_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_span_session_id_t span_session_id, const sx_policer_id_t policer_id)</td></tr>
+<tr class="separator:af773d8d323fe4a3e289adeee9c50c6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af329f85d3601dae8894027b2345bbdd7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#af329f85d3601dae8894027b2345bbdd7">sx_api_span_session_policer_bind_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_policer_id_t *policer_id_p)</td></tr>
+<tr class="separator:af329f85d3601dae8894027b2345bbdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a6e00a2fe2b79ec287d487497fc25e658"></a>
@@ -1532,7 +1536,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function binds the mirror binding point to span session with sampling rate.</p>
-<p>Supported devices: Spectrum, Spectrum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1845,7 +1849,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">object_key_p</td><td>- A reference mirror enable object key </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Return only enabled object that match this filter param if valid </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">object_list_p</td><td>- return list of objects </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">object_cnt_p</td><td>- [in] number of objects to get [out] number of objects retrieved</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">object_cnt_p</td><td>- [in] number of objects to get. When object_cnt_p=0 will get number of all valid objects per type. [out] number of objects retrieved</td></tr>
   </table>
   </dd>
 </dl>
@@ -1861,7 +1865,15 @@ SX_STATUS_ERROR if unexpected behavior occurs </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
 <dd>
-SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized </dd></dl>
+SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized</dd></dl>
+<p>The following use case scenarios apply with different input parameters X = don't-care</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = (type,port=X,tc_pg=X), filter = X, list = X, count = 0: In this case the API will return the total number of mirror enabled object count from internal db.</li>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/(type,port=X,tc_pg=X), filter = X, list = Valid, count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the list along with a count of 1. If the key does not exist an empty list will be returned with count = 0.</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, filter = X, list = valid, count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behaviour will be same as earlier GET use cases.</li>
+<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = (type,port=X,tc_pg=X), filter = X, list = NULL, count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = (type,port=X,tc_pg=X), filter = X, list = valid, count &gt; 0: In this case the API will return the first mirror enabled object starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key must have type the rest is dont-care but a non-NULL return list pointer must be provided.</li>
+<li>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/(type,port=X,tc_pg=X), filter = X, list = valid, count &gt; 0: In this case the API will return the next set of mirror enabled objects starting from the next valid mirror enabled object after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next counter exists in the DB (key = end of list, or invalid key specified, or key too large), an empty list will be returned. </li>
+</ul>
 
 </div>
 </div>
@@ -1903,11 +1915,124 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized </dd></dl>
 
 </div>
 </div>
+<a id="af773d8d323fe4a3e289adeee9c50c6cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af773d8d323fe4a3e289adeee9c50c6cc">&#9670;&nbsp;</a></span>sx_api_span_session_policer_bind_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_session_policer_bind_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_session_id_t&#160;</td>
+          <td class="paramname"><em>span_session_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_policer_id_t&#160;</td>
+          <td class="paramname"><em>policer_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function binds a policer to a SPAN session. The policer must be defined as a SPAN session policer. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- SPAN session ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- Policer ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB. </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_BOUND if SPAN session already has a policer. </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid. </dd></dl>
+
+</div>
+</div>
+<a id="af329f85d3601dae8894027b2345bbdd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af329f85d3601dae8894027b2345bbdd7">&#9670;&nbsp;</a></span>sx_api_span_session_policer_bind_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_session_policer_bind_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_session_id_t&#160;</td>
+          <td class="paramname"><em>span_session_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_policer_id_t *&#160;</td>
+          <td class="paramname"><em>policer_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function returns the policer ID bound to the provided SPAN session ID, When no policer is bound, the API will return SX_STATUS_ENTRY_NOT_FOUND and policer_id_p will be set to SX_POLICER_ID_INVALID. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- SPAN session ID. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">policer_id</td><td>- Policer ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if policer_id_p is NULL. </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2020 17:17:59 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2020 01:46:33 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

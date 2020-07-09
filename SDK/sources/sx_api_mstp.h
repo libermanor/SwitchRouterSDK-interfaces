@@ -196,7 +196,6 @@ sx_status_t sx_api_mstp_inst_vlan_list_set(const sx_api_handle_t   handle,
  *  This function retrieves a list of VLANs in the MSTP instance from the SDK.
  *  If the output list (array) is NULL, only the number of VLANs is retrieved.
  *
- *  Supported devices: Spectrum.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle         - SX-API handle

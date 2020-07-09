@@ -238,8 +238,10 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * then the API call with command DELETE marks a tunnel mapping as deleted, and
  * SDK returns SX_STATUS_SUCCESS.
  * Once the reference counter of the tunnel mapping becomes 0, SDK will delete the tunnel
- * mapping and will generate a notification with the trap id(SX_TRAP_ID_OBJECT_DELETED_EVENT)
- * and the copy of tunnel mapping that was deleted.
+ * mapping, unbind DECAP, ENCAP UC and ENCAP MC flow counters if they are bound and will
+ * generate a notification with the trap id(SX_TRAP_ID_OBJECT_DELETED_EVENT) and the copy
+ * of tunnel mapping that was deleted.
+ * NOS should monitor delete notification events in order to delete the counter resource.
  * If the user tries to re-create a tunnel map entry before a notification is received,
  * then the SDK returns error SX_STATUS_RESOURCE_IN_USE.
  *
@@ -247,8 +249,7 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * 1. a static tunnel UC FDB entry;
  * 2. a MC FDB entry (if MC container has a tunnel next hop);
  * 3. each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set;
- * 4. a flow counter that is bound to tunnel mapping with sx_api_bridge_tunnel_counter_bind_set;
- * 5. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop);
+ * 4. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop);
  *
  * The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.
  *
@@ -260,15 +261,16 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * @param[in] map_entries_p      - Array of map entries
  * @param[in] map_entries_cnt    - amount of entries in map_entries_p
  *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists.
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exist.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
  * @return SX_STATUS_ENTRY_ALREADY_EXISTS if tunnel and bridge/VLAN already bound.
- * @return SX_STATUS_UNSUPPORTED if api is not supported for this device
- * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if try to delete more maps than configured for the tunnel
- * @return SX_STATUS_RESOURCE_IN_USE if the user tries to re-create a tunnel map entry that is marked as deleted
- * @return SX_STATUS_ERROR general error
+ * @return SX_STATUS_UNSUPPORTED if api is not supported for this device.
+ * @return SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API.
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized.
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if try to delete more maps than configured for the tunnel.
+ * @return SX_STATUS_RESOURCE_IN_USE if the user tries to re-create a tunnel map entry that is marked as deleted.
+ * @return SX_STATUS_ERROR general error.
  * */
 sx_status_t sx_api_tunnel_map_set(const sx_api_handle_t         handle,
                                   const sx_access_cmd_t         cmd,
@@ -315,9 +317,16 @@ sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
  *
  * Note for Spectrum:
  * 1. TTL behavior and values are shared between all tunnels of same type.
- * 2. IPinIP tunnels supports TTL_CMD_SET and TTL_CMD_COPY in the encap direction,
+ * 2. IPinIP tunnels support TTL_CMD_SET and TTL_CMD_COPY in the encap direction,
  * default value is TTL_CMD_COPY.
- * 3. NVE tunnels supports TTL_CMD_SET in the encap direction, default TTL value is 255.
+ * 3. NVE tunnels support TTL_CMD_SET in the encap direction, default TTL value is 255.
+ *
+ * Note for Spectrum2 and newer ASICs:
+ * 1. IPinIP Tunnels support only TTL_CMD_SET & TTL_CMD_COPY commands
+ * 2. IPinIP Tunnels only support configuring TTL command in encap direction
+ * 3. NVE Tunnels support TTL_CMD_SET, TTL_CMD_COPY in Encap direction.
+ * 4. NVE Tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction. Default is PRESERVE.
+ *
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

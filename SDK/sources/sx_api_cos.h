@@ -319,7 +319,8 @@ sx_status_t sx_api_cos_port_buff_type_set(const sx_api_handle_t            handl
                                           const uint32_t                   port_buffer_attr_cnt);
 
 /**
- * This API gets the port buffers size and threshold (Xon/Xoff) according to port buffer attribute type
+ * This API gets the port buffers size and thresholds (Xon/Xoff) according to port buffer attribute type
+ * Port buffer thresholds can only be retrieved for a single buffer type.
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                    - SX-API handle
@@ -870,7 +871,7 @@ sx_status_t sx_api_cos_port_prio_to_exp_rewrite_get(const sx_api_handle_t    han
                                                     uint32_t                *element_cnt_p);
 /**
  * This function sets PTP shaper parameters
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] cmd                           - SX_ACCESS_CMD_SET : set new shaper parameters
@@ -889,7 +890,7 @@ sx_status_t sx_api_cos_ets_ptp_shaper_param_set(const sx_api_handle_t          h
 
 /**
  * This function retrieves PTP shaper parameters
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] cmd                           - SX_ACCESS_CMD_GET : retrieve current shaper parameters
@@ -1019,7 +1020,7 @@ sx_status_t sx_api_cos_redecn_log_verbosity_level_get(const sx_api_handle_t     
                                                       sx_verbosity_level_t           *api_verbosity_level_p);
 /**
  * This function sets global configuration of ECN and RED
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] configuration_p   - configuration parameters @see sx_cos_redecn_global_t
@@ -1036,7 +1037,7 @@ sx_status_t sx_api_cos_redecn_general_param_set(const sx_api_handle_t         ha
 
 /**
  * This function gets global configuration of ECN and RED
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                    - SX-API handle
  * @param[out] configuration_p  - configuration parameters @see sx_cos_redecn_global_t
@@ -1133,7 +1134,7 @@ sx_status_t sx_api_cos_redecn_tc_enable_get(const sx_api_handle_t          handl
 
 /**
  * This function binds RED and ECN profiles to the traffic class and traffic type (TCP/non-TCP, color).
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] log_port - egress port to bind/unbind
@@ -1159,7 +1160,7 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_set(const sx_api_handle_t         
 
 /**
  * This function retrieves the binding of RED/ECN profiles configuration for given egress port and traffic class.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle - SX-API handle
  * @param[in]  log_port - egress port to query
@@ -1316,7 +1317,7 @@ sx_status_t sx_api_cos_redecn_ecn_counter_per_port_get(const sx_api_handle_t  ha
 
 /**
  * This function is used to configure whether ecn marking should be counted
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle SX-API handle
  * @param[in] enabled true for counting, false to not count

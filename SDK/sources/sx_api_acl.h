@@ -474,7 +474,6 @@ sx_status_t sx_api_acl_policy_based_switching_get(const sx_api_handle_t handle,
 
 /**
  *  This function adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES).
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *  Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported by Spectrum2, Spectrum3.
  *  ADD command is used to create a new range ID from the supplied port range.
  *  EDIT command is used to update the port range of the supplied range ID
@@ -740,6 +739,13 @@ sx_status_t sx_api_acl_rule_block_move_set(const sx_api_handle_t      handle,
  *  set by sx_api_acl_group_attributes_set API.
  *  DELETE command can be used to remove an ACL group from multiple ACL groups
  *  bound to the port/LAG.
+ *
+ *  Binding to L2 tunnel ports is supported in this API as well.
+ *  Spectrum supports NVE port binding by providing the NVE logical port.
+ *  Spectrum support is a virtual binding to the NVE decap table, where ADD and DELETE commands are not supported.
+ *  Spectrum2 support for L2 tunnel port binding has API support like any other port binding.
+ *  In order to bind L2 tunnel port, the appropriate logical port and an ACL group with one of the directions
+ *  SX_ACL_DIRECTION_TPORT_INGRESS or SX_ACL_DIRECTION_TPORT_EGRESS should be provided.
  *
  *  Note: ADD and DELETE commands support binding of ACL groups only.
  *        Binding or adding groups may fail if there are insufficient resources in HW.
@@ -1242,7 +1248,7 @@ sx_status_t sx_api_acl_group_bind_get(sx_api_handle_t handle,
  * Command SET replaces the contents of an existing container specified by
  * port_list_id_p, with the specified list of logical ports in port_list_p.
  * Command DESTROY deletes an existing container specified by port_list_id_p.
- * Notes: An port list  in use (e.g. by an acl key) cannot be destroyed or modified
+ * Notes: A port list in use (e.g. by an ACL key) cannot be destroyed or modified
  *        A container may contain at most RM_API_ACL_PORT_LIST_MAX logical ports
  *        A container may contain only Ethernet logical ports and not LAG ports
  *

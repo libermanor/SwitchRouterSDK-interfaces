@@ -310,9 +310,12 @@ sx_status_t sx_api_host_ifc_trap_id_set(const sx_api_handle_t  handle,
  *    @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
  *    @return SX_STATUS_ERROR general error
  *
- * Note: when configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING/SX_TRAP_ID_GENERAL_FDB/SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP,
- *       trap_action field is ignored.
- *       Instead, the action should be configured in each module.
+ * Note: 1.  When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING/SX_TRAP_ID_GENERAL_FDB/SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP,
+ *          trap_action field is ignored.
+ *          Instead, the action should be configured in each module.
+ *       2.  Use cmd SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation
+ *          In this case trap_attr_p->attr.trap_id_attr.trap_action is reserved.
+ *          The trap ID will not attached to trap group.
  */
 sx_status_t sx_api_host_ifc_trap_id_ext_set(const sx_api_handle_t          handle,
                                             const sx_access_cmd_t          cmd,
@@ -345,8 +348,11 @@ sx_status_t sx_api_host_ifc_trap_id_ext_get(const sx_api_handle_t         handle
                                             uint32_t                     *attr_cnt_p);
 
 /**
- * Get trap group information such as total number of discarded
- * packets.
+ * Get monitor trap group information such as total number of discarded packets.
+ * Note that this API is capable to get correct data in case when the trap for
+ * discarded packets is bound to the regular trap group and to the monitor trap
+ * group simultaneously.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]     handle        - SX-API handle.
@@ -655,6 +661,10 @@ sx_status_t sx_api_host_ifc_policer_bind_get(const sx_api_handle_t handle,
 
 /**
  * Get host interface counters.
+ * Note : Due to HW limitations, this API may have some counters inconsistency for
+ * trap IDs that belong to both the regular and the monitor trap group simultaneously.
+ * Please use sx_api_host_ifc_trap_group_stat_get in this case in order to get accurate values.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]     handle         - SX-API handle.
@@ -683,7 +693,7 @@ sx_status_t sx_api_host_ifc_counters_get(const sx_api_handle_t                ha
  * using SX_ACCESS_CMD_DELETE_ALL will clear all filters applied per the given trap ID over the
  * provided user channel.
  *
- * Supported devices: Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]     handle         - SX-API handle.
  * @param[in]     cmd            - ADD/DELETE/DELETE_ALL.
@@ -724,7 +734,7 @@ sx_status_t sx_api_host_ifc_trap_id_channel_filter_set(const sx_api_handle_t    
  *    the next filter entry after the specified filter entry.
  *    The returned filter_entry_cnt may be less or equal to the requested filter_entry_cnt.
  *
- * Supported devices: Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]     handle                 - SX-API handle.
  * @param[in]     cmd                    - GET/GET_FIRST/GETNEXT

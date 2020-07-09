@@ -20,6 +20,41 @@
 
 #include <sx/sdk/sx_api.h>
 #include <sx/sdk/sx_strings.h>
+/************************************************
+*  *  Local Defines
+************************************************/
+
+
+/************************************************
+*  *  Local Macros
+************************************************/
+
+
+/************************************************
+*  *  Local Type definitions
+************************************************/
+
+/************************************************
+*  *  Defines
+************************************************/
+
+
+/************************************************
+*  *  Macros
+************************************************/
+
+/************************************************
+*  *  Type definitions
+************************************************/
+
+/************************************************
+*  *  Global variables
+************************************************/
+
+/************************************************
+*  *  Function declarations
+************************************************/
+
 
 /************************************************
  *  API functions
@@ -585,7 +620,7 @@ sx_status_t sx_api_span_drop_mirror_get(const sx_api_handle_t          handle,
  *  This function binds the mirror binding point to span session
  *  with sampling rate.
  *
- *  Supported devices: Spectrum, Spectrum2.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] cmd      - bind/unbind
@@ -700,7 +735,7 @@ sx_status_t sx_api_span_mirror_enable_get(const sx_api_handle_t                 
  * @param[in] object_key_p         - A reference mirror enable object key
  * @param[in] filter_p             - Return only enabled object that match this filter param if valid
  * @param[out] object_list_p       - return list of objects
- * @param[in,out] object_cnt_p     - [in]  number of objects to get
+ * @param[in,out] object_cnt_p     - [in]  number of objects to get. When object_cnt_p=0 will get number of all valid objects per type.
  *                                   [out] number of objects retrieved
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -710,6 +745,42 @@ sx_status_t sx_api_span_mirror_enable_get(const sx_api_handle_t                 
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
  * @return SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized
+ *
+ *
+ * The following use case scenarios apply with different input parameters X = don't-care
+ * - 1) cmd = SX_ACCESS_CMD_GET, key = (type,port=X,tc_pg=X), filter = X, list = X, count = 0:
+ *        In this case the API will return the total number of mirror enabled object count from
+ *        internal db.
+ *
+ * - 2) cmd = SX_ACCESS_CMD_GET, key = valid/(type,port=X,tc_pg=X), filter = X, list = Valid, count = 1:
+ *        In this case the API will check if the specified key exists. if it does
+ *        the key will be returned in the list along with a count of 1.
+ *        If the key does not exist an empty list will be returned with count = 0.
+ *
+ * - 3) cmd = SX_ACCESS_CMD_GET, key = valid, filter = X, list = valid, count > 1:
+ *        A count > 1 will be treated as a count of 1 and the behaviour will be same
+ *        as earlier GET use cases.
+ *
+ * - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = (type,port=X,tc_pg=X), filter = X,
+ *        list = NULL, count = 0:
+ *        For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count
+ *        will return an empty list.
+ *
+ * - 5) cmd = SX_ACCESS_CMD_GET_FIRST, key = (type,port=X,tc_pg=X), filter = X, list = valid, count > 0:
+ *        In this case the API will return the first mirror enabled object starting from
+ *        the head of the database. The total elements fetched will be returned
+ *        as the return count.  Note: return count may be less than or equal to
+ *        the requested count. The key must have type the rest is dont-care but a non-NULL return
+ *        list pointer must be provided.
+ *
+ * - 6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/(type,port=X,tc_pg=X), filter = X,
+ *        list = valid, count > 0:
+ *        In this case the API will return the next set of mirror enabled objects starting from
+ *        the next valid mirror enabled object after the specified key. The total elements
+ *        fetched will be returned as the return count. Note: return count may be less
+ *        than or equal to the requested count. If no valid next counter exists
+ *        in the DB (key = end of list, or invalid key specified, or key too
+ *        large), an empty list will be returned.
  */
 sx_status_t sx_api_span_mirror_enable_iter_get(const sx_api_handle_t                handle,
                                                const sx_access_cmd_t                cmd,
@@ -739,5 +810,47 @@ sx_status_t sx_api_span_mirror_enable_iter_get(const sx_api_handle_t            
 sx_status_t sx_api_span_header_time_stamp_set(const sx_api_handle_t   handle,
                                               const sx_access_cmd_t   cmd,
                                               sx_span_hdr_ts_config_t span_ts);
+
+/**
+ *  This function binds a policer to a SPAN session.
+ *  The policer must be defined as a SPAN session policer.
+ *  Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[in] cmd - BIND/UNBIND.
+ * @param[in] span_session_id - SPAN session ID.
+ * @param[in] policer_id - Policer ID.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB.
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND if SPAN session already has a policer.
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid.
+ */
+sx_status_t sx_api_span_session_policer_bind_set(const sx_api_handle_t      handle,
+                                                 const sx_access_cmd_t      cmd,
+                                                 const sx_span_session_id_t span_session_id,
+                                                 const sx_policer_id_t      policer_id);
+
+/**
+ *  This function returns the policer ID bound to the provided SPAN session ID,
+ *  When no policer is bound, the API will return SX_STATUS_ENTRY_NOT_FOUND and
+ *  policer_id_p will be set to SX_POLICER_ID_INVALID.
+ *  Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in]  handle - SX-API handle.
+ * @param[in]  span_session_id - SPAN session ID.
+ * @param[out] policer_id - Policer ID.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB.
+ * @return SX_STATUS_PARAM_NULL if policer_id_p is NULL.
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid.
+ */
+sx_status_t sx_api_span_session_policer_bind_get(const sx_api_handle_t      handle,
+                                                 const sx_span_session_id_t span_session_id,
+                                                 sx_policer_id_t           *policer_id_p);
 
 #endif /* __SX_API_SPAN_H__ */

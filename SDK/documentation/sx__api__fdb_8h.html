@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.0904</span>
+   &#160;<span id="projectnumber">4.4.1000</span>
    </div>
   </td>
  </tr>
@@ -617,7 +617,10 @@ SX_STATUS_PARAM_NULL if parameter is NULL. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function adds/deletes UC MAC and UC LAG MAC entries to/from the FDB. In case the operation fails on one or more entries, an error is returned, mac_list_p stores those entries, and their quantity is stored in data_cnt. If the operation is completed successfully, SUCCESS is returned, and data_cnt_p and mac_list_p are not changed.</p>
-<p>Note: Ageable UC FDB entries that point to a ECMP NVE container are not supported: If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER, sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE.</p>
+<p>Note: If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER:</p><ul>
+<li>sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE or SX_FDB_UC_REMOTE;</li>
+<li>sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the next types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.</li>
+</ul>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID) in mac_list_p-&gt;fid_vid, you should provide a bridge_id.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1511,14 +1514,14 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function adds/deletes FDB MC MAC entries from/to a Multicast container. Note: The Multicast container should have already been created.</p>
-<p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
+<p>The MC container from the parameter "data" should have the type SX_MC_CONTAINER_TYPE_BRIDGE_MC. An FDB MC MAC entry can be created only if the FID from the parameter "group_key" is equal to the FID from the attributes of the MC container.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- add/delete </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">group_key</td><td>- {fid, mac} key for multicast </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>- fdb data including action and mc container id</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>- fdb data including action and MC container ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -1576,7 +1579,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function gets FDB MC MAC entries from a multicast container.</p>
-<p>When in 802.1D mode, instead of providing a vid (Vlan ID), you should provide a bridge_id.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2756,7 +2758,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to manage flood control for tunnels. Configuration from this API extends config from sx_api_fdb_flood_control_set for tunnel support. For each tunnel, you can add or remove flooding for specified bridge.</p>
-<p>The MC container that is pointed by the parameter "flood_vector" can be bound to a given FID only if the FID is equal to a FID from the attributes of MC container.</p>
+<p>The MC container that is pointed by the parameter "flood_vector" should be one of the following types: SX_MC_CONTAINER_TYPE_NVE_FLOOD or SX_MC_CONTAINER_TYPE_BRIDGE_MC. An MC container of the type SX_MC_CONTAINER_TYPE_NVE_FLOOD or SX_MC_CONTAINER_TYPE_BRIDGE_MC container can be bound to a given FID only if the FID is equal to a FID from the attributes of the MC container.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3900,7 +3902,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2020 17:17:59 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2020 01:46:33 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

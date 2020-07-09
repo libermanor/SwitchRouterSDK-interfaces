@@ -20,6 +20,40 @@
 
 #include <sx/sdk/sx_api.h>
 #include <sx/sdk/sx_strings.h>
+/************************************************
+ *  Local Defines
+ ***********************************************/
+
+
+/************************************************
+ *  Local Macros
+ ***********************************************/
+
+
+/************************************************
+ *  Local Type definitions
+ ***********************************************/
+
+/************************************************
+ *  Defines
+ ***********************************************/
+
+
+/************************************************
+ *  Macros
+ ***********************************************/
+
+/************************************************
+ *  Type definitions
+ ***********************************************/
+
+/************************************************
+ *  Global variables
+ ***********************************************/
+
+/************************************************
+ *  Function declarations
+ ***********************************************/
 
 
 /************************************************
@@ -66,7 +100,7 @@ sx_status_t sx_api_vlan_log_verbosity_level_get(const sx_api_handle_t           
  *  This API sets the VLAN member ports.
  *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
- *  This function is only valid when in 802.1Q mode.
+ *  This function is only valid when in 802.1Q bridge mode.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - ADD/DELETE/DELETE_ALL
@@ -101,7 +135,7 @@ sx_status_t sx_api_vlan_ports_set(const sx_api_handle_t  handle,
  *        the first port_cnt_p elements in array, and successful result
  *        are returned as output.
  *
- *  This function is only valid when in 802.1Q mode.
+ *  This function is only valid when in 802.1Q bridge mode.
  *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle               - SX-API handle
@@ -131,7 +165,7 @@ sx_status_t sx_api_vlan_ports_get(const sx_api_handle_t handle,
  *  This API sets the VLANs list to a port in a single command.
  *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
- *  This function is only valid when in 802.1Q mode.
+ *  This function is only valid when in 802.1Q bridge mode.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - SX_ACCESS_CMD_ADD - add list of VLANs to port
@@ -200,7 +234,7 @@ sx_status_t sx_api_vlan_port_prio_tagged_get(const sx_api_handle_t     handle,
  *   The VLAN membership is defined in sx_vlan_ports_set API.
  *   Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
- *   This function is only valid when in 802.1Q mode.
+ *   This function is only valid when in 802.1Q bridge mode.
  *
  *  @param[in] handle              - SX-API handle
  *  @param[in] log_port            - logical port number
@@ -223,7 +257,7 @@ sx_status_t sx_api_vlan_port_ingr_filter_set(const sx_api_handle_t       handle,
  *   This API retrieves ingress VLAN filtering on a port.
  *   Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
- *  This function is only valid when in 802.1Q mode.
+ *  This function is only valid when in 802.1Q bridge mode.
  *
  *  @param[in] handle                  - SX-API handle
  *  @param[in] log_port                - logical port number
@@ -379,11 +413,11 @@ sx_status_t sx_api_vlan_default_vid_get(const sx_api_handle_t handle,
  *  This API sets Q-in-Q mode of port.
  *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
- *  This function is only valid when in 802.1Q mode.
+ *  This function is only valid when in 802.1Q bridge mode.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - logical port ID
- * @param[in] qinq_mode - mode: Q-in-Q enabled/disabled
+ * @param[in] qinq_mode - Q-in-Q/ 802.1Q/ 802.1AD
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
@@ -402,7 +436,7 @@ sx_status_t sx_api_vlan_port_qinq_mode_set(const sx_api_handle_t  handle,
  *  This API retrieves Q-in-Q mode of port.
  *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
- *  This function is only valid when in 802.1Q mode.
+ *  This function is only valid when in 802.1Q bridge mode.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - logical port ID
@@ -423,7 +457,7 @@ sx_status_t sx_api_vlan_port_qinq_mode_get(const sx_api_handle_t  handle,
  * The API sets which priority should be taken for the outer tag (when Q-in-Q is enabled):
  * The port's default priority, or the inner tag's priority.
  *
- * This function is only valid when in 802.1Q mode.
+ * This function is only valid when in 802.1Q bridge mode.
  * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle    - SX-API handle
@@ -447,7 +481,7 @@ sx_status_t sx_api_vlan_port_qinq_outer_prio_mode_set(const sx_api_handle_t     
  * This API retrieves port's Q-in-Q outer tag priority mode.
  * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
  *
- * This function is only valid when in 802.1Q mode.
+ * This function is only valid when in 802.1Q bridge mode.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] log_port     - logical port ID

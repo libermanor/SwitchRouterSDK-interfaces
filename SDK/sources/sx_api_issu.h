@@ -26,7 +26,7 @@
 
 /**
  *  This function sets the log verbosity level of ISSU MODULE.
- *  Supported devices: Spectrum.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_issu_log_verbosity_level_set(const sx_api_handle_t           
  * This API is used to prepare the SDK for restart in "FAST-FAST Boot mode".
  * It triggers ISSU (In Service Software Upgrade) of the SDK & FW by shutting down SDK,
  * resetting the ASIC and switching to a new SDK/FW if available.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  *
@@ -59,7 +59,7 @@ sx_status_t sx_api_issu_start_set(const sx_api_handle_t handle);
  * This API is used to notify the newly upgraded SDK in "FAST-FAST Boot Mode" that
  * the configuration stage of the ISSU (In Service Software Upgrade) process
  * has finished and to resume normal operations.
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  *
@@ -72,7 +72,7 @@ sx_status_t sx_api_issu_end_set(const sx_api_handle_t handle);
  * This API prepares the SDK for CRIU (checkpoint/restore in userspace) Hibernation.
  * The SDK configuration is written to persistent storage from where it can be restored.
  * This is also referred to as SDK "Warm Boot" Mode
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] pause_params_p - pause params.
@@ -92,7 +92,7 @@ sx_status_t sx_api_issu_pause_set(const sx_api_handle_t  handle,
  * Used for "Warm" boot mode to "resume" the SDK from CRIU hibernation
  * This API restores the SDK from CRIU (checkpoint/restore in userspace) Hibernation.
  * This is also referred to as SDK "Warm Boot" Mode
- * Supported devices: Spectrum.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  * @param[in] resume_params_p - resume params.
