@@ -216,6 +216,8 @@ var searchData=
   ['sx_5fapi_5fflex_5fparser_5finit_5fset',['sx_api_flex_parser_init_set',['../sx__api__flex__parser_8h.html#a5befaa212935e3942884f5407249ac9f',1,'sx_api_flex_parser.h']]],
   ['sx_5fapi_5fflex_5fparser_5flog_5fverbosity_5flevel_5fget',['sx_api_flex_parser_log_verbosity_level_get',['../sx__api__flex__parser_8h.html#a6500fbd3076829278861d643a7ba4a46',1,'sx_api_flex_parser.h']]],
   ['sx_5fapi_5fflex_5fparser_5flog_5fverbosity_5flevel_5fset',['sx_api_flex_parser_log_verbosity_level_set',['../sx__api__flex__parser_8h.html#a5cf6fe59772d2725afb52b5e42adecd7',1,'sx_api_flex_parser.h']]],
+  ['sx_5fapi_5fflex_5fparser_5freg_5fext_5fpoint_5fget',['sx_api_flex_parser_reg_ext_point_get',['../sx__api__flex__parser_8h.html#a64d85d5701520195795d178c433b0e17',1,'sx_api_flex_parser.h']]],
+  ['sx_5fapi_5fflex_5fparser_5freg_5fext_5fpoint_5fset',['sx_api_flex_parser_reg_ext_point_set',['../sx__api__flex__parser_8h.html#a39669c673f5675b62b1c830a7fb794c4',1,'sx_api_flex_parser.h']]],
   ['sx_5fapi_5fflex_5fparser_5ftransition_5fget',['sx_api_flex_parser_transition_get',['../sx__api__flex__parser_8h.html#a740aef7ab5e54dddcae3af7897c1a728',1,'sx_api_flex_parser.h']]],
   ['sx_5fapi_5fflex_5fparser_5ftransition_5fset',['sx_api_flex_parser_transition_set',['../sx__api__flex__parser_8h.html#a0606e9d45b8e331dabd2882cdd34f594',1,'sx_api_flex_parser.h']]],
   ['sx_5fapi_5fflow_5fcounter_2eh',['sx_api_flow_counter.h',['../sx__api__flow__counter_8h.html',1,'']]],

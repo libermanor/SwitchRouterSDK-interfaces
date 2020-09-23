@@ -162,4 +162,62 @@ sx_status_t sx_api_flex_parser_transition_get(const sx_api_handle_t         hand
                                               sx_flex_parser_transition_t  *next_trans_p,
                                               uint32_t                     *next_trans_cnt);
 
+/**
+ * This API sets / un-sets list of an extraction points for a given register key.
+ * Use cmd = UNSET to un-set extraction points list.
+ * Register can have up to 4 extraction points. When extracting, the last extraction point will be taken.
+ * This API together with sx_api_register_set replace sx_api_acl_custom_bytes_set,
+ * where general purpose register N represents a set of custom byte 2N and custom byte 2N+1.
+ *
+ * Note that this API together with sx_api_register_set are mutually exclusive with
+ * sx_api_acl_custom_bytes_set, so per single SDK life cycle only one of them can be used.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param [in] handle           - SX-API handle
+ * @param [in] cmd              - SET / UNSET
+ * @param [in] reg_key          - Register key
+ * @param [in] ext_point_list_p - List of extraction points
+ * @param [in] ext_point_cnt_p  - Number of items in ext_point_list_p (max 4)
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_ERROR general error
+ * @return SX_STATUS_UNSUPPORTED if configuration is not supported by the platform
+ * @return SX_STATUS_PARAM_ERROR if reg_key is not allocated or extraction point is not valid
+ * @return SX_STATUS_PARAM_NULL if ext_point_cnt_p or ext_point_list_p is NULL
+ */
+sx_status_t sx_api_flex_parser_reg_ext_point_set(const sx_api_handle_t        handle,
+                                                 const sx_access_cmd_t        cmd,
+                                                 const sx_register_key_t      reg_key,
+                                                 const sx_extraction_point_t *ext_point_list_p,
+                                                 const uint32_t              *ext_point_cnt_p);
+
+/**
+ * This API returns the first ext_point_cnt_p extraction points of the given register key.
+ * Returned ext_point_cnt_p may be less than or equal to the requested
+ * ext_point_cnt_p.
+ * When ext_point_list_p is NULL, ext_point_cnt_p will be set with number
+ * of extraction points.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param [in] handle               - SX-API handle
+ * @param [in] reg_key              - Register key
+ * @param [in,out] ext_point_list_p - [in] If NULL: set ext_point_cnt_p with number
+ *                                                  of extraction points
+ *                                    [out] List of extraction points
+ * @param [in,out] ext_point_cnt_p  - [in]  Number of extraction points to get
+ *                                  - [out] Number of extraction points returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_ERROR general error
+ * @return SX_STATUS_UNSUPPORTED if configuration is not supported by the platform
+ * @return SX_STATUS_PARAM_ERROR if reg_key is not allocated or not exist
+ * @return SX_STATUS_PARAM_NULL if extraction_point_cnt_p parameter is NULL
+ */
+sx_status_t sx_api_flex_parser_reg_ext_point_get(const sx_api_handle_t   handle,
+                                                 const sx_register_key_t reg_key,
+                                                 sx_extraction_point_t  *ext_point_list_p,
+                                                 uint32_t               *ext_point_cnt_p);
+
 #endif /* __SX_API_FLEX_PARSER_H__ */
