@@ -2097,5 +2097,73 @@ sx_status_t sx_api_port_phy_info_get(const sx_api_handle_t  handle,
                                      const sx_access_cmd_t  cmd,
                                      const sx_port_log_id_t log_port,
                                      sx_port_phy_stat_t    *phy_stat_p);
+/**
+ *  This API sets the power Mode of a module
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported commands: SX_ACCESS_CMD_SET
+ *
+ *  Note - By default, modules are initialized in low power mode and the module
+ *  power mode is set as per EEPROM data in the initialization process.
+ *  SX_MGT_PHY_MOD_PWR_MODE_AUTO_E mode is used to reset power mode to default value.
+ *  Changing module power mode to SX_MGT_PHY_MOD_PWR_MODE_HIGH_E is not allowed.
+ *  This API internally disables and then enables the module with desired power
+ *  mode setting. This disable and enable will result in additional PMAOS events.
+ *  This API supports only power attribute SX_MGMT_PHY_MOD_PWR_ATTR_PWR_MODE_E.
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] cmd        - command.
+ * @param[in] module_id - module ID
+ * @param[in] pwr_attr   - power attribute
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
+ * @return SX_STATUS_PARAM_ERROR if a module parameter is invalid.
+ * @return SX_STATUS_ERROR if the power attribute setting fails.
+ * @return SX_STATUS_CMD_UNSUPPORTED if cmd is not SET.
+ */
+sx_status_t sx_mgmt_phy_mod_pwr_attr_set(const sx_api_handle_t             handle,
+                                         const sx_access_cmd_t             cmd,
+                                         const sx_port_mod_id_t            module_id,
+                                         const sx_mgmt_phy_mod_pwr_attr_t *pwr_attr_p);
+
+/**
+ *  This API gets the module power status.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ *  Note - This API returns the operational power mode and admin power mode
+ *  as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in.
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] module_id - module ID
+ * @param[in/out] pwr_attr_p – phy module power attribute
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL.
+ * @return SX_STATUS_ERROR if the power attribute retrieval fails.
+ * @return SX_STATUS_PARAM_ERROR if a module parameter is invalid.
+ */
+sx_status_t sx_mgmt_phy_mod_pwr_attr_get(const sx_api_handle_t       handle,
+                                         const sx_port_mod_id_t      module_id,
+                                         sx_mgmt_phy_mod_pwr_attr_t *pwr_attr_p);
+
+/**
+ *  This API resets the phy module.
+ *  Resetting the module might result in link flaps.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Note - PMAOS events would be generated during reset functionality.
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] module_id - module ID
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
+ * @return SX_STATUS_ERROR if reset cannot be executed.
+ * @return SX_STATUS_PARAM_ERROR if a module parameter is invalid.
+ */
+
+sx_status_t sx_mgmt_phy_mod_reset(const sx_api_handle_t  handle,
+                                  const sx_port_mod_id_t module_id);
+
 
 #endif /* __SX_API_PORT_H__ */

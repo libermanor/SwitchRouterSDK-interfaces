@@ -542,5 +542,89 @@ sx_status_t sx_api_tunnel_iter_get(const sx_api_handle_t     handle,
                                    sx_tunnel_id_t           *tunnel_id_list_p,
                                    uint32_t                 *tunnel_id_cnt_p);
 
+/**
+ * This API is used to retrieve the count or a list of one or more Tunnel Decap Rules
+ * The rules are essentially the Keys that the rules match on.
+ * The rule's attributes(actions) can then be read using the sx_api_tunnel_decap_rules_get
+ * API for each key.
+ * Using the filter param, the return list can be refined. The following filters are supported
+ *     1) sx_tunnel_type_e: only return the keys that match the tunnel type
+ *     2) sx_tunnel_id: only return the keys that match the tunnel id
+ *
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, decap_key_list = X, Count=0:
+ *        In this case the API will return the total number of Decap rules in the
+ *        Internal db
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, decap_key_list =
+ *        Valid, Count = 1:
+ *        In this case the API will check if the specified key exists. if it does
+ *        the key will be returned in the decap_key_list along with a count of 1.
+ *        If the key does not exist an empty list will be returned with count = 0
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, decap_key_list is Valid, Count=1:
+ *        In this case the API will check if the specified key exists. if it does exist then,
+ *        it will check it against the filter parameter. If the filter matches,
+ *        then the key will be returned in the decap_key_list along with a count of 1.
+ *        If the key does not exist or the filter does not match an empty list
+ *        will be returned with count = 0
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid,
+ *        decap_key_list is Valid, Count > 1:
+ *        A count >1 will be treated as a count of 1 and the behavior will be same
+ *        as earlier GET use cases.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X,
+ *        decap_key_list = Null, Count =0:
+ *        For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count
+ *        will return an empty list.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, decap_key_list =
+ *        Valid, Count > 0:
+ *        In this case the API will return the first count decap key entries starting from
+ *        the head of the database. The total elements fetched will be returned
+ *        as the return count.  Note: return count may be less than or equal to
+ *        the requested count. The key is dont-care.
+ *        If a filter is specified only those decap key entries that match the filter will
+ *        be returned. A non-Null return decap_key_list pointer must be provided.
+ *
+ *   - 7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid,
+ *        decap_key_list = Valid, Count > 0:
+ *        In this case the API will return the next set of decap key entries starting from
+ *        the next valid decap key entry after the specified key. The total elements fetched
+ *        will be returned as the return count.  If a filter is specified, then only
+ *        those decap key entries that match the filter will be returned.
+ *        Note: return count may be less than or equal to the requested count.
+ *        If no valid next decap key entry exists in the db (key = end of list, or invalid
+ *        key specified, or key too large), an empty list will be returned.
+ *
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param [in] handle               : SX-API handle
+ * @param [in] cmd                  : GET/GET_FIRST/GET_NEXT.
+ * @param [in] decap_key_p          : specify a Tunnel decap entry key
+ * @param [in] decap_filter_p       : specify a filter parameter
+ * @param [out] decap_key_list_p    : return list of decap key entries
+ * @param [in,out] decap_key_cnt_p  : [in] number of decap keys to read
+ *                                  : [out] number of decap keys returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED if an unsupported command is passed
+ * @return SX_STATUS_ENTRY_NOT_FOUND if key doesn't exists.
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
+ * @return SX_STATUS_DB_NOT_INITIALIZED if the database was not initialized
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_tunnel_decap_rule_iter_get(const sx_api_handle_t                 handle,
+                                              const sx_access_cmd_t                 cmd,
+                                              const sx_tunnel_decap_entry_key_t    *decap_key_p,
+                                              const sx_tunnel_decap_entry_filter_t *decap_filter_p,
+                                              sx_tunnel_decap_entry_key_t          *decap_key_list_p,
+                                              uint32_t                             *decap_key_cnt_p);
+
 
 #endif /* __SX_API_TUNNEL_H__ */

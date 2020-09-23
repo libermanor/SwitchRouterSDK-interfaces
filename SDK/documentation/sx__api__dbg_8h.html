@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1306</span>
+   &#160;<span id="projectnumber">4.4.1608</span>
    </div>
   </td>
  </tr>
@@ -81,6 +81,10 @@ Functions</h2></td></tr>
 <tr class="separator:a3c4a3667681745a31b3bf1e5fd2e2bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfc857d32552b5af43e0cbf098cd7165"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#abfc857d32552b5af43e0cbf098cd7165">sx_api_dbg_atcam</a> (const sx_api_handle_t handle, sx_dbg_atcam_cmd_info_t *cmd_p)</td></tr>
 <tr class="separator:abfc857d32552b5af43e0cbf098cd7165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade20ce33330a35da4c60a5c097c5812a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#ade20ce33330a35da4c60a5c097c5812a">sx_api_dbg_generate_dump_extra</a> (const sx_api_handle_t handle, const sx_dbg_extra_info_t *dbg_params)</td></tr>
+<tr class="separator:ade20ce33330a35da4c60a5c097c5812a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a068b8068034fdadd6f01c0713c849607"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a068b8068034fdadd6f01c0713c849607">sx_api_dbg_control</a> (const sx_api_handle_t handle, const sx_dbg_control_params_t *params)</td></tr>
+<tr class="separator:a068b8068034fdadd6f01c0713c849607"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3c4a3667681745a31b3bf1e5fd2e2bd9"></a>
@@ -167,11 +171,103 @@ SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
+<a id="ade20ce33330a35da4c60a5c097c5812a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade20ce33330a35da4c60a5c097c5812a">&#9670;&nbsp;</a></span>sx_api_dbg_generate_dump_extra()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_dbg_generate_dump_extra </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_dbg_extra_info_t *&#160;</td>
+          <td class="paramname"><em>dbg_params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API generates debug dump extra info, for modules monitored by the SDK Supported devices: Pelican, Eagle, Spectrum, Spectrum2, Quantum, Spectrum3</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sx_dbg_extra_info_t</td><td>dbg_params - parameters of debug dump extraction</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if any parameter exceeds range limitation </dd>
+<dd>
+SX_STATUS_TIMEOUT in case of a timeout in synchronous mode. if the call was asynchronous this RC will be in the completion event </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a068b8068034fdadd6f01c0713c849607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a068b8068034fdadd6f01c0713c849607">&#9670;&nbsp;</a></span>sx_api_dbg_control()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_dbg_control </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_dbg_control_params_t *&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API is used to set the SDK debug control parameters which will be enacted in case a health issue was discovered. in “auto” mode the SDK will automatically collect debug information, and alert the user both that the issue occurred and that collection is done in “non-auto” mode the SDK will only alert the user that a “health event” has occurred in both modes there is no “automatic re-arm” the user must explicitly call the API with the required parameters in order to arm / re-arm the feature</p>
+<p>Supported devices: Pelican, Eagle, Spectrum, Spectrum2, Quantum…</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>policy - the policy we wish to set arm - Should the debug reporting / extraction (according to policy) be armed/re-armed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sx_dbg_policy_info</td><td>policy_params: for future enhancement</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if the path string length is greater than sx_dbg_policy_e </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 31 2020 15:50:48 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 18 2020 23:23:16 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

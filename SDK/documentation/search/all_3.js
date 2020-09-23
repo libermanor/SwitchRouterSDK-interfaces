@@ -146,7 +146,9 @@ var searchData=
   ['sx_5fapi_5fcos_5fshared_5fbuff_5fpool_5fset',['sx_api_cos_shared_buff_pool_set',['../sx__api__cos_8h.html#ab1b51846fe02f94300fcea3b9885842d',1,'sx_api_cos.h']]],
   ['sx_5fapi_5fdbg_2eh',['sx_api_dbg.h',['../sx__api__dbg_8h.html',1,'']]],
   ['sx_5fapi_5fdbg_5fatcam',['sx_api_dbg_atcam',['../sx__api__dbg_8h.html#abfc857d32552b5af43e0cbf098cd7165',1,'sx_api_dbg.h']]],
+  ['sx_5fapi_5fdbg_5fcontrol',['sx_api_dbg_control',['../sx__api__dbg_8h.html#a068b8068034fdadd6f01c0713c849607',1,'sx_api_dbg.h']]],
   ['sx_5fapi_5fdbg_5fgenerate_5fdump',['sx_api_dbg_generate_dump',['../sx__api__dbg_8h.html#a3c4a3667681745a31b3bf1e5fd2e2bd9',1,'sx_api_dbg.h']]],
+  ['sx_5fapi_5fdbg_5fgenerate_5fdump_5fextra',['sx_api_dbg_generate_dump_extra',['../sx__api__dbg_8h.html#ade20ce33330a35da4c60a5c097c5812a',1,'sx_api_dbg.h']]],
   ['sx_5fapi_5ffdb_2eh',['sx_api_fdb.h',['../sx__api__fdb_8h.html',1,'']]],
   ['sx_5fapi_5ffdb_5fage_5ftime_5fget',['sx_api_fdb_age_time_get',['../sx__api__fdb_8h.html#a4396ebb8d79d5757b3f2df8b4ff3dd51',1,'sx_api_fdb.h']]],
   ['sx_5fapi_5ffdb_5fage_5ftime_5fset',['sx_api_fdb_age_time_set',['../sx__api__fdb_8h.html#acac719da53d4e58dc48ffc21dfce3460',1,'sx_api_fdb.h']]],
@@ -563,6 +565,7 @@ var searchData=
   ['sx_5fapi_5ftunnel_5fcos_5fget',['sx_api_tunnel_cos_get',['../sx__api__tunnel_8h.html#af8ccc19db14cb9bb25d7c573942e4a80',1,'sx_api_tunnel.h']]],
   ['sx_5fapi_5ftunnel_5fcos_5fset',['sx_api_tunnel_cos_set',['../sx__api__tunnel_8h.html#a8282a313296ef7e26c11baaa74f5e09e',1,'sx_api_tunnel.h']]],
   ['sx_5fapi_5ftunnel_5fcounter_5fget',['sx_api_tunnel_counter_get',['../sx__api__tunnel_8h.html#a5a9ad0f9d5aba9b3d67571f3d32f5acd',1,'sx_api_tunnel.h']]],
+  ['sx_5fapi_5ftunnel_5fdecap_5frule_5fiter_5fget',['sx_api_tunnel_decap_rule_iter_get',['../sx__api__tunnel_8h.html#ad5e88674b4e8648261dd286fff2ac20b',1,'sx_api_tunnel.h']]],
   ['sx_5fapi_5ftunnel_5fdecap_5frules_5fget',['sx_api_tunnel_decap_rules_get',['../sx__api__tunnel_8h.html#a89448d7a5bf4dfdce358d149fbd5094a',1,'sx_api_tunnel.h']]],
   ['sx_5fapi_5ftunnel_5fdecap_5frules_5fset',['sx_api_tunnel_decap_rules_set',['../sx__api__tunnel_8h.html#af16b2ae1f5bf4f1475c69302b2eb42e8',1,'sx_api_tunnel.h']]],
   ['sx_5fapi_5ftunnel_5fdeinit_5fset',['sx_api_tunnel_deinit_set',['../sx__api__tunnel_8h.html#a8a5441bcc9b92faf2210b9245091e9d1',1,'sx_api_tunnel.h']]],
@@ -601,5 +604,8 @@ var searchData=
   ['sx_5fapi_5fvlan_5fport_5fqinq_5fouter_5fprio_5fmode_5fset',['sx_api_vlan_port_qinq_outer_prio_mode_set',['../sx__api__vlan_8h.html#abcf72663a766f5e766964fd9a58c07e2',1,'sx_api_vlan.h']]],
   ['sx_5fapi_5fvlan_5fports_5fget',['sx_api_vlan_ports_get',['../sx__api__vlan_8h.html#ac80375d25edca8f22d5398942027bfdd',1,'sx_api_vlan.h']]],
   ['sx_5fapi_5fvlan_5fports_5fset',['sx_api_vlan_ports_set',['../sx__api__vlan_8h.html#afb0d34de6a2a947270fa84d2b5aba2db',1,'sx_api_vlan.h']]],
-  ['sx_5fapi_5fvlan_5fset',['sx_api_vlan_set',['../sx__api__vlan_8h.html#afd40bd8590718aaff2bc26ecf3ca7c39',1,'sx_api_vlan.h']]]
+  ['sx_5fapi_5fvlan_5fset',['sx_api_vlan_set',['../sx__api__vlan_8h.html#afd40bd8590718aaff2bc26ecf3ca7c39',1,'sx_api_vlan.h']]],
+  ['sx_5fmgmt_5fphy_5fmod_5fpwr_5fattr_5fget',['sx_mgmt_phy_mod_pwr_attr_get',['../sx__api__port_8h.html#ab9448e990378cb5a7abfc2b0b32f8ecb',1,'sx_api_port.h']]],
+  ['sx_5fmgmt_5fphy_5fmod_5fpwr_5fattr_5fset',['sx_mgmt_phy_mod_pwr_attr_set',['../sx__api__port_8h.html#a710cdd8568453ebe96db46e665ce47cb',1,'sx_api_port.h']]],
+  ['sx_5fmgmt_5fphy_5fmod_5freset',['sx_mgmt_phy_mod_reset',['../sx__api__port_8h.html#a3c705e0cd6c1c038837097104f926844',1,'sx_api_port.h']]]
 ];

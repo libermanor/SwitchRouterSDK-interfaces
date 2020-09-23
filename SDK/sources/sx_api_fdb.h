@@ -163,6 +163,7 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
                                             const sx_swid_t            swid,
                                             sx_fdb_polling_interval_t* interval);
 
+
 /**
  *  This function adds/deletes UC MAC and UC LAG MAC entries to/from the FDB.
  *  In case the operation fails on one or more entries, an error is returned,
@@ -172,13 +173,18 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  *
  *  Note:
  *      If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER:
- *          - sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE or SX_FDB_UC_REMOTE;
+ *          - sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE;
  *          - sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the next types:
  *            SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.
  *
+ * Note for Spectrum:
+ *  When FDB learning is enabled, a packet with the SMAC=MAC1 triggers flushing of
+ *  remote UC tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to CPU,
+ *  next packets that have DMAC=MAC1 will be flooded.
+ *
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
- *  When in 802.1D mode, instead of providing a vid(Vlan ID) or fid (filtering ID)
+ *  When in 802.1D mode, instead of providing a VID(VLAN ID) or FID(filtering ID)
  *  in mac_list_p->fid_vid, you should provide a bridge_id.
  *
  * @param[in] handle            - SX-API handle
@@ -194,6 +200,7 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
  * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
  * @return SX_STATUS_NO_RESOURCES if the FDB hash bin is full
+ * @return SX_STATUS_PARAM_NULL if any of the parameters is NULL
  * @return SX_STATUS_ERROR for a general error
  */
 sx_status_t sx_api_fdb_uc_mac_addr_set(const sx_api_handle_t        handle,
@@ -611,9 +618,11 @@ sx_status_t sx_api_fdb_mc_mac_addr_iter_get(const sx_api_handle_t         handle
  * This function adds/deletes FDB MC MAC entries from/to a Multicast container.
  * Note: The Multicast container should have already been created.
  *
- * The MC container from the parameter "data" should have the type SX_MC_CONTAINER_TYPE_BRIDGE_MC.
+ * The MC container from the parameter "data" should be one of the following types:
+ * SX_MC_CONTAINER_TYPE_BRIDGE_MC or SX_MC_CONTAINER_TYPE_VLAN_UNAWARE.
  * An FDB MC MAC entry can be created only if the FID from the parameter "group_key" is equal
  * to the FID from the attributes of the MC container.
+ * For MC containers of the type SX_MC_CONTAINER_TYPE_VLAN_UNAWARE, the FID parity validation is skipped.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1101,9 +1110,12 @@ sx_status_t sx_api_fdb_flood_control_get(const sx_api_handle_t    handle,
  * bridge.
  *
  * The MC container that is pointed by the parameter "flood_vector" should be one of the following types:
- * SX_MC_CONTAINER_TYPE_NVE_FLOOD or SX_MC_CONTAINER_TYPE_BRIDGE_MC.
+ * SX_MC_CONTAINER_TYPE_NVE_FLOOD, SX_MC_CONTAINER_TYPE_BRIDGE_MC or SX_MC_CONTAINER_TYPE_VLAN_UNAWARE.
  * An MC container of the type SX_MC_CONTAINER_TYPE_NVE_FLOOD or SX_MC_CONTAINER_TYPE_BRIDGE_MC container can be bound to
  * a given FID only if the FID is equal to a FID from the attributes of the MC container.
+ * On Spectrum, an MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type cannot be used as a tunnel flood vector if
+ * sx_tunnel_nve_general_params_t.mc_ecmp_enabled != sx_tunnel_nve_general_params_t.flood_ecmp_enabled.
+ * For MC containers of the type SX_MC_CONTAINER_TYPE_VLAN_UNAWARE, the FID parity validation is skipped.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

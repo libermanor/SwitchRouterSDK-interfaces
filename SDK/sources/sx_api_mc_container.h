@@ -88,6 +88,12 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  *     the SX_MC_NEXT_HOP_TYPE_ECMP type.
  *     A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of
  *     the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only.
+ * Note for ECMP containers of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type:
+ *     An MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either
+ *     multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of
+ *     the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *     A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of
+ *     the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC;
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

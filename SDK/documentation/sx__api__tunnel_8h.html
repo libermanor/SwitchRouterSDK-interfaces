@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1306</span>
+   &#160;<span id="projectnumber">4.4.1608</span>
    </div>
   </td>
  </tr>
@@ -113,6 +113,8 @@ Functions</h2></td></tr>
 <tr class="separator:af8ccc19db14cb9bb25d7c573942e4a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78a57594ec83a22b4be1a5571d9a8266"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#a78a57594ec83a22b4be1a5571d9a8266">sx_api_tunnel_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_id_t tunnel_id, const sx_tunnel_filter_t *filter_p, sx_tunnel_id_t *tunnel_id_list_p, uint32_t *tunnel_id_cnt_p)</td></tr>
 <tr class="separator:a78a57594ec83a22b4be1a5571d9a8266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5e88674b4e8648261dd286fff2ac20b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__tunnel_8h.html#ad5e88674b4e8648261dd286fff2ac20b">sx_api_tunnel_decap_rule_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_tunnel_decap_entry_key_t *decap_key_p, const sx_tunnel_decap_entry_filter_t *decap_filter_p, sx_tunnel_decap_entry_key_t *decap_key_list_p, uint32_t *decap_key_cnt_p)</td></tr>
+<tr class="separator:ad5e88674b4e8648261dd286fff2ac20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a40bc19e566d33dc03cf2e672cb18a55d"></a>
@@ -1205,11 +1207,100 @@ SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized </dd></dl>
 
 </div>
 </div>
+<a id="ad5e88674b4e8648261dd286fff2ac20b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e88674b4e8648261dd286fff2ac20b">&#9670;&nbsp;</a></span>sx_api_tunnel_decap_rule_iter_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_tunnel_decap_rule_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_decap_entry_key_t *&#160;</td>
+          <td class="paramname"><em>decap_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_tunnel_decap_entry_filter_t *&#160;</td>
+          <td class="paramname"><em>decap_filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_tunnel_decap_entry_key_t *&#160;</td>
+          <td class="paramname"><em>decap_key_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>decap_key_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API is used to retrieve the count or a list of one or more Tunnel Decap Rules The rules are essentially the Keys that the rules match on. The rule's attributes(actions) can then be read using the sx_api_tunnel_decap_rules_get API for each key. Using the filter param, the return list can be refined. The following filters are supported 1) sx_tunnel_type_e: only return the keys that match the tunnel type 2) sx_tunnel_id: only return the keys that match the tunnel id</p>
+<p>The following use case scenarios apply with different input parameters X = don't-care</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, decap_key_list = X, Count=0: In this case the API will return the total number of Decap rules in the Internal db</li>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, decap_key_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the decap_key_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, decap_key_list is Valid, Count=1: In this case the API will check if the specified key exists. if it does exist then, it will check it against the filter parameter. If the filter matches, then the key will be returned in the decap_key_list along with a count of 1. If the key does not exist or the filter does not match an empty list will be returned with count = 0</li>
+<li>4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid, decap_key_list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, decap_key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
+<li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, decap_key_list = Valid, Count &gt; 0: In this case the API will return the first count decap key entries starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care. If a filter is specified only those decap key entries that match the filter will be returned. A non-Null return decap_key_list pointer must be provided.</li>
+<li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid, decap_key_list = Valid, Count &gt; 0: In this case the API will return the next set of decap key entries starting from the next valid decap key entry after the specified key. The total elements fetched will be returned as the return count. If a filter is specified, then only those decap key entries that match the filter will be returned. Note: return count may be less than or equal to the requested count. If no valid next decap key entry exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
+</ul>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>: SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>: GET/GET_FIRST/GET_NEXT. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">decap_key_p</td><td>: specify a Tunnel decap entry key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">decap_filter_p</td><td>: specify a filter parameter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">decap_key_list_p</td><td>: return list of decap key entries </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">decap_key_cnt_p</td><td>: [in] number of decap keys to read : [out] number of decap keys returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if an unsupported command is passed </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if key doesn't exists. </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
+<dd>
+SX_STATUS_DB_NOT_INITIALIZED if the database was not initialized </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 31 2020 15:50:49 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 18 2020 23:23:16 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
